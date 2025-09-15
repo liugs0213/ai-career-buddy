@@ -187,8 +187,8 @@ func (e *PDFTextExtractor) cleanExtractedText(text string) string {
 	text = regexp.MustCompile(`[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]`).ReplaceAllString(text, "")
 
 	// 限制长度，避免过长的文本
-	if len(text) > 10000 {
-		text = text[:10000] + "..."
+	if len(text) > 15000 {
+		text = text[:15000] + "..."
 	}
 
 	return text

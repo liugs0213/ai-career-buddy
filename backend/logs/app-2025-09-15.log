@@ -497,3 +497,359 @@
 [INFO]  2025/09/15 11:35:57 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 5.296875ms
 [INFO]  2025/09/15 11:36:09 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757752559966-04ckwoid6 | IP: ::1 | 状态: 200 | 耗时: 5.59575ms
 [INFO]  2025/09/15 11:36:20 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757751576660-lyljpszcn | IP: ::1 | 状态: 200 | 耗时: 4.849709ms
+[INFO]  2025/09/15 11:40:57 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757752559966-04ckwoid6 | IP: ::1 | 状态: 200 | 耗时: 16.5165ms
+[INFO]  2025/09/15 11:41:15 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 7.486583ms
+[INFO]  2025/09/15 11:41:29 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757751677926-qnphbr24o | IP: ::1 | 状态: 200 | 耗时: 30.95675ms
+[INFO]  2025/09/15 11:43:43 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 7.344791ms
+[INFO]  2025/09/15 11:43:49 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757751677926-qnphbr24o | IP: ::1 | 状态: 200 | 耗时: 3.645167ms
+[INFO]  2025/09/15 11:45:44 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 6.060125ms
+[INFO]  2025/09/15 11:45:49 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757752559966-04ckwoid6 | IP: ::1 | 状态: 200 | 耗时: 3.038125ms
+[INFO]  2025/09/15 11:45:50 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757751576660-lyljpszcn | IP: ::1 | 状态: 200 | 耗时: 2.398375ms
+[INFO]  2025/09/15 19:50:26 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/15 19:50:26 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/15 19:50:26 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/15 19:50:26 logger.go:73: 数据库连接成功
+[INFO]  2025/09/15 19:50:27 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/15 19:50:27 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/15 19:51:02 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 19:51:02 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 286.321583ms
+[INFO]  2025/09/15 19:51:02 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 19:51:02 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 609.3485ms
+[INFO]  2025/09/15 19:51:02 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 19:51:02 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 698.178125ms
+[INFO]  2025/09/15 19:51:04 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 19:51:04 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 24.487584ms
+[INFO]  2025/09/15 19:51:04 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 19:51:04 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 29.838167ms
+[INFO]  2025/09/15 19:51:04 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 19:51:04 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 1.132292ms
+[INFO]  2025/09/15 19:51:04 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 19:51:04 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 2.948208ms
+[INFO]  2025/09/15 19:51:04 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 19:51:04 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 25.649125ms
+[INFO]  2025/09/15 19:51:04 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 19:51:04 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 32.578625ms
+[INFO]  2025/09/15 19:51:04 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 19:51:04 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 2.098208ms
+[INFO]  2025/09/15 19:51:04 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 19:51:04 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 2.354416ms
+[INFO]  2025/09/15 19:51:04 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=3
+[INFO]  2025/09/15 19:51:04 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 2.869ms
+[INFO]  2025/09/15 19:51:04 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=3
+[INFO]  2025/09/15 19:51:04 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 1.601959ms
+[INFO]  2025/09/15 19:51:05 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 19:51:05 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 5.897208ms
+[INFO]  2025/09/15 19:51:05 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 19:51:05 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 13.91425ms
+[INFO]  2025/09/15 19:51:05 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=4
+[INFO]  2025/09/15 19:51:05 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 7.223791ms
+[INFO]  2025/09/15 19:51:05 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=4
+[INFO]  2025/09/15 19:51:05 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 2.434167ms
+[INFO]  2025/09/15 19:51:05 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757899203457-1zvvs21mq | IP: ::1 | 状态: 200 | 耗时: 3.166209ms
+[INFO]  2025/09/15 19:51:20 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757751677926-qnphbr24o | IP: ::1 | 状态: 200 | 耗时: 34.824583ms
+[INFO]  2025/09/15 19:51:21 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757751576660-lyljpszcn | IP: ::1 | 状态: 200 | 耗时: 2.283458ms
+[INFO]  2025/09/15 19:51:21 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757752559966-04ckwoid6 | IP: ::1 | 状态: 200 | 耗时: 3.878042ms
+[INFO]  2025/09/15 19:51:22 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757899203457-1zvvs21mq | IP: ::1 | 状态: 200 | 耗时: 980.25µs
+[INFO]  2025/09/15 19:51:23 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757751576660-lyljpszcn | IP: ::1 | 状态: 200 | 耗时: 3.134167ms
+[INFO]  2025/09/15 19:51:24 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757751677926-qnphbr24o | IP: ::1 | 状态: 200 | 耗时: 12.360625ms
+[INFO]  2025/09/15 19:51:25 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757751576660-lyljpszcn | IP: ::1 | 状态: 200 | 耗时: 1.99375ms
+[INFO]  2025/09/15 19:51:32 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/15 19:51:32 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 65.850083ms
+[ERROR] 2025/09/15 19:51:33 logger.go:83: AI提取合同信息失败: API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/15 19:51:33 logger.go:83: AI文档信息提取失败: DocumentID=25, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/15 19:51:33 logger.go:83: MD文档自动分析失败: DocumentID=25, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[INFO]  2025/09/15 19:51:35 logger.go:73: HTTP请求: GET /api/users/default-user/documents/25/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.432708ms
+[INFO]  2025/09/15 19:51:37 logger.go:73: 收到消息请求: ThreadID=career-1757751576660-lyljpszcn, ModelID=azure/gpt-5-chat, Content长度=9, 附件数量=1
+[DEBUG] 2025/09/15 19:51:37 logger.go:68: 用户消息保存成功: ID=124
+[INFO]  2025/09/15 19:51:37 logger.go:73: 开始生成AI回复: ModelID=azure/gpt-5-chat, DeepThinking=false, NetworkSearch=false
+[INFO]  2025/09/15 19:51:37 logger.go:73: 开始调用百炼API: ModelID=azure/gpt-5-chat, Input长度=9
+[INFO]  2025/09/15 19:51:43 logger.go:73: 百炼API调用成功: ModelID=azure/gpt-5-chat, 耗时=5.888841083s, 回复长度=534
+[DEBUG] 2025/09/15 19:51:43 logger.go:68: AI回复生成完成，内容长度: 568
+[DEBUG] 2025/09/15 19:51:43 logger.go:68: AI回复保存成功: ID=125
+[INFO]  2025/09/15 19:51:43 logger.go:73: 消息处理完成: ThreadID=career-1757751576660-lyljpszcn, 总耗时=5.896825875s
+[INFO]  2025/09/15 19:51:43 logger.go:73: 保存职业历史记录: ThreadID=career-1757751576660-lyljpszcn, Category=career
+[INFO]  2025/09/15 19:51:43 logger.go:73: HTTP请求: POST /api/messages | IP: ::1 | 状态: 200 | 耗时: 5.896916125s
+[INFO]  2025/09/15 19:51:43 logger.go:73: 职业历史记录保存成功: ThreadID=career-1757751576660-lyljpszcn, Category=career
+[INFO]  2025/09/15 19:51:55 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757747719958 | IP: ::1 | 状态: 200 | 耗时: 25.141167ms
+[INFO]  2025/09/15 19:51:56 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757751576660-lyljpszcn | IP: ::1 | 状态: 200 | 耗时: 4.306375ms
+[INFO]  2025/09/15 19:52:01 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757899203457-1zvvs21mq | IP: ::1 | 状态: 200 | 耗时: 1.222459ms
+[INFO]  2025/09/15 19:52:07 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/15 19:52:07 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 8.81275ms
+[ERROR] 2025/09/15 19:52:08 logger.go:83: AI提取合同信息失败: API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/15 19:52:08 logger.go:83: AI文档信息提取失败: DocumentID=26, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/15 19:52:08 logger.go:83: MD文档自动分析失败: DocumentID=26, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[INFO]  2025/09/15 19:52:10 logger.go:73: HTTP请求: GET /api/users/default-user/documents/26/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.722708ms
+[INFO]  2025/09/15 19:52:11 logger.go:73: 用户默认模型更新成功: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/15 19:52:11 logger.go:73: HTTP请求: PUT /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 6.452458ms
+[INFO]  2025/09/15 19:52:16 logger.go:73: HTTP请求: GET /api/users/default-user/documents/26/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.464ms
+[INFO]  2025/09/15 19:52:16 logger.go:73: 收到流式消息请求: ThreadID=contract-1757899203457-1zvvs21mq, ModelID=bailian/qwen-flash, Content长度=18, 附件数量=1
+[INFO]  2025/09/15 19:52:16 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/15 19:52:18 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/15 19:52:18 logger.go:73: 流式消息处理完成: ThreadID=contract-1757899203457-1zvvs21mq, 总耗时=1.583822958s
+[INFO]  2025/09/15 19:52:18 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 1.58385825s
+[INFO]  2025/09/15 19:52:18 logger.go:73: 保存职业历史记录: ThreadID=contract-1757899203457-1zvvs21mq, Category=contract
+[INFO]  2025/09/15 19:52:18 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1757899203457-1zvvs21mq, Category=contract
+[INFO]  2025/09/15 19:52:18 logger.go:73: 收到消息请求: ThreadID=contract-1757899203457-1zvvs21mq, ModelID=bailian/qwen-flash, Content长度=18, 附件数量=1
+[DEBUG] 2025/09/15 19:52:18 logger.go:68: 用户消息保存成功: ID=128
+[INFO]  2025/09/15 19:52:18 logger.go:73: 开始生成AI回复: ModelID=bailian/qwen-flash, DeepThinking=false, NetworkSearch=false
+[INFO]  2025/09/15 19:52:18 logger.go:73: 开始调用百炼API: ModelID=bailian/qwen-flash, Input长度=18
+[INFO]  2025/09/15 19:52:22 logger.go:73: 百炼API调用成功: ModelID=bailian/qwen-flash, 耗时=3.810833125s, 回复长度=1423
+[DEBUG] 2025/09/15 19:52:22 logger.go:68: AI回复生成完成，内容长度: 1459
+[DEBUG] 2025/09/15 19:52:22 logger.go:68: AI回复保存成功: ID=129
+[INFO]  2025/09/15 19:52:22 logger.go:73: 消息处理完成: ThreadID=contract-1757899203457-1zvvs21mq, 总耗时=3.816800417s
+[INFO]  2025/09/15 19:52:22 logger.go:73: 保存职业历史记录: ThreadID=contract-1757899203457-1zvvs21mq, Category=contract
+[INFO]  2025/09/15 19:52:22 logger.go:73: HTTP请求: POST /api/messages | IP: ::1 | 状态: 200 | 耗时: 3.816943334s
+[INFO]  2025/09/15 19:52:22 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1757899203457-1zvvs21mq, Category=contract
+[INFO]  2025/09/15 19:52:32 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/15 19:52:32 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 11.203834ms
+[ERROR] 2025/09/15 19:52:33 logger.go:83: AI提取合同信息失败: API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/15 19:52:33 logger.go:83: AI文档信息提取失败: DocumentID=27, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/15 19:52:33 logger.go:83: MD文档自动分析失败: DocumentID=27, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[INFO]  2025/09/15 19:52:35 logger.go:73: HTTP请求: GET /api/users/default-user/documents/27/extracted-info | IP: ::1 | 状态: 400 | 耗时: 833.5µs
+[INFO]  2025/09/15 19:52:38 logger.go:73: HTTP请求: GET /api/users/default-user/documents/27/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.179542ms
+[INFO]  2025/09/15 19:52:38 logger.go:73: 收到流式消息请求: ThreadID=contract-1757899203457-1zvvs21mq, ModelID=bailian/qwen-flash, Content长度=30, 附件数量=1
+[INFO]  2025/09/15 19:52:38 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/15 19:52:42 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/15 19:52:42 logger.go:73: 流式消息处理完成: ThreadID=contract-1757899203457-1zvvs21mq, 总耗时=3.677658333s
+[INFO]  2025/09/15 19:52:42 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 3.67770675s
+[INFO]  2025/09/15 19:52:42 logger.go:73: 保存职业历史记录: ThreadID=contract-1757899203457-1zvvs21mq, Category=contract
+[INFO]  2025/09/15 19:52:42 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1757899203457-1zvvs21mq, Category=contract
+[INFO]  2025/09/15 19:52:42 logger.go:73: 收到消息请求: ThreadID=contract-1757899203457-1zvvs21mq, ModelID=bailian/qwen-flash, Content长度=30, 附件数量=1
+[DEBUG] 2025/09/15 19:52:42 logger.go:68: 用户消息保存成功: ID=132
+[INFO]  2025/09/15 19:52:42 logger.go:73: 开始生成AI回复: ModelID=bailian/qwen-flash, DeepThinking=false, NetworkSearch=false
+[INFO]  2025/09/15 19:52:42 logger.go:73: 开始调用百炼API: ModelID=bailian/qwen-flash, Input长度=30
+[INFO]  2025/09/15 19:52:47 logger.go:73: 百炼API调用成功: ModelID=bailian/qwen-flash, 耗时=4.81583825s, 回复长度=1919
+[DEBUG] 2025/09/15 19:52:47 logger.go:68: AI回复生成完成，内容长度: 1955
+[DEBUG] 2025/09/15 19:52:47 logger.go:68: AI回复保存成功: ID=133
+[INFO]  2025/09/15 19:52:47 logger.go:73: 消息处理完成: ThreadID=contract-1757899203457-1zvvs21mq, 总耗时=4.820353583s
+[INFO]  2025/09/15 19:52:47 logger.go:73: 保存职业历史记录: ThreadID=contract-1757899203457-1zvvs21mq, Category=contract
+[INFO]  2025/09/15 19:52:47 logger.go:73: HTTP请求: POST /api/messages | IP: ::1 | 状态: 200 | 耗时: 4.820498458s
+[INFO]  2025/09/15 19:52:47 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1757899203457-1zvvs21mq, Category=contract
+[INFO]  2025/09/15 19:55:14 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757899141823-cegc4g0ob | IP: ::1 | 状态: 200 | 耗时: 2.502292ms
+[INFO]  2025/09/15 19:55:16 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 4.433458ms
+[INFO]  2025/09/15 19:56:37 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757751677926-qnphbr24o | IP: ::1 | 状态: 200 | 耗时: 5.72575ms
+[INFO]  2025/09/15 19:56:39 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 25.583542ms
+[INFO]  2025/09/15 19:59:33 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/15 19:59:33 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 20.469792ms
+[INFO]  2025/09/15 19:59:33 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=3
+[INFO]  2025/09/15 19:59:33 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 32.962208ms
+[INFO]  2025/09/15 19:59:33 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/15 19:59:33 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 3.239833ms
+[INFO]  2025/09/15 19:59:33 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=3
+[INFO]  2025/09/15 19:59:33 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 3.621375ms
+[INFO]  2025/09/15 19:59:33 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=3
+[INFO]  2025/09/15 19:59:33 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 6.766375ms
+[INFO]  2025/09/15 19:59:33 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=3
+[INFO]  2025/09/15 19:59:33 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 9.365083ms
+[INFO]  2025/09/15 19:59:33 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 19:59:33 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 68.55725ms
+[INFO]  2025/09/15 19:59:33 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 19:59:33 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 50.502959ms
+[INFO]  2025/09/15 19:59:33 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=4
+[INFO]  2025/09/15 19:59:33 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 44.422083ms
+[INFO]  2025/09/15 19:59:33 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=4
+[INFO]  2025/09/15 19:59:33 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 38.847875ms
+[INFO]  2025/09/15 19:59:41 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757899203457-1zvvs21mq | IP: ::1 | 状态: 200 | 耗时: 7.0086035s
+[INFO]  2025/09/15 19:59:47 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757751576660-lyljpszcn | IP: ::1 | 状态: 200 | 耗时: 32.091417ms
+[INFO]  2025/09/15 20:00:46 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757752559966-04ckwoid6 | IP: ::1 | 状态: 200 | 耗时: 8.182417ms
+[INFO]  2025/09/15 20:00:46 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757899203457-1zvvs21mq | IP: ::1 | 状态: 200 | 耗时: 6.453584ms
+[INFO]  2025/09/15 20:00:48 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757751677926-qnphbr24o | IP: ::1 | 状态: 200 | 耗时: 2.702291ms
+[INFO]  2025/09/15 20:00:50 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757937650853-ps3v7ggdp | IP: ::1 | 状态: 200 | 耗时: 1.336667ms
+[INFO]  2025/09/15 20:00:51 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757751576660-lyljpszcn | IP: ::1 | 状态: 200 | 耗时: 1.91875ms
+[INFO]  2025/09/15 20:02:02 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757899203457-1zvvs21mq | IP: ::1 | 状态: 200 | 耗时: 2.746958ms
+[INFO]  2025/09/15 20:02:06 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 6.924959ms
+[INFO]  2025/09/15 20:02:41 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757937650853-ps3v7ggdp | IP: ::1 | 状态: 200 | 耗时: 991.916µs
+[INFO]  2025/09/15 20:03:10 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757751576660-lyljpszcn | IP: ::1 | 状态: 200 | 耗时: 2.410584ms
+[INFO]  2025/09/15 20:03:10 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757752559966-04ckwoid6 | IP: ::1 | 状态: 200 | 耗时: 1.676666ms
+[INFO]  2025/09/15 20:03:21 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 3.627042ms
+[INFO]  2025/09/15 20:03:21 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757937650853-ps3v7ggdp | IP: ::1 | 状态: 200 | 耗时: 1.07175ms
+[INFO]  2025/09/15 20:03:22 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 2.555958ms
+[INFO]  2025/09/15 20:03:23 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757752559966-04ckwoid6 | IP: ::1 | 状态: 200 | 耗时: 1.804416ms
+[INFO]  2025/09/15 20:03:27 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757751576660-lyljpszcn | IP: ::1 | 状态: 200 | 耗时: 5.888708ms
+[INFO]  2025/09/15 20:04:06 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757752559966-04ckwoid6 | IP: ::1 | 状态: 200 | 耗时: 2.69625ms
+[INFO]  2025/09/15 20:04:07 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 36.5525ms
+[INFO]  2025/09/15 20:04:12 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/15 20:04:12 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 57.068333ms
+[ERROR] 2025/09/15 20:04:13 logger.go:83: AI提取合同信息失败: API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/15 20:04:13 logger.go:83: AI文档信息提取失败: DocumentID=28, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/15 20:04:13 logger.go:83: MD文档自动分析失败: DocumentID=28, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[INFO]  2025/09/15 20:04:15 logger.go:73: HTTP请求: GET /api/users/default-user/documents/28/extracted-info | IP: ::1 | 状态: 400 | 耗时: 4.503792ms
+[INFO]  2025/09/15 20:04:20 logger.go:73: HTTP请求: GET /api/users/default-user/documents/28/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.12325ms
+[INFO]  2025/09/15 20:04:21 logger.go:73: 收到流式消息请求: ThreadID=contract-1757752158134-7xma1m6uf, ModelID=bailian/qwen-flash, Content长度=6, 附件数量=1
+[INFO]  2025/09/15 20:04:21 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/15 20:04:23 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/15 20:04:23 logger.go:73: 流式消息处理完成: ThreadID=contract-1757752158134-7xma1m6uf, 总耗时=2.284483875s
+[INFO]  2025/09/15 20:04:23 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 2.284598584s
+[INFO]  2025/09/15 20:04:23 logger.go:73: 保存职业历史记录: ThreadID=contract-1757752158134-7xma1m6uf, Category=contract
+[INFO]  2025/09/15 20:04:23 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1757752158134-7xma1m6uf, Category=contract
+[INFO]  2025/09/15 20:04:23 logger.go:73: 收到消息请求: ThreadID=contract-1757752158134-7xma1m6uf, ModelID=bailian/qwen-flash, Content长度=6, 附件数量=1
+[DEBUG] 2025/09/15 20:04:23 logger.go:68: 用户消息保存成功: ID=136
+[INFO]  2025/09/15 20:04:23 logger.go:73: 开始生成AI回复: ModelID=bailian/qwen-flash, DeepThinking=false, NetworkSearch=false
+[INFO]  2025/09/15 20:04:23 logger.go:73: 开始调用百炼API: ModelID=bailian/qwen-flash, Input长度=6
+[INFO]  2025/09/15 20:04:24 logger.go:73: 百炼API调用成功: ModelID=bailian/qwen-flash, 耗时=1.00652325s, 回复长度=381
+[DEBUG] 2025/09/15 20:04:24 logger.go:68: AI回复生成完成，内容长度: 417
+[DEBUG] 2025/09/15 20:04:24 logger.go:68: AI回复保存成功: ID=137
+[INFO]  2025/09/15 20:04:24 logger.go:73: 消息处理完成: ThreadID=contract-1757752158134-7xma1m6uf, 总耗时=1.1003165s
+[INFO]  2025/09/15 20:04:24 logger.go:73: 保存职业历史记录: ThreadID=contract-1757752158134-7xma1m6uf, Category=contract
+[INFO]  2025/09/15 20:04:24 logger.go:73: HTTP请求: POST /api/messages | IP: ::1 | 状态: 200 | 耗时: 1.100463208s
+[INFO]  2025/09/15 20:04:24 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1757752158134-7xma1m6uf, Category=contract
+[INFO]  2025/09/15 20:05:32 logger.go:73: 用户默认模型更新成功: UserID=default-user, Model=azure/gpt-5-mini
+[INFO]  2025/09/15 20:05:32 logger.go:73: HTTP请求: PUT /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 8.945959ms
+[INFO]  2025/09/15 20:05:38 logger.go:73: 收到消息请求: ThreadID=contract-1757752158134-7xma1m6uf, ModelID=azure/gpt-5-mini, Content长度=18, 附件数量=0
+[DEBUG] 2025/09/15 20:05:38 logger.go:68: 用户消息保存成功: ID=138
+[INFO]  2025/09/15 20:05:38 logger.go:73: 开始生成AI回复: ModelID=azure/gpt-5-mini, DeepThinking=false, NetworkSearch=false
+[INFO]  2025/09/15 20:05:38 logger.go:73: 开始调用百炼API: ModelID=azure/gpt-5-mini, Input长度=18
+[INFO]  2025/09/15 20:05:44 logger.go:73: 百炼API调用成功: ModelID=azure/gpt-5-mini, 耗时=6.321495917s, 回复长度=848
+[DEBUG] 2025/09/15 20:05:44 logger.go:68: AI回复生成完成，内容长度: 882
+[DEBUG] 2025/09/15 20:05:44 logger.go:68: AI回复保存成功: ID=139
+[INFO]  2025/09/15 20:05:44 logger.go:73: 消息处理完成: ThreadID=contract-1757752158134-7xma1m6uf, 总耗时=6.328165917s
+[INFO]  2025/09/15 20:05:44 logger.go:73: 保存职业历史记录: ThreadID=contract-1757752158134-7xma1m6uf, Category=contract
+[INFO]  2025/09/15 20:05:44 logger.go:73: HTTP请求: POST /api/messages | IP: ::1 | 状态: 200 | 耗时: 6.328368625s
+[INFO]  2025/09/15 20:05:44 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1757752158134-7xma1m6uf, Category=contract
+[WARN]  2025/09/15 20:09:17 logger.go:78: 用户档案不存在，返回默认模型: UserID=user-1757938157855
+[INFO]  2025/09/15 20:09:17 logger.go:73: 获取职业历史记录: UserID=user-1757938157855, Category=career, 数量=0
+[INFO]  2025/09/15 20:09:17 logger.go:73: HTTP请求: GET /api/users/user-1757938157855/default-model | IP: ::1 | 状态: 200 | 耗时: 2.608541ms
+[INFO]  2025/09/15 20:09:17 logger.go:73: HTTP请求: GET /api/users/user-1757938157855/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 2.773833ms
+[INFO]  2025/09/15 20:09:17 logger.go:73: 获取职业历史记录: UserID=user-1757938157855, Category=offer, 数量=0
+[INFO]  2025/09/15 20:09:17 logger.go:73: HTTP请求: GET /api/users/user-1757938157855/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 12.55475ms
+[INFO]  2025/09/15 20:09:17 logger.go:73: 获取职业历史记录: UserID=user-1757938157855, Category=contract, 数量=0
+[INFO]  2025/09/15 20:09:17 logger.go:73: HTTP请求: GET /api/users/user-1757938157855/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 1.369625ms
+[INFO]  2025/09/15 20:09:17 logger.go:73: 获取职业历史记录: UserID=user-1757938157855, Category=monitor, 数量=0
+[INFO]  2025/09/15 20:09:17 logger.go:73: HTTP请求: GET /api/users/user-1757938157855/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 1.302542ms
+[INFO]  2025/09/15 20:09:27 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757938167076-1vgjgfuxo | IP: ::1 | 状态: 200 | 耗时: 902.5µs
+[INFO]  2025/09/15 20:09:29 logger.go:73: 收到流式消息请求: ThreadID=offer-1757938167076-1vgjgfuxo, ModelID=bailian/qwen-flash, Content长度=71, 附件数量=0
+[INFO]  2025/09/15 20:09:29 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/15 20:09:37 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/15 20:09:37 logger.go:73: 流式消息处理完成: ThreadID=offer-1757938167076-1vgjgfuxo, 总耗时=8.239352542s
+[INFO]  2025/09/15 20:09:37 logger.go:73: 保存职业历史记录: ThreadID=offer-1757938167076-1vgjgfuxo, Category=offer
+[INFO]  2025/09/15 20:09:37 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 8.239399875s
+[INFO]  2025/09/15 20:09:37 logger.go:73: 职业历史记录保存成功: ThreadID=offer-1757938167076-1vgjgfuxo, Category=offer
+[INFO]  2025/09/15 20:09:37 logger.go:73: 收到消息请求: ThreadID=offer-1757938167076-1vgjgfuxo, ModelID=bailian/qwen-flash, Content长度=71, 附件数量=0
+[DEBUG] 2025/09/15 20:09:37 logger.go:68: 用户消息保存成功: ID=142
+[INFO]  2025/09/15 20:09:37 logger.go:73: 开始生成AI回复: ModelID=bailian/qwen-flash, DeepThinking=false, NetworkSearch=false
+[INFO]  2025/09/15 20:09:37 logger.go:73: 开始调用百炼API: ModelID=bailian/qwen-flash, Input长度=71
+[INFO]  2025/09/15 20:09:45 logger.go:73: 百炼API调用成功: ModelID=bailian/qwen-flash, 耗时=8.566278s, 回复长度=3439
+[DEBUG] 2025/09/15 20:09:45 logger.go:68: AI回复生成完成，内容长度: 3475
+[DEBUG] 2025/09/15 20:09:45 logger.go:68: AI回复保存成功: ID=143
+[INFO]  2025/09/15 20:09:45 logger.go:73: 消息处理完成: ThreadID=offer-1757938167076-1vgjgfuxo, 总耗时=8.572240667s
+[INFO]  2025/09/15 20:09:45 logger.go:73: 保存职业历史记录: ThreadID=offer-1757938167076-1vgjgfuxo, Category=offer
+[INFO]  2025/09/15 20:09:45 logger.go:73: HTTP请求: POST /api/messages | IP: ::1 | 状态: 200 | 耗时: 8.573331541s
+[INFO]  2025/09/15 20:09:45 logger.go:73: 职业历史记录保存成功: ThreadID=offer-1757938167076-1vgjgfuxo, Category=offer
+[INFO]  2025/09/15 20:10:23 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757938223182-t8ty9k6ux | IP: ::1 | 状态: 200 | 耗时: 2.387375ms
+[INFO]  2025/09/15 20:10:24 logger.go:73: 收到流式消息请求: ThreadID=contract-1757938223182-t8ty9k6ux, ModelID=bailian/qwen-flash, Content长度=63, 附件数量=0
+[INFO]  2025/09/15 20:10:24 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/15 20:10:32 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/15 20:10:32 logger.go:73: 流式消息处理完成: ThreadID=contract-1757938223182-t8ty9k6ux, 总耗时=7.452456542s
+[INFO]  2025/09/15 20:10:32 logger.go:73: 保存职业历史记录: ThreadID=contract-1757938223182-t8ty9k6ux, Category=contract
+[INFO]  2025/09/15 20:10:32 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 7.452516583s
+[INFO]  2025/09/15 20:10:32 logger.go:73: 收到消息请求: ThreadID=contract-1757938223182-t8ty9k6ux, ModelID=bailian/qwen-flash, Content长度=63, 附件数量=0
+[INFO]  2025/09/15 20:10:32 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1757938223182-t8ty9k6ux, Category=monitor
+[DEBUG] 2025/09/15 20:10:32 logger.go:68: 用户消息保存成功: ID=146
+[INFO]  2025/09/15 20:10:32 logger.go:73: 开始生成AI回复: ModelID=bailian/qwen-flash, DeepThinking=false, NetworkSearch=false
+[INFO]  2025/09/15 20:10:32 logger.go:73: 开始调用百炼API: ModelID=bailian/qwen-flash, Input长度=63
+[INFO]  2025/09/15 20:10:40 logger.go:73: 百炼API调用成功: ModelID=bailian/qwen-flash, 耗时=8.110075583s, 回复长度=3480
+[DEBUG] 2025/09/15 20:10:40 logger.go:68: AI回复生成完成，内容长度: 3516
+[DEBUG] 2025/09/15 20:10:40 logger.go:68: AI回复保存成功: ID=147
+[INFO]  2025/09/15 20:10:40 logger.go:73: 消息处理完成: ThreadID=contract-1757938223182-t8ty9k6ux, 总耗时=8.123986667s
+[INFO]  2025/09/15 20:10:40 logger.go:73: 保存职业历史记录: ThreadID=contract-1757938223182-t8ty9k6ux, Category=contract
+[INFO]  2025/09/15 20:10:40 logger.go:73: HTTP请求: POST /api/messages | IP: ::1 | 状态: 200 | 耗时: 8.124237417s
+[INFO]  2025/09/15 20:10:40 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1757938223182-t8ty9k6ux, Category=monitor
+[INFO]  2025/09/15 20:10:44 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757938244094-uuv57kxii | IP: ::1 | 状态: 200 | 耗时: 952.292µs
+[INFO]  2025/09/15 20:10:45 logger.go:73: 收到流式消息请求: ThreadID=career-1757938244094-uuv57kxii, ModelID=bailian/qwen-flash, Content长度=58, 附件数量=0
+[INFO]  2025/09/15 20:10:45 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/15 20:10:53 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/15 20:10:53 logger.go:73: 流式消息处理完成: ThreadID=career-1757938244094-uuv57kxii, 总耗时=8.298781583s
+[INFO]  2025/09/15 20:10:53 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 8.298853667s
+[INFO]  2025/09/15 20:10:53 logger.go:73: 保存职业历史记录: ThreadID=career-1757938244094-uuv57kxii, Category=career
+[INFO]  2025/09/15 20:10:53 logger.go:73: 职业历史记录保存成功: ThreadID=career-1757938244094-uuv57kxii, Category=career
+[INFO]  2025/09/15 20:10:53 logger.go:73: 收到消息请求: ThreadID=career-1757938244094-uuv57kxii, ModelID=bailian/qwen-flash, Content长度=58, 附件数量=0
+[DEBUG] 2025/09/15 20:10:53 logger.go:68: 用户消息保存成功: ID=150
+[INFO]  2025/09/15 20:10:53 logger.go:73: 开始生成AI回复: ModelID=bailian/qwen-flash, DeepThinking=false, NetworkSearch=false
+[INFO]  2025/09/15 20:10:53 logger.go:73: 开始调用百炼API: ModelID=bailian/qwen-flash, Input长度=58
+[INFO]  2025/09/15 20:11:10 logger.go:73: 百炼API调用成功: ModelID=bailian/qwen-flash, 耗时=16.669885125s, 回复长度=7239
+[DEBUG] 2025/09/15 20:11:10 logger.go:68: AI回复生成完成，内容长度: 7275
+[DEBUG] 2025/09/15 20:11:10 logger.go:68: AI回复保存成功: ID=151
+[INFO]  2025/09/15 20:11:10 logger.go:73: 消息处理完成: ThreadID=career-1757938244094-uuv57kxii, 总耗时=16.67830975s
+[INFO]  2025/09/15 20:11:10 logger.go:73: 保存职业历史记录: ThreadID=career-1757938244094-uuv57kxii, Category=career
+[INFO]  2025/09/15 20:11:10 logger.go:73: HTTP请求: POST /api/messages | IP: ::1 | 状态: 200 | 耗时: 16.680308167s
+[INFO]  2025/09/15 20:11:10 logger.go:73: 职业历史记录保存成功: ThreadID=career-1757938244094-uuv57kxii, Category=career
+[INFO]  2025/09/15 20:11:33 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757938167076-1vgjgfuxo | IP: ::1 | 状态: 200 | 耗时: 32.24875ms
+[INFO]  2025/09/15 20:11:39 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757938167076-1vgjgfuxo | IP: ::1 | 状态: 200 | 耗时: 2.21275ms
+[INFO]  2025/09/15 20:12:47 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757938244094-uuv57kxii | IP: ::1 | 状态: 200 | 耗时: 3.430417ms
+[INFO]  2025/09/15 20:12:50 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757938370221-tmulunjf1 | IP: ::1 | 状态: 200 | 耗时: 994.041µs
+[INFO]  2025/09/15 20:12:57 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-mini
+[INFO]  2025/09/15 20:12:57 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 2.476458ms
+[INFO]  2025/09/15 20:12:57 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=5
+[INFO]  2025/09/15 20:12:57 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 3.413084ms
+[INFO]  2025/09/15 20:12:57 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=5
+[INFO]  2025/09/15 20:12:57 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 2.371625ms
+[INFO]  2025/09/15 20:12:57 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 20:12:57 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 4.066334ms
+[INFO]  2025/09/15 20:12:57 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=6
+[INFO]  2025/09/15 20:12:57 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 1.645917ms
+[INFO]  2025/09/15 20:12:59 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757938244094-uuv57kxii | IP: ::1 | 状态: 200 | 耗时: 1.724916ms
+[INFO]  2025/09/15 20:13:02 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757751576660-lyljpszcn | IP: ::1 | 状态: 200 | 耗时: 2.507333ms
+[INFO]  2025/09/15 20:15:01 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757938167076-1vgjgfuxo | IP: ::1 | 状态: 200 | 耗时: 10.70475ms
+[INFO]  2025/09/15 20:19:11 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757751576660-lyljpszcn | IP: ::1 | 状态: 200 | 耗时: 3.734458ms
+[INFO]  2025/09/15 20:22:00 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 7.149333ms
+[INFO]  2025/09/15 20:22:52 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757938223182-t8ty9k6ux | IP: ::1 | 状态: 200 | 耗时: 1.351208ms
+[INFO]  2025/09/15 20:22:53 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757751677926-qnphbr24o | IP: ::1 | 状态: 200 | 耗时: 3.674625ms
+[INFO]  2025/09/15 20:22:53 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757750016900 | IP: ::1 | 状态: 200 | 耗时: 4.589917ms
+[INFO]  2025/09/15 20:22:54 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757938223182-t8ty9k6ux | IP: ::1 | 状态: 200 | 耗时: 1.2505ms
+[INFO]  2025/09/15 20:22:55 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757751677926-qnphbr24o | IP: ::1 | 状态: 200 | 耗时: 1.545791ms
+[INFO]  2025/09/15 20:22:56 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757938223182-t8ty9k6ux | IP: ::1 | 状态: 200 | 耗时: 3.464167ms
+[INFO]  2025/09/15 20:24:16 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757938167076-1vgjgfuxo | IP: ::1 | 状态: 200 | 耗时: 3.942417ms
+[INFO]  2025/09/15 20:25:06 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 3.981542ms
+[INFO]  2025/09/15 20:25:44 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757938223182-t8ty9k6ux | IP: ::1 | 状态: 200 | 耗时: 1.895333ms
+[INFO]  2025/09/15 20:28:03 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 4.875666ms
+[INFO]  2025/09/15 20:28:04 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757938167076-1vgjgfuxo | IP: ::1 | 状态: 200 | 耗时: 1.497208ms
+[INFO]  2025/09/15 20:28:05 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757751576660-lyljpszcn | IP: ::1 | 状态: 200 | 耗时: 1.68475ms
+[INFO]  2025/09/15 20:30:02 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-mini
+[INFO]  2025/09/15 20:30:02 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 10.558291ms
+[INFO]  2025/09/15 20:30:02 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=5
+[INFO]  2025/09/15 20:30:02 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 22.095625ms
+[INFO]  2025/09/15 20:30:02 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-mini
+[INFO]  2025/09/15 20:30:02 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 8.473583ms
+[INFO]  2025/09/15 20:30:02 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=5
+[INFO]  2025/09/15 20:30:02 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=5
+[INFO]  2025/09/15 20:30:02 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 80.479917ms
+[INFO]  2025/09/15 20:30:02 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 66.655041ms
+[INFO]  2025/09/15 20:30:02 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=5
+[INFO]  2025/09/15 20:30:02 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 46.089458ms
+[INFO]  2025/09/15 20:30:02 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 20:30:02 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 61.617542ms
+[INFO]  2025/09/15 20:30:02 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 20:30:02 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=6
+[INFO]  2025/09/15 20:30:02 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 2.950375ms
+[INFO]  2025/09/15 20:30:02 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 16.503208ms
+[INFO]  2025/09/15 20:30:02 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=6
+[INFO]  2025/09/15 20:30:02 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 1.954ms
+[INFO]  2025/09/15 20:30:03 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 3.539333ms
+[INFO]  2025/09/15 20:31:21 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/15 20:31:21 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/15 20:31:22 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/15 20:31:22 logger.go:73: 数据库连接成功
+[INFO]  2025/09/15 20:31:22 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/15 20:31:22 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/15 20:31:30 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-mini
+[INFO]  2025/09/15 20:31:30 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 5.93725ms
+[INFO]  2025/09/15 20:31:30 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-mini
+[INFO]  2025/09/15 20:31:30 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 8.174333ms
+[INFO]  2025/09/15 20:31:30 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=5
+[INFO]  2025/09/15 20:31:30 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 45.297709ms
+[INFO]  2025/09/15 20:31:30 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=5
+[INFO]  2025/09/15 20:31:30 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 6.088125ms
+[INFO]  2025/09/15 20:31:30 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=5
+[INFO]  2025/09/15 20:31:30 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 4.136625ms
+[INFO]  2025/09/15 20:31:30 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=5
+[INFO]  2025/09/15 20:31:30 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 73.01675ms
+[INFO]  2025/09/15 20:31:30 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 20:31:30 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 29.992375ms
+[INFO]  2025/09/15 20:31:30 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 20:31:30 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 26.219542ms
+[INFO]  2025/09/15 20:31:30 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=6
+[INFO]  2025/09/15 20:31:30 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 41.960541ms
+[INFO]  2025/09/15 20:31:30 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=6
+[INFO]  2025/09/15 20:31:30 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 20.936542ms
+[INFO]  2025/09/15 20:31:31 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 28.566875ms
+[INFO]  2025/09/15 20:31:46 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757939506672-4bl7u29o8 | IP: ::1 | 状态: 200 | 耗时: 5.337584ms

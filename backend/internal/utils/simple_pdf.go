@@ -191,8 +191,8 @@ func (e *SimplePDFExtractor) cleanText(text string) string {
 	text = regexp.MustCompile(`([.!?])\s*\\1+`).ReplaceAllString(text, "$1")
 
 	// 限制长度，避免过长的文本
-	if len(text) > 8000 {
-		text = text[:8000] + "..."
+	if len(text) > 15000 {
+		text = text[:15000] + "..."
 	}
 
 	return text

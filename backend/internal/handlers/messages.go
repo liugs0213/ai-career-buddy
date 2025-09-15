@@ -70,15 +70,22 @@ func SendMessage(c *gin.Context) {
 				documentID := strings.TrimPrefix(attachment, "document:")
 				var document models.UserDocument
 				if err := db.Conn.Where("id = ?", documentID).First(&document).Error; err == nil {
-					// 只使用分析结果，不显示原始文档内容
+					// 优先使用分析结果，如果没有则使用原始文档内容
 					if document.IsProcessed && document.ExtractedInfo != "" {
 						var extractedInfo models.DocumentExtractedInfo
 						if err := json.Unmarshal([]byte(document.ExtractedInfo), &extractedInfo); err == nil {
-							documentTexts = append(documentTexts, fmt.Sprintf("[%s关键信息]:\n%s", document.DocumentType, document.ExtractedInfo))
+							documentTexts = append(documentTexts, fmt.Sprintf("[%s分析结果]:\n%s", document.DocumentType, document.ExtractedInfo))
 						}
-					} else if document.FileContent != "" {
-						// 如果没有分析结果，只提供简要说明，不显示完整内容
-						documentTexts = append(documentTexts, fmt.Sprintf("[%s文档已上传，请分析其中的关键条款]", document.DocumentType))
+					}
+
+					// 同时提供原始文档内容，确保完整信息
+					if document.FileContent != "" {
+						// 限制文档内容长度，避免prompt过长
+						content := document.FileContent
+						if len(content) > 3000 {
+							content = content[:3000] + "\n... (文档内容较长，已截断)"
+						}
+						documentTexts = append(documentTexts, fmt.Sprintf("[%s文档内容]:\n%s", document.DocumentType, content))
 					}
 				}
 			}
@@ -234,15 +241,22 @@ func StreamMessage(c *gin.Context) {
 				documentID := strings.TrimPrefix(attachment, "document:")
 				var document models.UserDocument
 				if err := db.Conn.Where("id = ?", documentID).First(&document).Error; err == nil {
-					// 只使用分析结果，不显示原始文档内容
+					// 优先使用分析结果，如果没有则使用原始文档内容
 					if document.IsProcessed && document.ExtractedInfo != "" {
 						var extractedInfo models.DocumentExtractedInfo
 						if err := json.Unmarshal([]byte(document.ExtractedInfo), &extractedInfo); err == nil {
-							documentTexts = append(documentTexts, fmt.Sprintf("[%s关键信息]:\n%s", document.DocumentType, document.ExtractedInfo))
+							documentTexts = append(documentTexts, fmt.Sprintf("[%s分析结果]:\n%s", document.DocumentType, document.ExtractedInfo))
 						}
-					} else if document.FileContent != "" {
-						// 如果没有分析结果，只提供简要说明，不显示完整内容
-						documentTexts = append(documentTexts, fmt.Sprintf("[%s文档已上传，请分析其中的关键条款]", document.DocumentType))
+					}
+
+					// 同时提供原始文档内容，确保完整信息
+					if document.FileContent != "" {
+						// 限制文档内容长度，避免prompt过长
+						content := document.FileContent
+						if len(content) > 3000 {
+							content = content[:3000] + "\n... (文档内容较长，已截断)"
+						}
+						documentTexts = append(documentTexts, fmt.Sprintf("[%s文档内容]:\n%s", document.DocumentType, content))
 					}
 				}
 			}
