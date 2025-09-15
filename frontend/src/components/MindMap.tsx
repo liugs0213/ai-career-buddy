@@ -127,7 +127,7 @@ const MindMap: React.FC<MindMapProps> = ({
               <p>{data.find(n => n.id === selectedNode)?.description}</p>
             </div>
           )}
-          {data.find(n => n.id === selectedNode)?.tips && (data.find(n => n.id === selectedNode)?.tips?.length ?? 0) > 0 && (
+          {data.find(n => n.id === selectedNode)?.tips && data.find(n => n.id === selectedNode)?.tips!.length > 0 && (
             <div className="tips">
               <h5>📝 实用建议：</h5>
               <ul>
@@ -137,7 +137,7 @@ const MindMap: React.FC<MindMapProps> = ({
               </ul>
             </div>
           )}
-          {data.find(n => n.id === selectedNode)?.resources && (data.find(n => n.id === selectedNode)?.resources?.length ?? 0) > 0 && (
+          {data.find(n => n.id === selectedNode)?.resources && data.find(n => n.id === selectedNode)?.resources!.length > 0 && (
             <div className="resources">
               <h5>🔗 相关资源：</h5>
               <ul>

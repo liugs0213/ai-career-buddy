@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './CareerPlanningPanel.css';
 
 interface CareerPlanningPanelProps {
@@ -28,11 +28,11 @@ interface IndustryTrend {
 }
 
 const CareerPlanningPanel: React.FC<CareerPlanningPanelProps> = ({
-  userInput: _userInput = '',
-  aiResponse: _aiResponse = '',
+  userInput = '',
+  aiResponse = '',
   className = ''
 }) => {
-  const [isExpanded, _setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(true);
   const [selectedStage, setSelectedStage] = useState('all');
   const [selectedIndustry, setSelectedIndustry] = useState('all');
   const [currentStage, setCurrentStage] = useState('growth'); // 默认成长阶段

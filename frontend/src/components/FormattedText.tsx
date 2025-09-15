@@ -10,7 +10,7 @@ const FormattedText: React.FC<FormattedTextProps> = ({ content, className = '' }
   const formatText = (text: string) => {
     // 按行分割文本
     const lines = text.split('\n');
-    const formattedLines: React.ReactElement[] = [];
+    const formattedLines: JSX.Element[] = [];
     
     lines.forEach((line, index) => {
       // 处理标题（### ## #）

@@ -1,8 +1,8 @@
 import React from 'react';
-import { CareerTransitionFlow, SkillDevelopmentFlow } from './FlowChart';
-import { CareerPlanningMindMap, OfferAnalysisMindMap } from './MindMap';
-import { CareerDevelopmentTimeline, SkillDevelopmentTimeline } from './Timeline';
-import { TechnicalSkillTree, ManagementSkillTree } from './SkillTree';
+import FlowChart, { CareerTransitionFlow, SkillDevelopmentFlow } from './FlowChart';
+import MindMap, { CareerPlanningMindMap, SkillDevelopmentMindMap, OfferAnalysisMindMap } from './MindMap';
+import Timeline, { CareerDevelopmentTimeline, SkillDevelopmentTimeline } from './Timeline';
+import SkillTree, { TechnicalSkillTree, ManagementSkillTree } from './SkillTree';
 import './VisualizationModal.css';
 
 interface VisualizationModalProps {

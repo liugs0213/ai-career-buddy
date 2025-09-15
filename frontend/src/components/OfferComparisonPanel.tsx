@@ -22,11 +22,11 @@ interface OfferData {
 }
 
 const OfferComparisonPanel: React.FC<OfferComparisonPanelProps> = ({
-  userInput: _userInput = '',
-  aiResponse: _aiResponse = '',
+  userInput = '',
+  aiResponse = '',
   className = ''
 }) => {
-  const [isExpanded, _setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [offerData, setOfferData] = useState<OfferData[]>([]);
 

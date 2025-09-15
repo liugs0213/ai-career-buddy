@@ -48,10 +48,10 @@ const SkillTree: React.FC<SkillTreeProps> = ({
     return '未开始';
   };
 
-  // const _getSkillSize = (level: number) => {
-  //   const sizes = ['small', 'medium', 'large', 'xlarge'];
-  //   return sizes[level] || 'medium';
-  // };
+  const getSkillSize = (level: number) => {
+    const sizes = ['small', 'medium', 'large', 'xlarge'];
+    return sizes[level] || 'medium';
+  };
 
   const handleSkillClick = (skill: SkillNode) => {
     setSelectedSkill(selectedSkill === skill.id ? null : skill.id);
@@ -97,7 +97,7 @@ const SkillTree: React.FC<SkillTreeProps> = ({
             </div>
             
             <div className="skills-grid">
-              {categorySkills.map((skill) => (
+              {categorySkills.map((skill, index) => (
                 <div
                   key={skill.id}
                   className={`skill-card ${skill.isUnlocked ? 'unlocked' : 'locked'} ${selectedSkill === skill.id ? 'selected' : ''}`}

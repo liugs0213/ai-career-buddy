@@ -235,3 +235,265 @@
 [INFO]  2025/09/15 09:40:38 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757899203457-1zvvs21mq | IP: ::1 | 状态: 200 | 耗时: 7.352709ms
 [INFO]  2025/09/15 09:40:39 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757752559966-04ckwoid6 | IP: ::1 | 状态: 200 | 耗时: 34.659209ms
 [INFO]  2025/09/15 09:40:40 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757751677926-qnphbr24o | IP: ::1 | 状态: 200 | 耗时: 42.562791ms
+[INFO]  2025/09/15 09:53:26 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 09:53:26 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 440.25325ms
+[INFO]  2025/09/15 09:53:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 09:53:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 489.305208ms
+[INFO]  2025/09/15 09:53:26 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 09:53:26 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 59.637958ms
+[INFO]  2025/09/15 09:53:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 09:53:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 29.466208ms
+[INFO]  2025/09/15 09:53:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=3
+[INFO]  2025/09/15 09:53:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 209.558958ms
+[INFO]  2025/09/15 09:53:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=3
+[INFO]  2025/09/15 09:53:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 75.207792ms
+[INFO]  2025/09/15 09:53:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 09:53:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 94.626667ms
+[INFO]  2025/09/15 09:53:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=4
+[INFO]  2025/09/15 09:53:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 23.595042ms
+[INFO]  2025/09/15 09:53:27 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 09:53:27 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 58.36775ms
+[INFO]  2025/09/15 09:53:27 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=4
+[INFO]  2025/09/15 09:53:27 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 31.595417ms
+[INFO]  2025/09/15 11:19:16 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/15 11:19:16 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/15 11:19:16 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/15 11:19:16 logger.go:73: 数据库连接成功
+[INFO]  2025/09/15 11:19:18 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/15 11:19:18 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/15 11:24:25 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:24:25 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 38.337917ms
+[INFO]  2025/09/15 11:24:26 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:24:26 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 49.073833ms
+[INFO]  2025/09/15 11:24:26 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:24:26 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 12.432417ms
+[INFO]  2025/09/15 11:24:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:24:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 136.339375ms
+[INFO]  2025/09/15 11:24:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:24:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 5.712542ms
+[INFO]  2025/09/15 11:24:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:24:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 6.877459ms
+[INFO]  2025/09/15 11:24:42 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757906608454-gudv3pfrt | IP: ::1 | 状态: 200 | 耗时: 40.48725ms
+[INFO]  2025/09/15 11:25:37 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/15 11:25:37 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/15 11:25:37 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/15 11:25:37 logger.go:73: 数据库连接成功
+[INFO]  2025/09/15 11:25:38 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/15 11:25:38 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/15 11:25:42 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:25:42 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 30.481333ms
+[INFO]  2025/09/15 11:25:42 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:25:42 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 3.337959ms
+[INFO]  2025/09/15 11:25:42 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:25:42 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 30.103542ms
+[INFO]  2025/09/15 11:25:42 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:25:42 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 3.710375ms
+[INFO]  2025/09/15 11:25:42 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:25:42 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 1.129708ms
+[INFO]  2025/09/15 11:25:51 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:25:51 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 10.954083ms
+[INFO]  2025/09/15 11:25:51 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:25:51 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 32.481167ms
+[INFO]  2025/09/15 11:25:51 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:25:51 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 4.432541ms
+[INFO]  2025/09/15 11:25:51 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:25:51 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 26.6835ms
+[INFO]  2025/09/15 11:25:51 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:25:51 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 4.075666ms
+[INFO]  2025/09/15 11:25:51 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:25:51 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 6.299042ms
+[INFO]  2025/09/15 11:26:01 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/15 11:26:01 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 917.586333ms
+[ERROR] 2025/09/15 11:26:02 logger.go:83: AI提取合同信息失败: API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/15 11:26:02 logger.go:83: AI文档信息提取失败: DocumentID=22, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/15 11:26:02 logger.go:83: MD文档自动分析失败: DocumentID=22, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[INFO]  2025/09/15 11:26:42 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757906802445-2ue8j9fmt | IP: ::1 | 状态: 200 | 耗时: 318.937ms
+[INFO]  2025/09/15 11:26:43 logger.go:73: HTTP请求: OPTIONS /api/messages | IP: ::1 | 状态: 404 | 耗时: 583ns
+[INFO]  2025/09/15 11:26:57 logger.go:73: HTTP请求: OPTIONS /api/messages | IP: ::1 | 状态: 404 | 耗时: 2.334µs
+[INFO]  2025/09/15 11:27:51 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/15 11:27:51 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/15 11:27:51 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/15 11:27:51 logger.go:73: 数据库连接成功
+[INFO]  2025/09/15 11:27:51 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/15 11:27:51 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/15 11:27:54 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:27:54 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 124.42675ms
+[INFO]  2025/09/15 11:27:54 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:27:54 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 13.408084ms
+[INFO]  2025/09/15 11:27:54 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:27:54 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 9.640125ms
+[INFO]  2025/09/15 11:27:54 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:27:54 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 155.264375ms
+[INFO]  2025/09/15 11:27:54 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:27:54 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 23.170292ms
+[INFO]  2025/09/15 11:27:54 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:27:54 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 22.827042ms
+[WARN]  2025/09/15 11:28:01 logger.go:78: 用户档案不存在，返回默认模型: UserID=user-1757757423810
+[INFO]  2025/09/15 11:28:01 logger.go:73: HTTP请求: GET /api/users/user-1757757423810/default-model | IP: ::1 | 状态: 200 | 耗时: 3.191375ms
+[INFO]  2025/09/15 11:28:01 logger.go:73: 获取职业历史记录: UserID=user-1757757423810, Category=career, 数量=0
+[INFO]  2025/09/15 11:28:01 logger.go:73: HTTP请求: GET /api/users/user-1757757423810/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 5.197458ms
+[INFO]  2025/09/15 11:28:04 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:28:04 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 2.963292ms
+[INFO]  2025/09/15 11:28:04 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:28:04 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 3.89975ms
+[INFO]  2025/09/15 11:28:07 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757906887482-locy2ztdg | IP: ::1 | 状态: 200 | 耗时: 3.871417ms
+[INFO]  2025/09/15 11:28:11 logger.go:73: HTTP请求: OPTIONS /api/messages | IP: ::1 | 状态: 404 | 耗时: 1.042µs
+[INFO]  2025/09/15 11:28:17 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/15 11:28:17 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 35.448958ms
+[ERROR] 2025/09/15 11:28:23 logger.go:83: 解析合同信息失败: invalid character '`' looking for beginning of value
+[ERROR] 2025/09/15 11:28:23 logger.go:83: AI文档信息提取失败: DocumentID=23, 错误=invalid character '`' looking for beginning of value
+[ERROR] 2025/09/15 11:28:23 logger.go:83: MD文档自动分析失败: DocumentID=23, 错误=invalid character '`' looking for beginning of value
+[INFO]  2025/09/15 11:30:35 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:30:35 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 85.422083ms
+[INFO]  2025/09/15 11:30:35 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:30:35 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 108.690417ms
+[INFO]  2025/09/15 11:30:35 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:30:35 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 12.430291ms
+[INFO]  2025/09/15 11:30:35 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:30:35 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 46.208458ms
+[INFO]  2025/09/15 11:30:35 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:30:35 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 19.083458ms
+[INFO]  2025/09/15 11:30:35 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:30:35 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 120.209583ms
+[INFO]  2025/09/15 11:30:37 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:30:37 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 122.711125ms
+[INFO]  2025/09/15 11:30:37 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:30:37 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 147.442834ms
+[INFO]  2025/09/15 11:30:37 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:30:37 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 39.155125ms
+[INFO]  2025/09/15 11:30:37 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:30:37 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 39.124958ms
+[INFO]  2025/09/15 11:30:37 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:30:37 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 19.352416ms
+[INFO]  2025/09/15 11:30:37 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:30:37 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 14.556333ms
+[INFO]  2025/09/15 11:30:59 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/15 11:30:59 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/15 11:30:59 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/15 11:30:59 logger.go:73: 数据库连接成功
+[INFO]  2025/09/15 11:30:59 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/15 11:30:59 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/15 11:31:00 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:31:00 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 108.612417ms
+[INFO]  2025/09/15 11:31:00 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:31:00 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 6.022125ms
+[INFO]  2025/09/15 11:31:00 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:31:00 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 1.708417ms
+[INFO]  2025/09/15 11:31:00 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:31:00 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 160.678167ms
+[INFO]  2025/09/15 11:31:00 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:31:00 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 3.792ms
+[INFO]  2025/09/15 11:31:00 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:31:00 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 2.078042ms
+[INFO]  2025/09/15 11:31:02 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:31:02 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 5.063375ms
+[INFO]  2025/09/15 11:31:02 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:31:02 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 3.551917ms
+[INFO]  2025/09/15 11:31:02 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:31:02 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 10.5245ms
+[INFO]  2025/09/15 11:31:02 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:31:02 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 4.381542ms
+[INFO]  2025/09/15 11:31:11 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=employment, FileName=在职证明示例.md
+[INFO]  2025/09/15 11:31:11 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 15.925542ms
+[ERROR] 2025/09/15 11:31:15 logger.go:83: 解析在职情况信息失败: invalid character '`' looking for beginning of value
+[ERROR] 2025/09/15 11:31:15 logger.go:83: AI文档信息提取失败: DocumentID=24, 错误=invalid character '`' looking for beginning of value
+[ERROR] 2025/09/15 11:31:15 logger.go:83: MD文档自动分析失败: DocumentID=24, 错误=invalid character '`' looking for beginning of value
+[INFO]  2025/09/15 11:33:07 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:33:07 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:33:07 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 76.881208ms
+[INFO]  2025/09/15 11:33:07 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 77.758042ms
+[INFO]  2025/09/15 11:33:07 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:33:07 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 32.605792ms
+[INFO]  2025/09/15 11:33:07 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:33:07 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 38.354959ms
+[INFO]  2025/09/15 11:33:07 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:33:07 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 4.015417ms
+[INFO]  2025/09/15 11:33:07 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:33:07 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 21.262042ms
+[INFO]  2025/09/15 11:33:07 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:33:07 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 25.879458ms
+[INFO]  2025/09/15 11:33:07 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:33:07 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 31.124083ms
+[INFO]  2025/09/15 11:33:07 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:33:07 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 8.874458ms
+[INFO]  2025/09/15 11:33:07 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:33:07 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 17.068875ms
+[INFO]  2025/09/15 11:33:07 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:33:07 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 28.215375ms
+[INFO]  2025/09/15 11:33:07 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:33:07 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 49.575542ms
+[INFO]  2025/09/15 11:34:31 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/15 11:34:31 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/15 11:34:31 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/15 11:34:31 logger.go:73: 数据库连接成功
+[INFO]  2025/09/15 11:34:31 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/15 11:34:31 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/15 11:34:36 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:34:36 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 28.687417ms
+[INFO]  2025/09/15 11:34:36 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:34:36 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 50.219542ms
+[INFO]  2025/09/15 11:34:36 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:34:36 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 4.637708ms
+[INFO]  2025/09/15 11:34:36 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:34:36 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 7.918958ms
+[INFO]  2025/09/15 11:34:36 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=3
+[INFO]  2025/09/15 11:34:36 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 13.75475ms
+[INFO]  2025/09/15 11:34:36 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=3
+[INFO]  2025/09/15 11:34:36 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 4.401667ms
+[INFO]  2025/09/15 11:34:36 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 11:34:36 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 19.441375ms
+[INFO]  2025/09/15 11:34:36 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 11:34:36 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 4.873959ms
+[INFO]  2025/09/15 11:34:37 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=4
+[INFO]  2025/09/15 11:34:37 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 7.612375ms
+[INFO]  2025/09/15 11:34:37 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=4
+[INFO]  2025/09/15 11:34:37 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 3.447917ms
+[INFO]  2025/09/15 11:34:37 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757899203457-1zvvs21mq | IP: ::1 | 状态: 200 | 耗时: 8.872125ms
+[INFO]  2025/09/15 11:34:40 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:34:40 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 8.22625ms
+[INFO]  2025/09/15 11:34:40 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:34:40 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 22.919583ms
+[INFO]  2025/09/15 11:34:40 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:34:40 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 4.265708ms
+[INFO]  2025/09/15 11:34:40 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:34:40 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 4.911791ms
+[INFO]  2025/09/15 11:34:40 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=3
+[INFO]  2025/09/15 11:34:40 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 5.603917ms
+[INFO]  2025/09/15 11:34:40 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=3
+[INFO]  2025/09/15 11:34:40 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 3.465083ms
+[INFO]  2025/09/15 11:34:40 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 11:34:40 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 11.975667ms
+[INFO]  2025/09/15 11:34:40 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 11:34:40 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 9.133916ms
+[INFO]  2025/09/15 11:34:40 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=4
+[INFO]  2025/09/15 11:34:40 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 2.7805ms
+[INFO]  2025/09/15 11:34:40 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=4
+[INFO]  2025/09/15 11:34:40 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 4.780916ms
+[INFO]  2025/09/15 11:34:41 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757899203457-1zvvs21mq | IP: ::1 | 状态: 200 | 耗时: 10.761208ms
+[INFO]  2025/09/15 11:34:41 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:34:41 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 2.735042ms
+[INFO]  2025/09/15 11:34:41 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:34:41 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 4.282459ms
+[INFO]  2025/09/15 11:34:41 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=2
+[INFO]  2025/09/15 11:34:41 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 1.97375ms
+[INFO]  2025/09/15 11:34:41 logger.go:73: 获取用户默认模型: UserID=default-user, Model=azure/gpt-5-chat
+[INFO]  2025/09/15 11:34:41 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 29.045041ms
+[INFO]  2025/09/15 11:34:41 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=3
+[INFO]  2025/09/15 11:34:41 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 6.319916ms
+[INFO]  2025/09/15 11:34:41 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=3
+[INFO]  2025/09/15 11:34:41 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 2.690333ms
+[INFO]  2025/09/15 11:34:41 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 11:34:41 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 23.5ms
+[INFO]  2025/09/15 11:34:41 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/15 11:34:41 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 5.086875ms
+[INFO]  2025/09/15 11:34:41 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=4
+[INFO]  2025/09/15 11:34:41 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 6.083666ms
+[INFO]  2025/09/15 11:34:41 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=4
+[INFO]  2025/09/15 11:34:41 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 17.09425ms
+[INFO]  2025/09/15 11:34:42 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757899203457-1zvvs21mq | IP: ::1 | 状态: 200 | 耗时: 4.480416ms
+[INFO]  2025/09/15 11:34:45 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752072978-tgb6a5v14 | IP: ::1 | 状态: 200 | 耗时: 2.572583ms
+[INFO]  2025/09/15 11:34:53 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 5.6535ms
+[INFO]  2025/09/15 11:35:42 logger.go:73: HTTP请求: GET /api/messages?threadId=monitor-1757751677926-qnphbr24o | IP: ::1 | 状态: 200 | 耗时: 18.427917ms
+[INFO]  2025/09/15 11:35:57 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1757752158134-7xma1m6uf | IP: ::1 | 状态: 200 | 耗时: 5.296875ms
+[INFO]  2025/09/15 11:36:09 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1757752559966-04ckwoid6 | IP: ::1 | 状态: 200 | 耗时: 5.59575ms
+[INFO]  2025/09/15 11:36:20 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757751576660-lyljpszcn | IP: ::1 | 状态: 200 | 耗时: 4.849709ms

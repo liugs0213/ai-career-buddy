@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './FlowChart.css';
 
 interface FlowNode {
@@ -35,8 +35,8 @@ const FlowChart: React.FC<FlowChartProps> = ({
   const [selectedNode, setSelectedNode] = useState<string | null>(null);
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
-  const getNodeStyle = (node: FlowNode): React.CSSProperties => {
-    const baseStyle: React.CSSProperties = {
+  const getNodeStyle = (node: FlowNode) => {
+    const baseStyle = {
       left: `${node.position.x}px`,
       top: `${node.position.y}px`,
     };

@@ -19,16 +19,16 @@ interface CompanyMonitor {
   updatedAt: string;
 }
 
-// interface _AlertRule {
-//   id: string;
-//   name: string;
-//   type: 'financial' | 'management' | 'market';
-//   condition: string;
-//   threshold: string;
-//   severity: 'low' | 'medium' | 'high' | 'critical';
-//   description: string;
-//   enabled: boolean;
-// }
+interface AlertRule {
+  id: string;
+  name: string;
+  type: 'financial' | 'management' | 'market';
+  condition: string;
+  threshold: string;
+  severity: 'low' | 'medium' | 'high' | 'critical';
+  description: string;
+  enabled: boolean;
+}
 
 interface CompanyMonitorPanelProps {
   userId?: string;

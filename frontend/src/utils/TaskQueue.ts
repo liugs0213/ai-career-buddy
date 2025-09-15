@@ -106,7 +106,7 @@ class TaskQueue {
 
   private async handleFileUpload(task: Task): Promise<any> {
     // 文件上传逻辑
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       // 模拟文件上传进度
       let progress = 0;
       const interval = setInterval(() => {
