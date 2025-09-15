@@ -1,0 +1,387 @@
+.contract-risk-panel {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.panel-header h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.risk-stats {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 16px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  min-width: 60px;
+}
+
+.stat-item.critical {
+  border-color: #dc2626;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+}
+
+.stat-item.high {
+  border-color: #ea580c;
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
+}
+
+.stat-item.resolved {
+  border-color: #16a34a;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+}
+
+.stat-number {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.panel-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.filter-btn.active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+}
+
+.risks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.risk-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.risk-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: #3b82f6;
+}
+
+.risk-item.resolved {
+  opacity: 0.7;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+}
+
+.risk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.risk-type {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.risk-icon {
+  font-size: 20px;
+}
+
+.risk-type-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.risk-level {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+}
+
+.risk-content {
+  margin-bottom: 16px;
+}
+
+.risk-point {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+}
+
+.risk-detail {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+.risk-suggestions {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 12px;
+  border-left: 4px solid #3b82f6;
+}
+
+.suggestions-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3b82f6;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.suggestions-text {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.risk-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.risk-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.company-name {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.risk-date {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.resolved-badge, .unresolved-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.resolved-badge {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.unresolved-badge {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.panel-footer {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.risk-legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.legend-color.critical {
+  background: #dc2626;
+}
+
+.legend-color.high {
+  background: #ea580c;
+}
+
+.legend-color.medium {
+  background: #d97706;
+}
+
+.legend-color.low {
+  background: #16a34a;
+}
+
+.legend-item span {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: #64748b;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.empty-state h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #475569;
+  margin: 0 0 8px 0;
+}
+
+.empty-state p {
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 加载状态 */
+.contract-risk-panel.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.contract-risk-panel.loading p {
+  color: #64748b;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .contract-risk-panel {
+    padding: 16px;
+  }
+  
+  .panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .risk-stats {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .stat-item {
+    flex: 1;
+    min-width: auto;
+  }
+  
+  .risk-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .risk-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .risk-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .risk-legend {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

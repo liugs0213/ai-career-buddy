@@ -1,0 +1,337 @@
+.mind-map {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  margin: 16px 0;
+}
+
+.mind-map-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+.mind-map-container {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  min-height: 400px;
+  overflow-y: auto;
+}
+
+.mind-map-node {
+  position: relative;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mind-map-node:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mind-map-node.selected {
+  transform: translateX(8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  border: 2px solid #ffffff;
+}
+
+.mind-map-node.large {
+  padding: 16px 20px;
+  font-size: 18px;
+  min-height: 60px;
+}
+
+.mind-map-node.medium {
+  padding: 12px 16px;
+  font-size: 16px;
+  min-height: 50px;
+}
+
+.mind-map-node.small {
+  padding: 8px 12px;
+  font-size: 14px;
+  min-height: 40px;
+}
+
+.node-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.node-icon {
+  font-size: 1.2em;
+  flex-shrink: 0;
+}
+
+.node-text {
+  flex: 1;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.expand-icon {
+  font-size: 16px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.node-children {
+  margin-top: 8px;
+  padding-left: 20px;
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+  margin-left: 20px;
+}
+
+/* 层级样式 */
+.mind-map-node.level-0 {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border-left: 4px solid #1e40af;
+}
+
+.mind-map-node.level-1 {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-left: 4px solid #047857;
+}
+
+.mind-map-node.level-2 {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  border-left: 4px solid #b45309;
+}
+
+.mind-map-node.level-3 {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border-left: 4px solid #b91c1c;
+}
+
+.mind-map-node.level-4 {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  border-left: 4px solid #6d28d9;
+}
+
+.mind-map-node.level-5 {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  border-left: 4px solid #0e7490;
+}
+
+.node-details {
+  margin-top: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  animation: slideIn 0.3s ease-out;
+}
+
+.node-details h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.node-details h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin: 16px 0 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.node-details .description {
+  margin-bottom: 16px;
+}
+
+.node-details .description p {
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+  padding: 12px;
+  background: #f1f5f9;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+}
+
+.node-details .tips {
+  margin-bottom: 16px;
+}
+
+.node-details .tips ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.node-details .tips li {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+  margin: 8px 0;
+  padding: 8px 12px;
+  background: #fef3c7;
+  border-radius: 6px;
+  border-left: 3px solid #f59e0b;
+  position: relative;
+}
+
+.node-details .tips li::before {
+  content: "💡";
+  margin-right: 8px;
+}
+
+.node-details .resources {
+  margin-bottom: 0;
+}
+
+.node-details .resources ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.node-details .resources li {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+  margin: 8px 0;
+  padding: 8px 12px;
+  background: #ecfdf5;
+  border-radius: 6px;
+  border-left: 3px solid #10b981;
+  position: relative;
+}
+
+.node-details .resources li::before {
+  content: "🔗";
+  margin-right: 8px;
+}
+
+/* 动画效果 */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mind-map-node {
+  animation: slideIn 0.3s ease-out;
+}
+
+.mind-map-node:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+.mind-map-node:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .mind-map {
+    padding: 16px;
+  }
+  
+  .mind-map-container {
+    padding: 12px;
+    min-height: 300px;
+  }
+  
+  .mind-map-title {
+    font-size: 18px;
+  }
+  
+  .mind-map-node.large {
+    padding: 12px 16px;
+    font-size: 16px;
+    min-height: 50px;
+  }
+  
+  .mind-map-node.medium {
+    padding: 10px 14px;
+    font-size: 14px;
+    min-height: 45px;
+  }
+  
+  .mind-map-node.small {
+    padding: 8px 12px;
+    font-size: 13px;
+    min-height: 35px;
+  }
+  
+  .node-children {
+    padding-left: 15px;
+    margin-left: 15px;
+  }
+  
+  .expand-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+  }
+}
+
+/* 主题变体 */
+.mind-map.theme-career .mind-map-node.level-0 {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+.mind-map.theme-offer .mind-map-node.level-0 {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+.mind-map.theme-contract .mind-map-node.level-0 {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.mind-map.theme-monitor .mind-map-node.level-0 {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+}
+
+/* 滚动条样式 */
+.mind-map-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.mind-map-container::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.mind-map-container::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.mind-map-container::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

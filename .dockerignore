@@ -1,0 +1,33 @@
+# 忽略文件
+node_modules
+npm-debug.log
+.git
+.gitignore
+README.md
+.env
+.nyc_output
+coverage
+.nyc_output
+.coverage
+.coverage/
+.vscode
+.idea
+
+# 忽略目录
+frontend/node_modules
+frontend/dist
+backend/logs
+backend/uploads
+logs
+uploads
+
+# 忽略临时文件
+*.tmp
+*.log
+*.swp
+*.swo
+*~
+
+# 忽略系统文件
+.DS_Store
+Thumbs.db

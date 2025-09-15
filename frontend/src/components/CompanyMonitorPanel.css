@@ -1,0 +1,511 @@
+.company-monitor-panel {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.panel-header h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.monitor-stats {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 16px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  min-width: 60px;
+}
+
+.stat-item.active {
+  border-color: #16a34a;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+}
+
+.stat-item.alerts {
+  border-color: #ea580c;
+  background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
+}
+
+.stat-number {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.panel-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.panel-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.filter-btn.active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+}
+
+.add-monitor-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-monitor-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.add-icon {
+  font-size: 16px;
+}
+
+.monitors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.monitor-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.monitor-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: #3b82f6;
+}
+
+.monitor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.company-info {
+  flex: 1;
+}
+
+.company-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+}
+
+.company-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.company-code {
+  font-size: 14px;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.industry {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+}
+
+.monitor-content {
+  margin-bottom: 20px;
+}
+
+.monitor-types {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.monitor-type-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.type-icon {
+  font-size: 14px;
+}
+
+.monitor-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detail-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  min-width: 100px;
+}
+
+.detail-value {
+  font-size: 14px;
+  color: #64748b;
+  flex: 1;
+}
+
+.detail-value.enabled {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.detail-value.disabled {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.monitor-notes {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 12px;
+  border-left: 4px solid #3b82f6;
+  margin-top: 16px;
+}
+
+.notes-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3b82f6;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.notes-text {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.monitor-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.monitor-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.action-btn.edit:hover {
+  background: #eff6ff;
+}
+
+.action-btn.pause:hover {
+  background: #fff7ed;
+  border-color: #ea580c;
+  color: #ea580c;
+}
+
+.action-btn.alerts:hover {
+  background: #fef2f2;
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.action-icon {
+  font-size: 14px;
+}
+
+.monitor-date {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.panel-footer {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.monitor-legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.legend-color.active {
+  background: #16a34a;
+}
+
+.legend-color.paused {
+  background: #d97706;
+}
+
+.legend-color.stopped {
+  background: #dc2626;
+}
+
+.legend-item span {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: #64748b;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.empty-state h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #475569;
+  margin: 0 0 8px 0;
+}
+
+.empty-state p {
+  font-size: 14px;
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+}
+
+.add-first-btn {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-first-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+/* 加载状态 */
+.company-monitor-panel.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.company-monitor-panel.loading p {
+  color: #64748b;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .company-monitor-panel {
+    padding: 16px;
+  }
+  
+  .panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .monitor-stats {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .stat-item {
+    flex: 1;
+    min-width: auto;
+  }
+  
+  .panel-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .panel-filters {
+    justify-content: center;
+  }
+  
+  .monitor-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .company-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .monitor-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .monitor-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .monitor-legend {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

@@ -1,0 +1,180 @@
+.flow-chart {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  margin: 16px 0;
+}
+
+.flow-chart-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+.flow-chart-container {
+  position: relative;
+  min-height: 500px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  overflow: auto;
+  padding: 30px;
+}
+
+.flow-node {
+  user-select: none;
+  z-index: 10;
+}
+
+.flow-node:hover {
+  z-index: 20;
+}
+
+.flow-connection {
+  z-index: 5;
+}
+
+.connection-label {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+.decision-content {
+  transform: rotate(-45deg);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.decision-text {
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.2;
+  max-width: 100px;
+  word-break: break-word;
+}
+
+.node-details {
+  margin-top: 20px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.node-details h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+}
+
+.node-details p {
+  font-size: 14px;
+  color: #64748b;
+  margin: 4px 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .flow-chart {
+    padding: 16px;
+  }
+  
+  .flow-chart-container {
+    min-height: 200px;
+    padding: 10px;
+  }
+  
+  .flow-chart-title {
+    font-size: 18px;
+  }
+  
+  .connection-label {
+    font-size: 10px;
+    padding: 1px 6px;
+  }
+  
+  .decision-text {
+    font-size: 10px;
+    max-width: 80px;
+  }
+}
+
+/* 动画效果 */
+@keyframes nodePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.flow-node.selected {
+  animation: nodePulse 0.6s ease-in-out;
+}
+
+/* 主题色彩 */
+.flow-chart.theme-career .flow-node[data-type="start"] {
+  background-color: #10b981 !important;
+}
+
+.flow-chart.theme-career .flow-node[data-type="process"] {
+  background-color: #3b82f6 !important;
+}
+
+.flow-chart.theme-career .flow-node[data-type="decision"] {
+  background-color: #f59e0b !important;
+}
+
+.flow-chart.theme-career .flow-node[data-type="end"] {
+  background-color: #ef4444 !important;
+}
+
+.flow-chart.theme-offer .flow-node[data-type="start"] {
+  background-color: #8b5cf6 !important;
+}
+
+.flow-chart.theme-offer .flow-node[data-type="process"] {
+  background-color: #06b6d4 !important;
+}
+
+.flow-chart.theme-offer .flow-node[data-type="decision"] {
+  background-color: #f59e0b !important;
+}
+
+.flow-chart.theme-offer .flow-node[data-type="end"] {
+  background-color: #10b981 !important;
+}
+
+.flow-chart.theme-contract .flow-node[data-type="start"] {
+  background-color: #ef4444 !important;
+}
+
+.flow-chart.theme-contract .flow-node[data-type="process"] {
+  background-color: #f59e0b !important;
+}
+
+.flow-chart.theme-contract .flow-node[data-type="decision"] {
+  background-color: #8b5cf6 !important;
+}
+
+.flow-chart.theme-contract .flow-node[data-type="end"] {
+  background-color: #10b981 !important;
+}

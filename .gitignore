@@ -1,0 +1,82 @@
+# 依赖目录
+node_modules/
+frontend/node_modules/
+backend/vendor/
+
+# 构建输出
+frontend/dist/
+frontend/build/
+backend/main
+backend/bin/
+
+# 日志文件
+*.log
+logs/
+backend/logs/
+frontend/logs/
+
+# 环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 上传文件
+uploads/
+backend/uploads/
+frontend/uploads/
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 临时文件
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# 测试覆盖率
+coverage/
+.nyc_output/
+.coverage/
+
+# 缓存文件
+.cache/
+.parcel-cache/
+.eslintcache
+
+# 运行时文件
+*.pid
+*.seed
+*.pid.lock
+
+# Docker相关
+.dockerignore
+
+# 部署相关
+k8s-deployment.yaml
+deploy.sh
+
+# 其他
+*.tgz
+*.tar.gz
+/.gitignore

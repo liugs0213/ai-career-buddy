@@ -1,0 +1,109 @@
+.task-queue-status {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  min-width: 200px;
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.status-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e2e8f0;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.status-info {
+  flex: 1;
+}
+
+.status-text {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.status-text .running {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.status-text .pending {
+  color: #f59e0b;
+  font-weight: 500;
+}
+
+.status-progress {
+  height: 3px;
+  background: #f1f5f9;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .task-queue-status {
+    top: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    font-size: 13px;
+    min-width: 150px;
+  }
+  
+  .loading-spinner {
+    width: 14px;
+    height: 14px;
+  }
+}

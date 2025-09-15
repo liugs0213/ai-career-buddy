@@ -1,0 +1,438 @@
+.offer-comparison-panel {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  margin: 16px 0;
+  transition: all 0.3s ease;
+  max-height: 800px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.offer-comparison-panel.expanded {
+  max-height: 1000px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border-radius: 20px 20px 0 0;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.panel-icon {
+  font-size: 24px;
+}
+
+.panel-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.panel-content {
+  padding: 24px;
+  max-height: 700px;
+  overflow-y: auto;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  position: relative;
+}
+
+/* 统计概览 */
+.stats-overview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* 筛选器 */
+.filter-section {
+  margin-bottom: 24px;
+}
+
+.filter-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn {
+  background: white;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.filter-btn.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+/* Offer列表 */
+.offers-list {
+  margin-bottom: 24px;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.list-header h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.update-time {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.offer-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.offer-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.offer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.company-info h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 4px 0;
+}
+
+.position {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.salary-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+.salary-badge.high {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.salary-badge.medium {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.salary-badge.low {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.offer-details {
+  margin-bottom: 16px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.detail-label {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.detail-value {
+  font-size: 14px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.benefits-section {
+  margin-bottom: 16px;
+}
+
+.benefits-label {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.benefits-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.benefit-tag {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.offer-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* 热门公司排行 */
+.ranking-section {
+  margin-bottom: 24px;
+}
+
+.ranking-section h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 16px 0;
+}
+
+.ranking-list {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.ranking-item:last-child {
+  border-bottom: none;
+}
+
+.rank-number {
+  background: #3b82f6;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 12px;
+}
+
+.company-name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.offer-count {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* 薪资分析 */
+.salary-analysis {
+  margin-bottom: 0;
+}
+
+.salary-analysis h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 16px 0;
+}
+
+.analysis-content {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.analysis-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.analysis-item:last-child {
+  border-bottom: none;
+}
+
+.analysis-label {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.analysis-value {
+  font-size: 14px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* 滚动条样式 */
+.panel-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel-content::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.panel-content::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.panel-content::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .stats-overview {
+    grid-template-columns: 1fr;
+  }
+  
+  .offers-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-buttons {
+    flex-direction: column;
+  }
+  
+  .filter-btn {
+    text-align: center;
+  }
+  
+  .panel-content {
+    padding: 16px;
+  }
+  
+  .offer-card {
+    padding: 16px;
+  }
+}

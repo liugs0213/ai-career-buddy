@@ -1,0 +1,141 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-career-buddy
+  namespace: kf-partition-gray
+  labels:
+    app: ai-career-buddy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ai-career-buddy
+  template:
+    metadata:
+      labels:
+        app: ai-career-buddy
+    spec:
+      containers:
+      - name: ai-career-buddy
+        image: ai-career-buddy:latest  # 请替换为您的镜像地址
+        ports:
+        - containerPort: 8080
+        env:
+        # 应用配置
+        - name: APP_PORT
+          value: "8080"
+        - name: APP_ENV
+          value: "production"
+        
+        # 数据库配置 (请根据实际情况修改)
+        - name: DB_HOST
+          value: "mysql-service"  # 或您的数据库服务名
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_NAME
+          value: "ai_career_buddy"
+        - name: DB_USERNAME
+          value: "mysql_user"  # 请替换为实际用户名
+        - name: DB_PASSWORD
+          value: "mysql_password"  # 请替换为实际密码
+        
+        # 日志配置
+        - name: LOG_LEVEL
+          value: "info"
+        - name: LOG_FILE
+          value: "/app/logs/app.log"
+        
+        # 文件上传配置
+        - name: UPLOAD_DIR
+          value: "/app/uploads"
+        - name: MAX_FILE_SIZE
+          value: "10485760"  # 10MB
+        
+        # AI服务配置 (请替换为实际值)
+        - name: AI_API_KEY
+          value: ""  # 请替换为实际的API密钥
+        - name: AI_API_SECRET
+          value: ""  # 请替换为实际的API密钥
+        
+        # 健康检查
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        
+        # 资源限制
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        
+        # 卷挂载
+        volumeMounts:
+        - name: uploads-storage
+          mountPath: /app/uploads
+        - name: logs-storage
+          mountPath: /app/logs
+      
+      volumes:
+      - name: uploads-storage
+        persistentVolumeClaim:
+          claimName: uploads-pvc
+      - name: logs-storage
+        persistentVolumeClaim:
+          claimName: logs-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-career-buddy-service
+  namespace: kf-partition-gray
+  labels:
+    app: ai-career-buddy
+spec:
+  selector:
+    app: ai-career-buddy
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+      protocol: TCP
+  type: ClusterIP
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: uploads-pvc
+  namespace: kf-partition-gray
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: logs-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+---
