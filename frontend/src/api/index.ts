@@ -1,6 +1,24 @@
 import axios from 'axios';
 
-export const http = axios.create({ baseURL: '/' });
+// 使用环境变量配置API基础URL
+// 开发环境：使用Vite代理 (vite.config.ts)
+// 生产环境：使用构建时设置的环境变量
+
+// 详细的环境变量调试信息
+console.log('=== 环境变量调试信息 ===');
+console.log('import.meta.env:', import.meta.env);
+console.log('import.meta.env.VITE_API_BASE_URL:', import.meta.env.VITE_API_BASE_URL);
+console.log('import.meta.env.MODE:', import.meta.env.MODE);
+console.log('import.meta.env.DEV:', import.meta.env.DEV);
+console.log('import.meta.env.PROD:', import.meta.env.PROD);
+
+const baseURL = import.meta.env.VITE_API_BASE_URL || '/';
+
+console.log('=== API配置信息 ===');
+console.log('最终使用的API Base URL:', baseURL);
+console.log('========================');
+
+export const http = axios.create({ baseURL });
 
 export type Message = { id?: number; role: string; content: string; threadId?: string; createdAt?: string; attachments?: string };
 export type Note = { id?: number; title: string; content: string; updatedAt?: string };

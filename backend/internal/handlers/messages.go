@@ -364,7 +364,7 @@ func generateAIResponse(userInput, threadID, modelID string, deepThinking, netwo
 	// 根据threadID判断会话类型
 	var sessionType string
 	if len(threadID) > 7 {
-		sessionType = threadID[:7] // 取前7个字符作为类型标识
+		sessionType = strings.Split(threadID, "-")[0] // 取前7个字符作为类型标识
 	}
 
 	// 检查是否为案例问题，如果是则提供更详细的回复

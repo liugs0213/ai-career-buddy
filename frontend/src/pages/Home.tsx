@@ -5,6 +5,7 @@ import FormattedText from '../components/FormattedText';
 import TaskQueueStatus from '../components/TaskQueueStatus';
 import UserSelector from '../components/UserSelector';
 import { addStreamMessageTask } from '../utils/TaskQueue';
+import { debugEnv } from '../debug-env';
 import './Home.css';
 
 interface ChatMessage {
@@ -847,27 +848,12 @@ export default function Home() {
               };
             });
           },
-          // onComplete - 完成时停止loading并保存消息到数据库
+          // onComplete - 完成时停止loading状态
           async (result: any) => {
             console.log('Stream task completed:', result);
             
-            // 保存用户消息和AI回复到数据库（后台保存，不影响UI显示）
-            try {
-              await api.sendMessage({ 
-                userId: currentUserId,
-                threadId: session.id, 
-                content: userMessage.content,
-                attachments: userMessage.attachments,
-                modelId: selectedModel,
-                deepThinking: deepThinkingActive,
-                networkSearch: networkSearchActive
-              });
-              console.log('消息已保存到数据库');
-            } catch (error) {
-              console.error('保存流式消息失败:', error);
-            }
-            
-            // 只停止loading状态，不重新获取消息列表
+            // 流式响应完成后，消息已经由后端自动保存，无需额外请求
+            // 只停止loading状态
             setTabChats(prev => ({
               ...prev,
               [activeTab]: { ...prev[activeTab], isLoading: false }

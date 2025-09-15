@@ -35,19 +35,19 @@ const FlowChart: React.FC<FlowChartProps> = ({
   const [selectedNode, setSelectedNode] = useState<string | null>(null);
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
-  const getNodeStyle = (node: FlowNode) => {
-    const baseStyle = {
+  const getNodeStyle = (node: FlowNode): React.CSSProperties => {
+    const baseStyle: React.CSSProperties = {
       left: `${node.position.x}px`,
       top: `${node.position.y}px`,
     };
 
-    const sizeStyles = {
+    const sizeStyles: Record<string, React.CSSProperties> = {
       small: { width: '100px', height: '50px', fontSize: '13px' },
       medium: { width: '150px', height: '75px', fontSize: '15px' },
       large: { width: '200px', height: '100px', fontSize: '17px' }
     };
 
-    const typeStyles = {
+    const typeStyles: Record<string, React.CSSProperties> = {
       start: {
         borderRadius: '50%',
         backgroundColor: '#10b981',
