@@ -138,15 +138,19 @@ func UploadUserDocument(c *gin.Context) {
 		}
 	}
 
+	// 清理文档内容，移除不兼容字符
+	cleanedFileName := utils.SanitizeForDatabase(header.Filename)
+	cleanedFileContent := utils.CleanDocumentContent(fileContent)
+
 	// 创建文档记录
 	document := models.UserDocument{
 		UserID:           userID,
 		DocumentType:     documentType,
-		FileName:         header.Filename,
+		FileName:         cleanedFileName,
 		FileSize:         header.Size,
 		FileType:         strings.TrimPrefix(fileExt, "."),
 		FilePath:         filePath,
-		FileContent:      fileContent,
+		FileContent:      cleanedFileContent,
 		UploadSource:     "manual",
 		IsProcessed:      false,
 		ProcessingStatus: "pending",

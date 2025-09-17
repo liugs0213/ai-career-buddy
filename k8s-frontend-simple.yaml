@@ -1,0 +1,185 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-career-buddy-frontend
+  namespace: kf-partition-gray
+  labels:
+    app: ai-career-buddy-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ai-career-buddy-frontend
+  template:
+    metadata:
+      labels:
+        app: ai-career-buddy-frontend
+    spec:
+      initContainers:
+      - name: frontend-builder
+        image: harbor.weizhipin.com/arsenal-ai/node:18-alpine
+        command: ["/bin/sh"]
+        args:
+        - -c
+        - |
+          # 安装依赖
+          npm ci
+          
+          # 构建前端
+          npm run build
+          
+          # 复制构建文件到共享卷
+          cp -r dist/* /shared/
+          
+          echo "Frontend build completed"
+        volumeMounts:
+        - name: frontend-source
+          mountPath: /app
+        - name: frontend-dist
+          mountPath: /shared
+        workingDir: /app
+      containers:
+      - name: frontend
+        image: harbor.weizhipin.com/arsenal-ai/node:18-alpine
+        command: ["npx"]
+        args: ["serve", "-s", "/app/dist", "-l", "3000"]
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        env:
+        - name: PORT
+          value: "3000"
+        volumeMounts:
+        - name: frontend-dist
+          mountPath: /app/dist
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 3
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+      volumes:
+      - name: frontend-source
+        configMap:
+          name: frontend-source-code
+      - name: frontend-dist
+        emptyDir: {}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-source-code
+  namespace: kf-partition-gray
+data:
+  package.json: |
+    {
+      "name": "frontend",
+      "version": "0.0.0",
+      "type": "module",
+      "scripts": {
+        "dev": "vite",
+        "build": "tsc -b && vite build",
+        "lint": "eslint .",
+        "preview": "vite preview"
+      },
+      "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.8.1",
+        "serve": "^14.2.1"
+      },
+      "devDependencies": {
+        "@types/react": "^18.2.43",
+        "@types/react-dom": "^18.2.17",
+        "@typescript-eslint/eslint-plugin": "^6.14.0",
+        "@typescript-eslint/parser": "^6.14.0",
+        "@vitejs/plugin-react": "^4.2.1",
+        "eslint": "^8.55.0",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.5",
+        "typescript": "^5.2.2",
+        "vite": "^5.0.8"
+      }
+    }
+  vite.config.ts: |
+    import { defineConfig } from 'vite'
+    import react from '@vitejs/plugin-react'
+
+    export default defineConfig({
+      plugins: [react()],
+      server: {
+        host: '0.0.0.0',
+        port: 5173
+      },
+      build: {
+        outDir: 'dist',
+        sourcemap: false
+      }
+    })
+  tsconfig.json: |
+    {
+      "compilerOptions": {
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "module": "ESNext",
+        "skipLibCheck": true,
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "react-jsx",
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true
+      },
+      "include": ["src"],
+      "references": [{ "path": "./tsconfig.node.json" }]
+    }
+  tsconfig.node.json: |
+    {
+      "compilerOptions": {
+        "composite": true,
+        "skipLibCheck": true,
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "allowSyntheticDefaultImports": true
+      },
+      "include": ["vite.config.ts"]
+    }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-career-buddy-frontend-service
+  namespace: kf-partition-gray
+  labels:
+    app: ai-career-buddy-frontend
+spec:
+  selector:
+    app: ai-career-buddy-frontend
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+      protocol: TCP
+  type: ClusterIP

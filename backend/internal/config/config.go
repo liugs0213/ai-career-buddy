@@ -25,7 +25,7 @@ func Load() {
 
 	C = AppConfig{
 		AppPort:       getEnv("APP_PORT", "8080"),
-		MySQLDSN:      getEnv("MYSQL_DSN", "root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local"),
+		MySQLDSN:      getEnv("MYSQL_DSN", "root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&collation=utf8mb4_unicode_ci&parseTime=True&loc=Local"),
 		Env:           getEnv("APP_ENV", "dev"),
 		BailianAPIURL: getEnv("BAILIAN_API_URL", "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions"),
 		BailianAPIKey: getEnv("BAILIAN_API_KEY", "sk-84229c5e-18ea-4b6a-a04a-2183688f9373"),

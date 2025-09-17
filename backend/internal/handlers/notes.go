@@ -5,6 +5,7 @@ import (
 
 	"ai-career-buddy/internal/db"
 	"ai-career-buddy/internal/models"
+	"ai-career-buddy/internal/utils"
 
 	"github.com/gin-gonic/gin"
 )
@@ -24,6 +25,11 @@ func CreateNote(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+
+	// 清理笔记内容，移除不兼容字符
+	in.Title = utils.SanitizeForDatabase(in.Title)
+	in.Content = utils.SanitizeForDatabase(in.Content)
+
 	if err := db.Conn.Create(&in).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return

@@ -35,6 +35,12 @@ func Connect(dsn string) {
 		Conn, err = gorm.Open(mysql.Open(dsn), &gorm.Config{
 			Logger: gormLogger,
 		})
+
+		// 设置MySQL连接字符集，确保中文字符正确存储
+		if err == nil {
+			Conn.Exec("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci")
+			Conn.Exec("SET CHARACTER SET utf8mb4")
+		}
 	}
 
 	if err != nil {

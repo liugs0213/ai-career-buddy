@@ -123,7 +123,9 @@ func SendMessage(c *gin.Context) {
 
 	logger.Debug("AI回复生成完成，内容长度: %d", len(aiReplyContent))
 
-	aiReply := models.Message{UserID: in.UserID, Role: "assistant", Content: aiReplyContent, ThreadID: in.ThreadID}
+	// 清理AI回复内容
+	cleanedAIReply := utils.SanitizeForDatabase(aiReplyContent)
+	aiReply := models.Message{UserID: in.UserID, Role: "assistant", Content: cleanedAIReply, ThreadID: in.ThreadID}
 	if err := db.Conn.Create(&aiReply).Error; err != nil {
 		logger.Error("保存AI回复失败: %v", err)
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
@@ -272,13 +274,17 @@ func StreamMessage(c *gin.Context) {
 		attachmentsJSON = string(attachmentsBytes)
 	}
 
+	// 清理消息内容，移除不兼容字符
+	cleanedContent := utils.SanitizeForDatabase(enhancedContent)
+	cleanedAttachments := utils.SanitizeForDatabase(attachmentsJSON)
+
 	// 保存用户消息
 	userMsg := models.Message{
 		UserID:      req.UserID,
 		Role:        "user",
-		Content:     enhancedContent,
+		Content:     cleanedContent,
 		ThreadID:    req.ThreadID,
-		Attachments: attachmentsJSON,
+		Attachments: cleanedAttachments,
 	}
 	if err := db.Conn.Create(&userMsg).Error; err != nil {
 		logger.Error("保存用户消息失败: %v", err)
@@ -334,11 +340,14 @@ func StreamMessage(c *gin.Context) {
 		logger.Info("模拟流式回复完成")
 	}
 
+	// 清理AI回复内容
+	cleanedAIReply := utils.SanitizeForDatabase(aiReplyContent)
+
 	// 保存AI回复
 	aiReply := models.Message{
 		UserID:   req.UserID,
 		Role:     "assistant",
-		Content:  aiReplyContent,
+		Content:  cleanedAIReply,
 		ThreadID: req.ThreadID,
 	}
 	if err := db.Conn.Create(&aiReply).Error; err != nil {

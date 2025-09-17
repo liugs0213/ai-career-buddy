@@ -1,0 +1,123 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-career-buddy-backend
+  namespace: kf-partition-gray
+  labels:
+    app: ai-career-buddy-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ai-career-buddy-backend
+  template:
+    metadata:
+      labels:
+        app: ai-career-buddy-backend
+    spec:
+      containers:
+      - name: backend
+        image: harbor.weizhipin.com/arsenal-oceanus/ai-career-buddy:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        securityContext:
+          runAsUser: 0
+          runAsGroup: 0
+        env:
+        # 应用配置
+        - name: APP_PORT
+          value: "8080"
+        - name: APP_ENV
+          value: production
+        
+        # 数据库配置
+        - name: DB_HOST
+          value: mysql-service
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_NAME
+          value: ai_career_buddy
+        - name: DB_USERNAME
+          value: mysql_user
+        - name: DB_PASSWORD
+          value: mysql_password
+        - name: MYSQL_DSN
+          value: root:root_password_here@tcp(10.98.1.99:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+        
+        # 日志配置
+        - name: LOG_DIR
+          value: /app/logs
+        - name: LOG_LEVEL
+          value: info
+        
+        # 文件上传配置
+        - name: UPLOAD_DIR
+          value: /app/uploads
+        - name: MAX_FILE_SIZE
+          value: "10485760"
+        
+        # AI API配置
+        - name: BAILIAN_API_URL
+          value: "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions"
+        - name: BAILIAN_API_KEY
+          value: "sk-84229c5e-18ea-4b6a-a04a-2183688f9373"
+        
+        # 创建必要的目录
+        volumeMounts:
+        - name: logs-volume
+          mountPath: /app/logs
+        - name: uploads-volume
+          mountPath: /app/uploads
+        
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+      
+      volumes:
+      - name: logs-volume
+        emptyDir:
+          sizeLimit: 1Gi
+      - name: uploads-volume
+        emptyDir:
+          sizeLimit: 2Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-career-buddy-backend-service
+  namespace: kf-partition-gray
+  labels:
+    app: ai-career-buddy-backend
+spec:
+  selector:
+    app: ai-career-buddy-backend
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+      protocol: TCP
+  type: ClusterIP
