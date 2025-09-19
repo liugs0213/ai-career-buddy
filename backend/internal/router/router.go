@@ -11,6 +11,7 @@ func Setup() *gin.Engine {
 	r := gin.New()
 
 	// 添加中间件
+	r.Use(middleware.CORSMiddleware()) // 添加CORS中间件
 	r.Use(middleware.LoggingMiddleware())
 	r.Use(middleware.ErrorRecoveryMiddleware())
 	r.Use(gin.Recovery())

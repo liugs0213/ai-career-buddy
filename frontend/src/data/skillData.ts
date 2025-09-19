@@ -352,3 +352,4 @@ export const managementSkills: SkillNode[] = [
   }
 ];
 
+

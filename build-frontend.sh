@@ -8,7 +8,7 @@ set -e
 # 默认配置
 IMAGE_NAME="harbor.weizhipin.com/arsenal-ai/ai-career-buddy-frontend"
 TAG="latest"
-API_BASE_URL="http://localhost:8080"
+API_BASE_URL="http://10.98.208.222:80"
 
 # 解析命令行参数
 while [[ $# -gt 0 ]]; do
@@ -52,7 +52,7 @@ cat .env.local
 
 # 构建Docker镜像
 echo "🐳 开始Docker构建..."
-docker build \
+podman build \
   --build-arg VITE_API_BASE_URL="$API_BASE_URL" \
   -t "$IMAGE_NAME:$TAG" \
   .
@@ -65,7 +65,7 @@ read -p "是否推送到Harbor仓库? (y/N): " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   echo "📤 推送镜像到Harbor..."
-  docker push "$IMAGE_NAME:$TAG"
+  podman push "$IMAGE_NAME:$TAG"
   echo "✅ 镜像推送完成!"
 fi
 

@@ -18,7 +18,7 @@ spec:
       containers:
       - name: frontend
         # 修复镜像名称拼写错误
-        image: harbor.weizhipin.com/arsenal-oceanus/ai-career-buddy-frontend:latest
+        image: harbor.weizhipin.com/arsenal-ai/ai-career-buddy-frontend:production
         imagePullPolicy: Always
         ports:
         - containerPort: 3000

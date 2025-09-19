@@ -28,3 +28,5 @@ else
     echo "❌ 字符集修复失败，请检查MySQL连接和权限"
     exit 1
 fi
+
+

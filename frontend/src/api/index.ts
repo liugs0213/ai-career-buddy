@@ -18,7 +18,40 @@ console.log('=== API配置信息 ===');
 console.log('最终使用的API Base URL:', baseURL);
 console.log('========================');
 
-export const http = axios.create({ baseURL });
+export const http = axios.create({ 
+  baseURL,
+  timeout: 10000, // 10秒超时
+  headers: {
+    'Content-Type': 'application/json',
+  }
+});
+
+// 添加请求拦截器
+http.interceptors.request.use(
+  (config) => {
+    console.log('🚀 发送请求:', config.method?.toUpperCase(), config.url);
+    return config;
+  },
+  (error) => {
+    console.error('❌ 请求错误:', error);
+    return Promise.reject(error);
+  }
+);
+
+// 添加响应拦截器
+http.interceptors.response.use(
+  (response) => {
+    console.log('✅ 收到响应:', response.status, response.config.url);
+    return response;
+  },
+  (error) => {
+    console.error('❌ 响应错误:', error.response?.status, error.message);
+    if (error.code === 'ECONNREFUSED') {
+      console.error('🔌 连接被拒绝，请检查后端服务是否启动');
+    }
+    return Promise.reject(error);
+  }
+);
 
 export type Message = { id?: number; role: string; content: string; threadId?: string; createdAt?: string; attachments?: string };
 export type Note = { id?: number; title: string; content: string; updatedAt?: string };

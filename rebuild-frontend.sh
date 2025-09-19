@@ -15,7 +15,7 @@ cd frontend
 
 # 构建镜像
 echo "🐳 开始构建..."
-docker build \
+podman build \
   --build-arg VITE_API_BASE_URL="$API_URL" \
   -t "$IMAGE_NAME:$TAG" \
   .
@@ -25,7 +25,7 @@ if [ $? -eq 0 ]; then
   
   # 推送镜像
   echo "📤 推送镜像..."
-  docker push "$IMAGE_NAME:$TAG"
+  podman push "$IMAGE_NAME:$TAG"
   
   if [ $? -eq 0 ]; then
     echo "✅ 推送成功!"

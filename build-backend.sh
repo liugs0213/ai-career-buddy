@@ -13,14 +13,14 @@ cd backend
 
 # 构建镜像
 echo "🐳 开始构建..."
-docker build -t "$IMAGE_NAME:$TAG" .
+podman build -t "$IMAGE_NAME:$TAG" .
 
 if [ $? -eq 0 ]; then
   echo "✅ 构建成功!"
   
   # 推送镜像
   echo "📤 推送镜像..."
-  docker push "$IMAGE_NAME:$TAG"
+  podman push "$IMAGE_NAME:$TAG"
   
   if [ $? -eq 0 ]; then
     echo "✅ 推送成功!"

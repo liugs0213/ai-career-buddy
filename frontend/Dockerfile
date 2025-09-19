@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
 
 # 构建时设置环境变量（默认值：本地开发）
-ARG VITE_API_BASE_URL=API_URL="http://10.98.208.222:80"
+ARG VITE_API_BASE_URL="http://10.98.208.222:80"
 ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
 
 # 打印环境变量用于调试
