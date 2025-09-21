@@ -123,7 +123,6 @@ func (c *BailianClient) SendMessage(modelID, userMessage string, attachments []s
 	// 设置请求头
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Authorization", "Bearer "+c.apiKey)
-	req.Header.Set("x-higress-llm-model", modelID)
 
 	// 发送请求
 	resp, err := c.client.Do(req)
@@ -189,7 +188,6 @@ func (c *BailianClient) SendStreamMessage(modelID, userMessage string, attachmen
 	// 设置请求头
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Authorization", "Bearer "+c.apiKey)
-	req.Header.Set("x-higress-llm-model", modelID)
 
 	// 发送请求
 	resp, err := c.client.Do(req)
