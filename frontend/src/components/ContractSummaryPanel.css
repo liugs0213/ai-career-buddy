@@ -2,13 +2,14 @@
   width: 100%;
   height: 98vh;
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-  border-radius: 12px;
+  border-radius: 16px;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .contract-summary-panel.expanded {
@@ -21,7 +22,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
+  padding: 20px 24px;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   border-bottom: 1px solid #e2e8f0;
   flex-shrink: 0;
@@ -34,19 +35,20 @@
 }
 
 .panel-icon {
-  font-size: 18px;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .panel-title {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
   color: #1e293b;
   margin: 0;
+  letter-spacing: -0.025em;
 }
 
 .header-actions {
@@ -55,15 +57,16 @@
 }
 
 .action-btn {
-  padding: 6px 12px;
+  padding: 10px 16px;
   border: 1px solid #d1d5db;
   background: white;
   color: #374151;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 500;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
+  letter-spacing: -0.01em;
 }
 
 .action-btn:hover {
@@ -85,7 +88,7 @@
 
 .panel-content {
   flex: 1;
-  padding: 16px 20px;
+  padding: 24px 28px;
   overflow-y: auto;
 }
 
@@ -326,23 +329,24 @@
 /* 标签页样式 */
 .tab-navigation {
   display: flex;
-  gap: 4px;
-  margin-bottom: 16px;
-  border-bottom: 1px solid #e5e7eb;
-  padding-bottom: 8px;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 12px;
 }
 
 .tab-btn {
-  padding: 8px 12px;
+  padding: 12px 20px;
   border: none;
   background: transparent;
   color: #6b7280;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 8px;
   transition: all 0.2s ease;
   position: relative;
+  letter-spacing: -0.01em;
 }
 
 .tab-btn:hover {
@@ -370,11 +374,12 @@
 .score-section {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
+  gap: 32px;
+  padding: 32px;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  border-radius: 12px;
+  border-radius: 16px;
   border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 .score-circle {
@@ -382,64 +387,69 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   border-radius: 50%;
   color: white;
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
 }
 
 .score-value {
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 36px;
+  font-weight: 800;
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .score-label {
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 600;
   opacity: 0.9;
+  letter-spacing: -0.01em;
 }
 
 .score-details {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .score-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
+  gap: 12px;
+  font-size: 16px;
   color: #374151;
+  font-weight: 600;
 }
 
 .score-icon {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .key-points-preview {
   background: white;
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: 12px;
+  padding: 24px;
   border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 .key-points-preview h4 {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   color: #374151;
-  margin: 0 0 12px 0;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.025em;
 }
 
 .preview-point {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 0;
+  gap: 12px;
+  padding: 12px 0;
   border-bottom: 1px solid #f3f4f6;
 }
 
@@ -448,18 +458,20 @@
 }
 
 .preview-icon {
-  font-size: 14px;
-  width: 20px;
-  height: 20px;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .preview-content {
-  font-size: 13px;
+  font-size: 15px;
   color: #6b7280;
   flex: 1;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .more-points {
@@ -473,16 +485,18 @@
 /* 整体评估样式 */
 .overall-assessment {
   background: white;
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: 12px;
+  padding: 24px;
   border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 .overall-assessment h4 {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   color: #374151;
-  margin: 0 0 16px 0;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.025em;
 }
 
 .assessment-content {
@@ -533,15 +547,17 @@
 }
 
 .assessment-title {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
   color: #1e293b;
+  letter-spacing: -0.025em;
 }
 
 .assessment-desc {
-  font-size: 13px;
+  font-size: 15px;
   color: #6b7280;
-  line-height: 1.5;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
 }
 
 .assessment-positive .assessment-summary {
@@ -635,24 +651,27 @@
 .advantage-item {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  padding: 12px;
+  gap: 16px;
+  padding: 16px;
   background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid #bbf7d0;
   border-left: 4px solid #10b981;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
 }
 
 .advantage-icon {
-  font-size: 16px;
+  font-size: 20px;
   margin-top: 2px;
 }
 
 .advantage-text {
-  font-size: 14px;
+  font-size: 16px;
   color: #065f46;
-  line-height: 1.5;
+  line-height: 1.6;
   flex: 1;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 /* 风险标签页 */
@@ -669,24 +688,27 @@
 .disadvantage-item {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  padding: 12px;
+  gap: 16px;
+  padding: 16px;
   background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid #fecaca;
   border-left: 4px solid #ef4444;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);
 }
 
 .disadvantage-icon {
-  font-size: 16px;
+  font-size: 20px;
   margin-top: 2px;
 }
 
 .disadvantage-text {
-  font-size: 14px;
+  font-size: 16px;
   color: #991b1b;
-  line-height: 1.5;
+  line-height: 1.6;
   flex: 1;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 /* 风险等级标签页 */
@@ -793,6 +815,326 @@
   margin: 0;
 }
 
+/* 全屏模式样式 */
+.visualization-fullscreen-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.fullscreen-content {
+  width: 100%;
+  max-width: 1800px;
+  height: 95vh;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.fullscreen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-bottom: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.fullscreen-header .panel-icon {
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
+}
+
+.fullscreen-header .panel-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.fullscreen-header .action-btn {
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.fullscreen-body {
+  flex: 1;
+  padding: 24px 32px;
+  overflow-y: auto;
+}
+
+.fullscreen-body .tab-navigation {
+  margin-bottom: 32px;
+  border-bottom: 3px solid #e5e7eb;
+  padding-bottom: 16px;
+}
+
+.fullscreen-body .tab-btn {
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.fullscreen-body .score-section {
+  padding: 40px;
+  gap: 40px;
+}
+
+.fullscreen-body .score-circle {
+  width: 140px;
+  height: 140px;
+}
+
+.fullscreen-body .score-value {
+  font-size: 36px;
+}
+
+.fullscreen-body .score-label {
+  font-size: 14px;
+}
+
+.fullscreen-body .score-item {
+  font-size: 16px;
+  gap: 14px;
+}
+
+.fullscreen-body .score-icon {
+  font-size: 20px;
+}
+
+.fullscreen-body .overall-assessment {
+  padding: 32px;
+}
+
+.fullscreen-body .overall-assessment h4 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.fullscreen-body .assessment-title {
+  font-size: 20px;
+}
+
+.fullscreen-body .assessment-desc {
+  font-size: 15px;
+}
+
+.fullscreen-body .key-points-preview {
+  padding: 32px;
+}
+
+.fullscreen-body .key-points-preview h4 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.fullscreen-body .preview-content {
+  font-size: 15px;
+}
+
+.fullscreen-body .preview-icon {
+  font-size: 20px;
+  width: 26px;
+  height: 26px;
+}
+
+.fullscreen-body .advantage-item,
+.fullscreen-body .disadvantage-item {
+  padding: 20px;
+  gap: 20px;
+}
+
+.fullscreen-body .advantage-text,
+.fullscreen-body .disadvantage-text {
+  font-size: 16px;
+}
+
+.fullscreen-body .advantage-icon,
+.fullscreen-body .disadvantage-icon {
+  font-size: 20px;
+}
+
+/* 新增样式：风险说明 */
+.risk-explanation {
+  margin-top: 20px;
+  padding: 16px;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: 12px;
+  border-left: 4px solid #f59e0b;
+}
+
+.risk-explanation-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.risk-icon {
+  font-size: 16px;
+}
+
+.risk-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #92400e;
+}
+
+.risk-explanation-content {
+  font-size: 14px;
+  color: #92400e;
+  line-height: 1.5;
+}
+
+/* 新增样式：标准对比 */
+.standard-comparison {
+  margin-top: 20px;
+  padding: 16px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: 12px;
+  border-left: 4px solid #0ea5e9;
+}
+
+.comparison-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.comparison-icon {
+  font-size: 16px;
+}
+
+.comparison-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0c4a6e;
+}
+
+.comparison-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comparison-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+}
+
+.comparison-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0c4a6e;
+}
+
+.comparison-value {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.comparison-value.good {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.comparison-value.warning {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.comparison-value.neutral {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* 新增样式：关键信息预览头部 */
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.toggle-more-btn {
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-more-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  transform: translateY(-1px);
+}
+
+/* 全屏模式下的新样式 */
+.fullscreen-body .risk-explanation {
+  padding: 20px;
+  margin-top: 24px;
+}
+
+.fullscreen-body .risk-title {
+  font-size: 18px;
+}
+
+.fullscreen-body .risk-explanation-content {
+  font-size: 16px;
+}
+
+.fullscreen-body .standard-comparison {
+  padding: 20px;
+  margin-top: 24px;
+}
+
+.fullscreen-body .comparison-title {
+  font-size: 18px;
+}
+
+.fullscreen-body .comparison-item {
+  padding: 12px 16px;
+}
+
+.fullscreen-body .comparison-label,
+.fullscreen-body .comparison-value {
+  font-size: 16px;
+}
+
+.fullscreen-body .toggle-more-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
   .contract-summary-panel {
@@ -826,5 +1168,18 @@
   
   .stat-value {
     font-size: 16px;
+  }
+  
+  .fullscreen-content {
+    height: 95vh;
+    margin: 10px;
+  }
+  
+  .fullscreen-header {
+    padding: 16px 20px;
+  }
+  
+  .fullscreen-body {
+    padding: 20px 24px;
   }
 }

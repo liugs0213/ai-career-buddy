@@ -24,6 +24,13 @@ interface ContractAnalysis {
   riskLevel: 'low' | 'medium' | 'high';
   overallScore: number;
   recommendations: string[];
+  contractType: string;
+  riskExplanation: string;
+  standardComparison: {
+    salaryCompliance: string;
+    benefitCoverage: string;
+    legalCompliance: string;
+  };
 }
 
 const ContractSummaryPanel: React.FC<ContractSummaryPanelProps> = ({
@@ -39,14 +46,121 @@ const ContractSummaryPanel: React.FC<ContractSummaryPanelProps> = ({
     disadvantages: [],
     riskLevel: 'low',
     overallScore: 0,
-    recommendations: []
+    recommendations: [],
+    contractType: '劳动合同',
+    riskExplanation: '',
+    standardComparison: {
+      salaryCompliance: '待分析',
+      benefitCoverage: '待分析',
+      legalCompliance: '待分析'
+    }
   });
   const [activeTab, setActiveTab] = useState<'overview' | 'advantages' | 'disadvantages' | 'risks'>('overview');
   const [internalIsFullscreen, setInternalIsFullscreen] = useState(false);
+  const [showAllKeyPoints, setShowAllKeyPoints] = useState(false);
   
   // 使用外部控制的全屏状态，如果没有外部控制则使用内部状态
   const isFullscreen = onFullscreenChange ? externalIsFullscreen : internalIsFullscreen;
   const setIsFullscreen = onFullscreenChange ? onFullscreenChange : setInternalIsFullscreen;
+
+  // 辅助函数：识别合同类型
+  const identifyContractType = (aiResponse: string): string => {
+    if (aiResponse.includes('实习') || aiResponse.includes('实习生')) return '实习协议';
+    if (aiResponse.includes('兼职') || aiResponse.includes('临时工')) return '兼职合同';
+    if (aiResponse.includes('试用期') || aiResponse.includes('正式员工')) return '正式劳动合同';
+    if (aiResponse.includes('劳务') || aiResponse.includes('外包')) return '劳务合同';
+    return '劳动合同';
+  };
+
+  // 辅助函数：生成风险说明
+  const getRiskExplanation = (riskLevel: 'low' | 'medium' | 'high', disadvantages: string[]): string => {
+    switch (riskLevel) {
+      case 'high': 
+        return `存在${disadvantages.length}项需要关注的风险点，建议仔细审查相关条款`;
+      case 'medium': 
+        return `存在${disadvantages.length}项需要注意的条款，建议关注细节`;
+      case 'low': 
+        return `风险较低，合同条款相对合理，仅有${disadvantages.length}项需要注意`;
+      default: 
+        return '';
+    }
+  };
+
+  // 辅助函数：生成智能建议
+  const generateRecommendations = (analysis: ContractAnalysis): string[] => {
+    const recommendations: string[] = [];
+    
+    if (analysis.overallScore >= 80) {
+      recommendations.push('建议定期审查合同条款变化');
+      recommendations.push('可考虑协商更好的福利待遇');
+      recommendations.push('建议了解公司发展前景');
+      if (analysis.riskLevel === 'low') {
+        recommendations.push('合同条件优越，建议尽快签署');
+      }
+    } else if (analysis.overallScore >= 60) {
+      recommendations.push('建议仔细阅读合同细节');
+      recommendations.push('可考虑协商部分条款');
+      recommendations.push('建议咨询专业人士意见');
+    } else {
+      recommendations.push('强烈建议寻求专业法律咨询');
+      recommendations.push('建议与HR详细沟通合同条款');
+      recommendations.push('考虑寻找其他工作机会');
+    }
+    
+    // 基于风险等级添加建议
+    if (analysis.riskLevel === 'high') {
+      recommendations.push('高风险合同，建议谨慎考虑');
+      recommendations.push('建议详细记录所有风险点');
+    }
+    
+    return recommendations;
+  };
+
+  // 辅助函数：与标准合同对比
+  const compareWithStandard = (analysis: ContractAnalysis): { salaryCompliance: string; benefitCoverage: string; legalCompliance: string } => {
+    let salaryCompliance = '待分析';
+    let benefitCoverage = '待分析';
+    let legalCompliance = '待分析';
+    
+    // 薪资合规性分析
+    if (analysis.advantages.some(adv => adv.includes('薪资') || adv.includes('工资'))) {
+      salaryCompliance = '符合市场标准';
+    } else if (analysis.disadvantages.some(dis => dis.includes('薪资') || dis.includes('工资'))) {
+      salaryCompliance = '低于市场标准';
+    } else {
+      salaryCompliance = '基本符合标准';
+    }
+    
+    // 福利覆盖分析
+    const benefitKeywords = ['社会保险', '公积金', '年假', '病假', '福利'];
+    const hasBenefits = analysis.advantages.some(adv => benefitKeywords.some(keyword => adv.includes(keyword)));
+    if (hasBenefits) {
+      benefitCoverage = '福利覆盖完整';
+    } else {
+      benefitCoverage = '福利覆盖一般';
+    }
+    
+    // 法律合规性分析
+    const legalKeywords = ['劳动法', '劳动合同法', '试用期', '竞业限制'];
+    const hasLegalCompliance = analysis.advantages.some(adv => legalKeywords.some(keyword => adv.includes(keyword)));
+    if (hasLegalCompliance && analysis.riskLevel !== 'high') {
+      legalCompliance = '符合劳动法规定';
+    } else if (analysis.riskLevel === 'high') {
+      legalCompliance = '存在法律风险';
+    } else {
+      legalCompliance = '基本符合规定';
+    }
+    
+    return { salaryCompliance, benefitCoverage, legalCompliance };
+  };
+
+  // 辅助函数：修复风险等级计算
+  const calculateRiskLevel = (riskScore: number, disadvantages: string[]): 'low' | 'medium' | 'high' => {
+    // 修复风险等级计算逻辑
+    if (riskScore <= 2 && disadvantages.length <= 2) return 'low';
+    if (riskScore <= 5 && disadvantages.length <= 4) return 'medium';
+    return 'high';
+  };
 
   // 从AI回复中提取关键信息并进行全面分析
   useEffect(() => {
@@ -399,13 +513,8 @@ const ContractSummaryPanel: React.FC<ContractSummaryPanelProps> = ({
         }
       });
 
-      // 计算风险等级
-      let riskLevel: 'low' | 'medium' | 'high' = 'low';
-      if (riskScore >= 5) {
-        riskLevel = 'high';
-      } else if (riskScore >= 2) {
-        riskLevel = 'medium';
-      }
+      // 计算风险等级 - 使用修复后的逻辑
+      const riskLevel = calculateRiskLevel(riskScore, disadvantages);
 
       // 智能分析：如果提取的信息较少，基于AI回复内容进行推断
       if (points.length < 5) {
@@ -463,13 +572,44 @@ const ContractSummaryPanel: React.FC<ContractSummaryPanelProps> = ({
       
       overallScore = Math.max(0, Math.min(100, baseScore + advantageBonus - disadvantagePenalty - riskPenalty + infoBonus));
 
-      return {
+      // 生成基础分析结果
+      const baseAnalysis = {
         keyPoints: points.slice(0, 10), // 限制显示数量
         advantages: [...new Set(advantages)], // 去重优势列表
         disadvantages: [...new Set(disadvantages)], // 去重劣势列表
         riskLevel,
         overallScore,
         recommendations: [...new Set(recommendations)] // 去重建议列表
+      };
+
+      // 生成智能建议
+      const smartRecommendations = generateRecommendations({
+        ...baseAnalysis,
+        contractType: '',
+        riskExplanation: '',
+        standardComparison: { salaryCompliance: '', benefitCoverage: '', legalCompliance: '' }
+      });
+      
+      // 生成风险说明
+      const riskExplanation = getRiskExplanation(riskLevel, disadvantages);
+      
+      // 识别合同类型
+      const contractType = identifyContractType(aiResponse);
+      
+      // 与标准合同对比
+      const standardComparison = compareWithStandard({
+        ...baseAnalysis,
+        contractType: '',
+        riskExplanation: '',
+        standardComparison: { salaryCompliance: '', benefitCoverage: '', legalCompliance: '' }
+      });
+
+      return {
+        ...baseAnalysis,
+        recommendations: [...new Set([...baseAnalysis.recommendations, ...smartRecommendations])], // 合并建议
+        contractType,
+        riskExplanation,
+        standardComparison
       };
     };
 
@@ -645,6 +785,12 @@ const ContractSummaryPanel: React.FC<ContractSummaryPanelProps> = ({
                   
                   <div className="assessment-details">
                     <div className="detail-item">
+                      <span className="detail-label">合同类型</span>
+                      <span className="detail-value">
+                        📄 {analysis.contractType}
+                      </span>
+                    </div>
+                    <div className="detail-item">
                       <span className="detail-label">风险等级</span>
                       <span className={`detail-value risk-${analysis.riskLevel}`}>
                         {analysis.riskLevel === 'high' ? '🔴 高' : analysis.riskLevel === 'medium' ? '🟡 中' : '🟢 低'}
@@ -663,18 +809,69 @@ const ContractSummaryPanel: React.FC<ContractSummaryPanelProps> = ({
                       </span>
                     </div>
                   </div>
+                  
+                  {/* 风险说明 */}
+                  {analysis.riskExplanation && (
+                    <div className="risk-explanation">
+                      <div className="risk-explanation-header">
+                        <span className="risk-icon">⚠️</span>
+                        <span className="risk-title">风险说明</span>
+                      </div>
+                      <div className="risk-explanation-content">
+                        {analysis.riskExplanation}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* 标准对比 */}
+                  <div className="standard-comparison">
+                    <div className="comparison-header">
+                      <span className="comparison-icon">📊</span>
+                      <span className="comparison-title">标准对比</span>
+                    </div>
+                    <div className="comparison-items">
+                      <div className="comparison-item">
+                        <span className="comparison-label">薪资合规性</span>
+                        <span className={`comparison-value ${analysis.standardComparison.salaryCompliance.includes('符合') ? 'good' : analysis.standardComparison.salaryCompliance.includes('低于') ? 'warning' : 'neutral'}`}>
+                          {analysis.standardComparison.salaryCompliance}
+                        </span>
+                      </div>
+                      <div className="comparison-item">
+                        <span className="comparison-label">福利覆盖</span>
+                        <span className={`comparison-value ${analysis.standardComparison.benefitCoverage.includes('完整') ? 'good' : 'neutral'}`}>
+                          {analysis.standardComparison.benefitCoverage}
+                        </span>
+                      </div>
+                      <div className="comparison-item">
+                        <span className="comparison-label">法律合规</span>
+                        <span className={`comparison-value ${analysis.standardComparison.legalCompliance.includes('符合') ? 'good' : analysis.standardComparison.legalCompliance.includes('风险') ? 'warning' : 'neutral'}`}>
+                          {analysis.standardComparison.legalCompliance}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               
               <div className="key-points-preview">
-                <h4>关键信息预览</h4>
-                {analysis.keyPoints.slice(0, 3).map((point) => (
+                <div className="preview-header">
+                  <h4>关键信息预览</h4>
+                  {analysis.keyPoints.length > 3 && (
+                    <button 
+                      className="toggle-more-btn"
+                      onClick={() => setShowAllKeyPoints(!showAllKeyPoints)}
+                    >
+                      {showAllKeyPoints ? '收起' : `查看全部 (${analysis.keyPoints.length}项)`}
+                    </button>
+                  )}
+                </div>
+                {(showAllKeyPoints ? analysis.keyPoints : analysis.keyPoints.slice(0, 3)).map((point) => (
                   <div key={point.id} className={`preview-point ${point.type}`}>
                     <span className="preview-icon">{point.icon}</span>
                     <span className="preview-content">{point.content}</span>
                   </div>
                 ))}
-                {analysis.keyPoints.length > 3 && (
+                {!showAllKeyPoints && analysis.keyPoints.length > 3 && (
                   <div className="more-points">
                     还有 {analysis.keyPoints.length - 3} 项关键信息...
                   </div>

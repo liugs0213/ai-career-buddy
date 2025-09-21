@@ -490,12 +490,12 @@
 
 .fullscreen-content {
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-  border-radius: 24px;
+  border-radius: 16px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  width: 90%;
-  height: 90%;
-  max-width: 1400px;
-  max-height: 900px;
+  width: 95%;
+  height: 95%;
+  max-width: 1800px;
+  max-height: 1000px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -507,10 +507,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 32px;
+  padding: 20px 28px;
   border-bottom: 1px solid #e2e8f0;
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-  border-radius: 24px 24px 0 0;
+  border-radius: 16px 16px 0 0;
   position: relative;
   z-index: 1;
   flex-shrink: 0;
@@ -528,12 +528,12 @@
 }
 
 .fullscreen-header .panel-icon {
-  font-size: 28px;
+  font-size: 24px;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .fullscreen-header .panel-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: #1e293b;
   margin: 0;

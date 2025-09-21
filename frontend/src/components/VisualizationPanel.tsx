@@ -5,6 +5,7 @@ import ContractSummaryPanel from './ContractSummaryPanel';
 import CompanyExperiencePanel from './CompanyExperiencePanel';
 import OfferComparisonPanel from './OfferComparisonPanel';
 import CareerPlanningPanel from './CareerPlanningPanel';
+import ErrorBoundary from './ErrorBoundary';
 import './VisualizationPanel.css';
 
 interface VisualizationPanelProps {
@@ -26,7 +27,12 @@ const VisualizationPanel: React.FC<VisualizationPanelProps> = ({
   isFullscreen: externalIsFullscreen = false,
   onFullscreenChange
 }) => {
-  const [visualizationType, setVisualizationType] = useState<VisualizationType>('none');
+  const [visualizationType, setVisualizationType] = useState<VisualizationType>(() => {
+    // 根据activeTab设置初始值
+    if (activeTab === 'career') return 'planning';
+    if (activeTab === 'offer') return 'comparison';
+    return 'none';
+  });
   const [isExpanded] = useState(true);
   const [internalIsFullscreen, setInternalIsFullscreen] = useState(false);
   const [isPanelVisible] = useState(true);
@@ -196,7 +202,11 @@ const VisualizationPanel: React.FC<VisualizationPanelProps> = ({
         return <TechnicalSkillTree />;
         
       case 'comparison':
-        return <OfferComparisonPanel userInput={userInput} aiResponse={aiResponse} />;
+        return (
+          <ErrorBoundary>
+            <OfferComparisonPanel userInput={userInput} aiResponse={aiResponse} />
+          </ErrorBoundary>
+        );
         
       case 'planning':
         console.log('渲染职业指导面板');
@@ -305,7 +315,9 @@ const VisualizationPanel: React.FC<VisualizationPanelProps> = ({
             {defaultViz.type === 'comparison' && (
               <>
                 {console.log('渲染Offer对比面板')}
-                <OfferComparisonPanel userInput={userInput} aiResponse={aiResponse} />
+                <ErrorBoundary>
+                  <OfferComparisonPanel userInput={userInput} aiResponse={aiResponse} />
+                </ErrorBoundary>
               </>
             )}
           </div>
@@ -368,7 +380,9 @@ const VisualizationPanel: React.FC<VisualizationPanelProps> = ({
                   <CareerPlanningPanel userInput={userInput} aiResponse={aiResponse} />
                 )}
                 {defaultViz.type === 'comparison' && (
-                  <OfferComparisonPanel userInput={userInput} aiResponse={aiResponse} />
+                  <ErrorBoundary>
+                    <OfferComparisonPanel userInput={userInput} aiResponse={aiResponse} />
+                  </ErrorBoundary>
                 )}
               </div>
               

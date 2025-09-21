@@ -992,9 +992,9 @@ export default function Home() {
         setTimeout(() => setVisualizationFullscreen(true), 100);
         break;
       case 'monitor':
-        // 企业监控：直接进入全屏模式
+        // 企业监控：先展开侧边栏，再触发全屏模式
         setRightPanelCollapsed(false);
-        setVisualizationFullscreen(true);
+        setTimeout(() => setVisualizationFullscreen(true), 100);
         break;
       default:
         // 其他标签页展开右侧栏
@@ -1570,9 +1570,9 @@ export default function Home() {
             <div ref={messagesEndRef} />
             </div>
             
-            {/* 可视化面板 */}
+            {/* 可视化面板 - 只有聊天完成时才显示 */}
             <div className={`visualization-area ${rightPanelCollapsed ? 'collapsed' : ''}`}>
-              {!rightPanelCollapsed && (
+              {!rightPanelCollapsed && !currentChat.isLoading && (
                 activeTab === 'contract' ? (
                   <ContractSummaryPanel
                     userInput={currentSession?.messages.filter(m => m.role === 'user').pop()?.content || currentChat.input || ''}
@@ -1669,14 +1669,17 @@ export default function Home() {
             >
               📎
             </button>
-            <button 
-              className="icon-button send" 
-              onClick={send}
-              disabled={currentChat.isLoading || (!currentChat.input.trim() && uploadedFiles.length === 0)}
-              style={{ background: currentConfig.gradient }}
-            >
-              ⬆️
-            </button>
+            {/* 只有聊天完成时才显示发送按钮 */}
+            {!currentChat.isLoading && (
+              <button 
+                className="icon-button send" 
+                onClick={send}
+                disabled={!currentChat.input.trim() && uploadedFiles.length === 0}
+                style={{ background: currentConfig.gradient }}
+              >
+                ⬆️
+              </button>
+            )}
             </div>
           </div>
           
