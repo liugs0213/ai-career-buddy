@@ -1,0 +1,26 @@
+[INFO]  2025/09/17 21:27:10 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/17 21:27:10 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/17 21:27:10 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/17 21:27:10 logger.go:73: 数据库连接成功
+[INFO]  2025/09/17 21:27:10 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/17 21:27:10 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[FATAL] 2025/09/17 21:27:10 logger.go:88: 服务启动失败: listen tcp :8080: bind: address already in use
+[INFO]  2025/09/17 21:27:22 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/17 21:27:22 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/17 21:27:22 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/17 21:27:22 logger.go:73: 数据库连接成功
+[INFO]  2025/09/17 21:27:22 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/17 21:27:22 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[ERROR] 2025/09/17 21:27:51 logger.go:83: 消息请求解析失败: Key: 'SendMessageRequest.UserID' Error:Field validation for 'UserID' failed on the 'required' tag
+[INFO]  2025/09/17 21:27:51 logger.go:73: HTTP请求: POST /api/messages | IP: 127.0.0.1 | 状态: 400 | 耗时: 474.834µs
+[INFO]  2025/09/17 21:28:23 logger.go:73: 收到消息请求: ThreadID=test123, ModelID=bailian/qwen-plus, Content长度=30, 附件数量=0
+[DEBUG] 2025/09/17 21:28:23 logger.go:68: 用户消息保存成功: ID=220
+[INFO]  2025/09/17 21:28:23 logger.go:73: 开始生成AI回复: ModelID=bailian/qwen-plus, DeepThinking=false, NetworkSearch=false
+[INFO]  2025/09/17 21:28:23 logger.go:73: 开始调用百炼API: ModelID=bailian/qwen-plus, Input长度=30
+[INFO]  2025/09/17 21:28:27 logger.go:73: 百炼API调用成功: ModelID=bailian/qwen-plus, 耗时=4.147192584s, 回复长度=633
+[DEBUG] 2025/09/17 21:28:27 logger.go:68: AI回复生成完成，内容长度: 668
+[DEBUG] 2025/09/17 21:28:27 logger.go:68: AI回复保存成功: ID=221
+[INFO]  2025/09/17 21:28:27 logger.go:73: 消息处理完成: ThreadID=test123, 总耗时=4.187573625s
+[INFO]  2025/09/17 21:28:27 logger.go:73: 保存职业历史记录: ThreadID=test123, Category=unknown
+[INFO]  2025/09/17 21:28:27 logger.go:73: HTTP请求: POST /api/messages | IP: 127.0.0.1 | 状态: 200 | 耗时: 4.187665292s
+[INFO]  2025/09/17 21:28:27 logger.go:73: 职业历史记录保存成功: ThreadID=test123, Category=unknown
