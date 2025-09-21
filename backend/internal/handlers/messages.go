@@ -79,7 +79,7 @@ func SendMessage(c *gin.Context) {
 					} else {
 						// 如果没有分析结果，提供文档摘要而不是完整内容
 						if document.FileContent != "" {
-							summary := generateDocumentSummary(document.FileContent, document.DocumentType)
+							summary := document.FileContent
 							documentTexts = append(documentTexts, fmt.Sprintf("[%s文档摘要]:\n%s", document.DocumentType, summary))
 						}
 					}
@@ -248,7 +248,7 @@ func StreamMessage(c *gin.Context) {
 					} else {
 						// 如果没有分析结果，提供文档摘要而不是完整内容
 						if document.FileContent != "" {
-							summary := generateDocumentSummary(document.FileContent, document.DocumentType)
+							summary := document.FileContent
 							documentTexts = append(documentTexts, fmt.Sprintf("[%s文档摘要]:\n%s", document.DocumentType, summary))
 						}
 					}
@@ -501,45 +501,53 @@ func enhanceSystemPromptForExamples(basePrompt, userInput string) string {
 
 // buildSystemPrompt 构建系统提示词
 func buildSystemPrompt(modelID string, deepThinking, networkSearch bool) string {
-	basePrompt := "你是AI职场管家，专业的职场顾问助手。请提供简洁、实用的建议。"
+	basePrompt := "你是AI职场管家，专业的职场顾问助手。请根据用户的问题提供专业、实用的建议。"
 
-	// 简洁回复要求
-	basePrompt += "\n\n【回复要求】\n" +
-		"- 回答要简洁精练，避免冗长\n" +
-		"- 直接回答核心问题，减少铺垫\n" +
-		"- 使用要点形式，便于快速阅读\n" +
-		"- 重点信息用**粗体**标记\n" +
-		"- 必要时使用列表组织内容"
+	// 添加markdown格式化指令
+	basePrompt += "\n\n【回复格式要求】请使用markdown格式组织回复内容：\n" +
+		"- 使用标题（# ## ###）来组织内容结构\n" +
+		"- 使用**粗体**来强调重要信息\n" +
+		"- 使用列表（- 或 1.）来组织要点\n" +
+		"- 使用表格来对比数据\n" +
+		"- 使用> 引用重要提示\n" +
+		"- 使用`代码`来标记专业术语\n" +
+		"- 使用==高亮==来标记关键信息"
 
 	// 深度思考模式
 	if deepThinking {
-		basePrompt += "\n\n【深度分析模式】\n" +
-			"- 多角度分析问题\n" +
-			"- 提供具体行动建议\n" +
-			"- 分析风险和机会\n" +
-			"- 给出可执行的步骤"
+		basePrompt += "\n\n【深度思考模式】请进行深度分析：\n" +
+			"1. 多角度分析问题，考虑不同维度和可能性\n" +
+			"2. 提供详细的推理过程和逻辑链条\n" +
+			"3. 分析潜在风险和机会\n" +
+			"4. 给出具体的行动建议和步骤\n" +
+			"5. 提供相关的案例或经验分享\n" +
+			"6. 使用表格对比不同方案\n" +
+			"7. 提供任务清单格式的行动计划"
 	}
 
 	// 网络搜索模式
 	if networkSearch {
-		basePrompt += "\n\n【最新信息模式】\n" +
-			"- 提供最新行业动态\n" +
-			"- 引用权威数据\n" +
-			"- 分析当前市场状况"
+		basePrompt += "\n\n【网络搜索模式】请结合最新信息：\n" +
+			"1. 提供最新的行业动态和趋势\n" +
+			"2. 引用权威数据和报告\n" +
+			"3. 分析当前市场状况\n" +
+			"4. 给出时效性强的建议\n" +
+			"5. 使用表格展示数据对比\n" +
+			"6. 提供数据来源链接"
 	}
 
 	// 根据模型类型添加特定提示
 	if strings.Contains(modelID, "azure/gpt") {
-		basePrompt += " 基于Azure OpenAI GPT-5，擅长逻辑推理。"
+		basePrompt += " 你基于Azure OpenAI GPT-5模型，拥有最新的AI技术，擅长多语言对话、逻辑推理和创意生成。"
 	} else if strings.Contains(modelID, "qwen") {
-		basePrompt += " 基于通义千问，擅长中文理解。"
+		basePrompt += " 你基于通义千问模型，擅长中文理解和生成。"
 	} else if strings.Contains(modelID, "deepseek") {
-		basePrompt += " 基于DeepSeek，擅长逻辑分析。"
+		basePrompt += " 你基于DeepSeek模型，擅长逻辑推理和代码分析。"
 	} else if strings.Contains(modelID, "gpt") {
-		basePrompt += " 基于GPT模型，擅长多语言对话。"
+		basePrompt += " 你基于GPT模型，擅长多语言对话和创意生成。"
 	}
 
-	basePrompt += " 用中文回复，保持简洁专业。"
+	basePrompt += " 请用中文回复，保持专业、友好的语调，并确保使用markdown格式使内容更易读。"
 
 	return basePrompt
 }

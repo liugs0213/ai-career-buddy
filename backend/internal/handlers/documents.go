@@ -18,18 +18,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// createSimpleDocumentResponse 创建简化的文档响应，不包含详细的提取信息
-func createSimpleDocumentResponse(document *models.UserDocument) gin.H {
-	return gin.H{
-		"id":               document.ID,
-		"userId":           document.UserID,
-		"documentType":     document.DocumentType,
-		"fileName":         document.FileName,
-		"fileSize":         document.FileSize,
-		"fileType":         document.FileType,
-		"uploadSource":     document.UploadSource,
-		"isProcessed":      document.IsProcessed,
-		"processingStatus":
 // GetUserDocuments 获取用户文档列表
 func GetUserDocuments(c *gin.Context) {
 	userID := c.Param("userId")
@@ -178,37 +166,32 @@ func UploadUserDocument(c *gin.Context) {
 
 	// 如果有文件内容，自动触发分析（支持MD、TXT等文本文件）
 	if fileContent != "" && (fileExt == ".md" || fileExt == ".txt") {
-		logger.Info("开始同步分析文档: DocumentID=%d, FileType=%s", document.ID, fileExt)
-
-		// 更新处理状态为处理中
-		document.ProcessingStatus = "processing"
-		document.UpdatedAt = time.Now()
-		db.Conn.Save(&document)
-
-		// 同步处理文档
-		err := processDocumentWithAI(&document)
-		if err != nil {
-			logger.Error("文档自动分析失败: DocumentID=%d, FileType=%s, 错误=%v", document.ID, fileExt, err)
-			document.ProcessingStatus = "failed"
-			document.ProcessingError = err.Error()
-		} else {
-			logger.Info("文档自动分析成功: DocumentID=%d, FileType=%s", document.ID, fileExt)
-			document.ProcessingStatus = "completed"
-			document.IsProcessed = true
-		}
-		document.UpdatedAt = time.Now()
-		db.Conn.Save(&document)
+		go func() {
+			// 延迟1秒后开始分析，确保文档记录已保存
+			time.Sleep(1 * time.Second)
+			err := processDocumentWithAI(&document)
+			if err != nil {
+				logger.Error("文档自动分析失败: DocumentID=%d, FileType=%s, 错误=%v", document.ID, fileExt, err)
+				document.ProcessingStatus = "failed"
+				document.ProcessingError = err.Error()
+			} else {
+				document.ProcessingStatus = "completed"
+				document.IsProcessed = true
+			}
+			document.UpdatedAt = time.Now()
+			db.Conn.Save(&document)
+		}()
 	}
 
-	// 返回简化的文档信息，不包含详细的提取信息
-	simpleDocument := gin.H{
-		"id":               document.ID,
-		"userId":           document.UserID,
-		"documentType":     document.DocumentType,
-		"fileName":         document.FileName,
+	c.JSON(http.StatusOK, gin.H{
+		"message":     "文档上传成功",
+		"document":    document,
+		"autoAnalyze": fileExt == ".md" && fileContent != "",
+	})
+}
 
 // GetUserDocument 获取单个用户文档
-		"document":    createSimpleDocumentResponse(&document),
+func GetUserDocument(c *gin.Context) {
 	documentID := c.Param("documentId")
 	if documentID == "" {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "文档ID不能为空"})
@@ -279,40 +262,23 @@ func ProcessDocument(c *gin.Context) {
 	document.UpdatedAt = time.Now()
 	db.Conn.Save(&document)
 
-	logger.Info("开始同步处理文档: DocumentID=%s", documentID)
-
-	// 同步处理文档
-	err := processDocumentWithAI(&document)
-	if err != nil {
-		logger.Error("文档AI处理失败: DocumentID=%s, 错误=%v", documentID, err)
-		document.ProcessingStatus = "failed"
-		document.ProcessingError = err.Error()
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "文档处理失败", "details": err.Error()})
-	} else {
-		logger.Info("文档AI处理成功: DocumentID=%s", documentID)
-		document.ProcessingStatus = "completed"
-		document.IsProcessed = true
-		
-		// 返回简化的文档信息
-		simpleDocument := gin.H{
-			"id":               document.ID,
-			"userId":           document.UserID,
-			"documentType":     document.DocumentType,
-
-			"fileSize":         document.FileSize,
-			"fileType":         document.FileType,
-			"uploadSource":     document.UploadSource,
-			"isProcessed":      document.IsProcessed,
-			"processingStatus": document.ProcessingStatus,
-			"processingError":  document.ProcessingError,
-			"createdAt":        document.CreatedAt,
-			"updatedAt":        document.UpdatedAt,
+	// 异步处理文档
+	go func() {
+		err := processDocumentWithAI(&document)
+		if err != nil {
+			logger.Error("文档AI处理失败: DocumentID=%s, 错误=%v", documentID, err)
+			document.ProcessingStatus = "failed"
+			document.ProcessingError = err.Error()
+		} else {
+			document.ProcessingStatus = "completed"
+			document.IsProcessed = true
 		}
-		
-		c.JSON(http.StatusOK, gin.H{"message": "文档处理完成", "document": simpleDocument})
-	}
-	document.UpdatedAt = time.Now()
-	db.Conn.Save(&document)
+		document.UpdatedAt = time.Now()
+		db.Conn.Save(&document)
+	}()
+
+	logger.Info("开始处理文档: DocumentID=%s", documentID)
+	c.JSON(http.StatusOK, gin.H{"message": "文档处理已开始"})
 }
 
 // GetDocumentExtractedInfo 获取文档提取信息
@@ -380,43 +346,27 @@ func RetryDocumentProcessing(c *gin.Context) {
 	document.UpdatedAt = time.Now()
 	db.Conn.Save(&document)
 
-	logger.Info("开始同步重新处理文档: DocumentID=%s", documentID)
-
-	// 同步处理文档
-	err := processDocumentWithAI(&document)
-	if err != nil {
-		logger.Error("文档重新处理失败: DocumentID=%s, 错误=%v", documentID, err)
-		document.ProcessingStatus = "failed"
-		document.ProcessingError = err.Error()
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "文档重新处理失败", "details": err.Error()})
-	} else {
-		logger.Info("文档重新处理成功: DocumentID=%s", documentID)
-		document.ProcessingStatus = "completed"
-		document.IsProcessed = true
-		
-		// 返回简化的文档信息
-		simpleDocument := gin.H{
-			"id":               document.ID,
-			"userId":           document.UserID,
-			"documentType":     document.DocumentType,
-
-			"fileSize":         document.FileSize,
-			"fileType":         document.FileType,
-			"uploadSource":     document.UploadSource,
-			"isProcessed":      document.IsProcessed,
-			"processingStatus": document.ProcessingStatus,
-			"processingError":  document.ProcessingError,
-			"createdAt":        document.CreatedAt,
-			"updatedAt":        document.UpdatedAt,
+	// 异步处理文档
+	go func() {
+		time.Sleep(1 * time.Second)
+		err := processDocumentWithAI(&document)
+		if err != nil {
+			logger.Error("文档重新处理失败: DocumentID=%s, 错误=%v", documentID, err)
+			document.ProcessingStatus = "failed"
+			document.ProcessingError = err.Error()
+		} else {
+			document.ProcessingStatus = "completed"
+			document.IsProcessed = true
 		}
-		
-		c.JSON(http.StatusOK, gin.H{
-			"message":  "文档重新处理完成",
-			"document": simpleDocument,
-		})
-	}
+		document.UpdatedAt = time.Now()
+		db.Conn.Save(&document)
+	}()
 
-	db.Conn.Save(&document)
+	logger.Info("开始重新处理文档: DocumentID=%s", documentID)
+	c.JSON(http.StatusOK, gin.H{
+		"message":  "文档重新处理已开始",
+		"document": document,
+	})
 }
 
 // GenerateDocumentVisualization 生成文档可视化数据
