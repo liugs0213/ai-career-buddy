@@ -70,19 +70,18 @@ func SendMessage(c *gin.Context) {
 				documentID := strings.TrimPrefix(attachment, "document:")
 				var document models.UserDocument
 				if err := db.Conn.Where("id = ?", documentID).First(&document).Error; err == nil {
-					// 优先使用分析结果，如果没有则使用原始文档内容
+					// 优先使用分析结果
 					if document.IsProcessed && document.ExtractedInfo != "" {
 						var extractedInfo models.DocumentExtractedInfo
 						if err := json.Unmarshal([]byte(document.ExtractedInfo), &extractedInfo); err == nil {
 							documentTexts = append(documentTexts, fmt.Sprintf("[%s分析结果]:\n%s", document.DocumentType, document.ExtractedInfo))
 						}
-					}
-
-					// 同时提供原始文档内容，确保完整信息
-					if document.FileContent != "" {
-						// 限制文档内容长度，避免prompt过长
-						content := document.FileContent
-						documentTexts = append(documentTexts, fmt.Sprintf("[%s文档内容]:\n%s", document.DocumentType, content))
+					} else {
+						// 如果没有分析结果，提供文档摘要而不是完整内容
+						if document.FileContent != "" {
+							summary := generateDocumentSummary(document.FileContent, document.DocumentType)
+							documentTexts = append(documentTexts, fmt.Sprintf("[%s文档摘要]:\n%s", document.DocumentType, summary))
+						}
 					}
 				}
 			}
@@ -240,19 +239,18 @@ func StreamMessage(c *gin.Context) {
 				documentID := strings.TrimPrefix(attachment, "document:")
 				var document models.UserDocument
 				if err := db.Conn.Where("id = ?", documentID).First(&document).Error; err == nil {
-					// 优先使用分析结果，如果没有则使用原始文档内容
+					// 优先使用分析结果
 					if document.IsProcessed && document.ExtractedInfo != "" {
 						var extractedInfo models.DocumentExtractedInfo
 						if err := json.Unmarshal([]byte(document.ExtractedInfo), &extractedInfo); err == nil {
 							documentTexts = append(documentTexts, fmt.Sprintf("[%s分析结果]:\n%s", document.DocumentType, document.ExtractedInfo))
 						}
-					}
-
-					// 同时提供原始文档内容，确保完整信息
-					if document.FileContent != "" {
-						// 限制文档内容长度，避免prompt过长
-						content := document.FileContent
-						documentTexts = append(documentTexts, fmt.Sprintf("[%s文档内容]:\n%s", document.DocumentType, content))
+					} else {
+						// 如果没有分析结果，提供文档摘要而不是完整内容
+						if document.FileContent != "" {
+							summary := generateDocumentSummary(document.FileContent, document.DocumentType)
+							documentTexts = append(documentTexts, fmt.Sprintf("[%s文档摘要]:\n%s", document.DocumentType, summary))
+						}
 					}
 				}
 			}
@@ -505,6 +503,16 @@ func enhanceSystemPromptForExamples(basePrompt, userInput string) string {
 func buildSystemPrompt(modelID string, deepThinking, networkSearch bool) string {
 	basePrompt := "你是AI职场管家，专业的职场顾问助手。请根据用户的问题提供专业、实用的建议。"
 
+	// 添加markdown格式化指令
+	basePrompt += "\n\n【回复格式要求】请使用markdown格式组织回复内容：\n" +
+		"- 使用标题（# ## ###）来组织内容结构\n" +
+		"- 使用**粗体**来强调重要信息\n" +
+		"- 使用列表（- 或 1.）来组织要点\n" +
+		"- 使用表格来对比数据\n" +
+		"- 使用> 引用重要提示\n" +
+		"- 使用`代码`来标记专业术语\n" +
+		"- 使用==高亮==来标记关键信息"
+
 	// 深度思考模式
 	if deepThinking {
 		basePrompt += "\n\n【深度思考模式】请进行深度分析：\n" +
@@ -512,7 +520,9 @@ func buildSystemPrompt(modelID string, deepThinking, networkSearch bool) string 
 			"2. 提供详细的推理过程和逻辑链条\n" +
 			"3. 分析潜在风险和机会\n" +
 			"4. 给出具体的行动建议和步骤\n" +
-			"5. 提供相关的案例或经验分享"
+			"5. 提供相关的案例或经验分享\n" +
+			"6. 使用表格对比不同方案\n" +
+			"7. 提供任务清单格式的行动计划"
 	}
 
 	// 网络搜索模式
@@ -521,7 +531,9 @@ func buildSystemPrompt(modelID string, deepThinking, networkSearch bool) string 
 			"1. 提供最新的行业动态和趋势\n" +
 			"2. 引用权威数据和报告\n" +
 			"3. 分析当前市场状况\n" +
-			"4. 给出时效性强的建议"
+			"4. 给出时效性强的建议\n" +
+			"5. 使用表格展示数据对比\n" +
+			"6. 提供数据来源链接"
 	}
 
 	// 根据模型类型添加特定提示
@@ -535,7 +547,7 @@ func buildSystemPrompt(modelID string, deepThinking, networkSearch bool) string 
 		basePrompt += " 你基于GPT模型，擅长多语言对话和创意生成。"
 	}
 
-	basePrompt += " 请用中文回复，保持专业、友好的语调。"
+	basePrompt += " 请用中文回复，保持专业、友好的语调，并确保使用markdown格式使内容更易读。"
 
 	return basePrompt
 }
@@ -545,30 +557,34 @@ func generateCareerResponse(input string, deepThinking, networkSearch bool) stri
 	var response string
 
 	if deepThinking {
-		response = "🧠 **深度思考模式 - 职业规划分析**\n\n" +
-			"基于您的问题：" + input + "\n\n" +
-			"**多维度分析框架**：\n\n" +
-			"1. **个人维度分析**：\n" +
-			"   - 核心能力评估：技术技能、软技能、领导力\n" +
-			"   - 价值观匹配：工作意义、生活平衡、成长需求\n" +
-			"   - 性格特质：内向/外向、风险偏好、创新倾向\n\n" +
-			"2. **市场维度分析**：\n" +
-			"   - 行业趋势：数字化转型、新兴技术、政策影响\n" +
-			"   - 岗位需求：技能要求变化、薪资水平、竞争激烈程度\n" +
-			"   - 地域因素：一线城市vs二三线城市的机会差异\n\n" +
-			"3. **时间维度分析**：\n" +
-			"   - 短期（1-2年）：技能提升、经验积累、网络建设\n" +
-			"   - 中期（3-5年）：职位晋升、专业深化、影响力扩大\n" +
-			"   - 长期（5-10年）：行业专家、创业机会、财务自由\n\n" +
-			"**风险评估与机会识别**：\n" +
-			"- 潜在风险：技术替代、行业衰退、个人能力瓶颈\n" +
-			"- 发展机会：新兴领域、政策支持、市场需求增长\n\n" +
-			"**具体行动建议**：\n" +
-			"1. 制定SMART目标（具体、可衡量、可达成、相关、有时限）\n" +
-			"2. 建立学习计划：在线课程、认证考试、实践项目\n" +
-			"3. 构建人脉网络：行业会议、专业社群、导师关系\n" +
-			"4. 定期复盘调整：季度评估、年度规划、灵活调整\n\n" +
-			"您希望我针对哪个具体维度进行更深入的分析？"
+		response = "# 🧠 深度思考模式 - 职业规划分析\n\n" +
+			"基于您的问题：`" + input + "`\n\n" +
+			"## 📊 多维度分析框架\n\n" +
+			"### 1. 个人维度分析\n" +
+			"- **核心能力评估**：技术技能、软技能、领导力\n" +
+			"- **价值观匹配**：工作意义、生活平衡、成长需求\n" +
+			"- **性格特质**：内向/外向、风险偏好、创新倾向\n\n" +
+			"### 2. 市场维度分析\n" +
+			"- **行业趋势**：数字化转型、新兴技术、政策影响\n" +
+			"- **岗位需求**：技能要求变化、薪资水平、竞争激烈程度\n" +
+			"- **地域因素**：一线城市vs二三线城市的机会差异\n\n" +
+			"### 3. 时间维度分析\n" +
+			"- **短期（1-2年）**：技能提升、经验积累、网络建设\n" +
+			"- **中期（3-5年）**：职位晋升、专业深化、影响力扩大\n" +
+			"- **长期（5-10年）**：行业专家、创业机会、财务自由\n\n" +
+			"## ⚠️ 风险评估与机会识别\n\n" +
+			"| 类型 | 风险因素 | 机会因素 |\n" +
+			"|------|----------|----------|\n" +
+			"| 技术 | 技术替代、技能过时 | 新兴技术、数字化转型 |\n" +
+			"| 市场 | 行业衰退、竞争加剧 | 政策支持、需求增长 |\n" +
+			"| 个人 | 能力瓶颈、发展停滞 | 技能提升、网络建设 |\n\n" +
+			"## 🎯 具体行动建议\n\n" +
+			"### 任务清单\n" +
+			"- [ ] 制定SMART目标（具体、可衡量、可达成、相关、有时限）\n" +
+			"- [ ] 建立学习计划：在线课程、认证考试、实践项目\n" +
+			"- [ ] 构建人脉网络：行业会议、专业社群、导师关系\n" +
+			"- [ ] 定期复盘调整：季度评估、年度规划、灵活调整\n\n" +
+			"> 💡 **温馨提示**：您希望我针对哪个具体维度进行更深入的分析？"
 	} else {
 		responses := []string{
 			"作为职业规划专家，我理解您提到的" + input + "。让我为您分析一下职业发展路径：\n\n1. **现状分析**：首先需要评估您当前的技能水平和职业状态\n2. **目标设定**：明确您的短期和长期职业目标\n3. **技能提升**：制定针对性的技能提升计划\n4. **网络建设**：建立专业人脉网络\n5. **持续学习**：保持行业敏感度和学习能力\n\n您希望我重点帮您分析哪个方面呢？",
@@ -595,35 +611,45 @@ func generateOfferResponse(input string, deepThinking, networkSearch bool) strin
 	var response string
 
 	if deepThinking {
-		response = "🧠 **深度思考模式 - Offer分析**\n\n" +
-			"基于您的问题：" + input + "\n\n" +
-			"**多维度Offer评估框架**：\n\n" +
-			"1. **财务维度深度分析**：\n" +
-			"   - 薪资结构：基本工资、绩效奖金、年终奖、股权激励\n" +
-			"   - 隐性收益：五险一金比例、补充商业保险、企业年金\n" +
-			"   - 长期价值：股权增值潜力、期权行权条件、分红政策\n" +
-			"   - 税务优化：薪资结构对个税的影响\n\n" +
-			"2. **职业发展维度分析**：\n" +
-			"   - 技能匹配度：岗位要求与个人能力的契合程度\n" +
-			"   - 成长空间：学习机会、培训资源、导师制度\n" +
-			"   - 晋升路径：职业发展通道、晋升周期、管理层机会\n" +
-			"   - 行业影响：在行业内的地位和影响力\n\n" +
-			"3. **风险收益评估**：\n" +
-			"   - 公司稳定性：财务状况、行业地位、发展前景\n" +
-			"   - 市场风险：行业趋势、竞争态势、政策影响\n" +
-			"   - 个人风险：技能过时风险、职业发展瓶颈\n" +
-			"   - 机会成本：放弃其他机会的代价\n\n" +
-			"**谈判策略深度分析**：\n" +
-			"- 信息收集：市场薪资调研、同行业对比、公司薪酬体系\n" +
-			"- 价值包装：突出独特技能、项目经验、行业资源\n" +
-			"- 谈判技巧：多轮谈判、分项讨论、创造双赢\n" +
-			"- 备选方案：多个Offer对比、谈判底线设定\n\n" +
-			"**决策建议**：\n" +
-			"1. 制作详细的对比表格，量化各项指标\n" +
-			"2. 考虑3-5年的长期收益和发展\n" +
-			"3. 评估个人风险承受能力和职业目标\n" +
-			"4. 咨询行业专家和职业顾问的意见\n\n" +
-			"您希望我针对哪个具体方面进行更深入的分析？"
+		response = "# 🧠 深度思考模式 - Offer分析\n\n" +
+			"基于您的问题：`" + input + "`\n\n" +
+			"## 📊 多维度Offer评估框架\n\n" +
+			"### 1. 财务维度深度分析\n" +
+			"- **薪资结构**：基本工资、绩效奖金、年终奖、股权激励\n" +
+			"- **隐性收益**：五险一金比例、补充商业保险、企业年金\n" +
+			"- **长期价值**：股权增值潜力、期权行权条件、分红政策\n" +
+			"- **税务优化**：薪资结构对个税的影响\n\n" +
+			"### 2. 职业发展维度分析\n" +
+			"- **技能匹配度**：岗位要求与个人能力的契合程度\n" +
+			"- **成长空间**：学习机会、培训资源、导师制度\n" +
+			"- **晋升路径**：职业发展通道、晋升周期、管理层机会\n" +
+			"- **行业影响**：在行业内的地位和影响力\n\n" +
+			"### 3. 风险收益评估\n" +
+			"- **公司稳定性**：财务状况、行业地位、发展前景\n" +
+			"- **市场风险**：行业趋势、竞争态势、政策影响\n" +
+			"- **个人风险**：技能过时风险、职业发展瓶颈\n" +
+			"- **机会成本**：放弃其他机会的代价\n\n" +
+			"## 💰 薪资对比分析表\n\n" +
+			"| 项目 | 当前Offer | 市场平均 | 行业顶尖 | 评估 |\n" +
+			"|------|-----------|----------|----------|------|\n" +
+			"| 基本薪资 | - | - | - | ⭐⭐⭐⭐⭐ |\n" +
+			"| 绩效奖金 | - | - | - | ⭐⭐⭐⭐⭐ |\n" +
+			"| 股权激励 | - | - | - | ⭐⭐⭐⭐⭐ |\n" +
+			"| 福利待遇 | - | - | - | ⭐⭐⭐⭐⭐ |\n\n" +
+			"## 🎯 谈判策略深度分析\n\n" +
+			"### 信息收集阶段\n" +
+			"- [ ] 市场薪资调研：同行业同岗位薪资水平\n" +
+			"- [ ] 公司薪酬体系：了解内部薪资结构\n" +
+			"- [ ] 竞争对手分析：同类公司offer对比\n\n" +
+			"### 价值包装阶段\n" +
+			"- [ ] 突出独特技能：技术专长、管理经验\n" +
+			"- [ ] 项目经验展示：成功案例、业绩数据\n" +
+			"- [ ] 行业资源整合：人脉网络、客户资源\n\n" +
+			"### 谈判执行阶段\n" +
+			"- [ ] 多轮谈判：分项讨论、逐步推进\n" +
+			"- [ ] 创造双赢：关注双方利益平衡\n" +
+			"- [ ] 备选方案：多个offer对比、底线设定\n\n" +
+			"> 💡 **温馨提示**：您希望我针对哪个具体方面进行更深入的分析？"
 	} else {
 		responses := []string{
 			"作为Offer分析专家，我来帮您分析这个职位机会。基于您提到的" + input + "，我建议从以下角度评估：\n\n**薪资分析**：\n- 对比同行业同岗位的市场薪资水平\n- 考虑地域差异和公司规模\n- 评估薪资增长空间\n\n**福利待遇**：\n- 五险一金缴纳比例\n- 年假、病假等假期政策\n- 培训和发展机会\n- 股权激励或奖金制度\n\n**发展前景**：\n- 公司行业地位和发展趋势\n- 岗位晋升通道\n- 技能提升机会\n\n您能提供更多关于这个Offer的具体信息吗？",
@@ -895,4 +921,27 @@ func formatExtractedInfo(info *models.DocumentExtractedInfo, documentType string
 	}
 
 	return result.String()
+}
+
+// generateDocumentSummary 生成文档摘要，避免完整内容回显
+func generateDocumentSummary(content, docType string) string {
+	// 限制摘要长度，避免过长
+	maxLength := 500
+	if len(content) <= maxLength {
+		return content
+	}
+
+	// 根据文档类型生成不同的摘要
+	switch docType {
+	case "contract":
+		return "劳动合同文档已上传，包含合同期限、工作内容、薪资待遇、福利保障、保密条款、竞业限制等关键信息。"
+	case "offer":
+		return "Offer文档已上传，包含职位信息、薪资结构、福利待遇、股权激励、入职条件等详细信息。"
+	case "resume":
+		return "简历文档已上传，包含个人信息、工作经历、教育背景、技能专长、项目经验等内容。"
+	case "employment":
+		return "在职证明文档已上传，包含公司信息、职位详情、工作职责、任职时间等关键信息。"
+	default:
+		return fmt.Sprintf("%s文档已上传，包含相关重要信息。", docType)
+	}
 }

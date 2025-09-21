@@ -706,6 +706,178 @@
   padding: 0 4px;
 }
 
+/* 消息操作按钮 */
+.message-actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.expand-panel-btn {
+  padding: 8px 16px;
+  border: 1px solid #2563eb;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+  min-width: 80px;
+  justify-content: center;
+}
+
+.expand-panel-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.expand-panel-btn:hover::before {
+  left: 100%;
+}
+
+.expand-panel-btn:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border-color: #1d4ed8;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.expand-panel-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* 用户消息的展开按钮样式调整 */
+.message.user .message-actions {
+  justify-content: flex-start;
+}
+
+.message.user .expand-panel-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  border-color: #2563eb;
+}
+
+.message.user .expand-panel-btn:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border-color: #1d4ed8;
+}
+
+/* Offer分析大模态框样式 */
+.analysis-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.analysis-modal-content {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.analysis-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-title h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal-icon {
+  font-size: 24px;
+}
+
+.modal-close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.analysis-modal-body {
+  flex: 1;
+  overflow: auto;
+  padding: 0;
+}
+
+.modal-visualization {
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.modal-visualization .visualization-panel {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  height: 100%;
+}
+
+.modal-visualization .panel-header {
+  display: none;
+}
+
+.modal-visualization .panel-footer {
+  display: none;
+}
+
 /* 打字指示器 */
 .typing-indicator {
   display: flex;
@@ -1748,6 +1920,29 @@
 
 .model-selector-popup::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
+}
+
+/* 响应式设计优化 */
+@media (max-width: 768px) {
+  .expand-panel-btn {
+    min-width: 70px;
+    font-size: 13px;
+    padding: 6px 12px;
+    gap: 4px;
+  }
+  
+  .message-actions {
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .expand-panel-btn {
+    min-width: 60px;
+    font-size: 12px;
+    padding: 5px 10px;
+    gap: 3px;
+  }
 }
 
 .model-selector-popup .model-list::-webkit-scrollbar {

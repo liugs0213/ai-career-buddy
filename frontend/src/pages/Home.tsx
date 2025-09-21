@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { api } from '../api';
 import VisualizationPanel from '../components/VisualizationPanel';
+import ContractSummaryPanel from '../components/ContractSummaryPanel';
 import FormattedText from '../components/FormattedText';
 import TaskQueueStatus from '../components/TaskQueueStatus';
 import UserSelector from '../components/UserSelector';
@@ -395,7 +396,8 @@ export default function Home() {
   const [deepThinkingActive, setDeepThinkingActive] = useState(false);
   const [networkSearchActive, setNetworkSearchActive] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [rightPanelCollapsed, setRightPanelCollapsed] = useState(false);
+  const [rightPanelCollapsed, setRightPanelCollapsed] = useState(true);
+  const [visualizationFullscreen, setVisualizationFullscreen] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const currentChat = tabChats[activeTab];
@@ -940,6 +942,67 @@ export default function Home() {
     setNetworkSearchActive(!networkSearchActive);
   };
 
+  // 根据当前标签页和内容智能显示按钮文字
+  const getButtonText = () => {
+    switch (activeTab) {
+      case 'career':
+        return '🎯 职业规划图表';
+      case 'offer':
+        return '📊 Offer分析图表';
+      case 'contract':
+        return '📋 劳动合同检查图表';
+      case 'monitor':
+        return '👁️ 企业监控图表';
+      default:
+        return '🔍 展开图表分析';
+    }
+  };
+
+  const getButtonTitle = () => {
+    switch (activeTab) {
+      case 'career':
+        return '查看职业规划图表分析';
+      case 'offer':
+        return '查看Offer分析图表';
+      case 'contract':
+        return '查看劳动合同检查图表分析';
+      case 'monitor':
+        return '查看企业监控图表分析';
+      default:
+        return '展开图表分析面板';
+    }
+  };
+
+  // 处理操作按钮点击
+  const handleActionButtonClick = () => {
+    switch (activeTab) {
+      case 'offer':
+        // Offer分析：先展开侧边栏，再触发全屏模式
+        setRightPanelCollapsed(false);
+        setTimeout(() => setVisualizationFullscreen(true), 100);
+        break;
+      case 'career':
+        // 职业生涯规划：先展开侧边栏，再触发全屏模式
+        setRightPanelCollapsed(false);
+        setTimeout(() => setVisualizationFullscreen(true), 100);
+        break;
+      case 'contract':
+        // 劳动合同检查：先展开侧边栏，再触发全屏模式
+        setRightPanelCollapsed(false);
+        setTimeout(() => setVisualizationFullscreen(true), 100);
+        break;
+      case 'monitor':
+        // 企业监控：直接进入全屏模式
+        setRightPanelCollapsed(false);
+        setVisualizationFullscreen(true);
+        break;
+      default:
+        // 其他标签页展开右侧栏
+        setRightPanelCollapsed(false);
+        break;
+    }
+  };
+
   // 处理文件上传
   const handleFileUpload = () => {
     fileInputRef.current?.click();
@@ -1417,7 +1480,12 @@ export default function Home() {
                 </div>
               </div>
             ) : (
-              currentSession.messages.map((message) => (
+              currentSession.messages.map((message, index) => {
+                // 判断是否是新的AI回复（最后一条消息且是assistant角色）
+                const isLatestMessage = index === currentSession.messages.length - 1;
+                const isLatestAssistantMessage = isLatestMessage && message.role === 'assistant';
+                
+                return (
                 <div key={message.id} className={`message ${message.role}`}>
                   <div 
                     className="message-avatar"
@@ -1466,9 +1534,22 @@ export default function Home() {
                     <div className="message-time">
                       {message.timestamp ? new Date(message.timestamp).toLocaleTimeString() : ''}
                     </div>
+                    {/* 只在最新的AI回复消息上显示智能操作按钮 */}
+                    {message.role === 'assistant' && isLatestAssistantMessage && (
+                      <div className="message-actions">
+                        <button 
+                          className="expand-panel-btn"
+                          onClick={handleActionButtonClick}
+                          title={getButtonTitle()}
+                        >
+                          {getButtonText()}
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
-              ))
+                );
+              })
             )}
             
             {currentChat.isLoading && (
@@ -1492,11 +1573,22 @@ export default function Home() {
             {/* 可视化面板 */}
             <div className={`visualization-area ${rightPanelCollapsed ? 'collapsed' : ''}`}>
               {!rightPanelCollapsed && (
-                <VisualizationPanel
-                  activeTab={activeTab}
-                  userInput={currentSession?.messages.filter(m => m.role === 'user').pop()?.content || currentChat.input || ''}
-                  aiResponse={currentSession?.messages.filter(m => m.role === 'assistant').pop()?.content || ''}
-                />
+                activeTab === 'contract' ? (
+                  <ContractSummaryPanel
+                    userInput={currentSession?.messages.filter(m => m.role === 'user').pop()?.content || currentChat.input || ''}
+                    aiResponse={currentSession?.messages.filter(m => m.role === 'assistant').pop()?.content || ''}
+                    isFullscreen={visualizationFullscreen}
+                    onFullscreenChange={setVisualizationFullscreen}
+                  />
+                ) : (
+                  <VisualizationPanel
+                    activeTab={activeTab}
+                    userInput={currentSession?.messages.filter(m => m.role === 'user').pop()?.content || currentChat.input || ''}
+                    aiResponse={currentSession?.messages.filter(m => m.role === 'assistant').pop()?.content || ''}
+                    isFullscreen={visualizationFullscreen}
+                    onFullscreenChange={setVisualizationFullscreen}
+                  />
+                )
               )}
               
               {/* 右侧面板折叠控制按钮 */}
@@ -1598,6 +1690,7 @@ export default function Home() {
           />
         </div>
       </div>
+
     </div>
   );
 }

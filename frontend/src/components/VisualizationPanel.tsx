@@ -12,6 +12,8 @@ interface VisualizationPanelProps {
   userInput?: string;
   aiResponse?: string;
   className?: string;
+  isFullscreen?: boolean;
+  onFullscreenChange?: (isFullscreen: boolean) => void;
 }
 
 type VisualizationType = 'timeline' | 'skilltree' | 'comparison' | 'planning' | 'none';
@@ -20,12 +22,18 @@ const VisualizationPanel: React.FC<VisualizationPanelProps> = ({
   activeTab,
   userInput = '',
   aiResponse = '',
-  className = ''
+  className = '',
+  isFullscreen: externalIsFullscreen = false,
+  onFullscreenChange
 }) => {
   const [visualizationType, setVisualizationType] = useState<VisualizationType>('none');
   const [isExpanded] = useState(true);
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [internalIsFullscreen, setInternalIsFullscreen] = useState(false);
   const [isPanelVisible] = useState(true);
+  
+  // 使用外部控制的全屏状态，如果没有外部控制则使用内部状态
+  const isFullscreen = onFullscreenChange ? externalIsFullscreen : internalIsFullscreen;
+  const setIsFullscreen = onFullscreenChange ? onFullscreenChange : setInternalIsFullscreen;
   const isUserSelectedRef = useRef(false);
 
   // 当activeTab变化时，重置用户选择状态并强制设置默认面板
@@ -233,7 +241,15 @@ const VisualizationPanel: React.FC<VisualizationPanelProps> = ({
 
   // 如果是在职企业监控模式，直接显示CompanyExperiencePanel
   if (activeTab === 'monitor') {
-    return <CompanyExperiencePanel userInput={userInput} aiResponse={aiResponse} className={className} />;
+    return (
+      <CompanyExperiencePanel 
+        userInput={userInput} 
+        aiResponse={aiResponse} 
+        className={className}
+        isFullscreen={isFullscreen}
+        onFullscreenChange={setIsFullscreen}
+      />
+    );
   }
 
   // 如果没有检测到具体类型，根据当前Tab显示默认可视化

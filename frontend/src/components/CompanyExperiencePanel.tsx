@@ -50,12 +50,16 @@ interface CompanyExperiencePanelProps {
   userInput?: string;
   aiResponse?: string;
   className?: string;
+  isFullscreen?: boolean;
+  onFullscreenChange?: (isFullscreen: boolean) => void;
 }
 
 const CompanyExperiencePanel: React.FC<CompanyExperiencePanelProps> = ({
   userInput = '',
   aiResponse = '',
-  className = ''
+  className = '',
+  isFullscreen: externalIsFullscreen = false,
+  onFullscreenChange
 }) => {
   const [currentCompany, setCurrentCompany] = useState<CurrentCompany | null>(null);
   const [risks, setRisks] = useState<CompanyRisk[]>([]);
@@ -64,6 +68,11 @@ const CompanyExperiencePanel: React.FC<CompanyExperiencePanelProps> = ({
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'overview' | 'risks' | 'scores'>('overview');
   const [riskNotificationEnabled, setRiskNotificationEnabled] = useState(false);
+  const [internalIsFullscreen, setInternalIsFullscreen] = useState(false);
+  
+  // 使用外部控制的全屏状态，如果没有外部控制则使用内部状态
+  const isFullscreen = onFullscreenChange ? externalIsFullscreen : internalIsFullscreen;
+  const setIsFullscreen = onFullscreenChange ? onFullscreenChange : setInternalIsFullscreen;
 
   useEffect(() => {
     // 模拟数据加载
@@ -276,6 +285,13 @@ const CompanyExperiencePanel: React.FC<CompanyExperiencePanelProps> = ({
           >
             <span className="notification-icon">🔔</span>
             <span>{riskNotificationEnabled ? '风险通知开启' : '风险通知关闭'}</span>
+          </button>
+          <button 
+            className="action-btn fullscreen-btn"
+            onClick={() => setIsFullscreen(true)}
+            title="放大到全屏"
+          >
+            🔍 放大
           </button>
         </div>
       </div>
@@ -705,6 +721,446 @@ const CompanyExperiencePanel: React.FC<CompanyExperiencePanelProps> = ({
           </span>
         </div>
       </div>
+
+      {/* 全屏模态框 */}
+      {isFullscreen && (
+        <div className="visualization-fullscreen-modal" onClick={() => setIsFullscreen(false)}>
+          <div className="fullscreen-content" onClick={(e) => e.stopPropagation()}>
+            <div className="fullscreen-header">
+              <div className="header-left">
+                <span className="panel-icon">🏢</span>
+                <h2 className="panel-title">当前企业监控分析</h2>
+              </div>
+              <div className="header-actions">
+                <button 
+                  className="action-btn close-btn"
+                  onClick={() => setIsFullscreen(false)}
+                  title="关闭全屏"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+            
+            <div className="fullscreen-body">
+              {/* 标签页导航 */}
+              <div className="panel-tabs">
+                <button 
+                  className={`tab-btn ${activeTab === 'overview' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('overview')}
+                >
+                  <span className="tab-icon">📊</span>
+                  <span>企业概览</span>
+                </button>
+                <button 
+                  className={`tab-btn ${activeTab === 'risks' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('risks')}
+                >
+                  <span className="tab-icon">⚠️</span>
+                  <span>风险分析</span>
+                  <span className="tab-count">{risks.length}</span>
+                </button>
+                <button 
+                  className={`tab-btn ${activeTab === 'scores' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('scores')}
+                >
+                  <span className="tab-icon">⭐</span>
+                  <span>评分分析</span>
+                </button>
+              </div>
+
+              {/* 标签页内容 */}
+              <div className="panel-content">
+                {activeTab === 'overview' ? (
+                  <div className="overview-section">
+                    <div className="section-header">
+                      <h4>🏢 当前企业概览</h4>
+                      <p className="section-desc">您当前所在企业的基本信息和综合评估</p>
+                    </div>
+                    
+                    {currentCompany && (
+                      <div className="company-overview-card">
+                        <div className="company-header">
+                          <div className="company-basic">
+                            <h5 className="company-name">{currentCompany.companyName}</h5>
+                            <div className="company-meta">
+                              <span className="position">{currentCompany.position}</span>
+                              <span className="industry">{currentCompany.industry}</span>
+                            </div>
+                          </div>
+                          {scores && (
+                            <div className="overall-score">
+                              <div className="score-circle">
+                                <span className="score-number">{scores.overallScore}</span>
+                                <span className="score-label">综合评分</span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="company-details">
+                          <div className="details-grid">
+                            <div className="detail-item">
+                              <span className="detail-label">工作地点:</span>
+                              <span className="detail-value">{currentCompany.workLocation}</span>
+                            </div>
+                            <div className="detail-item">
+                              <span className="detail-label">入职时间:</span>
+                              <span className="detail-value">{currentCompany.joinDate}</span>
+                            </div>
+                            <div className="detail-item">
+                              <span className="detail-label">当前薪资:</span>
+                              <span className="detail-value salary">{currentCompany.currentSalary}/月</span>
+                            </div>
+                            <div className="detail-item">
+                              <span className="detail-label">工作环境:</span>
+                              <span className="detail-value">{currentCompany.workEnvironment}</span>
+                            </div>
+                            <div className="detail-item">
+                              <span className="detail-label">团队规模:</span>
+                              <span className="detail-value">{currentCompany.teamSize}</span>
+                            </div>
+                            <div className="detail-item">
+                              <span className="detail-label">企业规模:</span>
+                              <span className="detail-value">{currentCompany.companySize}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {metrics && (
+                          <div className="metrics-summary">
+                            <div className="metrics-grid">
+                              <div className="metric-item">
+                                <span className="metric-icon">⚠️</span>
+                                <span className="metric-label">风险总数</span>
+                                <span className="metric-value">{metrics.riskCount}</span>
+                              </div>
+                              <div className="metric-item">
+                                <span className="metric-icon">🚨</span>
+                                <span className="metric-label">高风险</span>
+                                <span className="metric-value">{metrics.highRiskCount}</span>
+                              </div>
+                              <div className="metric-item">
+                                <span className="metric-icon">{getTrendIcon(metrics.scoreTrend)}</span>
+                                <span className="metric-label">评分趋势</span>
+                                <span className="metric-value">{getTrendText(metrics.scoreTrend)}</span>
+                              </div>
+                              <div className="metric-item">
+                                <span className="metric-icon">📅</span>
+                                <span className="metric-label">工作天数</span>
+                                <span className="metric-value">{Math.floor((Date.now() - new Date(currentCompany.joinDate).getTime()) / (1000 * 60 * 60 * 24))}天</span>
+                              </div>
+                            </div>
+                            
+                            <div className="recommendation">
+                              <h6>💡 建议</h6>
+                              <p>{metrics.recommendation}</p>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* 添加更多企业信息 */}
+                        <div className="additional-info">
+                          <div className="info-section">
+                            <h6>🏢 企业优势</h6>
+                            <div className="advantage-tags">
+                              <span className="advantage-tag">技术领先</span>
+                              <span className="advantage-tag">成长空间大</span>
+                              <span className="advantage-tag">团队优秀</span>
+                              <span className="advantage-tag">福利完善</span>
+                            </div>
+                          </div>
+                          
+                          <div className="info-section">
+                            <h6>📈 近期动态</h6>
+                            <div className="recent-activities">
+                              <div className="activity-item">
+                                <span className="activity-date">2024-09-10</span>
+                                <span className="activity-text">公司完成新一轮融资</span>
+                              </div>
+                              <div className="activity-item">
+                                <span className="activity-date">2024-09-05</span>
+                                <span className="activity-text">发布新产品功能</span>
+                              </div>
+                              <div className="activity-item">
+                                <span className="activity-date">2024-08-28</span>
+                                <span className="activity-text">团队规模扩大</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ) : activeTab === 'risks' ? (
+                  <div className="risks-section">
+                    <div className="section-header">
+                      <h4>⚠️ 公司风险分析</h4>
+                      <p className="section-desc">基于最新信息分析的公司潜在风险</p>
+                    </div>
+                    
+                    <div className="risks-list">
+                      {risks.map(risk => (
+                        <div key={risk.id} className="risk-card">
+                          <div className="risk-header">
+                            <div className="risk-type">
+                              <span className="type-icon">{getRiskTypeIcon(risk.riskType)}</span>
+                              <span className="type-text">{getRiskTypeText(risk.riskType)}</span>
+                            </div>
+                            <div 
+                              className="severity-badge"
+                              style={{ backgroundColor: getSeverityColor(risk.severity) }}
+                            >
+                              {getSeverityText(risk.severity)}
+                            </div>
+                          </div>
+
+                          <div className="risk-content">
+                            <h5 className="risk-title">{risk.title}</h5>
+                            <p className="risk-description">{risk.description}</p>
+                            
+                            <div className="risk-details">
+                              <div className="detail-item">
+                                <span className="detail-label">影响:</span>
+                                <span className="detail-value">{risk.impact}</span>
+                              </div>
+                              <div className="detail-item">
+                                <span className="detail-label">发生概率:</span>
+                                <span className="detail-value">{risk.probability}%</span>
+                              </div>
+                            </div>
+
+                            <div className="risk-mitigation">
+                              <h6>应对建议:</h6>
+                              <p>{risk.mitigation}</p>
+                            </div>
+
+                            <div className="risk-footer">
+                              <span className="last-updated">更新于: {risk.lastUpdated}</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="scores-section">
+                    <div className="section-header">
+                      <h4>⭐ 企业评分分析</h4>
+                      <p className="section-desc">从多个维度评估当前企业的综合表现</p>
+                    </div>
+                    
+                    {scores && (
+                      <div className="scores-content">
+                        <div className="happiness-index">
+                          <div className="happiness-header">
+                            <h5>😊 幸福指数</h5>
+                            <div className="happiness-score">
+                              <span className="score-number">{scores.happinessIndex}</span>
+                              <span className="score-text">{getScoreText(scores.happinessIndex)}</span>
+                            </div>
+                          </div>
+                          <div className="happiness-bar">
+                            <div 
+                              className="happiness-fill"
+                              style={{ 
+                                width: `${scores.happinessIndex}%`,
+                                backgroundColor: getScoreColor(scores.happinessIndex)
+                              }}
+                            ></div>
+                          </div>
+                        </div>
+
+                        <div className="score-breakdown">
+                          <h6>📊 详细评分</h6>
+                          <div className="score-items">
+                            <div className="score-item">
+                              <span className="score-label">职业发展</span>
+                              <div className="score-bar">
+                                <div 
+                                  className="score-fill"
+                                  style={{ 
+                                    width: `${scores.careerDevelopment}%`,
+                                    backgroundColor: getScoreColor(scores.careerDevelopment)
+                                  }}
+                                ></div>
+                              </div>
+                              <span className="score-value">{scores.careerDevelopment}</span>
+                            </div>
+                            
+                            <div className="score-item">
+                              <span className="score-label">工作生活平衡</span>
+                              <div className="score-bar">
+                                <div 
+                                  className="score-fill"
+                                  style={{ 
+                                    width: `${scores.workLifeBalance}%`,
+                                    backgroundColor: getScoreColor(scores.workLifeBalance)
+                                  }}
+                                ></div>
+                              </div>
+                              <span className="score-value">{scores.workLifeBalance}</span>
+                            </div>
+                            
+                            <div className="score-item">
+                              <span className="score-label">薪资满意度</span>
+                              <div className="score-bar">
+                                <div 
+                                  className="score-fill"
+                                  style={{ 
+                                    width: `${scores.salarySatisfaction}%`,
+                                    backgroundColor: getScoreColor(scores.salarySatisfaction)
+                                  }}
+                                ></div>
+                              </div>
+                              <span className="score-value">{scores.salarySatisfaction}</span>
+                            </div>
+                            
+                            <div className="score-item">
+                              <span className="score-label">团队文化</span>
+                              <div className="score-bar">
+                                <div 
+                                  className="score-fill"
+                                  style={{ 
+                                    width: `${scores.teamCulture}%`,
+                                    backgroundColor: getScoreColor(scores.teamCulture)
+                                  }}
+                                ></div>
+                              </div>
+                              <span className="score-value">{scores.teamCulture}</span>
+                            </div>
+                            
+                            <div className="score-item">
+                              <span className="score-label">管理质量</span>
+                              <div className="score-bar">
+                                <div 
+                                  className="score-fill"
+                                  style={{ 
+                                    width: `${scores.managementQuality}%`,
+                                    backgroundColor: getScoreColor(scores.managementQuality)
+                                  }}
+                                ></div>
+                              </div>
+                              <span className="score-value">{scores.managementQuality}</span>
+                            </div>
+                            
+                            <div className="score-item">
+                              <span className="score-label">公司稳定性</span>
+                              <div className="score-bar">
+                                <div 
+                                  className="score-fill"
+                                  style={{ 
+                                    width: `${scores.companyStability}%`,
+                                    backgroundColor: getScoreColor(scores.companyStability)
+                                  }}
+                                ></div>
+                              </div>
+                              <span className="score-value">{scores.companyStability}</span>
+                            </div>
+                            
+                            <div className="score-item">
+                              <span className="score-label">成长潜力</span>
+                              <div className="score-bar">
+                                <div 
+                                  className="score-fill"
+                                  style={{ 
+                                    width: `${scores.growthPotential}%`,
+                                    backgroundColor: getScoreColor(scores.growthPotential)
+                                  }}
+                                ></div>
+                              </div>
+                              <span className="score-value">{scores.growthPotential}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* 添加评分趋势和对比分析 */}
+                        <div className="score-analysis">
+                          <div className="analysis-section">
+                            <h6>📈 评分趋势分析</h6>
+                            <div className="trend-chart">
+                              <div className="trend-item">
+                                <span className="trend-label">本月评分</span>
+                                <div className="trend-bar">
+                                  <div className="trend-fill" style={{ width: '78%', backgroundColor: '#3b82f6' }}></div>
+                                </div>
+                                <span className="trend-value">78</span>
+                              </div>
+                              <div className="trend-item">
+                                <span className="trend-label">上月评分</span>
+                                <div className="trend-bar">
+                                  <div className="trend-fill" style={{ width: '75%', backgroundColor: '#10b981' }}></div>
+                                </div>
+                                <span className="trend-value">75</span>
+                              </div>
+                              <div className="trend-item">
+                                <span className="trend-label">三个月前</span>
+                                <div className="trend-bar">
+                                  <div className="trend-fill" style={{ width: '72%', backgroundColor: '#f59e0b' }}></div>
+                                </div>
+                                <span className="trend-value">72</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="analysis-section">
+                            <h6>🎯 改进建议</h6>
+                            <div className="improvement-suggestions">
+                              <div className="suggestion-item">
+                                <span className="suggestion-icon">💡</span>
+                                <div className="suggestion-content">
+                                  <span className="suggestion-title">工作生活平衡</span>
+                                  <span className="suggestion-desc">建议合理安排工作时间，提高效率</span>
+                                </div>
+                              </div>
+                              <div className="suggestion-item">
+                                <span className="suggestion-icon">📚</span>
+                                <div className="suggestion-content">
+                                  <span className="suggestion-title">职业发展</span>
+                                  <span className="suggestion-desc">可以主动承担更多挑战性项目</span>
+                                </div>
+                              </div>
+                              <div className="suggestion-item">
+                                <span className="suggestion-icon">🤝</span>
+                                <div className="suggestion-content">
+                                  <span className="suggestion-title">管理质量</span>
+                                  <span className="suggestion-desc">建议加强与上级的沟通交流</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="analysis-section">
+                            <h6>📊 行业对比</h6>
+                            <div className="industry-comparison">
+                              <div className="comparison-item">
+                                <span className="comparison-label">您的评分</span>
+                                <span className="comparison-value">78</span>
+                              </div>
+                              <div className="comparison-item">
+                                <span className="comparison-label">行业平均</span>
+                                <span className="comparison-value">72</span>
+                              </div>
+                              <div className="comparison-item">
+                                <span className="comparison-label">同级别平均</span>
+                                <span className="comparison-value">75</span>
+                              </div>
+                              <div className="comparison-item">
+                                <span className="comparison-label">排名</span>
+                                <span className="comparison-value">前25%</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -5,6 +5,8 @@ interface ContractSummaryPanelProps {
   userInput?: string;
   aiResponse?: string;
   className?: string;
+  isFullscreen?: boolean;
+  onFullscreenChange?: (isFullscreen: boolean) => void;
 }
 
 interface ContractKeyPoint {
@@ -27,7 +29,9 @@ interface ContractAnalysis {
 const ContractSummaryPanel: React.FC<ContractSummaryPanelProps> = ({
   userInput: _userInput = '',
   aiResponse = '',
-  className = ''
+  className = '',
+  isFullscreen: externalIsFullscreen = false,
+  onFullscreenChange
 }) => {
   const [analysis, setAnalysis] = useState<ContractAnalysis>({
     keyPoints: [],
@@ -38,6 +42,11 @@ const ContractSummaryPanel: React.FC<ContractSummaryPanelProps> = ({
     recommendations: []
   });
   const [activeTab, setActiveTab] = useState<'overview' | 'advantages' | 'disadvantages' | 'risks'>('overview');
+  const [internalIsFullscreen, setInternalIsFullscreen] = useState(false);
+  
+  // 使用外部控制的全屏状态，如果没有外部控制则使用内部状态
+  const isFullscreen = onFullscreenChange ? externalIsFullscreen : internalIsFullscreen;
+  const setIsFullscreen = onFullscreenChange ? onFullscreenChange : setInternalIsFullscreen;
 
   // 从AI回复中提取关键信息并进行全面分析
   useEffect(() => {
@@ -478,6 +487,13 @@ const ContractSummaryPanel: React.FC<ContractSummaryPanelProps> = ({
             <h3 className="panel-title">合同关键信息</h3>
           </div>
           <div className="header-actions">
+            <button 
+              className="action-btn fullscreen-btn"
+              onClick={() => setIsFullscreen(true)}
+              title="放大到全屏"
+            >
+              🔍 放大
+            </button>
           </div>
         </div>
         
@@ -529,6 +545,13 @@ const ContractSummaryPanel: React.FC<ContractSummaryPanelProps> = ({
           <h3 className="panel-title">合同关键信息</h3>
         </div>
         <div className="header-actions">
+          <button 
+            className="action-btn fullscreen-btn"
+            onClick={() => setIsFullscreen(true)}
+            title="放大到全屏"
+          >
+            🔍 放大
+          </button>
         </div>
       </div>
       
@@ -730,6 +753,228 @@ const ContractSummaryPanel: React.FC<ContractSummaryPanelProps> = ({
           )}
         </div>
       </div>
+
+      {/* 全屏模态框 */}
+      {isFullscreen && (
+        <div className="visualization-fullscreen-modal" onClick={() => setIsFullscreen(false)}>
+          <div className="fullscreen-content" onClick={(e) => e.stopPropagation()}>
+            <div className="fullscreen-header">
+              <div className="header-left">
+                <span className="panel-icon">📋</span>
+                <h2 className="panel-title">合同关键信息</h2>
+              </div>
+              <div className="header-actions">
+                <button 
+                  className="action-btn close-btn"
+                  onClick={() => setIsFullscreen(false)}
+                  title="关闭全屏"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+            
+            <div className="fullscreen-body">
+              {/* 标签页导航 */}
+              <div className="tab-navigation">
+                <button 
+                  className={`tab-btn ${activeTab === 'overview' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('overview')}
+                >
+                  概览
+                </button>
+                <button 
+                  className={`tab-btn ${activeTab === 'advantages' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('advantages')}
+                >
+                  优势 ({analysis.advantages.length})
+                </button>
+                <button 
+                  className={`tab-btn ${activeTab === 'disadvantages' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('disadvantages')}
+                >
+                  风险 ({analysis.disadvantages.length})
+                </button>
+                <button 
+                  className={`tab-btn ${activeTab === 'risks' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('risks')}
+                >
+                  风险等级: {analysis.riskLevel === 'high' ? '高' : analysis.riskLevel === 'medium' ? '中' : '低'}
+                </button>
+              </div>
+
+              {/* 标签页内容 */}
+              <div className="tab-content">
+                {activeTab === 'overview' && (
+                  <div className="overview-tab">
+                    <div className="score-section">
+                      <div className="score-circle">
+                        <span className="score-value">{analysis.overallScore}</span>
+                        <span className="score-label">综合评分</span>
+                      </div>
+                      <div className="score-details">
+                        <div className="score-item">
+                          <span className="score-icon">✅</span>
+                          <span>优势: {analysis.advantages.length}项</span>
+                        </div>
+                        <div className="score-item">
+                          <span className="score-icon">❌</span>
+                          <span>风险: {analysis.disadvantages.length}项</span>
+                        </div>
+                        <div className="score-item">
+                          <span className="score-icon">💡</span>
+                          <span>建议: {analysis.recommendations.length}项</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* 整体评估 */}
+                    <div className="overall-assessment">
+                      <h4>📊 整体评估</h4>
+                      <div className="assessment-content">
+                        <div className="assessment-summary">
+                          <div className="assessment-text">
+                            {analysis.overallScore >= 80 ? (
+                              <span className="assessment-positive">
+                                <span className="assessment-icon">🌟</span>
+                                <span className="assessment-title">优秀合同</span>
+                                <span className="assessment-desc">这是一份条件优越的劳动合同，薪资待遇合理，权益保障充分，风险较低。</span>
+                              </span>
+                            ) : analysis.overallScore >= 60 ? (
+                              <span className="assessment-neutral">
+                                <span className="assessment-icon">👍</span>
+                                <span className="assessment-title">良好合同</span>
+                                <span className="assessment-desc">这是一份条件良好的劳动合同，整体条款较为合理，建议关注部分细节。</span>
+                              </span>
+                            ) : analysis.overallScore >= 40 ? (
+                              <span className="assessment-caution">
+                                <span className="assessment-icon">⚠️</span>
+                                <span className="assessment-title">需谨慎</span>
+                                <span className="assessment-desc">这份合同存在一些需要关注的问题，建议仔细审查相关条款。</span>
+                              </span>
+                            ) : (
+                              <span className="assessment-warning">
+                                <span className="assessment-icon">🚨</span>
+                                <span className="assessment-title">高风险合同</span>
+                                <span className="assessment-desc">这份合同存在较多风险点，强烈建议谨慎考虑或寻求专业建议。</span>
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        
+                        <div className="assessment-details">
+                          <div className="detail-item">
+                            <span className="detail-label">风险等级</span>
+                            <span className={`detail-value risk-${analysis.riskLevel}`}>
+                              {analysis.riskLevel === 'high' ? '🔴 高' : analysis.riskLevel === 'medium' ? '🟡 中' : '🟢 低'}
+                            </span>
+                          </div>
+                          <div className="detail-item">
+                            <span className="detail-label">建议关注</span>
+                            <span className="detail-value">
+                              {analysis.recommendations.length > 0 ? `${analysis.recommendations.length}项建议` : '无特殊建议'}
+                            </span>
+                          </div>
+                          <div className="detail-item">
+                            <span className="detail-label">关键信息</span>
+                            <span className="detail-value">
+                              {analysis.keyPoints.length}项已识别
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="key-points-preview">
+                      <h4>关键信息预览</h4>
+                      {analysis.keyPoints.slice(0, 5).map((point) => (
+                        <div key={point.id} className={`preview-point ${point.type}`}>
+                          <span className="preview-icon">{point.icon}</span>
+                          <span className="preview-content">{point.content}</span>
+                        </div>
+                      ))}
+                      {analysis.keyPoints.length > 5 && (
+                        <div className="more-points">
+                          还有 {analysis.keyPoints.length - 5} 项关键信息...
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {activeTab === 'advantages' && (
+                  <div className="advantages-tab">
+                    {analysis.advantages.length > 0 ? (
+                      <div className="advantages-list">
+                        {analysis.advantages.map((advantage, index) => (
+                          <div key={index} className="advantage-item">
+                            <span className="advantage-icon">✅</span>
+                            <span className="advantage-text">{advantage}</span>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="empty-tab">
+                        <span className="empty-icon">📝</span>
+                        <p>暂无优势信息</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {activeTab === 'disadvantages' && (
+                  <div className="disadvantages-tab">
+                    {analysis.disadvantages.length > 0 ? (
+                      <div className="disadvantages-list">
+                        {analysis.disadvantages.map((disadvantage, index) => (
+                          <div key={index} className="disadvantage-item">
+                            <span className="disadvantage-icon">❌</span>
+                            <span className="disadvantage-text">{disadvantage}</span>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="empty-tab">
+                        <span className="empty-icon">🎉</span>
+                        <p>暂无风险信息</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {activeTab === 'risks' && (
+                  <div className="risks-tab">
+                    <div className="risk-assessment">
+                      <div className={`risk-level ${analysis.riskLevel}`}>
+                        <span className="risk-icon">
+                          {analysis.riskLevel === 'high' ? '🔴' : analysis.riskLevel === 'medium' ? '🟡' : '🟢'}
+                        </span>
+                        <span className="risk-text">
+                          风险等级: {analysis.riskLevel === 'high' ? '高' : analysis.riskLevel === 'medium' ? '中' : '低'}
+                        </span>
+                      </div>
+                      
+                      {analysis.recommendations.length > 0 && (
+                        <div className="recommendations-section">
+                          <h4>💡 专业建议</h4>
+                          <div className="recommendations-list">
+                            {analysis.recommendations.map((recommendation, index) => (
+                              <div key={index} className="recommendation-item">
+                                <span className="recommendation-icon">💡</span>
+                                <span className="recommendation-text">{recommendation}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
