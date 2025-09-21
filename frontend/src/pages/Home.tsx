@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { api } from '../api';
 import VisualizationPanel from '../components/VisualizationPanel';
 import ContractSummaryPanel from '../components/ContractSummaryPanel';
+import CompanyExperiencePanel from '../components/CompanyExperiencePanel';
 import FormattedText from '../components/FormattedText';
 import TaskQueueStatus from '../components/TaskQueueStatus';
 import UserSelector from '../components/UserSelector';
@@ -1575,6 +1576,13 @@ export default function Home() {
               {!rightPanelCollapsed && !currentChat.isLoading && (
                 activeTab === 'contract' ? (
                   <ContractSummaryPanel
+                    userInput={currentSession?.messages.filter(m => m.role === 'user').pop()?.content || currentChat.input || ''}
+                    aiResponse={currentSession?.messages.filter(m => m.role === 'assistant').pop()?.content || ''}
+                    isFullscreen={visualizationFullscreen}
+                    onFullscreenChange={setVisualizationFullscreen}
+                  />
+                ) : activeTab === 'monitor' ? (
+                  <CompanyExperiencePanel
                     userInput={currentSession?.messages.filter(m => m.role === 'user').pop()?.content || currentChat.input || ''}
                     aiResponse={currentSession?.messages.filter(m => m.role === 'assistant').pop()?.content || ''}
                     isFullscreen={visualizationFullscreen}

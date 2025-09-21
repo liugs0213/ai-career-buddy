@@ -5,6 +5,14 @@
   height: 100vh;
   background-color: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* 跨平台优化 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* 防止布局抖动 */
+  min-width: 320px;
+  /* 触摸设备优化 */
+  touch-action: manipulation;
 }
 
 /* 左侧聊天记录栏 */
@@ -1263,6 +1271,87 @@
   }
 }
 
+/* 超宽屏优化 */
+@media (min-width: 2560px) {
+  .ai-career-buddy {
+    max-width: 2560px;
+    margin: 0 auto;
+  }
+  
+  .sidebar {
+    width: 320px;
+  }
+  
+  .visualization-area {
+    width: 30%;
+    min-width: 400px;
+    max-width: 800px;
+  }
+  
+  .messages-area {
+    padding: 24px 48px;
+  }
+  
+  .content-header {
+    padding: 24px 48px 16px 48px;
+  }
+  
+  .main-title {
+    font-size: 24px;
+  }
+}
+
+/* 大屏幕优化 */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  .visualization-area {
+    width: 28%;
+    min-width: 380px;
+    max-width: 600px;
+  }
+  
+  .messages-area {
+    padding: 20px 40px;
+  }
+  
+  .content-header {
+    padding: 20px 40px 16px 40px;
+  }
+}
+
+/* 中等屏幕优化 */
+@media (min-width: 1200px) and (max-width: 1919px) {
+  .visualization-area {
+    width: 26%;
+    min-width: 350px;
+    max-width: 500px;
+  }
+}
+
+/* 小屏幕桌面 */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .sidebar {
+    width: 260px;
+  }
+  
+  .visualization-area {
+    width: 24%;
+    min-width: 320px;
+    max-width: 450px;
+  }
+  
+  .messages-area {
+    padding: 16px 24px;
+  }
+  
+  .content-header {
+    padding: 16px 24px 12px 24px;
+  }
+  
+  .main-title {
+    font-size: 18px;
+  }
+}
+
 /* 平板和小屏幕 */
 @media (max-width: 768px) {
   .sidebar {
@@ -1342,6 +1431,52 @@
   .messages-area {
     border-right: none;
     border-bottom: 1px solid #e2e8f0;
+  }
+  
+  /* 移动端输入框优化 */
+  .input-bar {
+    padding: 12px 16px 16px 16px;
+  }
+  
+  .input-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .input-field {
+    font-size: 16px; /* 防止iOS缩放 */
+  }
+  
+  /* 移动端按钮优化 */
+  .send-button {
+    width: 100%;
+    height: 44px; /* iOS推荐的最小触摸目标 */
+  }
+  
+  .file-upload-button {
+    height: 44px;
+    min-width: 44px;
+  }
+  
+  /* 移动端消息优化 */
+  .message {
+    margin-bottom: 16px;
+  }
+  
+  .message-text {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  /* 移动端标签页优化 */
+  .tab-bar {
+    padding: 8px 16px;
+  }
+  
+  .tab-button {
+    padding: 12px 16px;
+    font-size: 14px;
+    min-height: 44px;
   }
 }
 
@@ -1936,12 +2071,154 @@
   }
 }
 
+/* 超小屏幕手机 */
 @media (max-width: 480px) {
+  .ai-career-buddy {
+    min-width: 320px;
+  }
+  
+  .sidebar {
+    width: 200px;
+  }
+  
+  .content-header {
+    padding: 12px 16px 8px 16px;
+  }
+  
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .main-title {
+    font-size: 16px;
+  }
+  
+  .content-area {
+    padding: 16px;
+  }
+  
+  .messages-area {
+    padding: 12px 16px;
+  }
+  
+  .input-bar {
+    padding: 8px 16px 12px 16px;
+  }
+  
+  .input-field {
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+  
+  .send-button {
+    height: 48px;
+    font-size: 14px;
+  }
+  
+  .file-upload-button {
+    height: 48px;
+    min-width: 48px;
+  }
+  
   .expand-panel-btn {
     min-width: 60px;
     font-size: 12px;
     padding: 5px 10px;
     gap: 3px;
+  }
+  
+  .message-actions {
+    margin-top: 4px;
+  }
+  
+  .tab-bar {
+    padding: 6px 12px;
+  }
+  
+  .tab-button {
+    padding: 10px 12px;
+    font-size: 13px;
+    min-height: 40px;
+  }
+  
+  .visualization-area {
+    width: 100%;
+    max-height: 400px;
+    padding: 12px;
+  }
+  
+  .visualization-area.collapsed {
+    height: 40px;
+    max-height: 40px;
+    padding: 6px;
+  }
+}
+
+/* 横屏模式优化 */
+@media (max-height: 500px) and (orientation: landscape) {
+  .ai-career-buddy {
+    height: 100vh;
+  }
+  
+  .content-header {
+    padding: 8px 16px 6px 16px;
+  }
+  
+  .main-title {
+    font-size: 16px;
+  }
+  
+  .messages-area {
+    padding: 8px 16px;
+  }
+  
+  .input-bar {
+    padding: 6px 16px 8px 16px;
+  }
+  
+  .visualization-area {
+    max-height: 300px;
+  }
+  
+  .visualization-area.collapsed {
+    height: 30px;
+    max-height: 30px;
+  }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  .sidebar-toggle,
+  .right-panel-toggle {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+  
+  .tab-button {
+    min-height: 44px;
+  }
+  
+  .send-button,
+  .file-upload-button {
+    min-height: 44px;
+  }
+  
+  .expand-panel-btn {
+    min-height: 44px;
+    padding: 12px 16px;
+  }
+  
+  /* 增加触摸目标间距 */
+  .message {
+    margin-bottom: 20px;
+  }
+  
+  .chat-item {
+    padding: 16px;
+    margin-bottom: 8px;
   }
 }
 
@@ -1960,4 +2237,176 @@
 
 .model-selector-popup .model-list::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
+}
+
+/* Mac特定优化 */
+@media screen and (-webkit-min-device-pixel-ratio: 1) {
+  .ai-career-buddy {
+    /* Mac字体渲染优化 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .message-text,
+  .input-field,
+  .tab-button {
+    /* Mac文本渲染优化 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Mac滚动条样式 */
+  .chat-history::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .chat-history::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+  
+  .chat-history::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+  
+  .chat-history::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Windows特定优化 */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .ai-career-buddy {
+    /* Windows字体渲染优化 */
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Windows滚动条样式 */
+  .chat-history {
+    scrollbar-width: thin;
+    scrollbar-color: #c1c1c1 #f1f1f1;
+  }
+}
+
+/* 高DPI屏幕优化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .ai-career-buddy {
+    /* 高DPI屏幕字体优化 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* 高DPI屏幕边框优化 */
+  .sidebar,
+  .visualization-area,
+  .messages-area {
+    border-width: 0.5px;
+  }
+  
+  /* 高DPI屏幕阴影优化 */
+  .message.assistant .message-text,
+  .expand-panel-btn,
+  .sidebar-toggle,
+  .right-panel-toggle {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+  .ai-career-buddy {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  
+  .sidebar {
+    background-color: #2a2a2a;
+    border-right-color: #3a3a3a;
+  }
+  
+  .content-header {
+    background-color: #1a1a1a;
+    border-bottom-color: #3a3a3a;
+  }
+  
+  .messages-area {
+    background-color: #1a1a1a;
+    border-right-color: #3a3a3a;
+  }
+  
+  .visualization-area {
+    background-color: #2a2a2a;
+    border-left-color: #3a3a3a;
+  }
+  
+  .message.user .message-text {
+    background-color: #3a3a3a;
+    color: #ffffff;
+  }
+  
+  .message.assistant .message-text {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-color: #3a3a3a;
+  }
+  
+  .input-field {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-color: #3a3a3a;
+  }
+  
+  .input-field:focus {
+    border-color: #4a9eff;
+  }
+  
+  .send-button {
+    background-color: #4a9eff;
+    border-color: #4a9eff;
+  }
+  
+  .send-button:hover {
+    background-color: #3a8eef;
+  }
+  
+  .tab-button {
+    color: #cccccc;
+  }
+  
+  .tab-button:hover {
+    background-color: #3a3a3a;
+    color: #ffffff;
+  }
+  
+  .tab-button.active {
+    background-color: #4a9eff;
+    color: #ffffff;
+  }
+  
+  .expand-panel-btn {
+    background-color: #4a9eff;
+    border-color: #4a9eff;
+  }
+  
+  .expand-panel-btn:hover {
+    background-color: #3a8eef;
+  }
+}
+
+/* 减少动画（用户偏好） */
+@media (prefers-reduced-motion: reduce) {
+  .ai-career-buddy * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .sidebar,
+  .visualization-area,
+  .expand-panel-btn,
+  .sidebar-toggle,
+  .right-panel-toggle {
+    transition: none !important;
+  }
 }
