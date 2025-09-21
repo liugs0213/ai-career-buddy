@@ -1534,8 +1534,8 @@ export default function Home() {
                     <div className="message-time">
                       {message.timestamp ? new Date(message.timestamp).toLocaleTimeString() : ''}
                     </div>
-                    {/* 只在最新的AI回复消息上显示智能操作按钮 */}
-                    {message.role === 'assistant' && isLatestAssistantMessage && (
+                    {/* 只在最新的AI回复消息上显示智能操作按钮，且AI不在生成中 */}
+                    {message.role === 'assistant' && isLatestAssistantMessage && !currentChat.isLoading && (
                       <div className="message-actions">
                         <button 
                           className="expand-panel-btn"
