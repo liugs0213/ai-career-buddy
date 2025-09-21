@@ -98,6 +98,46 @@ func SanitizeForDatabase(text string) string {
 	return text
 }
 
+// SanitizeFileName 专门为文件名清理，保留中文字符
+func SanitizeFileName(fileName string) string {
+	if fileName == "" {
+		return fileName
+	}
+
+	// 移除文件系统不安全的字符
+	// 保留中文字符，只移除真正危险的字符
+	unsafeChars := []string{
+		"/", "\\", ":", "*", "?", "\"", "<", ">", "|",
+		"\u0000", "\u0001", "\u0002", "\u0003", "\u0004", "\u0005",
+		"\u0006", "\u0007", "\u0008", "\u000B", "\u000C", "\u000E",
+		"\u000F", "\u0010", "\u0011", "\u0012", "\u0013", "\u0014",
+		"\u0015", "\u0016", "\u0017", "\u0018", "\u0019", "\u001A",
+		"\u001B", "\u001C", "\u001D", "\u001E", "\u001F", "\u007F",
+	}
+
+	for _, char := range unsafeChars {
+		fileName = strings.ReplaceAll(fileName, char, "_")
+	}
+
+	// 移除多余的下划线
+	fileName = regexp.MustCompile(`_{2,}`).ReplaceAllString(fileName, "_")
+
+	// 移除首尾的下划线和空格
+	fileName = strings.Trim(fileName, "_ ")
+
+	// 如果文件名为空，使用默认名称
+	if fileName == "" {
+		fileName = "document"
+	}
+
+	// 确保文件名长度合理
+	if len(fileName) > 200 {
+		fileName = fileName[:200]
+	}
+
+	return fileName
+}
+
 // CleanDocumentContent 清理文档内容
 func CleanDocumentContent(content string) string {
 	if content == "" {

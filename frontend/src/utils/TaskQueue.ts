@@ -1,4 +1,6 @@
 // 后台任务队列系统
+import { getStreamApiURL } from './apiConfig';
+
 interface Task {
   id: string;
   type: 'stream_message' | 'file_upload' | 'pdf_extract';
@@ -60,7 +62,7 @@ class TaskQueue {
     
     return new Promise(async (resolve, reject) => {
       try {
-        const response = await fetch('http://localhost:8080/api/messages/stream', {
+        const response = await fetch(getStreamApiURL(), {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

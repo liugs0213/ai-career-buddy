@@ -139,7 +139,7 @@ func UploadUserDocument(c *gin.Context) {
 	}
 
 	// 清理文档内容，移除不兼容字符
-	cleanedFileName := utils.SanitizeForDatabase(header.Filename)
+	cleanedFileName := utils.SanitizeFileName(header.Filename)
 	cleanedFileContent := utils.CleanDocumentContent(fileContent)
 
 	// 创建文档记录
@@ -164,14 +164,14 @@ func UploadUserDocument(c *gin.Context) {
 
 	logger.Info("用户文档上传成功: UserID=%s, DocumentType=%s, FileName=%s", userID, documentType, header.Filename)
 
-	// 如果是MD文档且有内容，自动触发分析
-	if fileExt == ".md" && fileContent != "" {
+	// 如果有文件内容，自动触发分析（支持MD、TXT等文本文件）
+	if fileContent != "" && (fileExt == ".md" || fileExt == ".txt") {
 		go func() {
 			// 延迟1秒后开始分析，确保文档记录已保存
 			time.Sleep(1 * time.Second)
 			err := processDocumentWithAI(&document)
 			if err != nil {
-				logger.Error("MD文档自动分析失败: DocumentID=%d, 错误=%v", document.ID, err)
+				logger.Error("文档自动分析失败: DocumentID=%d, FileType=%s, 错误=%v", document.ID, fileExt, err)
 				document.ProcessingStatus = "failed"
 				document.ProcessingError = err.Error()
 			} else {
@@ -321,6 +321,51 @@ func GetDocumentExtractedInfo(c *gin.Context) {
 		"document":          document,
 		"extractedInfo":     extractedInfo,
 		"visualizationData": visualizationData,
+	})
+}
+
+// RetryDocumentProcessing 重新处理文档
+func RetryDocumentProcessing(c *gin.Context) {
+	documentID := c.Param("documentId")
+	if documentID == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "文档ID不能为空"})
+		return
+	}
+
+	var document models.UserDocument
+	if err := db.Conn.Where("id = ?", documentID).First(&document).Error; err != nil {
+		logger.Error("获取文档失败: DocumentID=%s, 错误=%v", documentID, err)
+		c.JSON(http.StatusNotFound, gin.H{"error": "文档不存在"})
+		return
+	}
+
+	// 重置处理状态
+	document.ProcessingStatus = "processing"
+	document.ProcessingError = ""
+	document.IsProcessed = false
+	document.UpdatedAt = time.Now()
+	db.Conn.Save(&document)
+
+	// 异步处理文档
+	go func() {
+		time.Sleep(1 * time.Second)
+		err := processDocumentWithAI(&document)
+		if err != nil {
+			logger.Error("文档重新处理失败: DocumentID=%s, 错误=%v", documentID, err)
+			document.ProcessingStatus = "failed"
+			document.ProcessingError = err.Error()
+		} else {
+			document.ProcessingStatus = "completed"
+			document.IsProcessed = true
+		}
+		document.UpdatedAt = time.Now()
+		db.Conn.Save(&document)
+	}()
+
+	logger.Info("开始重新处理文档: DocumentID=%s", documentID)
+	c.JSON(http.StatusOK, gin.H{
+		"message":  "文档重新处理已开始",
+		"document": document,
 	})
 }
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Button, Space, Tag, Typography, Alert, Divider } from 'antd';
 import { InfoCircleOutlined, BugOutlined, ApiOutlined } from '@ant-design/icons';
+import { getStreamApiURL, getHealthApiURL } from '../utils/apiConfig';
 
 const { Text, Paragraph } = Typography;
 
@@ -33,8 +34,7 @@ const EnvDebugger: React.FC = () => {
 
   const testStreamApi = async () => {
     try {
-      const baseURL = 'http://localhost:8080';
-      const response = await fetch(`${baseURL}/api/messages/stream`, {
+      const response = await fetch(getStreamApiURL(), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

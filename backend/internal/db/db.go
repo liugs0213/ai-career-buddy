@@ -37,9 +37,19 @@ func Connect(dsn string) {
 		})
 
 		// 设置MySQL连接字符集，确保中文字符正确存储
+		// 针对 MySQL 8.0 优化
 		if err == nil {
+			// 设置会话字符集
 			Conn.Exec("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci")
 			Conn.Exec("SET CHARACTER SET utf8mb4")
+			Conn.Exec("SET character_set_client = utf8mb4")
+			Conn.Exec("SET character_set_connection = utf8mb4")
+			Conn.Exec("SET character_set_results = utf8mb4")
+			Conn.Exec("SET collation_connection = utf8mb4_unicode_ci")
+			Conn.Exec("SET collation_server = utf8mb4_unicode_ci")
+
+			// 设置SQL模式，兼容MySQL 8.0
+			Conn.Exec("SET sql_mode = 'STRICT_TRANS_TABLES,NO_ZERO_DATE,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO'")
 		}
 	}
 

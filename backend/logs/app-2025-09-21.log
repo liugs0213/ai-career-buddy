@@ -1729,3 +1729,716 @@
 [INFO]  2025/09/21 14:14:22 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1758274655486-ba441c7no | IP: ::1 | 状态: 200 | 耗时: 3.63675ms
 [INFO]  2025/09/21 14:14:23 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758434618172-giuduwyyd | IP: ::1 | 状态: 200 | 耗时: 2.795625ms
 [INFO]  2025/09/21 14:14:25 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 4.365416ms
+[INFO]  2025/09/21 14:24:43 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 14:24:43 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 14:24:43 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 14:24:43 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 14:24:43 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 14:24:43 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/21 14:24:44 logger.go:73: 收到流式消息请求: ThreadID=contract-1758427872974-iwd7sgqgk, ModelID=bailian/qwen-flash, Content长度=21, 附件数量=0
+[INFO]  2025/09/21 14:24:44 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:24:47 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:24:47 logger.go:73: 流式消息处理完成: ThreadID=contract-1758427872974-iwd7sgqgk, 总耗时=2.742587083s
+[INFO]  2025/09/21 14:24:47 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 2.742653125s
+[INFO]  2025/09/21 14:24:47 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 14:24:47 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 14:44:38 logger.go:73: 收到流式消息请求: ThreadID=contract-1758437074763-ss0dq9bow, ModelID=bailian/qwen-flash, Content长度=63, 附件数量=0
+[INFO]  2025/09/21 14:44:38 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:44:40 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:44:40 logger.go:73: 流式消息处理完成: ThreadID=contract-1758437074763-ss0dq9bow, 总耗时=1.942689458s
+[INFO]  2025/09/21 14:44:40 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 1.942883s
+[INFO]  2025/09/21 14:44:40 logger.go:73: 保存职业历史记录: ThreadID=contract-1758437074763-ss0dq9bow, Category=contract
+[INFO]  2025/09/21 14:44:40 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758437074763-ss0dq9bow, Category=contract
+[INFO]  2025/09/21 14:44:53 logger.go:73: 收到流式消息请求: ThreadID=contract-1758437074763-ss0dq9bow, ModelID=bailian/qwen-flash, Content长度=18, 附件数量=1
+[INFO]  2025/09/21 14:44:53 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:44:56 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:44:56 logger.go:73: 流式消息处理完成: ThreadID=contract-1758437074763-ss0dq9bow, 总耗时=3.045152209s
+[INFO]  2025/09/21 14:44:56 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 3.045329125s
+[INFO]  2025/09/21 14:44:56 logger.go:73: 保存职业历史记录: ThreadID=contract-1758437074763-ss0dq9bow, Category=contract
+[INFO]  2025/09/21 14:44:56 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758437074763-ss0dq9bow, Category=contract
+[INFO]  2025/09/21 14:45:43 logger.go:73: 收到流式消息请求: ThreadID=career-1758437143020-4h0lp6zu2, ModelID=bailian/qwen-flash, Content长度=18, 附件数量=0
+[INFO]  2025/09/21 14:45:43 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:45:43 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:45:43 logger.go:73: 流式消息处理完成: ThreadID=career-1758437143020-4h0lp6zu2, 总耗时=744.577125ms
+[INFO]  2025/09/21 14:45:43 logger.go:73: 保存职业历史记录: ThreadID=career-1758437143020-4h0lp6zu2, Category=career
+[INFO]  2025/09/21 14:45:43 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 744.646625ms
+[INFO]  2025/09/21 14:45:43 logger.go:73: 职业历史记录保存成功: ThreadID=career-1758437143020-4h0lp6zu2, Category=career
+[INFO]  2025/09/21 14:46:16 logger.go:73: 收到流式消息请求: ThreadID=contract-1758437175091-gtf849h6v, ModelID=bailian/qwen-flash, Content长度=63, 附件数量=0
+[INFO]  2025/09/21 14:46:16 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:46:18 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:46:18 logger.go:73: 流式消息处理完成: ThreadID=contract-1758437175091-gtf849h6v, 总耗时=1.888344292s
+[INFO]  2025/09/21 14:46:18 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 1.888414458s
+[INFO]  2025/09/21 14:46:18 logger.go:73: 保存职业历史记录: ThreadID=contract-1758437175091-gtf849h6v, Category=contract
+[INFO]  2025/09/21 14:46:18 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758437175091-gtf849h6v, Category=contract
+[INFO]  2025/09/21 14:49:10 logger.go:73: 收到流式消息请求: ThreadID=contract-1758437175091-gtf849h6v, ModelID=bailian/qwen-flash, Content长度=18, 附件数量=0
+[INFO]  2025/09/21 14:49:10 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:49:11 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:49:11 logger.go:73: 流式消息处理完成: ThreadID=contract-1758437175091-gtf849h6v, 总耗时=728.61075ms
+[INFO]  2025/09/21 14:49:11 logger.go:73: 保存职业历史记录: ThreadID=contract-1758437175091-gtf849h6v, Category=contract
+[INFO]  2025/09/21 14:49:11 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 728.673542ms
+[INFO]  2025/09/21 14:49:11 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758437175091-gtf849h6v, Category=contract
+[INFO]  2025/09/21 15:52:26 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/21 15:52:26 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 106.763ms
+[INFO]  2025/09/21 15:52:26 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/21 15:52:26 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 6.443333ms
+[INFO]  2025/09/21 15:52:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=11
+[INFO]  2025/09/21 15:52:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 244.977792ms
+[INFO]  2025/09/21 15:52:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=11
+[INFO]  2025/09/21 15:52:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 17.29625ms
+[INFO]  2025/09/21 15:52:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 15:52:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 33.870833ms
+[INFO]  2025/09/21 15:52:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 15:52:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 37.920375ms
+[INFO]  2025/09/21 15:52:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 15:52:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 60.963584ms
+[INFO]  2025/09/21 15:52:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 15:52:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 39.446875ms
+[INFO]  2025/09/21 15:52:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 15:52:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 13.733583ms
+[INFO]  2025/09/21 15:52:26 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 15:52:26 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 7.056292ms
+[INFO]  2025/09/21 15:52:27 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758437175091-gtf849h6v | IP: ::1 | 状态: 200 | 耗时: 9.95825ms
+[INFO]  2025/09/21 15:52:39 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 15:52:39 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 71.991958ms
+[ERROR] 2025/09/21 15:52:40 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 15:52:40 logger.go:83: AI文档信息提取失败: DocumentID=92, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 15:52:40 logger.go:83: MD文档自动分析失败: DocumentID=92, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 15:52:42 logger.go:73: HTTP请求: GET /api/users/default-user/documents/92/extracted-info | IP: ::1 | 状态: 400 | 耗时: 6.017916ms
+[INFO]  2025/09/21 15:52:47 logger.go:73: HTTP请求: GET /api/users/default-user/documents/92/extracted-info | IP: ::1 | 状态: 400 | 耗时: 121.805667ms
+[INFO]  2025/09/21 15:52:47 logger.go:73: 收到流式消息请求: ThreadID=contract-1758437175091-gtf849h6v, ModelID=bailian/qwen-flash, Content长度=21, 附件数量=1
+[INFO]  2025/09/21 15:52:47 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 15:52:49 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 15:52:49 logger.go:73: 流式消息处理完成: ThreadID=contract-1758437175091-gtf849h6v, 总耗时=2.289318834s
+[INFO]  2025/09/21 15:52:49 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 2.307677042s
+[INFO]  2025/09/21 15:52:49 logger.go:73: 保存职业历史记录: ThreadID=contract-1758437175091-gtf849h6v, Category=contract
+[INFO]  2025/09/21 15:52:49 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758437175091-gtf849h6v, Category=contract
+[INFO]  2025/09/21 15:53:17 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 15:53:17 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 15:53:17 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 15:53:17 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 15:53:17 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 15:53:17 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/21 15:53:22 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 15:53:22 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 10.123375ms
+[ERROR] 2025/09/21 15:53:23 logger.go:83: AI提取合同信息失败: API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/21 15:53:23 logger.go:83: AI文档信息提取失败: DocumentID=93, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/21 15:53:23 logger.go:83: 文档自动分析失败: DocumentID=93, FileType=.md, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[INFO]  2025/09/21 15:53:26 logger.go:73: HTTP请求: GET /api/users/default-user/documents/93/extracted-info | IP: ::1 | 状态: 400 | 耗时: 50.613ms
+[INFO]  2025/09/21 15:53:29 logger.go:73: HTTP请求: GET /api/users/default-user/documents/93/extracted-info | IP: ::1 | 状态: 400 | 耗时: 922µs
+[INFO]  2025/09/21 15:53:29 logger.go:73: 收到流式消息请求: ThreadID=contract-1758437175091-gtf849h6v, ModelID=bailian/qwen-flash, Content长度=21, 附件数量=1
+[INFO]  2025/09/21 15:53:29 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 15:53:31 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 15:53:31 logger.go:73: 流式消息处理完成: ThreadID=contract-1758437175091-gtf849h6v, 总耗时=2.175126375s
+[INFO]  2025/09/21 15:53:31 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 2.17526075s
+[INFO]  2025/09/21 15:53:31 logger.go:73: 保存职业历史记录: ThreadID=contract-1758437175091-gtf849h6v, Category=contract
+[INFO]  2025/09/21 15:53:31 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758437175091-gtf849h6v, Category=contract
+[INFO]  2025/09/21 15:55:34 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/21 15:55:34 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 6.498667ms
+[INFO]  2025/09/21 15:55:34 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/21 15:55:34 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 2.054042ms
+[INFO]  2025/09/21 15:55:34 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=11
+[INFO]  2025/09/21 15:55:34 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 17.953667ms
+[INFO]  2025/09/21 15:55:34 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=11
+[INFO]  2025/09/21 15:55:34 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 2.456417ms
+[INFO]  2025/09/21 15:55:34 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 15:55:34 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 7.198834ms
+[INFO]  2025/09/21 15:55:34 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 15:55:34 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 3.324ms
+[INFO]  2025/09/21 15:55:34 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 15:55:34 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 24.74025ms
+[INFO]  2025/09/21 15:55:34 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 15:55:34 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 13.00725ms
+[INFO]  2025/09/21 15:55:34 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 15:55:34 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 133.27425ms
+[INFO]  2025/09/21 15:55:34 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 15:55:34 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 120.081333ms
+[INFO]  2025/09/21 15:55:35 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758437175091-gtf849h6v | IP: ::1 | 状态: 200 | 耗时: 10.385625ms
+[INFO]  2025/09/21 15:55:37 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 15:55:37 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 65.206709ms
+[ERROR] 2025/09/21 15:55:38 logger.go:83: AI提取合同信息失败: API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/21 15:55:38 logger.go:83: AI文档信息提取失败: DocumentID=94, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/21 15:55:38 logger.go:83: 文档自动分析失败: DocumentID=94, FileType=.md, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[INFO]  2025/09/21 15:56:01 logger.go:73: HTTP请求: GET /api/users/default-user/documents/94/extracted-info | IP: ::1 | 状态: 400 | 耗时: 2.078583ms
+[INFO]  2025/09/21 15:56:12 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 15:56:12 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 26.033ms
+[INFO]  2025/09/21 15:56:50 logger.go:73: HTTP请求: GET /api/users/default-user/documents/95/extracted-info | IP: ::1 | 状态: 400 | 耗时: 5.086083ms
+[ERROR] 2025/09/21 15:58:16 logger.go:83: AI提取合同信息失败: API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/21 15:58:16 logger.go:83: AI文档信息提取失败: DocumentID=95, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[ERROR] 2025/09/21 15:58:16 logger.go:83: 文档自动分析失败: DocumentID=95, FileType=.md, 错误=API请求失败 (状态码: 503): invalid header value for: x-higress-llm-model
+[INFO]  2025/09/21 15:59:29 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 15:59:29 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 15:59:29 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 15:59:29 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 15:59:30 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 15:59:30 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/21 15:59:33 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=employment, FileName=在职证明示例.md
+[INFO]  2025/09/21 15:59:33 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 16.187917ms
+[INFO]  2025/09/21 15:59:40 logger.go:73: HTTP请求: GET /api/users/default-user/documents/96/extracted-info | IP: ::1 | 状态: 400 | 耗时: 15.616291ms
+[ERROR] 2025/09/21 15:59:40 logger.go:83: AI提取在职情况信息失败: 解析响应失败: invalid character 's' looking for beginning of value
+[ERROR] 2025/09/21 15:59:40 logger.go:83: AI文档信息提取失败: DocumentID=96, 错误=解析响应失败: invalid character 's' looking for beginning of value
+[ERROR] 2025/09/21 15:59:40 logger.go:83: 文档自动分析失败: DocumentID=96, FileType=.md, 错误=解析响应失败: invalid character 's' looking for beginning of value
+[INFO]  2025/09/21 15:59:58 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 15:59:58 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 21.736875ms
+[INFO]  2025/09/21 16:00:09 logger.go:73: HTTP请求: GET /api/users/default-user/documents/97/extracted-info | IP: ::1 | 状态: 400 | 耗时: 9.601625ms
+[ERROR] 2025/09/21 16:01:07 logger.go:83: AI提取合同信息失败: 解析响应失败: invalid character 's' looking for beginning of value
+[INFO]  2025/09/21 16:01:25 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 16:01:25 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 16:01:25 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 16:01:25 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 16:01:26 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 16:01:26 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/21 16:01:31 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=employment, FileName=在职证明示例.md
+[INFO]  2025/09/21 16:01:31 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 43.724917ms
+[INFO]  2025/09/21 16:01:32 logger.go:73: API响应: success
+[ERROR] 2025/09/21 16:01:32 logger.go:83: AI提取在职情况信息失败: 解析响应失败: invalid character 's' looking for beginning of value, 响应内容: success
+[ERROR] 2025/09/21 16:01:32 logger.go:83: AI文档信息提取失败: DocumentID=98, 错误=解析响应失败: invalid character 's' looking for beginning of value, 响应内容: success
+[ERROR] 2025/09/21 16:01:32 logger.go:83: 文档自动分析失败: DocumentID=98, FileType=.md, 错误=解析响应失败: invalid character 's' looking for beginning of value, 响应内容: success
+[INFO]  2025/09/21 16:01:35 logger.go:73: HTTP请求: GET /api/users/default-user/documents/98/extracted-info | IP: ::1 | 状态: 400 | 耗时: 187.805167ms
+[INFO]  2025/09/21 16:02:28 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 16:02:28 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 19.177ms
+[INFO]  2025/09/21 16:02:35 logger.go:73: HTTP请求: GET /api/users/default-user/documents/99/extracted-info | IP: ::1 | 状态: 400 | 耗时: 3.347542ms
+[INFO]  2025/09/21 16:02:56 logger.go:73: API响应: success
+[ERROR] 2025/09/21 16:04:18 logger.go:83: AI提取合同信息失败: 解析响应失败: invalid character 's' looking for beginning of value, 响应内容: success
+[ERROR] 2025/09/21 16:04:18 logger.go:83: AI文档信息提取失败: DocumentID=99, 错误=解析响应失败: invalid character 's' looking for beginning of value, 响应内容: success
+[ERROR] 2025/09/21 16:04:18 logger.go:83: 文档自动分析失败: DocumentID=99, FileType=.md, 错误=解析响应失败: invalid character 's' looking for beginning of value, 响应内容: success
+[INFO]  2025/09/21 16:04:41 logger.go:73: 收到消息请求: ThreadID=test123, ModelID=bailian/qwen-plus, Content长度=30, 附件数量=0
+[DEBUG] 2025/09/21 16:04:41 logger.go:68: 用户消息保存成功: ID=435
+[INFO]  2025/09/21 16:04:41 logger.go:73: 开始生成AI回复: ModelID=bailian/qwen-plus, DeepThinking=false, NetworkSearch=false
+[INFO]  2025/09/21 16:04:42 logger.go:73: 开始调用百炼API: ModelID=bailian/qwen-plus, Input长度=30
+[INFO]  2025/09/21 16:04:46 logger.go:73: API响应: {"choices":[{"message":{"role":"assistant","content":"- 我是AI职场管家，基于**通义千问**打造  \n- 专注提供**中文职场咨询**与实用建议  \n- 擅长：简历优化、面试辅导、沟通技巧、职业规划  \n- 回答风格：简洁、要点化、重点突出  \n- 目标：帮你高效解决职场问题"},"finish_reason":"stop","index":0,"logprobs":null}],"object":"chat.completion","usage":{"prompt_tokens":115,"completion_tokens":72,"total_tokens":187,"prompt_tokens_details":{"cached_tokens":0}},"created":1758441887,"system_fingerprint":null,"model":"qwen-plus","id":"chatcmpl-c1a99b0d-8ff0-4eac-aa9d-cdd21e685222"}
+[INFO]  2025/09/21 16:04:46 logger.go:73: 百炼API调用成功: ModelID=bailian/qwen-plus, 耗时=4.115280792s, 回复长度=275
+[DEBUG] 2025/09/21 16:04:46 logger.go:68: AI回复生成完成，内容长度: 310
+[DEBUG] 2025/09/21 16:04:46 logger.go:68: AI回复保存成功: ID=436
+[INFO]  2025/09/21 16:04:46 logger.go:73: 消息处理完成: ThreadID=test123, 总耗时=13.606641834s
+[INFO]  2025/09/21 16:04:46 logger.go:73: 保存职业历史记录: ThreadID=test123, Category=unknown
+[INFO]  2025/09/21 16:04:46 logger.go:73: HTTP请求: POST /api/messages | IP: 127.0.0.1 | 状态: 200 | 耗时: 13.607745958s
+[INFO]  2025/09/21 16:04:46 logger.go:73: 职业历史记录保存成功: ThreadID=test123, Category=unknown
+[INFO]  2025/09/21 16:05:30 logger.go:73: 收到消息请求: ThreadID=test123, ModelID=bailian/qwen-plus, Content长度=30, 附件数量=0
+[DEBUG] 2025/09/21 16:05:30 logger.go:68: 用户消息保存成功: ID=437
+[INFO]  2025/09/21 16:05:30 logger.go:73: 开始生成AI回复: ModelID=bailian/qwen-plus, DeepThinking=false, NetworkSearch=false
+[INFO]  2025/09/21 16:05:31 logger.go:73: 开始调用百炼API: ModelID=bailian/qwen-plus, Input长度=30
+[INFO]  2025/09/21 16:05:35 logger.go:73: API响应: {"choices":[{"message":{"role":"assistant","content":"- 我是AI职场管家，基于**通义千问**打造  \n- 专注提供**职场咨询**与实用建议  \n- 擅长中文理解，回应简洁专业  \n- 为你解决工作场景中的各类问题  \n- **高效、精准、可靠**的智能助手"},"finish_reason":"stop","index":0,"logprobs":null}],"object":"chat.completion","usage":{"prompt_tokens":115,"completion_tokens":62,"total_tokens":177,"prompt_tokens_details":{"cached_tokens":0}},"created":1758441935,"system_fingerprint":null,"model":"qwen-plus","id":"chatcmpl-7c9e47fe-4a5d-44ea-b349-563f3af51cab"}
+[INFO]  2025/09/21 16:05:35 logger.go:73: 百炼API调用成功: ModelID=bailian/qwen-plus, 耗时=4.142040375s, 回复长度=240
+[DEBUG] 2025/09/21 16:05:35 logger.go:68: AI回复生成完成，内容长度: 275
+[DEBUG] 2025/09/21 16:05:35 logger.go:68: AI回复保存成功: ID=438
+[INFO]  2025/09/21 16:05:35 logger.go:73: 消息处理完成: ThreadID=test123, 总耗时=9.298594666s
+[INFO]  2025/09/21 16:05:35 logger.go:73: HTTP请求: POST /api/messages | IP: 127.0.0.1 | 状态: 200 | 耗时: 9.298776459s
+[INFO]  2025/09/21 16:05:35 logger.go:73: 保存职业历史记录: ThreadID=test123, Category=unknown
+[INFO]  2025/09/21 16:05:35 logger.go:73: 职业历史记录保存成功: ThreadID=test123, Category=unknown
+[INFO]  2025/09/21 16:05:56 logger.go:73: 收到消息请求: ThreadID=test123, ModelID=bailian/qwen-plus, Content长度=30, 附件数量=0
+[DEBUG] 2025/09/21 16:05:56 logger.go:68: 用户消息保存成功: ID=439
+[INFO]  2025/09/21 16:05:56 logger.go:73: 开始生成AI回复: ModelID=bailian/qwen-plus, DeepThinking=false, NetworkSearch=false
+[INFO]  2025/09/21 16:06:00 logger.go:73: 开始调用百炼API: ModelID=bailian/qwen-plus, Input长度=30
+[INFO]  2025/09/21 16:06:43 logger.go:73: API响应: {"choices":[{"message":{"role":"assistant","content":"- 我是AI职场管家，基于**通义千问**打造  \n- 专注提供**中文职场咨询**与实用建议  \n- 擅长沟通技巧、职业发展、工作效率等场景  \n- 回答风格：**简洁、要点化、可操作**  \n- 目标：帮你快速决策，提升职场表现"},"finish_reason":"stop","index":0,"logprobs":null}],"object":"chat.completion","usage":{"prompt_tokens":115,"completion_tokens":73,"total_tokens":188,"prompt_tokens_details":{"cached_tokens":0}},"created":1758441987,"system_fingerprint":null,"model":"qwen-plus","id":"chatcmpl-9cfed212-773d-4d34-863f-645874c8853f"}
+[INFO]  2025/09/21 16:06:53 logger.go:73: 百炼API调用成功: ModelID=bailian/qwen-plus, 耗时=50.166985375s, 回复长度=276
+[DEBUG] 2025/09/21 16:06:55 logger.go:68: AI回复生成完成，内容长度: 311
+[DEBUG] 2025/09/21 16:06:56 logger.go:68: AI回复保存成功: ID=440
+[INFO]  2025/09/21 16:06:57 logger.go:73: 保存职业历史记录: ThreadID=test123, Category=unknown
+[INFO]  2025/09/21 16:06:57 logger.go:73: 消息处理完成: ThreadID=test123, 总耗时=1m0.939534792s
+[INFO]  2025/09/21 16:07:14 logger.go:73: HTTP请求: POST /api/messages | IP: 127.0.0.1 | 状态: 200 | 耗时: 1m18.247518917s
+[INFO]  2025/09/21 16:07:14 logger.go:73: 职业历史记录保存成功: ThreadID=test123, Category=unknown
+[INFO]  2025/09/21 16:07:15 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 16:07:15 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 86.967375ms
+[INFO]  2025/09/21 16:07:55 logger.go:73: HTTP请求: GET /api/users/default-user/documents/100/extracted-info | IP: ::1 | 状态: 400 | 耗时: 7.326292ms
+[INFO]  2025/09/21 16:07:55 logger.go:73: 用户默认模型更新成功: UserID=default-user, Model=bailian/qwen-plus
+[INFO]  2025/09/21 16:07:55 logger.go:73: HTTP请求: PUT /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 12.900666ms
+[INFO]  2025/09/21 16:07:55 logger.go:73: API响应: success
+[ERROR] 2025/09/21 16:07:55 logger.go:83: AI提取合同信息失败: 解析响应失败: invalid character 's' looking for beginning of value, 响应内容: success
+[ERROR] 2025/09/21 16:07:55 logger.go:83: AI文档信息提取失败: DocumentID=100, 错误=解析响应失败: invalid character 's' looking for beginning of value, 响应内容: success
+[ERROR] 2025/09/21 16:07:55 logger.go:83: 文档自动分析失败: DocumentID=100, FileType=.md, 错误=解析响应失败: invalid character 's' looking for beginning of value, 响应内容: success
+[INFO]  2025/09/21 16:08:00 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 16:08:00 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 13.873041ms
+[INFO]  2025/09/21 16:08:44 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 16:08:44 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 16:08:44 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 16:08:44 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 16:08:45 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 16:08:45 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/21 16:08:53 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 16:08:53 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 33.018125ms
+[INFO]  2025/09/21 16:09:17 logger.go:73: 发送API请求: URL=http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions, ModelID=bailian/qwen-plus, CleanModelID=bailian/qwen-plus
+[INFO]  2025/09/21 16:09:17 logger.go:73: HTTP请求: GET /api/users/default-user/documents/102/extracted-info | IP: ::1 | 状态: 400 | 耗时: 7.205251417s
+[INFO]  2025/09/21 16:09:19 logger.go:73: 请求体: {"model":"bailian/qwen-plus","stream":false,"messages":[{"role":"user","content":"\n请从以下劳动合同内容中提取关键信息，并以JSON格式返回：\n\n合同内容：\n# 劳动合同书\n\n**甲方（用人单位）**: 字节跳动科技有限公司  **乙方（劳动者）**: 张三  **合同编号**: BYTE-2024-001  **签订日期**: 2024年1月15日  ---\n\n## 第一条 合同期限\n\n1. 本合同为**固定期限劳动合同**\n2. 合同期限：自2024年3月1日起至2027年2月28日止，共3年\n3. 试用期：3个月（2024年3月1日至2024年5月31日）\n\n---\n\n## 第二条 工作内容和工作地点\n\n### 工作内容\n1. **职位名称**: 高级软件工程师\n2. **工作职责**:  - 负责抖音推荐算法系统的设计与开发  - 参与大规模分布式系统的架构设计  - 优化系统性能，提升用户体验  - 参与技术方案评审和代码审查  - 指导初级工程师的技术成长\n\n### 工作地点\n- **主要工作地点**: 北京市海淀区知春路63号字节跳动大厦\n- **出差安排**: 根据工作需要，可能需要短期出差\n\n---\n\n## 第三条 工作时间和休息休假\n\n### 工作时间\n1. **标准工时**: 每周工作40小时\n2. **工作时间**: 周一至周五 9:00-18:00\n3. **弹性工作**: 允许在8:00-10:00之间灵活到岗\n4. **加班安排**: 因工作需要可安排加班，按国家规定支付加班费\n\n### 休息休假\n1. **法定节假日**: 按国家规定执行\n2. **年假**: 工作满1年后享受5天年假，满10年后享受10天年假\n3. **病假**: 按国家规定享受病假待遇\n4. **婚假、产假等**: 按国家规定执行\n\n---\n\n## 第四条 劳动报酬\n\n### 基本工资\n- **月薪**: 35,000元人民币\n- **支付方式**: 每月15日前通过银行转账支付\n- **试用期工资**: 按正式工资的80%支付（28,000元）\n\n### 奖金和福利\n1. **年终奖**: 根据公司业绩和个人绩效，发放3-6个月工资\n2. **股权激励**: 授予价值200,000元的限制性股票（RSU）\n3. **绩效奖金**: 季度绩效奖金，最高可达月薪的50%\n4. **项目奖金**: 根据项目贡献发放额外奖金\n\n### 其他福利\n- 免费三餐和下午茶\n- 健身房、按摩等设施使用\n- 商业保险（医疗、意外、重疾）\n- 年度体检\n- 团建活动费用\n\n---\n\n## 第五条 社会保险和住房公积金\n\n1. **社会保险**: 按国家规定缴纳养老、医疗、失业、工伤、生育保险\n2. **住房公积金**: 按国家规定缴纳，单位和个人各承担12%\n3. **补充商业保险**: 公司为员工购买补充医疗保险\n\n---\n\n## 第六条 劳动保护、劳动条件和职业危害防护\n\n1. **劳动保护**: 公司提供必要的劳动保护用品\n2. **工作环境**: 提供安全、健康的工作环境\n3. **职业健康**: 定期进行职业健康检查\n4. **安全培训**: 定期进行安全教育培训\n\n---\n\n## 第七条 保密义务和竞业限制\n\n### 保密义务\n1. **保密内容**:  - 公司技术秘密、商业秘密  - 客户信息、业务数据  - 财务信息、人事信息  - 其他公司机密信息\n\n2. **保密期限**: 合同期间及合同终止后2年内\n\n### 竞业限制条款\n1. **限制范围**: 不得在与公司业务相同或相近的企业工作\n2. **限制期限**: 合同终止后1年内\n3. **限制地域**: 中国大陆地区\n4. **补偿标准**: 按离职前12个月平均工资的30%支付补偿金\n5. **违约金**: 违反竞业限制需支付违约金50万元\n\n---\n\n## 第八条 知识产权\n\n1. **职务发明**: 工作期间产生的发明创造归公司所有\n2. **软件著作权**: 开发的软件程序著作权归公司所有\n3. **专利申请**: 相关专利申请权归公司所有\n4. **署名权**: 员工享有署名权，但不得损害公司利益\n\n---\n\n## 第九条 合同变更、解除和终止\n\n### 合同变更\n1. 双方协商一致可以变更合同内容\n2. 变更应采用书面形式\n\n### 合同解除\n1. **协商解除**: 双方协商一致可以解除合同\n2. **员工解除**: 提前30天书面通知可以解除合同\n3. **公司解除**: 符合法定条件可以解除合同\n\n### 合同终止\n1. 合同期满自然终止\n2. 双方协商一致终止\n3. 法定终止条件出现\n\n---\n\n## 第十条 违约责任\n\n1. **员工违约**: 违反合同约定应承担相应责任\n2. **公司违约**: 违反合同约定应承担相应责任\n3. **争议解决**: 发生争议应协商解决，协商不成可申请劳动仲裁\n\n---\n\n## 第十一条 其他约定\n\n1. **培训协议**: 公司提供专业技术培训，员工需服务满2年\n2. **住房补贴**: 提供每月2,000元住房补贴\n3. **交通补贴**: 提供每月1,000元交通补贴\n4. **通讯补贴**: 提供每月500元通讯补贴\n\n---\n\n## 第十二条 合同生效\n\n1. 本合同一式两份，甲乙双方各执一份\n2. 本合同自双方签字盖章之日起生效\n3. 本合同未尽事宜，按国家法律法规执行\n\n---\n\n**甲方（盖章）**: 字节跳动科技有限公司  **法定代表人**: 张一鸣  **签字日期**: 2024年1月15日  **乙方（签字）**: 张三  **身份证号**: 110101199001011234  **签字日期**: 2024年1月15日  ---\n\n**附件**:\n1. 员工手册\n2. 保密协议\n3. 竞业限制协议\n4. 股权激励协议\n\n请提取以下信息：\n1. 公司名称\n2. 职位\n3. 薪资待遇\n4. 入职日期\n5. 合同类型（正式/实习/外包等）\n6. 工作地点\n7. 工作时间\n8. 福利待遇\n9. 离职通知期\n10. 竞业限制条款\n11. 保密条款\n\n请以以下JSON格式返回：\n{\n  \"contractInfo\": {\n    \"companyName\": \"公司名称\",\n    \"position\": \"职位\",\n    \"salary\": \"薪资\",\n    \"startDate\": \"入职日期\",\n    \"contractType\": \"合同类型\",\n    \"workLocation\": \"工作地点\",\n    \"workingHours\": \"工作时间\",\n    \"benefits\": [\"福利1\", \"福利2\"],\n    \"noticePeriod\": \"离职通知期\",\n    \"nonCompete\": \"竞业限制\",\n    \"confidentiality\": \"保密条款\"\n  }\n}\n"}]}
+[INFO]  2025/09/21 16:09:36 logger.go:73: API响应: {"choices":[{"message":{"role":"assistant","content":"```json\n{\n  \"contractInfo\": {\n    \"companyName\": \"字节跳动科技有限公司\",\n    \"position\": \"高级软件工程师\",\n    \"salary\": \"月薪35,000元人民币，试用期工资28,000元；年终奖3-6个月工资；季度绩效奖金最高达月薪50%；另有项目奖金\",\n    \"startDate\": \"2024年3月1日\",\n    \"contractType\": \"正式\",\n    \"workLocation\": \"北京市海淀区知春路63号字节跳动大厦（可能需短期出差）\",\n    \"workingHours\": \"周一至周五9:00-18:00，每周40小时，允许8:00-10:00弹性到岗，加班按国家规定支付加班费\",\n    \"benefits\": [\n      \"免费三餐和下午茶\",\n      \"健身房、按摩等设施使用\",\n      \"商业保险（医疗、意外、重疾）\",\n      \"年度体检\",\n      \"团建活动费用\",\n      \"每月2,000元住房补贴\",\n      \"每月1,000元交通补贴\",\n      \"每月500元通讯补贴\",\n      \"授予价值200,000元的限制性股票（RSU）\"\n    ],\n    \"noticePeriod\": \"提前30天书面通知\",\n    \"nonCompete\": \"合同终止后1年内不得在中国大陆地区从事与公司业务相同或相近的工作，补偿标准为离职前12个月平均工资的30%，违约金50万元\",\n    \"confidentiality\": \"保密内容包括公司技术秘密、商业秘密、客户信息、业务数据、财务信息、人事信息等，保密期限为合同期间及合同终止后2年内\"\n  }\n}\n```"},"finish_reason":"stop","index":0,"logprobs":null}],"object":"chat.completion","usage":{"prompt_tokens":1773,"completion_tokens":388,"total_tokens":2161,"prompt_tokens_details":{"cached_tokens":0}},"created":1758442169,"system_fingerprint":null,"model":"qwen-plus","id":"chatcmpl-56133003-a48a-4e14-b489-c04ccc17c8b3"}
+[INFO]  2025/09/21 16:09:39 logger.go:73: AI返回的合同信息内容: ```json
+{
+  "contractInfo": {
+    "companyName": "字节跳动科技有限公司",
+    "position": "高级软件工程师",
+    "salary": "月薪35,000元人民币，试用期工资28,000元；年终奖3-6个月工资；季度绩效奖金最高达月薪50%；另有项目奖金",
+    "startDate": "2024年3月1日",
+    "contractType": "正式",
+    "workLocation": "北京市海淀区知春路63号字节跳动大厦（可能需短期出差）",
+    "workingHours": "周一至周五9:00-18:00，每周40小时，允许8:00-10:00弹性到岗，加班按国家规定支付加班费",
+    "benefits": [
+      "免费三餐和下午茶",
+      "健身房、按摩等设施使用",
+      "商业保险（医疗、意外、重疾）",
+      "年度体检",
+      "团建活动费用",
+      "每月2,000元住房补贴",
+      "每月1,000元交通补贴",
+      "每月500元通讯补贴",
+      "授予价值200,000元的限制性股票（RSU）"
+    ],
+    "noticePeriod": "提前30天书面通知",
+    "nonCompete": "合同终止后1年内不得在中国大陆地区从事与公司业务相同或相近的工作，补偿标准为离职前12个月平均工资的30%，违约金50万元",
+    "confidentiality": "保密内容包括公司技术秘密、商业秘密、客户信息、业务数据、财务信息、人事信息等，保密期限为合同期间及合同终止后2年内"
+  }
+}
+```
+[ERROR] 2025/09/21 16:09:39 logger.go:83: 解析合同信息失败: invalid character '`' looking for beginning of value, 内容: ```json
+{
+  "contractInfo": {
+    "companyName": "字节跳动科技有限公司",
+    "position": "高级软件工程师",
+    "salary": "月薪35,000元人民币，试用期工资28,000元；年终奖3-6个月工资；季度绩效奖金最高达月薪50%；另有项目奖金",
+    "startDate": "2024年3月1日",
+    "contractType": "正式",
+    "workLocation": "北京市海淀区知春路63号字节跳动大厦（可能需短期出差）",
+    "workingHours": "周一至周五9:00-18:00，每周40小时，允许8:00-10:00弹性到岗，加班按国家规定支付加班费",
+    "benefits": [
+      "免费三餐和下午茶",
+      "健身房、按摩等设施使用",
+      "商业保险（医疗、意外、重疾）",
+      "年度体检",
+      "团建活动费用",
+      "每月2,000元住房补贴",
+      "每月1,000元交通补贴",
+      "每月500元通讯补贴",
+      "授予价值200,000元的限制性股票（RSU）"
+    ],
+    "noticePeriod": "提前30天书面通知",
+    "nonCompete": "合同终止后1年内不得在中国大陆地区从事与公司业务相同或相近的工作，补偿标准为离职前12个月平均工资的30%，违约金50万元",
+    "confidentiality": "保密内容包括公司技术秘密、商业秘密、客户信息、业务数据、财务信息、人事信息等，保密期限为合同期间及合同终止后2年内"
+  }
+}
+```
+[ERROR] 2025/09/21 16:09:39 logger.go:83: AI文档信息提取失败: DocumentID=102, 错误=解析合同信息失败: invalid character '`' looking for beginning of value
+[ERROR] 2025/09/21 16:09:39 logger.go:83: 文档自动分析失败: DocumentID=102, FileType=.md, 错误=解析合同信息失败: invalid character '`' looking for beginning of value
+[INFO]  2025/09/21 16:09:50 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 16:09:50 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 115.806833ms
+[INFO]  2025/09/21 16:09:55 logger.go:73: 发送API请求: URL=http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions, ModelID=bailian/qwen-plus, CleanModelID=bailian/qwen-plus
+[INFO]  2025/09/21 16:09:55 logger.go:73: 请求体: {"model":"bailian/qwen-plus","stream":false,"messages":[{"role":"user","content":"\n请从以下劳动合同内容中提取关键信息，并以JSON格式返回：\n\n合同内容：\n# 劳动合同书\n\n**甲方（用人单位）**: 字节跳动科技有限公司  **乙方（劳动者）**: 张三  **合同编号**: BYTE-2024-001  **签订日期**: 2024年1月15日  ---\n\n## 第一条 合同期限\n\n1. 本合同为**固定期限劳动合同**\n2. 合同期限：自2024年3月1日起至2027年2月28日止，共3年\n3. 试用期：3个月（2024年3月1日至2024年5月31日）\n\n---\n\n## 第二条 工作内容和工作地点\n\n### 工作内容\n1. **职位名称**: 高级软件工程师\n2. **工作职责**:  - 负责抖音推荐算法系统的设计与开发  - 参与大规模分布式系统的架构设计  - 优化系统性能，提升用户体验  - 参与技术方案评审和代码审查  - 指导初级工程师的技术成长\n\n### 工作地点\n- **主要工作地点**: 北京市海淀区知春路63号字节跳动大厦\n- **出差安排**: 根据工作需要，可能需要短期出差\n\n---\n\n## 第三条 工作时间和休息休假\n\n### 工作时间\n1. **标准工时**: 每周工作40小时\n2. **工作时间**: 周一至周五 9:00-18:00\n3. **弹性工作**: 允许在8:00-10:00之间灵活到岗\n4. **加班安排**: 因工作需要可安排加班，按国家规定支付加班费\n\n### 休息休假\n1. **法定节假日**: 按国家规定执行\n2. **年假**: 工作满1年后享受5天年假，满10年后享受10天年假\n3. **病假**: 按国家规定享受病假待遇\n4. **婚假、产假等**: 按国家规定执行\n\n---\n\n## 第四条 劳动报酬\n\n### 基本工资\n- **月薪**: 35,000元人民币\n- **支付方式**: 每月15日前通过银行转账支付\n- **试用期工资**: 按正式工资的80%支付（28,000元）\n\n### 奖金和福利\n1. **年终奖**: 根据公司业绩和个人绩效，发放3-6个月工资\n2. **股权激励**: 授予价值200,000元的限制性股票（RSU）\n3. **绩效奖金**: 季度绩效奖金，最高可达月薪的50%\n4. **项目奖金**: 根据项目贡献发放额外奖金\n\n### 其他福利\n- 免费三餐和下午茶\n- 健身房、按摩等设施使用\n- 商业保险（医疗、意外、重疾）\n- 年度体检\n- 团建活动费用\n\n---\n\n## 第五条 社会保险和住房公积金\n\n1. **社会保险**: 按国家规定缴纳养老、医疗、失业、工伤、生育保险\n2. **住房公积金**: 按国家规定缴纳，单位和个人各承担12%\n3. **补充商业保险**: 公司为员工购买补充医疗保险\n\n---\n\n## 第六条 劳动保护、劳动条件和职业危害防护\n\n1. **劳动保护**: 公司提供必要的劳动保护用品\n2. **工作环境**: 提供安全、健康的工作环境\n3. **职业健康**: 定期进行职业健康检查\n4. **安全培训**: 定期进行安全教育培训\n\n---\n\n## 第七条 保密义务和竞业限制\n\n### 保密义务\n1. **保密内容**:  - 公司技术秘密、商业秘密  - 客户信息、业务数据  - 财务信息、人事信息  - 其他公司机密信息\n\n2. **保密期限**: 合同期间及合同终止后2年内\n\n### 竞业限制条款\n1. **限制范围**: 不得在与公司业务相同或相近的企业工作\n2. **限制期限**: 合同终止后1年内\n3. **限制地域**: 中国大陆地区\n4. **补偿标准**: 按离职前12个月平均工资的30%支付补偿金\n5. **违约金**: 违反竞业限制需支付违约金50万元\n\n---\n\n## 第八条 知识产权\n\n1. **职务发明**: 工作期间产生的发明创造归公司所有\n2. **软件著作权**: 开发的软件程序著作权归公司所有\n3. **专利申请**: 相关专利申请权归公司所有\n4. **署名权**: 员工享有署名权，但不得损害公司利益\n\n---\n\n## 第九条 合同变更、解除和终止\n\n### 合同变更\n1. 双方协商一致可以变更合同内容\n2. 变更应采用书面形式\n\n### 合同解除\n1. **协商解除**: 双方协商一致可以解除合同\n2. **员工解除**: 提前30天书面通知可以解除合同\n3. **公司解除**: 符合法定条件可以解除合同\n\n### 合同终止\n1. 合同期满自然终止\n2. 双方协商一致终止\n3. 法定终止条件出现\n\n---\n\n## 第十条 违约责任\n\n1. **员工违约**: 违反合同约定应承担相应责任\n2. **公司违约**: 违反合同约定应承担相应责任\n3. **争议解决**: 发生争议应协商解决，协商不成可申请劳动仲裁\n\n---\n\n## 第十一条 其他约定\n\n1. **培训协议**: 公司提供专业技术培训，员工需服务满2年\n2. **住房补贴**: 提供每月2,000元住房补贴\n3. **交通补贴**: 提供每月1,000元交通补贴\n4. **通讯补贴**: 提供每月500元通讯补贴\n\n---\n\n## 第十二条 合同生效\n\n1. 本合同一式两份，甲乙双方各执一份\n2. 本合同自双方签字盖章之日起生效\n3. 本合同未尽事宜，按国家法律法规执行\n\n---\n\n**甲方（盖章）**: 字节跳动科技有限公司  **法定代表人**: 张一鸣  **签字日期**: 2024年1月15日  **乙方（签字）**: 张三  **身份证号**: 110101199001011234  **签字日期**: 2024年1月15日  ---\n\n**附件**:\n1. 员工手册\n2. 保密协议\n3. 竞业限制协议\n4. 股权激励协议\n\n请提取以下信息：\n1. 公司名称\n2. 职位\n3. 薪资待遇\n4. 入职日期\n5. 合同类型（正式/实习/外包等）\n6. 工作地点\n7. 工作时间\n8. 福利待遇\n9. 离职通知期\n10. 竞业限制条款\n11. 保密条款\n\n请以以下JSON格式返回：\n{\n  \"contractInfo\": {\n    \"companyName\": \"公司名称\",\n    \"position\": \"职位\",\n    \"salary\": \"薪资\",\n    \"startDate\": \"入职日期\",\n    \"contractType\": \"合同类型\",\n    \"workLocation\": \"工作地点\",\n    \"workingHours\": \"工作时间\",\n    \"benefits\": [\"福利1\", \"福利2\"],\n    \"noticePeriod\": \"离职通知期\",\n    \"nonCompete\": \"竞业限制\",\n    \"confidentiality\": \"保密条款\"\n  }\n}\n"}]}
+[INFO]  2025/09/21 16:09:55 logger.go:73: HTTP请求: GET /api/users/default-user/documents/103/extracted-info | IP: ::1 | 状态: 400 | 耗时: 60.642792ms
+[INFO]  2025/09/21 16:10:15 logger.go:73: API响应: {"choices":[{"message":{"role":"assistant","content":"```json\n{\n  \"contractInfo\": {\n    \"companyName\": \"字节跳动科技有限公司\",\n    \"position\": \"高级软件工程师\",\n    \"salary\": \"月薪35,000元人民币，试用期80%（28,000元）；年终奖3-6个月工资；季度绩效奖金最高达月薪50%；另有项目奖金、股权激励（价值200,000元RSU）\",\n    \"startDate\": \"2024年3月1日\",\n    \"contractType\": \"正式\",\n    \"workLocation\": \"北京市海淀区知春路63号字节跳动大厦，可能涉及短期出差\",\n    \"workingHours\": \"周一至周五9:00-18:00，每周40小时，允许8:00-10:00弹性到岗，加班按国家规定支付加班费\",\n    \"benefits\": [\n      \"免费三餐和下午茶\",\n      \"健身房、按摩等设施使用\",\n      \"商业保险（医疗、意外、重疾）\",\n      \"年度体检\",\n      \"团建活动费用\",\n      \"住房补贴每月2,000元\",\n      \"交通补贴每月1,000元\",\n      \"通讯补贴每月500元\",\n      \"补充医疗保险\"\n    ],\n    \"noticePeriod\": \"提前30天书面通知可解除合同\",\n    \"nonCompete\": \"合同终止后1年内不得在中国大陆地区从事与公司业务相同或相近的工作，补偿标准为离职前12个月平均工资的30%，违约需支付50万元违约金\",\n    \"confidentiality\": \"保密内容包括技术秘密、商业秘密、客户信息、财务人事数据等，保密义务持续至合同终止后2年内\"\n  }\n}\n```"},"finish_reason":"stop","index":0,"logprobs":null}],"object":"chat.completion","usage":{"prompt_tokens":1773,"completion_tokens":389,"total_tokens":2162,"prompt_tokens_details":{"cached_tokens":0}},"created":1758442203,"system_fingerprint":null,"model":"qwen-plus","id":"chatcmpl-b802df54-864c-4a1b-b157-3e979d1ea3eb"}
+[INFO]  2025/09/21 16:11:00 logger.go:73: AI返回的合同信息内容: ```json
+{
+  "contractInfo": {
+    "companyName": "字节跳动科技有限公司",
+    "position": "高级软件工程师",
+    "salary": "月薪35,000元人民币，试用期80%（28,000元）；年终奖3-6个月工资；季度绩效奖金最高达月薪50%；另有项目奖金、股权激励（价值200,000元RSU）",
+    "startDate": "2024年3月1日",
+    "contractType": "正式",
+    "workLocation": "北京市海淀区知春路63号字节跳动大厦，可能涉及短期出差",
+    "workingHours": "周一至周五9:00-18:00，每周40小时，允许8:00-10:00弹性到岗，加班按国家规定支付加班费",
+    "benefits": [
+      "免费三餐和下午茶",
+      "健身房、按摩等设施使用",
+      "商业保险（医疗、意外、重疾）",
+      "年度体检",
+      "团建活动费用",
+      "住房补贴每月2,000元",
+      "交通补贴每月1,000元",
+      "通讯补贴每月500元",
+      "补充医疗保险"
+    ],
+    "noticePeriod": "提前30天书面通知可解除合同",
+    "nonCompete": "合同终止后1年内不得在中国大陆地区从事与公司业务相同或相近的工作，补偿标准为离职前12个月平均工资的30%，违约需支付50万元违约金",
+    "confidentiality": "保密内容包括技术秘密、商业秘密、客户信息、财务人事数据等，保密义务持续至合同终止后2年内"
+  }
+}
+```
+[ERROR] 2025/09/21 16:11:18 logger.go:83: 解析合同信息失败: invalid character '`' looking for beginning of value, 内容: ```json
+{
+  "contractInfo": {
+    "companyName": "字节跳动科技有限公司",
+    "position": "高级软件工程师",
+    "salary": "月薪35,000元人民币，试用期80%（28,000元）；年终奖3-6个月工资；季度绩效奖金最高达月薪50%；另有项目奖金、股权激励（价值200,000元RSU）",
+    "startDate": "2024年3月1日",
+    "contractType": "正式",
+    "workLocation": "北京市海淀区知春路63号字节跳动大厦，可能涉及短期出差",
+    "workingHours": "周一至周五9:00-18:00，每周40小时，允许8:00-10:00弹性到岗，加班按国家规定支付加班费",
+    "benefits": [
+      "免费三餐和下午茶",
+      "健身房、按摩等设施使用",
+      "商业保险（医疗、意外、重疾）",
+      "年度体检",
+      "团建活动费用",
+      "住房补贴每月2,000元",
+      "交通补贴每月1,000元",
+      "通讯补贴每月500元",
+      "补充医疗保险"
+    ],
+    "noticePeriod": "提前30天书面通知可解除合同",
+    "nonCompete": "合同终止后1年内不得在中国大陆地区从事与公司业务相同或相近的工作，补偿标准为离职前12个月平均工资的30%，违约需支付50万元违约金",
+    "confidentiality": "保密内容包括技术秘密、商业秘密、客户信息、财务人事数据等，保密义务持续至合同终止后2年内"
+  }
+}
+```
+[ERROR] 2025/09/21 16:12:32 logger.go:83: AI文档信息提取失败: DocumentID=103, 错误=解析合同信息失败: invalid character '`' looking for beginning of value
+[ERROR] 2025/09/21 16:12:32 logger.go:83: 文档自动分析失败: DocumentID=103, FileType=.md, 错误=解析合同信息失败: invalid character '`' looking for beginning of value
+[INFO]  2025/09/21 16:14:46 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 16:14:46 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 16:14:46 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 16:14:46 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 16:14:47 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 16:14:47 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/21 16:14:51 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=employment, FileName=在职证明示例.md
+[INFO]  2025/09/21 16:14:51 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 16.199958ms
+[INFO]  2025/09/21 16:14:52 logger.go:73: 发送API请求: URL=http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions, ModelID=bailian/qwen-flash, CleanModelID=bailian/qwen-flash
+[INFO]  2025/09/21 16:14:52 logger.go:73: 请求体: {"model":"bailian/qwen-flash","stream":false,"messages":[{"role":"user","content":"\n请从以下在职情况描述中提取关键信息，并以JSON格式返回：\n\n在职情况内容：\n# 在职证明\n\n**证明编号**: EMP-2024-001  **开具日期**: 2024年1月15日  ---\n\n## 📋 基本信息\n\n**员工姓名**: 张三  **身份证号**: 110101199001011234  **员工编号**: EMP001234  **部门**: 抖音技术部  **职位**: 高级软件工程师  ---\n\n## 🏢 公司信息\n\n**公司名称**: 字节跳动科技有限公司  **公司地址**: 北京市海淀区知春路63号字节跳动大厦  **联系电话**: 010-12345678  **公司邮箱**: hr@bytedance.com  ---\n\n## 💼 工作信息\n\n### 入职信息\n- **入职日期**: 2024年3月1日\n- **合同期限**: 2024年3月1日至2027年2月28日\n- **工作性质**: 全职\n- **工作地点**: 北京市海淀区\n\n### 职位信息\n- **职位名称**: 高级软件工程师\n- **职级**: P5-P6\n- **汇报对象**: 李四 (技术总监)\n- **工作内容**: 负责抖音推荐算法系统的设计与开发\n\n### 薪资信息\n- **月薪**: 35,000元人民币\n- **年薪**: 420,000元人民币\n- **薪资结构**: 基本工资 + 绩效奖金 + 年终奖 + 股权激励\n\n---\n\n## 📊 工作表现\n\n### 绩效评价\n- **2024年Q1绩效**: 优秀 (A级)\n- **2024年Q2绩效**: 优秀 (A级)\n- **2024年Q3绩效**: 良好 (B级)\n- **2024年Q4绩效**: 优秀 (A级)\n\n### 主要成就\n1. **项目贡献**: 完成3个核心项目，为公司创造价值\n2. **技术提升**: 在推荐算法领域取得重要突破\n3. **团队协作**: 与团队协作良好，获得同事好评\n4. **创新贡献**: 提出多项技术改进建议，被公司采纳\n\n### 培训记录\n- **入职培训**: 2024年3月1日-3月7日 (已完成)\n- **技术培训**: Java高级开发 (2024年6月)\n- **管理培训**: 团队协作与沟通 (2024年9月)\n- **安全培训**: 信息安全意识培训 (2024年12月)\n\n---\n\n## 🎯 职业发展\n\n### 晋升记录\n- **当前职级**: P5 (高级软件工程师)\n- **晋升计划**: 2025年有望晋升至P6\n- **发展路径**: 技术专家路线\n\n### 学习发展\n- **技术能力**: 在Java、Python、Go等语言方面持续提升\n- **业务理解**: 深入理解推荐算法和用户行为分析\n- **团队管理**: 开始承担团队技术指导职责\n\n---\n\n## 💰 福利待遇\n\n### 社会保险\n- **养老保险**: 已缴纳\n- **医疗保险**: 已缴纳\n- **失业保险**: 已缴纳\n- **工伤保险**: 已缴纳\n- **生育保险**: 已缴纳\n- **住房公积金**: 已缴纳\n\n### 商业保险\n- **补充医疗保险**: 已购买\n- **意外伤害保险**: 已购买\n- **重大疾病保险**: 已购买\n\n### 其他福利\n- **年假**: 已享受5天年假\n- **病假**: 无病假记录\n- **事假**: 无事假记录\n- **加班**: 按公司规定执行\n\n---\n\n## 📈 工作评价\n\n### 直属领导评价\n\"张三同志工作认真负责，技术能力突出，在推荐算法领域有深入的理解和实践经验。能够独立承担重要项目，与团队协作良好，是团队的技术骨干。建议继续在技术深度上发展，未来可以考虑承担更多技术管理职责。\"\n\n**评价人**: 李四 (技术总监)  **评价日期**: 2024年1月10日  ### 同事评价\n- **产品经理**: \"与张三合作很愉快，技术理解能力强，能够快速理解业务需求\"\n- **测试工程师**: \"代码质量高，bug率低，沟通顺畅\"\n- **运维工程师**: \"系统设计考虑周全，运维友好\"\n\n---\n\n## 🔍 背景调查\n\n### 学历验证\n- **毕业院校**: 北京理工大学\n- **专业**: 计算机科学与技术\n- **学历**: 本科\n- **毕业时间**: 2019年6月\n- **验证状态**: 已验证\n\n### 工作经历验证\n- **美团 (2022.03-2024.01)**: 高级软件工程师 - 已验证\n- **滴滴出行 (2020.06-2022.02)**: 软件工程师 - 已验证\n- **小米科技 (2019.07-2020.05)**: 初级软件工程师 - 已验证\n\n### 技能认证\n- **Oracle Java SE 8 Programmer I**: 已认证\n- **AWS Certified Solutions Architect**: 已认证\n- **PMP项目管理认证**: 已认证\n\n---\n\n## 📋 其他信息\n\n### 出勤记录\n- **2024年出勤率**: 98.5%\n- **迟到次数**: 2次\n- **早退次数**: 0次\n- **请假天数**: 5天 (年假)\n\n### 工作态度\n- **工作积极性**: 高\n- **学习能力**: 强\n- **团队合作**: 优秀\n- **责任心**: 强\n- **创新意识**: 良好\n\n### 特殊说明\n- 该员工在职期间表现优秀，无违纪记录\n- 技术能力突出，是团队的技术骨干\n- 建议继续留用，并考虑晋升机会\n\n---\n\n## 📞 联系方式\n\n### 公司联系方式\n- **人事部**: 王五 (HR Manager)\n- **电话**: 010-12345678\n- **邮箱**: wangwu@bytedance.com\n\n### 直属领导联系方式\n- **技术总监**: 李四\n- **电话**: 010-87654321\n- **邮箱**: lisi@bytedance.com\n\n---\n\n## ✅ 证明声明\n\n特此证明张三同志为我公司正式员工，以上信息真实有效。如有疑问，请与我公司人事部门联系核实。\n\n本证明仅用于证明员工在职状态，不得用于其他用途。\n\n---\n\n**字节跳动科技有限公司**  **人事部**  **负责人**: 王五  **联系电话**: 010-12345678  **邮箱**: hr@bytedance.com  **公司印章**: [公司公章]  **开具日期**: 2024年1月15日  ---\n\n**备注**:\n1. 本证明有效期3个月\n2. 如需核实，请提供证明编号: EMP-2024-001\n3. 本证明一式两份，公司留存一份\n\n请提取以下信息：\n1. 公司名称\n2. 职位\n3. 部门\n4. 直属领导\n5. 团队规模\n6. 工作职责\n7. 主要成就\n8. 使用的技能\n9. 参与的项目\n\n请以以下JSON格式返回：\n{\n  \"employmentInfo\": {\n    \"companyName\": \"公司名称\",\n    \"position\": \"职位\",\n    \"department\": \"部门\",\n    \"manager\": \"直属领导\",\n    \"teamSize\": \"团队规模\",\n    \"responsibilities\": [\"职责1\", \"职责2\"],\n    \"achievements\": [\"成就1\", \"成就2\"],\n    \"skillsUsed\": [\"技能1\", \"技能2\"],\n    \"projects\": [\"项目1\", \"项目2\"]\n  }\n}\n"}]}
+[INFO]  2025/09/21 16:15:00 logger.go:73: API响应: {"choices":[{"message":{"role":"assistant","content":"```json\n{\n  \"employmentInfo\": {\n    \"companyName\": \"字节跳动科技有限公司\",\n    \"position\": \"高级软件工程师\",\n    \"department\": \"抖音技术部\",\n    \"manager\": \"李四 (技术总监)\",\n    \"teamSize\": null,\n    \"responsibilities\": [\n      \"负责抖音推荐算法系统的设计与开发\"\n    ],\n    \"achievements\": [\n      \"完成3个核心项目，为公司创造价值\",\n      \"在推荐算法领域取得重要突破\",\n      \"提出多项技术改进建议，被公司采纳\",\n      \"与团队协作良好，获得同事好评\"\n    ],\n    \"skillsUsed\": [\n      \"Java\",\n      \"Python\",\n      \"Go\",\n      \"Oracle Java SE 8 Programmer I\",\n      \"AWS Certified Solutions Architect\",\n      \"PMP项目管理认证\"\n    ],\n    \"projects\": [\n      \"抖音推荐算法系统设计与开发\",\n      \"推荐算法优化项目\",\n      \"核心系统架构升级项目\"\n    ]\n  }\n}\n```"},"finish_reason":"stop","index":0,"logprobs":null}],"object":"chat.completion","usage":{"prompt_tokens":1904,"completion_tokens":215,"total_tokens":2119},"created":1758442495,"system_fingerprint":null,"model":"qwen-flash","id":"chatcmpl-310590ae-37bd-42e3-b9da-cd2a219096cc"}
+[INFO]  2025/09/21 16:15:03 logger.go:73: HTTP请求: GET /api/users/default-user/documents/104/extracted-info | IP: ::1 | 状态: 400 | 耗时: 3.025082083s
+[ERROR] 2025/09/21 16:16:13 logger.go:83: 解析在职情况信息失败: invalid character '`' looking for beginning of value
+[ERROR] 2025/09/21 16:16:13 logger.go:83: AI文档信息提取失败: DocumentID=104, 错误=invalid character '`' looking for beginning of value
+[ERROR] 2025/09/21 16:16:13 logger.go:83: 文档自动分析失败: DocumentID=104, FileType=.md, 错误=invalid character '`' looking for beginning of value
+[INFO]  2025/09/21 16:16:29 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 16:16:29 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 16:16:29 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 16:16:29 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 16:16:29 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 16:16:29 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/21 16:16:38 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 16:16:38 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 39.694292ms
+[INFO]  2025/09/21 16:16:39 logger.go:73: 发送API请求: URL=http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions, ModelID=bailian/qwen-plus, CleanModelID=bailian/qwen-plus
+[INFO]  2025/09/21 16:16:39 logger.go:73: 请求体: {"model":"bailian/qwen-plus","stream":false,"messages":[{"role":"user","content":"\n请从以下劳动合同内容中提取关键信息，并以JSON格式返回：\n\n合同内容：\n# 劳动合同书\n\n**甲方（用人单位）**: 字节跳动科技有限公司  **乙方（劳动者）**: 张三  **合同编号**: BYTE-2024-001  **签订日期**: 2024年1月15日  ---\n\n## 第一条 合同期限\n\n1. 本合同为**固定期限劳动合同**\n2. 合同期限：自2024年3月1日起至2027年2月28日止，共3年\n3. 试用期：3个月（2024年3月1日至2024年5月31日）\n\n---\n\n## 第二条 工作内容和工作地点\n\n### 工作内容\n1. **职位名称**: 高级软件工程师\n2. **工作职责**:  - 负责抖音推荐算法系统的设计与开发  - 参与大规模分布式系统的架构设计  - 优化系统性能，提升用户体验  - 参与技术方案评审和代码审查  - 指导初级工程师的技术成长\n\n### 工作地点\n- **主要工作地点**: 北京市海淀区知春路63号字节跳动大厦\n- **出差安排**: 根据工作需要，可能需要短期出差\n\n---\n\n## 第三条 工作时间和休息休假\n\n### 工作时间\n1. **标准工时**: 每周工作40小时\n2. **工作时间**: 周一至周五 9:00-18:00\n3. **弹性工作**: 允许在8:00-10:00之间灵活到岗\n4. **加班安排**: 因工作需要可安排加班，按国家规定支付加班费\n\n### 休息休假\n1. **法定节假日**: 按国家规定执行\n2. **年假**: 工作满1年后享受5天年假，满10年后享受10天年假\n3. **病假**: 按国家规定享受病假待遇\n4. **婚假、产假等**: 按国家规定执行\n\n---\n\n## 第四条 劳动报酬\n\n### 基本工资\n- **月薪**: 35,000元人民币\n- **支付方式**: 每月15日前通过银行转账支付\n- **试用期工资**: 按正式工资的80%支付（28,000元）\n\n### 奖金和福利\n1. **年终奖**: 根据公司业绩和个人绩效，发放3-6个月工资\n2. **股权激励**: 授予价值200,000元的限制性股票（RSU）\n3. **绩效奖金**: 季度绩效奖金，最高可达月薪的50%\n4. **项目奖金**: 根据项目贡献发放额外奖金\n\n### 其他福利\n- 免费三餐和下午茶\n- 健身房、按摩等设施使用\n- 商业保险（医疗、意外、重疾）\n- 年度体检\n- 团建活动费用\n\n---\n\n## 第五条 社会保险和住房公积金\n\n1. **社会保险**: 按国家规定缴纳养老、医疗、失业、工伤、生育保险\n2. **住房公积金**: 按国家规定缴纳，单位和个人各承担12%\n3. **补充商业保险**: 公司为员工购买补充医疗保险\n\n---\n\n## 第六条 劳动保护、劳动条件和职业危害防护\n\n1. **劳动保护**: 公司提供必要的劳动保护用品\n2. **工作环境**: 提供安全、健康的工作环境\n3. **职业健康**: 定期进行职业健康检查\n4. **安全培训**: 定期进行安全教育培训\n\n---\n\n## 第七条 保密义务和竞业限制\n\n### 保密义务\n1. **保密内容**:  - 公司技术秘密、商业秘密  - 客户信息、业务数据  - 财务信息、人事信息  - 其他公司机密信息\n\n2. **保密期限**: 合同期间及合同终止后2年内\n\n### 竞业限制条款\n1. **限制范围**: 不得在与公司业务相同或相近的企业工作\n2. **限制期限**: 合同终止后1年内\n3. **限制地域**: 中国大陆地区\n4. **补偿标准**: 按离职前12个月平均工资的30%支付补偿金\n5. **违约金**: 违反竞业限制需支付违约金50万元\n\n---\n\n## 第八条 知识产权\n\n1. **职务发明**: 工作期间产生的发明创造归公司所有\n2. **软件著作权**: 开发的软件程序著作权归公司所有\n3. **专利申请**: 相关专利申请权归公司所有\n4. **署名权**: 员工享有署名权，但不得损害公司利益\n\n---\n\n## 第九条 合同变更、解除和终止\n\n### 合同变更\n1. 双方协商一致可以变更合同内容\n2. 变更应采用书面形式\n\n### 合同解除\n1. **协商解除**: 双方协商一致可以解除合同\n2. **员工解除**: 提前30天书面通知可以解除合同\n3. **公司解除**: 符合法定条件可以解除合同\n\n### 合同终止\n1. 合同期满自然终止\n2. 双方协商一致终止\n3. 法定终止条件出现\n\n---\n\n## 第十条 违约责任\n\n1. **员工违约**: 违反合同约定应承担相应责任\n2. **公司违约**: 违反合同约定应承担相应责任\n3. **争议解决**: 发生争议应协商解决，协商不成可申请劳动仲裁\n\n---\n\n## 第十一条 其他约定\n\n1. **培训协议**: 公司提供专业技术培训，员工需服务满2年\n2. **住房补贴**: 提供每月2,000元住房补贴\n3. **交通补贴**: 提供每月1,000元交通补贴\n4. **通讯补贴**: 提供每月500元通讯补贴\n\n---\n\n## 第十二条 合同生效\n\n1. 本合同一式两份，甲乙双方各执一份\n2. 本合同自双方签字盖章之日起生效\n3. 本合同未尽事宜，按国家法律法规执行\n\n---\n\n**甲方（盖章）**: 字节跳动科技有限公司  **法定代表人**: 张一鸣  **签字日期**: 2024年1月15日  **乙方（签字）**: 张三  **身份证号**: 110101199001011234  **签字日期**: 2024年1月15日  ---\n\n**附件**:\n1. 员工手册\n2. 保密协议\n3. 竞业限制协议\n4. 股权激励协议\n\n请提取以下信息：\n1. 公司名称\n2. 职位\n3. 薪资待遇\n4. 入职日期\n5. 合同类型（正式/实习/外包等）\n6. 工作地点\n7. 工作时间\n8. 福利待遇\n9. 离职通知期\n10. 竞业限制条款\n11. 保密条款\n\n请以以下JSON格式返回：\n{\n  \"contractInfo\": {\n    \"companyName\": \"公司名称\",\n    \"position\": \"职位\",\n    \"salary\": \"薪资\",\n    \"startDate\": \"入职日期\",\n    \"contractType\": \"合同类型\",\n    \"workLocation\": \"工作地点\",\n    \"workingHours\": \"工作时间\",\n    \"benefits\": [\"福利1\", \"福利2\"],\n    \"noticePeriod\": \"离职通知期\",\n    \"nonCompete\": \"竞业限制\",\n    \"confidentiality\": \"保密条款\"\n  }\n}\n"}]}
+[INFO]  2025/09/21 16:16:41 logger.go:73: HTTP请求: GET /api/users/default-user/documents/105/extracted-info | IP: ::1 | 状态: 400 | 耗时: 15.050167ms
+[INFO]  2025/09/21 16:16:57 logger.go:73: API响应: {"choices":[{"message":{"role":"assistant","content":"```json\n{\n  \"contractInfo\": {\n    \"companyName\": \"字节跳动科技有限公司\",\n    \"position\": \"高级软件工程师\",\n    \"salary\": \"月薪35,000元人民币，试用期工资28,000元；年终奖3-6个月工资；季度绩效奖金最高达月薪50%；另有项目奖金、股权激励（价值200,000元RSU）\",\n    \"startDate\": \"2024年3月1日\",\n    \"contractType\": \"正式\",\n    \"workLocation\": \"北京市海淀区知春路63号字节跳动大厦，可能需要短期出差\",\n    \"workingHours\": \"周一至周五9:00-18:00，每周40小时，允许8:00-10:00之间弹性到岗，加班按国家规定支付加班费\",\n    \"benefits\": [\n      \"免费三餐和下午茶\",\n      \"健身房、按摩等设施使用\",\n      \"商业保险（医疗、意外、重疾）\",\n      \"年度体检\",\n      \"团建活动费用\",\n      \"每月2,000元住房补贴\",\n      \"每月1,000元交通补贴\",\n      \"每月500元通讯补贴\",\n      \"补充医疗保险\",\n      \"社会保险和住房公积金（单位和个人各承担12%）\"\n    ],\n    \"noticePeriod\": \"提前30天书面通知可解除合同\",\n    \"nonCompete\": \"合同终止后1年内不得在中国大陆地区从事与公司业务相同或相近的工作，补偿金为离职前12个月平均工资的30%，违约需支付50万元违约金\",\n    \"confidentiality\": \"保密内容包括公司技术秘密、商业秘密、客户信息、业务数据、财务及人事信息等，保密义务持续至合同终止后2年内\"\n  }\n}\n```"},"finish_reason":"stop","index":0,"logprobs":null}],"object":"chat.completion","usage":{"prompt_tokens":1773,"completion_tokens":407,"total_tokens":2180,"prompt_tokens_details":{"cached_tokens":0}},"created":1758442612,"system_fingerprint":null,"model":"qwen-plus","id":"chatcmpl-54e2b35c-f531-4873-89d7-d91821f94713"}
+[INFO]  2025/09/21 16:17:04 logger.go:73: AI返回的合同信息内容: ```json
+{
+  "contractInfo": {
+    "companyName": "字节跳动科技有限公司",
+    "position": "高级软件工程师",
+    "salary": "月薪35,000元人民币，试用期工资28,000元；年终奖3-6个月工资；季度绩效奖金最高达月薪50%；另有项目奖金、股权激励（价值200,000元RSU）",
+    "startDate": "2024年3月1日",
+    "contractType": "正式",
+    "workLocation": "北京市海淀区知春路63号字节跳动大厦，可能需要短期出差",
+    "workingHours": "周一至周五9:00-18:00，每周40小时，允许8:00-10:00之间弹性到岗，加班按国家规定支付加班费",
+    "benefits": [
+      "免费三餐和下午茶",
+      "健身房、按摩等设施使用",
+      "商业保险（医疗、意外、重疾）",
+      "年度体检",
+      "团建活动费用",
+      "每月2,000元住房补贴",
+      "每月1,000元交通补贴",
+      "每月500元通讯补贴",
+      "补充医疗保险",
+      "社会保险和住房公积金（单位和个人各承担12%）"
+    ],
+    "noticePeriod": "提前30天书面通知可解除合同",
+    "nonCompete": "合同终止后1年内不得在中国大陆地区从事与公司业务相同或相近的工作，补偿金为离职前12个月平均工资的30%，违约需支付50万元违约金",
+    "confidentiality": "保密内容包括公司技术秘密、商业秘密、客户信息、业务数据、财务及人事信息等，保密义务持续至合同终止后2年内"
+  }
+}
+```
+[INFO]  2025/09/21 16:17:05 logger.go:73: 清理后的内容: {
+  "contractInfo": {
+    "companyName": "字节跳动科技有限公司",
+    "position": "高级软件工程师",
+    "salary": "月薪35,000元人民币，试用期工资28,000元；年终奖3-6个月工资；季度绩效奖金最高达月薪50%；另有项目奖金、股权激励（价值200,000元RSU）",
+    "startDate": "2024年3月1日",
+    "contractType": "正式",
+    "workLocation": "北京市海淀区知春路63号字节跳动大厦，可能需要短期出差",
+    "workingHours": "周一至周五9:00-18:00，每周40小时，允许8:00-10:00之间弹性到岗，加班按国家规定支付加班费",
+    "benefits": [
+      "免费三餐和下午茶",
+      "健身房、按摩等设施使用",
+      "商业保险（医疗、意外、重疾）",
+      "年度体检",
+      "团建活动费用",
+      "每月2,000元住房补贴",
+      "每月1,000元交通补贴",
+      "每月500元通讯补贴",
+      "补充医疗保险",
+      "社会保险和住房公积金（单位和个人各承担12%）"
+    ],
+    "noticePeriod": "提前30天书面通知可解除合同",
+    "nonCompete": "合同终止后1年内不得在中国大陆地区从事与公司业务相同或相近的工作，补偿金为离职前12个月平均工资的30%，违约需支付50万元违约金",
+    "confidentiality": "保密内容包括公司技术秘密、商业秘密、客户信息、业务数据、财务及人事信息等，保密义务持续至合同终止后2年内"
+  }
+}
+[INFO]  2025/09/21 16:17:09 logger.go:73: 文档AI处理完成: DocumentID=105, DocumentType=contract
+[INFO]  2025/09/21 16:17:24 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 16:17:24 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 119.916667ms
+[INFO]  2025/09/21 16:17:25 logger.go:73: 发送API请求: URL=http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions, ModelID=bailian/qwen-plus, CleanModelID=bailian/qwen-plus
+[INFO]  2025/09/21 16:17:25 logger.go:73: 请求体: {"model":"bailian/qwen-plus","stream":false,"messages":[{"role":"user","content":"\n请从以下劳动合同内容中提取关键信息，并以JSON格式返回：\n\n合同内容：\n# 劳动合同书\n\n**甲方（用人单位）**: 字节跳动科技有限公司  **乙方（劳动者）**: 张三  **合同编号**: BYTE-2024-001  **签订日期**: 2024年1月15日  ---\n\n## 第一条 合同期限\n\n1. 本合同为**固定期限劳动合同**\n2. 合同期限：自2024年3月1日起至2027年2月28日止，共3年\n3. 试用期：3个月（2024年3月1日至2024年5月31日）\n\n---\n\n## 第二条 工作内容和工作地点\n\n### 工作内容\n1. **职位名称**: 高级软件工程师\n2. **工作职责**:  - 负责抖音推荐算法系统的设计与开发  - 参与大规模分布式系统的架构设计  - 优化系统性能，提升用户体验  - 参与技术方案评审和代码审查  - 指导初级工程师的技术成长\n\n### 工作地点\n- **主要工作地点**: 北京市海淀区知春路63号字节跳动大厦\n- **出差安排**: 根据工作需要，可能需要短期出差\n\n---\n\n## 第三条 工作时间和休息休假\n\n### 工作时间\n1. **标准工时**: 每周工作40小时\n2. **工作时间**: 周一至周五 9:00-18:00\n3. **弹性工作**: 允许在8:00-10:00之间灵活到岗\n4. **加班安排**: 因工作需要可安排加班，按国家规定支付加班费\n\n### 休息休假\n1. **法定节假日**: 按国家规定执行\n2. **年假**: 工作满1年后享受5天年假，满10年后享受10天年假\n3. **病假**: 按国家规定享受病假待遇\n4. **婚假、产假等**: 按国家规定执行\n\n---\n\n## 第四条 劳动报酬\n\n### 基本工资\n- **月薪**: 35,000元人民币\n- **支付方式**: 每月15日前通过银行转账支付\n- **试用期工资**: 按正式工资的80%支付（28,000元）\n\n### 奖金和福利\n1. **年终奖**: 根据公司业绩和个人绩效，发放3-6个月工资\n2. **股权激励**: 授予价值200,000元的限制性股票（RSU）\n3. **绩效奖金**: 季度绩效奖金，最高可达月薪的50%\n4. **项目奖金**: 根据项目贡献发放额外奖金\n\n### 其他福利\n- 免费三餐和下午茶\n- 健身房、按摩等设施使用\n- 商业保险（医疗、意外、重疾）\n- 年度体检\n- 团建活动费用\n\n---\n\n## 第五条 社会保险和住房公积金\n\n1. **社会保险**: 按国家规定缴纳养老、医疗、失业、工伤、生育保险\n2. **住房公积金**: 按国家规定缴纳，单位和个人各承担12%\n3. **补充商业保险**: 公司为员工购买补充医疗保险\n\n---\n\n## 第六条 劳动保护、劳动条件和职业危害防护\n\n1. **劳动保护**: 公司提供必要的劳动保护用品\n2. **工作环境**: 提供安全、健康的工作环境\n3. **职业健康**: 定期进行职业健康检查\n4. **安全培训**: 定期进行安全教育培训\n\n---\n\n## 第七条 保密义务和竞业限制\n\n### 保密义务\n1. **保密内容**:  - 公司技术秘密、商业秘密  - 客户信息、业务数据  - 财务信息、人事信息  - 其他公司机密信息\n\n2. **保密期限**: 合同期间及合同终止后2年内\n\n### 竞业限制条款\n1. **限制范围**: 不得在与公司业务相同或相近的企业工作\n2. **限制期限**: 合同终止后1年内\n3. **限制地域**: 中国大陆地区\n4. **补偿标准**: 按离职前12个月平均工资的30%支付补偿金\n5. **违约金**: 违反竞业限制需支付违约金50万元\n\n---\n\n## 第八条 知识产权\n\n1. **职务发明**: 工作期间产生的发明创造归公司所有\n2. **软件著作权**: 开发的软件程序著作权归公司所有\n3. **专利申请**: 相关专利申请权归公司所有\n4. **署名权**: 员工享有署名权，但不得损害公司利益\n\n---\n\n## 第九条 合同变更、解除和终止\n\n### 合同变更\n1. 双方协商一致可以变更合同内容\n2. 变更应采用书面形式\n\n### 合同解除\n1. **协商解除**: 双方协商一致可以解除合同\n2. **员工解除**: 提前30天书面通知可以解除合同\n3. **公司解除**: 符合法定条件可以解除合同\n\n### 合同终止\n1. 合同期满自然终止\n2. 双方协商一致终止\n3. 法定终止条件出现\n\n---\n\n## 第十条 违约责任\n\n1. **员工违约**: 违反合同约定应承担相应责任\n2. **公司违约**: 违反合同约定应承担相应责任\n3. **争议解决**: 发生争议应协商解决，协商不成可申请劳动仲裁\n\n---\n\n## 第十一条 其他约定\n\n1. **培训协议**: 公司提供专业技术培训，员工需服务满2年\n2. **住房补贴**: 提供每月2,000元住房补贴\n3. **交通补贴**: 提供每月1,000元交通补贴\n4. **通讯补贴**: 提供每月500元通讯补贴\n\n---\n\n## 第十二条 合同生效\n\n1. 本合同一式两份，甲乙双方各执一份\n2. 本合同自双方签字盖章之日起生效\n3. 本合同未尽事宜，按国家法律法规执行\n\n---\n\n**甲方（盖章）**: 字节跳动科技有限公司  **法定代表人**: 张一鸣  **签字日期**: 2024年1月15日  **乙方（签字）**: 张三  **身份证号**: 110101199001011234  **签字日期**: 2024年1月15日  ---\n\n**附件**:\n1. 员工手册\n2. 保密协议\n3. 竞业限制协议\n4. 股权激励协议\n\n请提取以下信息：\n1. 公司名称\n2. 职位\n3. 薪资待遇\n4. 入职日期\n5. 合同类型（正式/实习/外包等）\n6. 工作地点\n7. 工作时间\n8. 福利待遇\n9. 离职通知期\n10. 竞业限制条款\n11. 保密条款\n\n请以以下JSON格式返回：\n{\n  \"contractInfo\": {\n    \"companyName\": \"公司名称\",\n    \"position\": \"职位\",\n    \"salary\": \"薪资\",\n    \"startDate\": \"入职日期\",\n    \"contractType\": \"合同类型\",\n    \"workLocation\": \"工作地点\",\n    \"workingHours\": \"工作时间\",\n    \"benefits\": [\"福利1\", \"福利2\"],\n    \"noticePeriod\": \"离职通知期\",\n    \"nonCompete\": \"竞业限制\",\n    \"confidentiality\": \"保密条款\"\n  }\n}\n"}]}
+[INFO]  2025/09/21 16:17:28 logger.go:73: HTTP请求: GET /api/users/default-user/documents/106/extracted-info | IP: ::1 | 状态: 400 | 耗时: 59.196209ms
+[INFO]  2025/09/21 16:17:43 logger.go:73: API响应: {"choices":[{"message":{"role":"assistant","content":"```json\n{\n  \"contractInfo\": {\n    \"companyName\": \"字节跳动科技有限公司\",\n    \"position\": \"高级软件工程师\",\n    \"salary\": \"月薪35,000元人民币，试用期工资28,000元；年终奖3-6个月工资；绩效奖金、项目奖金、股权激励等另计\",\n    \"startDate\": \"2024年3月1日\",\n    \"contractType\": \"正式\",\n    \"workLocation\": \"北京市海淀区知春路63号字节跳动大厦（可能涉及短期出差）\",\n    \"workingHours\": \"周一至周五9:00-18:00，每周40小时，允许8:00-10:00弹性到岗，加班按国家规定支付加班费\",\n    \"benefits\": [\n      \"免费三餐和下午茶\",\n      \"健身房、按摩等设施使用\",\n      \"商业保险（医疗、意外、重疾）\",\n      \"年度体检\",\n      \"团建活动费用\",\n      \"住房补贴每月2,000元\",\n      \"交通补贴每月1,000元\",\n      \"通讯补贴每月500元\",\n      \"补充医疗保险\"\n    ],\n    \"noticePeriod\": \"员工提前30天书面通知可解除合同\",\n    \"nonCompete\": \"合同终止后1年内不得在中国大陆地区从事与公司业务相同或相近的工作，补偿标准为离职前12个月平均工资的30%，违约金50万元\",\n    \"confidentiality\": \"保密内容包括公司技术秘密、商业秘密、客户信息、财务人事数据等，保密义务持续至合同终止后2年内\"\n  }\n}\n```"},"finish_reason":"stop","index":0,"logprobs":null}],"object":"chat.completion","usage":{"prompt_tokens":1773,"completion_tokens":367,"total_tokens":2140,"prompt_tokens_details":{"cached_tokens":0}},"created":1758442657,"system_fingerprint":null,"model":"qwen-plus","id":"chatcmpl-803ecb72-8ee3-4e09-b174-1672a2ce64ca"}
+[INFO]  2025/09/21 16:17:43 logger.go:73: AI返回的合同信息内容: ```json
+{
+  "contractInfo": {
+    "companyName": "字节跳动科技有限公司",
+    "position": "高级软件工程师",
+    "salary": "月薪35,000元人民币，试用期工资28,000元；年终奖3-6个月工资；绩效奖金、项目奖金、股权激励等另计",
+    "startDate": "2024年3月1日",
+    "contractType": "正式",
+    "workLocation": "北京市海淀区知春路63号字节跳动大厦（可能涉及短期出差）",
+    "workingHours": "周一至周五9:00-18:00，每周40小时，允许8:00-10:00弹性到岗，加班按国家规定支付加班费",
+    "benefits": [
+      "免费三餐和下午茶",
+      "健身房、按摩等设施使用",
+      "商业保险（医疗、意外、重疾）",
+      "年度体检",
+      "团建活动费用",
+      "住房补贴每月2,000元",
+      "交通补贴每月1,000元",
+      "通讯补贴每月500元",
+      "补充医疗保险"
+    ],
+    "noticePeriod": "员工提前30天书面通知可解除合同",
+    "nonCompete": "合同终止后1年内不得在中国大陆地区从事与公司业务相同或相近的工作，补偿标准为离职前12个月平均工资的30%，违约金50万元",
+    "confidentiality": "保密内容包括公司技术秘密、商业秘密、客户信息、财务人事数据等，保密义务持续至合同终止后2年内"
+  }
+}
+```
+[INFO]  2025/09/21 16:17:46 logger.go:73: 清理后的内容: {
+  "contractInfo": {
+    "companyName": "字节跳动科技有限公司",
+    "position": "高级软件工程师",
+    "salary": "月薪35,000元人民币，试用期工资28,000元；年终奖3-6个月工资；绩效奖金、项目奖金、股权激励等另计",
+    "startDate": "2024年3月1日",
+    "contractType": "正式",
+    "workLocation": "北京市海淀区知春路63号字节跳动大厦（可能涉及短期出差）",
+    "workingHours": "周一至周五9:00-18:00，每周40小时，允许8:00-10:00弹性到岗，加班按国家规定支付加班费",
+    "benefits": [
+      "免费三餐和下午茶",
+      "健身房、按摩等设施使用",
+      "商业保险（医疗、意外、重疾）",
+      "年度体检",
+      "团建活动费用",
+      "住房补贴每月2,000元",
+      "交通补贴每月1,000元",
+      "通讯补贴每月500元",
+      "补充医疗保险"
+    ],
+    "noticePeriod": "员工提前30天书面通知可解除合同",
+    "nonCompete": "合同终止后1年内不得在中国大陆地区从事与公司业务相同或相近的工作，补偿标准为离职前12个月平均工资的30%，违约金50万元",
+    "confidentiality": "保密内容包括公司技术秘密、商业秘密、客户信息、财务人事数据等，保密义务持续至合同终止后2年内"
+  }
+}
+[INFO]  2025/09/21 16:18:03 logger.go:73: 文档AI处理完成: DocumentID=106, DocumentType=contract
+[INFO]  2025/09/21 16:18:30 logger.go:73: 获取文档提取信息: DocumentID=105
+[INFO]  2025/09/21 16:18:30 logger.go:73: HTTP请求: GET /api/users/default-user/documents/105/extracted-info | IP: ::1 | 状态: 200 | 耗时: 2.7945ms
+[INFO]  2025/09/21 16:18:30 logger.go:73: 获取文档提取信息: DocumentID=106
+[INFO]  2025/09/21 16:18:30 logger.go:73: HTTP请求: GET /api/users/default-user/documents/106/extracted-info | IP: ::1 | 状态: 200 | 耗时: 5.408584ms
+[INFO]  2025/09/21 16:18:30 logger.go:73: 收到流式消息请求: ThreadID=contract-1758437175091-gtf849h6v, ModelID=bailian/qwen-plus, Content长度=4420, 附件数量=2
+[INFO]  2025/09/21 16:18:30 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-plus
+[INFO]  2025/09/21 16:18:37 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 16:18:37 logger.go:73: 流式消息处理完成: ThreadID=contract-1758437175091-gtf849h6v, 总耗时=7.476356666s
+[INFO]  2025/09/21 16:18:37 logger.go:73: 保存职业历史记录: ThreadID=contract-1758437175091-gtf849h6v, Category=contract
+[INFO]  2025/09/21 16:18:37 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 7.476609416s
+[INFO]  2025/09/21 16:18:37 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758437175091-gtf849h6v, Category=monitor
+[INFO]  2025/09/21 16:21:22 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 16:21:22 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 16:21:22 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 16:21:22 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 16:21:23 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 16:21:23 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/21 16:29:27 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-plus
+[INFO]  2025/09/21 16:29:27 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 4.339292ms
+[INFO]  2025/09/21 16:29:27 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-plus
+[INFO]  2025/09/21 16:29:27 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 2.107584ms
+[INFO]  2025/09/21 16:29:27 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=11
+[INFO]  2025/09/21 16:29:27 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 29.575083ms
+[INFO]  2025/09/21 16:29:27 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=11
+[INFO]  2025/09/21 16:29:27 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 5.926917ms
+[INFO]  2025/09/21 16:29:27 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 16:29:27 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 37.606209ms
+[INFO]  2025/09/21 16:29:27 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 16:29:27 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 39.14625ms
+[INFO]  2025/09/21 16:29:27 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 16:29:27 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 35.547458ms
+[INFO]  2025/09/21 16:29:27 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 16:29:27 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 30.576458ms
+[INFO]  2025/09/21 16:29:27 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 16:29:27 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 35.971791ms
+[INFO]  2025/09/21 16:29:27 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 16:29:27 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 6.759792ms
+[INFO]  2025/09/21 16:29:28 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1758437143020-4h0lp6zu2 | IP: ::1 | 状态: 200 | 耗时: 2.862792ms
+[INFO]  2025/09/21 16:29:42 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 16:29:42 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 16:29:42 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 16:29:42 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 16:29:43 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 16:29:43 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/21 16:29:48 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=other, FileName=职业规划示例.md
+[INFO]  2025/09/21 16:29:48 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 48.476292ms
+[INFO]  2025/09/21 16:29:48 logger.go:73: 发送API请求: URL=http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions, ModelID=bailian/qwen-flash, CleanModelID=bailian/qwen-flash
+[INFO]  2025/09/21 16:29:48 logger.go:73: 请求体: {"model":"bailian/qwen-flash","stream":false,"messages":[{"role":"user","content":"\n请从以下文档内容中提取关键信息，并以JSON格式返回：\n\n文档内容：\n# 张三 - 职业发展规划\n\n**规划期间**: 2024-2029年  **制定日期**: 2024年1月15日  **当前职位**: 高级软件工程师  **目标职位**: 技术总监/CTO  ---\n\n## 🎯 职业目标\n\n### 总体目标\n在5年内成为技术领域的专家和领导者，具备深厚的技术功底和优秀的管理能力，能够带领团队完成复杂的技术项目，并在行业内建立个人技术品牌。\n\n### 具体目标\n1. **技术深度**: 在分布式系统、AI算法、云计算等领域成为专家\n2. **管理能力**: 具备团队管理和项目管理能力\n3. **行业影响**: 在技术社区有一定影响力\n4. **薪资目标**: 年薪达到150万以上\n5. **职位目标**: 技术总监或CTO级别\n\n---\n\n## 📊 现状分析\n\n### 个人优势\n- **技术基础扎实**: 5年Java开发经验，熟悉主流技术栈\n- **学习能力强**: 能够快速掌握新技术\n- **项目经验丰富**: 参与过多个大型项目\n- **团队协作良好**: 与同事关系融洽\n- **问题解决能力**: 能够独立解决复杂技术问题\n\n### 需要改进的方面\n- **管理经验不足**: 缺乏团队管理经验\n- **业务理解深度**: 对业务的理解需要更深入\n- **技术广度**: 需要扩展技术视野\n- **沟通表达能力**: 需要提升技术分享和沟通能力\n- **行业认知**: 需要更深入了解行业趋势\n\n---\n\n## 🗓️ 分阶段规划\n\n### 第一阶段：技术深化期 (2024-2025年)\n\n#### 目标\n- 在现有技术领域达到专家水平\n- 开始承担技术管理职责\n- 建立个人技术品牌\n\n#### 具体计划\n1. **技术提升**  - 深入学习分布式系统设计  - 掌握AI/ML相关技术  - 学习云原生技术栈  - 参与开源项目贡献\n\n2. **项目管理**  - 承担重要项目的技术负责人  - 学习项目管理方法论  - 提升跨团队协作能力\n\n3. **知识输出**  - 每月写1-2篇技术文章  - 在公司内部进行技术分享  - 参加技术会议和培训\n\n#### 预期成果\n- 晋升为P6级别\n- 薪资达到60-80万/年\n- 在技术社区有一定知名度\n\n---\n\n### 第二阶段：管理转型期 (2025-2027年)\n\n#### 目标\n- 从技术专家向技术管理者转型\n- 建立团队管理能力\n- 扩大技术影响力\n\n#### 具体计划\n1. **管理能力**  - 学习团队管理理论  - 实践团队建设和管理  - 提升沟通和协调能力  - 学习人力资源管理\n\n2. **业务理解**  - 深入了解公司业务模式  - 学习商业思维  - 参与产品规划和决策  - 关注行业发展趋势\n\n3. **技术领导力**  - 制定团队技术发展方向  - 建立技术标准和规范  - 培养技术人才  - 推动技术创新\n\n#### 预期成果\n- 晋升为技术经理或技术总监\n- 薪资达到100-120万/年\n- 带领10-20人的技术团队\n\n---\n\n### 第三阶段：战略发展期 (2027-2029年)\n\n#### 目标\n- 成为技术战略制定者\n- 具备CTO级别的能力\n- 在行业内建立影响力\n\n#### 具体计划\n1. **战略思维**  - 学习企业战略管理  - 了解资本市场和商业模式  - 参与公司战略规划  - 关注行业发展趋势\n\n2. **技术视野**  - 关注前沿技术发展  - 推动技术架构升级  - 建立技术生态  - 参与行业标准制定\n\n3. **领导力**  - 建立个人领导风格  - 培养下一代技术领导者  - 推动组织变革  - 建立技术文化\n\n#### 预期成果\n- 晋升为CTO或技术VP\n- 薪资达到150万以上/年\n- 在行业内有一定影响力\n\n---\n\n## 🛠️ 技能发展计划\n\n### 技术技能\n\n#### 核心技术 (精通)\n- **Java生态**: Spring Boot, Spring Cloud, MyBatis\n- **分布式系统**: 微服务架构, 服务治理, 分布式事务\n- **数据库**: MySQL, Redis, MongoDB, Elasticsearch\n- **消息队列**: Kafka, RabbitMQ, RocketMQ\n\n#### 扩展技术 (熟练)\n- **AI/ML**: TensorFlow, PyTorch, 推荐算法\n- **云原生**: Kubernetes, Docker, Istio\n- **大数据**: Hadoop, Spark, Flink\n- **前端技术**: React, Vue.js, Node.js\n\n#### 新兴技术 (了解)\n- **区块链**: 智能合约, 分布式账本\n- **边缘计算**: 边缘计算架构, IoT\n- **量子计算**: 量子算法基础\n- **Web3**: 去中心化应用开发\n\n### 软技能\n\n#### 管理技能\n- **团队管理**: 团队建设, 绩效管理, 冲突解决\n- **项目管理**: 敏捷开发, 风险管理, 资源管理\n- **沟通协调**: 跨部门协作, 客户沟通, 供应商管理\n- **决策能力**: 战略决策, 技术选型, 风险评估\n\n#### 商业技能\n- **商业思维**: 商业模式, 市场分析, 竞争分析\n- **财务管理**: 预算管理, 成本控制, ROI分析\n- **法律合规**: 知识产权, 数据保护, 合规管理\n- **国际化**: 跨文化管理, 国际业务\n\n---\n\n## 📚 学习计划\n\n### 2024年学习计划\n\n#### Q1 (1-3月)\n- **技术**: 深入学习Spring Cloud微服务架构\n- **管理**: 学习《技术管理之巅》\n- **认证**: 准备AWS Solutions Architect认证\n- **实践**: 完成一个微服务项目重构\n\n#### Q2 (4-6月)\n- **技术**: 学习AI/ML基础知识和实践\n- **管理**: 学习《人月神话》\n- **认证**: 获得AWS认证\n- **实践**: 开发一个推荐算法系统\n\n#### Q3 (7-9月)\n- **技术**: 学习云原生技术栈\n- **管理**: 学习《敏捷开发实践》\n- **认证**: 准备PMP项目管理认证\n- **实践**: 参与公司云原生改造项目\n\n#### Q4 (10-12月)\n- **技术**: 学习大数据处理技术\n- **管理**: 学习《技术领导力》\n- **认证**: 获得PMP认证\n- **实践**: 完成技术分享和知识输出\n\n### 长期学习计划\n\n#### 年度学习目标\n- **技术书籍**: 每年阅读12本技术书籍\n- **管理书籍**: 每年阅读6本管理书籍\n- **技术会议**: 每年参加2-3个技术会议\n- **在线课程**: 每年完成3-4个在线课程\n- **认证考试**: 每年获得1-2个技术认证\n\n#### 学习资源\n- **技术社区**: GitHub, Stack Overflow, 掘金, InfoQ\n- **在线教育**: Coursera, Udemy, 极客时间\n- **技术会议**: QCon, ArchSummit, 架构师峰会\n- **书籍推荐**: 《设计模式》、《重构》、《人月神话》\n\n---\n\n## 🎯 关键里程碑\n\n### 2024年里程碑\n- [ ] 晋升为P6级别\n- [ ] 薪资达到60万/年\n- [ ] 完成3个重要项目\n- [ ] 发表10篇技术文章\n- [ ] 获得AWS认证\n\n### 2025年里程碑\n- [ ] 晋升为技术经理\n- [ ] 薪资达到80万/年\n- [ ] 带领5-10人团队\n- [ ] 完成PMP认证\n- [ ] 在技术会议分享\n\n### 2026年里程碑\n- [ ] 晋升为技术总监\n- [ ] 薪资达到100万/年\n- [ ] 带领10-20人团队\n- [ ] 建立技术标准\n- [ ] 培养技术人才\n\n### 2027年里程碑\n- [ ] 薪资达到120万/年\n- [ ] 参与公司战略规划\n- [ ] 推动技术架构升级\n- [ ] 建立技术生态\n- [ ] 行业影响力提升\n\n### 2028年里程碑\n- [ ] 晋升为CTO\n- [ ] 薪资达到150万/年\n- [ ] 带领50+人团队\n- [ ] 制定技术战略\n- [ ] 行业标准制定\n\n---\n\n## 📈 风险与应对\n\n### 技术风险\n- **风险**: 技术更新换代快，可能被淘汰\n- **应对**: 持续学习新技术，保持技术敏感度\n\n### 市场风险\n- **风险**: 行业不景气，影响职业发展\n- **应对**: 多元化技能发展，提高抗风险能力\n\n### 竞争风险\n- **风险**: 竞争激烈，晋升困难\n- **应对**: 提升核心竞争力，建立差异化优势\n\n### 健康风险\n- **风险**: 工作压力大，影响身体健康\n- **应对**: 合理安排工作生活，保持身心健康\n\n---\n\n## 🔄 定期评估与调整\n\n### 评估频率\n- **月度评估**: 检查学习进度和项目进展\n- **季度评估**: 评估技能提升和职业发展\n- **年度评估**: 全面评估职业规划执行情况\n\n### 调整原则\n- **灵活性**: 根据市场变化和个人情况调整\n- **现实性**: 目标要符合实际情况\n- **持续性**: 保持长期发展的连续性\n\n---\n\n## 📞 支持资源\n\n### 内部资源\n- **导师**: 寻找资深技术专家作为导师\n- **同事**: 与同事建立良好的合作关系\n- **公司**: 利用公司提供的培训和发展机会\n\n### 外部资源\n- **技术社区**: 参与开源项目和技术社区\n- **专业网络**: 建立专业人脉网络\n- **培训机构**: 参加专业培训课程\n\n---\n\n**制定人**: 张三  **审核人**: 李四 (技术总监)  **制定日期**: 2024年1月15日  **下次评估**: 2024年4月15日  ---\n\n**备注**:\n1. 本规划将根据实际情况定期调整\n2. 建议每季度进行一次评估和调整\n3. 如有重大变化，应及时更新规划内容\n\n请提取以下信息：\n1. 文档类型\n2. 主要内容\n3. 关键信息\n4. 相关技能\n5. 时间信息\n6. 人员信息\n\n请以以下JSON格式返回：\n{\n  \"generalInfo\": {\n    \"documentType\": \"文档类型\",\n    \"mainContent\": \"主要内容\",\n    \"keyInfo\": [\"关键信息1\", \"关键信息2\"],\n    \"skills\": [\"技能1\", \"技能2\"],\n    \"timeInfo\": [\"时间信息1\", \"时间信息2\"],\n    \"peopleInfo\": [\"人员信息1\", \"人员信息2\"]\n  }\n}\n"}]}
+[INFO]  2025/09/21 16:29:51 logger.go:73: HTTP请求: GET /api/users/default-user/documents/107/extracted-info | IP: ::1 | 状态: 400 | 耗时: 13.036ms
+[INFO]  2025/09/21 16:29:51 logger.go:73: HTTP请求: GET /api/users/default-user/documents/107/extracted-info | IP: ::1 | 状态: 400 | 耗时: 954.084µs
+[INFO]  2025/09/21 16:29:51 logger.go:73: 收到流式消息请求: ThreadID=career-1758437143020-4h0lp6zu2, ModelID=bailian/qwen-plus, Content长度=9, 附件数量=1
+[INFO]  2025/09/21 16:29:51 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-plus
+[INFO]  2025/09/21 16:29:53 logger.go:73: API响应: {"choices":[{"message":{"role":"assistant","content":"```json\n{\n  \"generalInfo\": {\n    \"documentType\": \"职业发展规划\",\n    \"mainContent\": \"张三在2024-2029年期间的职业发展路径规划，涵盖职业目标、现状分析、分阶段实施计划、技能发展、学习计划、关键里程碑、风险应对及评估机制。\",\n    \"keyInfo\": [\n      \"5年内成为技术领域的专家和领导者，目标职位为技术总监或CTO\",\n      \"分三个阶段推进：技术深化期（2024-2025）、管理转型期（2025-2027）、战略发展期（2027-2029）\",\n      \"年薪目标为150万以上，最终晋升至CTO或技术VP级别\",\n      \"需重点提升管理能力、业务理解深度、沟通表达能力和行业认知\",\n      \"建立个人技术品牌，参与开源项目、技术分享与行业会议\"\n    ],\n    \"skills\": [\n      \"Java生态（Spring Boot, Spring Cloud, MyBatis）\",\n      \"分布式系统设计与微服务架构\",\n      \"AI/ML技术（TensorFlow, PyTorch）\",\n      \"云原生技术栈（Kubernetes, Docker, Istio）\",\n      \"大数据处理（Hadoop, Spark, Flink）\",\n      \"团队管理与绩效管理\",\n      \"项目管理（敏捷开发、PMP认证）\",\n      \"商业思维与战略决策能力\",\n      \"跨部门沟通与领导力\"\n    ],\n    \"timeInfo\": [\n      \"规划期间：2024-2029年\",\n      \"第一阶段：2024-2025年（技术深化期）\",\n      \"第二阶段：2025-2027年（管理转型期）\",\n      \"第三阶段：2027-2029年（战略发展期）\",\n      \"2024年学习计划：分季度执行（Q1-Q4）\",\n      \"关键里程碑时间点：2024年、2025年、2026年、2027年、2028年\",\n      \"评估频率：月度、季度、年度；下次评估日期：2024年4月15日\"\n    ],\n    \"peopleInfo\": [\n      \"张三（制定人，当前职位：高级软件工程师）\",\n      \"李四（审核人，技术总监）\"\n    ]\n  }\n}\n```"},"finish_reason":"stop","index":0,"logprobs":null}],"object":"chat.completion","usage":{"prompt_tokens":2783,"completion_tokens":534,"total_tokens":3317},"created":1758443393,"system_fingerprint":null,"model":"qwen-flash","id":"chatcmpl-7b7a9dff-d5f7-43bd-a2ed-5e98ed02d704"}
+[INFO]  2025/09/21 16:29:53 logger.go:73: AI返回的通用信息内容: ```json
+{
+  "generalInfo": {
+    "documentType": "职业发展规划",
+    "mainContent": "张三在2024-2029年期间的职业发展路径规划，涵盖职业目标、现状分析、分阶段实施计划、技能发展、学习计划、关键里程碑、风险应对及评估机制。",
+    "keyInfo": [
+      "5年内成为技术领域的专家和领导者，目标职位为技术总监或CTO",
+      "分三个阶段推进：技术深化期（2024-2025）、管理转型期（2025-2027）、战略发展期（2027-2029）",
+      "年薪目标为150万以上，最终晋升至CTO或技术VP级别",
+      "需重点提升管理能力、业务理解深度、沟通表达能力和行业认知",
+      "建立个人技术品牌，参与开源项目、技术分享与行业会议"
+    ],
+    "skills": [
+      "Java生态（Spring Boot, Spring Cloud, MyBatis）",
+      "分布式系统设计与微服务架构",
+      "AI/ML技术（TensorFlow, PyTorch）",
+      "云原生技术栈（Kubernetes, Docker, Istio）",
+      "大数据处理（Hadoop, Spark, Flink）",
+      "团队管理与绩效管理",
+      "项目管理（敏捷开发、PMP认证）",
+      "商业思维与战略决策能力",
+      "跨部门沟通与领导力"
+    ],
+    "timeInfo": [
+      "规划期间：2024-2029年",
+      "第一阶段：2024-2025年（技术深化期）",
+      "第二阶段：2025-2027年（管理转型期）",
+      "第三阶段：2027-2029年（战略发展期）",
+      "2024年学习计划：分季度执行（Q1-Q4）",
+      "关键里程碑时间点：2024年、2025年、2026年、2027年、2028年",
+      "评估频率：月度、季度、年度；下次评估日期：2024年4月15日"
+    ],
+    "peopleInfo": [
+      "张三（制定人，当前职位：高级软件工程师）",
+      "李四（审核人，技术总监）"
+    ]
+  }
+}
+```
+[INFO]  2025/09/21 16:29:53 logger.go:73: 清理后的内容: {
+  "generalInfo": {
+    "documentType": "职业发展规划",
+    "mainContent": "张三在2024-2029年期间的职业发展路径规划，涵盖职业目标、现状分析、分阶段实施计划、技能发展、学习计划、关键里程碑、风险应对及评估机制。",
+    "keyInfo": [
+      "5年内成为技术领域的专家和领导者，目标职位为技术总监或CTO",
+      "分三个阶段推进：技术深化期（2024-2025）、管理转型期（2025-2027）、战略发展期（2027-2029）",
+      "年薪目标为150万以上，最终晋升至CTO或技术VP级别",
+      "需重点提升管理能力、业务理解深度、沟通表达能力和行业认知",
+      "建立个人技术品牌，参与开源项目、技术分享与行业会议"
+    ],
+    "skills": [
+      "Java生态（Spring Boot, Spring Cloud, MyBatis）",
+      "分布式系统设计与微服务架构",
+      "AI/ML技术（TensorFlow, PyTorch）",
+      "云原生技术栈（Kubernetes, Docker, Istio）",
+      "大数据处理（Hadoop, Spark, Flink）",
+      "团队管理与绩效管理",
+      "项目管理（敏捷开发、PMP认证）",
+      "商业思维与战略决策能力",
+      "跨部门沟通与领导力"
+    ],
+    "timeInfo": [
+      "规划期间：2024-2029年",
+      "第一阶段：2024-2025年（技术深化期）",
+      "第二阶段：2025-2027年（管理转型期）",
+      "第三阶段：2027-2029年（战略发展期）",
+      "2024年学习计划：分季度执行（Q1-Q4）",
+      "关键里程碑时间点：2024年、2025年、2026年、2027年、2028年",
+      "评估频率：月度、季度、年度；下次评估日期：2024年4月15日"
+    ],
+    "peopleInfo": [
+      "张三（制定人，当前职位：高级软件工程师）",
+      "李四（审核人，技术总监）"
+    ]
+  }
+}
+[INFO]  2025/09/21 16:29:53 logger.go:73: 文档AI处理完成: DocumentID=107, DocumentType=other
+[INFO]  2025/09/21 16:29:54 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 16:29:54 logger.go:73: 流式消息处理完成: ThreadID=career-1758437143020-4h0lp6zu2, 总耗时=2.150157875s
+[INFO]  2025/09/21 16:29:54 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 2.150202583s
+[INFO]  2025/09/21 16:29:54 logger.go:73: 保存职业历史记录: ThreadID=career-1758437143020-4h0lp6zu2, Category=career
+[INFO]  2025/09/21 16:29:54 logger.go:73: 职业历史记录保存成功: ThreadID=career-1758437143020-4h0lp6zu2, Category=career
+[INFO]  2025/09/21 16:30:09 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=other, FileName=职业规划示例.md
+[INFO]  2025/09/21 16:30:09 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 23.172583ms
+[INFO]  2025/09/21 16:30:09 logger.go:73: 发送API请求: URL=http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions, ModelID=bailian/qwen-flash, CleanModelID=bailian/qwen-flash
+[INFO]  2025/09/21 16:30:09 logger.go:73: 请求体: {"model":"bailian/qwen-flash","stream":false,"messages":[{"role":"user","content":"\n请从以下文档内容中提取关键信息，并以JSON格式返回：\n\n文档内容：\n# 张三 - 职业发展规划\n\n**规划期间**: 2024-2029年  **制定日期**: 2024年1月15日  **当前职位**: 高级软件工程师  **目标职位**: 技术总监/CTO  ---\n\n## 🎯 职业目标\n\n### 总体目标\n在5年内成为技术领域的专家和领导者，具备深厚的技术功底和优秀的管理能力，能够带领团队完成复杂的技术项目，并在行业内建立个人技术品牌。\n\n### 具体目标\n1. **技术深度**: 在分布式系统、AI算法、云计算等领域成为专家\n2. **管理能力**: 具备团队管理和项目管理能力\n3. **行业影响**: 在技术社区有一定影响力\n4. **薪资目标**: 年薪达到150万以上\n5. **职位目标**: 技术总监或CTO级别\n\n---\n\n## 📊 现状分析\n\n### 个人优势\n- **技术基础扎实**: 5年Java开发经验，熟悉主流技术栈\n- **学习能力强**: 能够快速掌握新技术\n- **项目经验丰富**: 参与过多个大型项目\n- **团队协作良好**: 与同事关系融洽\n- **问题解决能力**: 能够独立解决复杂技术问题\n\n### 需要改进的方面\n- **管理经验不足**: 缺乏团队管理经验\n- **业务理解深度**: 对业务的理解需要更深入\n- **技术广度**: 需要扩展技术视野\n- **沟通表达能力**: 需要提升技术分享和沟通能力\n- **行业认知**: 需要更深入了解行业趋势\n\n---\n\n## 🗓️ 分阶段规划\n\n### 第一阶段：技术深化期 (2024-2025年)\n\n#### 目标\n- 在现有技术领域达到专家水平\n- 开始承担技术管理职责\n- 建立个人技术品牌\n\n#### 具体计划\n1. **技术提升**  - 深入学习分布式系统设计  - 掌握AI/ML相关技术  - 学习云原生技术栈  - 参与开源项目贡献\n\n2. **项目管理**  - 承担重要项目的技术负责人  - 学习项目管理方法论  - 提升跨团队协作能力\n\n3. **知识输出**  - 每月写1-2篇技术文章  - 在公司内部进行技术分享  - 参加技术会议和培训\n\n#### 预期成果\n- 晋升为P6级别\n- 薪资达到60-80万/年\n- 在技术社区有一定知名度\n\n---\n\n### 第二阶段：管理转型期 (2025-2027年)\n\n#### 目标\n- 从技术专家向技术管理者转型\n- 建立团队管理能力\n- 扩大技术影响力\n\n#### 具体计划\n1. **管理能力**  - 学习团队管理理论  - 实践团队建设和管理  - 提升沟通和协调能力  - 学习人力资源管理\n\n2. **业务理解**  - 深入了解公司业务模式  - 学习商业思维  - 参与产品规划和决策  - 关注行业发展趋势\n\n3. **技术领导力**  - 制定团队技术发展方向  - 建立技术标准和规范  - 培养技术人才  - 推动技术创新\n\n#### 预期成果\n- 晋升为技术经理或技术总监\n- 薪资达到100-120万/年\n- 带领10-20人的技术团队\n\n---\n\n### 第三阶段：战略发展期 (2027-2029年)\n\n#### 目标\n- 成为技术战略制定者\n- 具备CTO级别的能力\n- 在行业内建立影响力\n\n#### 具体计划\n1. **战略思维**  - 学习企业战略管理  - 了解资本市场和商业模式  - 参与公司战略规划  - 关注行业发展趋势\n\n2. **技术视野**  - 关注前沿技术发展  - 推动技术架构升级  - 建立技术生态  - 参与行业标准制定\n\n3. **领导力**  - 建立个人领导风格  - 培养下一代技术领导者  - 推动组织变革  - 建立技术文化\n\n#### 预期成果\n- 晋升为CTO或技术VP\n- 薪资达到150万以上/年\n- 在行业内有一定影响力\n\n---\n\n## 🛠️ 技能发展计划\n\n### 技术技能\n\n#### 核心技术 (精通)\n- **Java生态**: Spring Boot, Spring Cloud, MyBatis\n- **分布式系统**: 微服务架构, 服务治理, 分布式事务\n- **数据库**: MySQL, Redis, MongoDB, Elasticsearch\n- **消息队列**: Kafka, RabbitMQ, RocketMQ\n\n#### 扩展技术 (熟练)\n- **AI/ML**: TensorFlow, PyTorch, 推荐算法\n- **云原生**: Kubernetes, Docker, Istio\n- **大数据**: Hadoop, Spark, Flink\n- **前端技术**: React, Vue.js, Node.js\n\n#### 新兴技术 (了解)\n- **区块链**: 智能合约, 分布式账本\n- **边缘计算**: 边缘计算架构, IoT\n- **量子计算**: 量子算法基础\n- **Web3**: 去中心化应用开发\n\n### 软技能\n\n#### 管理技能\n- **团队管理**: 团队建设, 绩效管理, 冲突解决\n- **项目管理**: 敏捷开发, 风险管理, 资源管理\n- **沟通协调**: 跨部门协作, 客户沟通, 供应商管理\n- **决策能力**: 战略决策, 技术选型, 风险评估\n\n#### 商业技能\n- **商业思维**: 商业模式, 市场分析, 竞争分析\n- **财务管理**: 预算管理, 成本控制, ROI分析\n- **法律合规**: 知识产权, 数据保护, 合规管理\n- **国际化**: 跨文化管理, 国际业务\n\n---\n\n## 📚 学习计划\n\n### 2024年学习计划\n\n#### Q1 (1-3月)\n- **技术**: 深入学习Spring Cloud微服务架构\n- **管理**: 学习《技术管理之巅》\n- **认证**: 准备AWS Solutions Architect认证\n- **实践**: 完成一个微服务项目重构\n\n#### Q2 (4-6月)\n- **技术**: 学习AI/ML基础知识和实践\n- **管理**: 学习《人月神话》\n- **认证**: 获得AWS认证\n- **实践**: 开发一个推荐算法系统\n\n#### Q3 (7-9月)\n- **技术**: 学习云原生技术栈\n- **管理**: 学习《敏捷开发实践》\n- **认证**: 准备PMP项目管理认证\n- **实践**: 参与公司云原生改造项目\n\n#### Q4 (10-12月)\n- **技术**: 学习大数据处理技术\n- **管理**: 学习《技术领导力》\n- **认证**: 获得PMP认证\n- **实践**: 完成技术分享和知识输出\n\n### 长期学习计划\n\n#### 年度学习目标\n- **技术书籍**: 每年阅读12本技术书籍\n- **管理书籍**: 每年阅读6本管理书籍\n- **技术会议**: 每年参加2-3个技术会议\n- **在线课程**: 每年完成3-4个在线课程\n- **认证考试**: 每年获得1-2个技术认证\n\n#### 学习资源\n- **技术社区**: GitHub, Stack Overflow, 掘金, InfoQ\n- **在线教育**: Coursera, Udemy, 极客时间\n- **技术会议**: QCon, ArchSummit, 架构师峰会\n- **书籍推荐**: 《设计模式》、《重构》、《人月神话》\n\n---\n\n## 🎯 关键里程碑\n\n### 2024年里程碑\n- [ ] 晋升为P6级别\n- [ ] 薪资达到60万/年\n- [ ] 完成3个重要项目\n- [ ] 发表10篇技术文章\n- [ ] 获得AWS认证\n\n### 2025年里程碑\n- [ ] 晋升为技术经理\n- [ ] 薪资达到80万/年\n- [ ] 带领5-10人团队\n- [ ] 完成PMP认证\n- [ ] 在技术会议分享\n\n### 2026年里程碑\n- [ ] 晋升为技术总监\n- [ ] 薪资达到100万/年\n- [ ] 带领10-20人团队\n- [ ] 建立技术标准\n- [ ] 培养技术人才\n\n### 2027年里程碑\n- [ ] 薪资达到120万/年\n- [ ] 参与公司战略规划\n- [ ] 推动技术架构升级\n- [ ] 建立技术生态\n- [ ] 行业影响力提升\n\n### 2028年里程碑\n- [ ] 晋升为CTO\n- [ ] 薪资达到150万/年\n- [ ] 带领50+人团队\n- [ ] 制定技术战略\n- [ ] 行业标准制定\n\n---\n\n## 📈 风险与应对\n\n### 技术风险\n- **风险**: 技术更新换代快，可能被淘汰\n- **应对**: 持续学习新技术，保持技术敏感度\n\n### 市场风险\n- **风险**: 行业不景气，影响职业发展\n- **应对**: 多元化技能发展，提高抗风险能力\n\n### 竞争风险\n- **风险**: 竞争激烈，晋升困难\n- **应对**: 提升核心竞争力，建立差异化优势\n\n### 健康风险\n- **风险**: 工作压力大，影响身体健康\n- **应对**: 合理安排工作生活，保持身心健康\n\n---\n\n## 🔄 定期评估与调整\n\n### 评估频率\n- **月度评估**: 检查学习进度和项目进展\n- **季度评估**: 评估技能提升和职业发展\n- **年度评估**: 全面评估职业规划执行情况\n\n### 调整原则\n- **灵活性**: 根据市场变化和个人情况调整\n- **现实性**: 目标要符合实际情况\n- **持续性**: 保持长期发展的连续性\n\n---\n\n## 📞 支持资源\n\n### 内部资源\n- **导师**: 寻找资深技术专家作为导师\n- **同事**: 与同事建立良好的合作关系\n- **公司**: 利用公司提供的培训和发展机会\n\n### 外部资源\n- **技术社区**: 参与开源项目和技术社区\n- **专业网络**: 建立专业人脉网络\n- **培训机构**: 参加专业培训课程\n\n---\n\n**制定人**: 张三  **审核人**: 李四 (技术总监)  **制定日期**: 2024年1月15日  **下次评估**: 2024年4月15日  ---\n\n**备注**:\n1. 本规划将根据实际情况定期调整\n2. 建议每季度进行一次评估和调整\n3. 如有重大变化，应及时更新规划内容\n\n请提取以下信息：\n1. 文档类型\n2. 主要内容\n3. 关键信息\n4. 相关技能\n5. 时间信息\n6. 人员信息\n\n请以以下JSON格式返回：\n{\n  \"generalInfo\": {\n    \"documentType\": \"文档类型\",\n    \"mainContent\": \"主要内容\",\n    \"keyInfo\": [\"关键信息1\", \"关键信息2\"],\n    \"skills\": [\"技能1\", \"技能2\"],\n    \"timeInfo\": [\"时间信息1\", \"时间信息2\"],\n    \"peopleInfo\": [\"人员信息1\", \"人员信息2\"]\n  }\n}\n"}]}
+[INFO]  2025/09/21 16:30:22 logger.go:73: HTTP请求: GET /api/users/default-user/documents/108/extracted-info | IP: ::1 | 状态: 400 | 耗时: 10.965471833s
+[INFO]  2025/09/21 16:30:22 logger.go:73: API响应: {"choices":[{"message":{"role":"assistant","content":"```json\n{\n  \"generalInfo\": {\n    \"documentType\": \"职业发展规划\",\n    \"mainContent\": \"张三在2024-2029年期间的职业发展计划，目标是从高级软件工程师晋升为技术总监或CTO，涵盖技术深化、管理转型与战略发展三个阶段，包含技能提升、学习计划、关键里程碑及风险应对策略。\",\n    \"keyInfo\": [\n      \"5年内成为技术领域的专家和领导者，具备深厚的技术功底和优秀的管理能力\",\n      \"目标职位：技术总监/CTO；年薪目标150万以上\",\n      \"分阶段规划：2024-2025年技术深化期，2025-2027年管理转型期，2027-2029年战略发展期\",\n      \"关键里程碑包括晋升P6、获得AWS/PMP认证、带领团队规模扩大至50+人、参与公司战略规划等\",\n      \"需重点提升管理经验、业务理解深度、沟通表达能力和行业认知\"\n    ],\n    \"skills\": [\n      \"Java生态（Spring Boot, Spring Cloud, MyBatis）\",\n      \"分布式系统（微服务架构、服务治理、分布式事务）\",\n      \"数据库（MySQL, Redis, MongoDB, Elasticsearch）\",\n      \"消息队列（Kafka, RabbitMQ, RocketMQ）\",\n      \"AI/ML（TensorFlow, PyTorch, 推荐算法）\",\n      \"云原生（Kubernetes, Docker, Istio）\",\n      \"大数据（Hadoop, Spark, Flink）\",\n      \"前端技术（React, Vue.js, Node.js）\",\n      \"团队管理、项目管理、沟通协调、决策能力\",\n      \"商业思维、财务管理、法律合规、国际化能力\"\n    ],\n    \"timeInfo\": [\n      \"规划期间：2024-2029年\",\n      \"制定日期：2024年1月15日\",\n      \"下次评估：2024年4月15日\",\n      \"2024年Q1-Q4学习计划安排\",\n      \"各阶段时间划分：2024-2025年（第一阶段）、2025-2027年（第二阶段）、2027-2029年（第三阶段）\",\n      \"里程碑时间点：2024年、2025年、2026年、2027年、2028年\"\n    ],\n    \"peopleInfo\": [\n      \"张三（制定人，当前职位：高级软件工程师）\",\n      \"李四（审核人，技术总监）\"\n    ]\n  }\n}\n```"},"finish_reason":"stop","index":0,"logprobs":null}],"object":"chat.completion","usage":{"prompt_tokens":2783,"completion_tokens":580,"total_tokens":3363},"created":1758443416,"system_fingerprint":null,"model":"qwen-flash","id":"chatcmpl-c771e9a6-d3c5-423f-874f-72baa241716b"}
+[INFO]  2025/09/21 16:30:40 logger.go:73: AI返回的通用信息内容: ```json
+{
+  "generalInfo": {
+    "documentType": "职业发展规划",
+    "mainContent": "张三在2024-2029年期间的职业发展计划，目标是从高级软件工程师晋升为技术总监或CTO，涵盖技术深化、管理转型与战略发展三个阶段，包含技能提升、学习计划、关键里程碑及风险应对策略。",
+    "keyInfo": [
+      "5年内成为技术领域的专家和领导者，具备深厚的技术功底和优秀的管理能力",
+      "目标职位：技术总监/CTO；年薪目标150万以上",
+      "分阶段规划：2024-2025年技术深化期，2025-2027年管理转型期，2027-2029年战略发展期",
+      "关键里程碑包括晋升P6、获得AWS/PMP认证、带领团队规模扩大至50+人、参与公司战略规划等",
+      "需重点提升管理经验、业务理解深度、沟通表达能力和行业认知"
+    ],
+    "skills": [
+      "Java生态（Spring Boot, Spring Cloud, MyBatis）",
+      "分布式系统（微服务架构、服务治理、分布式事务）",
+      "数据库（MySQL, Redis, MongoDB, Elasticsearch）",
+      "消息队列（Kafka, RabbitMQ, RocketMQ）",
+      "AI/ML（TensorFlow, PyTorch, 推荐算法）",
+      "云原生（Kubernetes, Docker, Istio）",
+      "大数据（Hadoop, Spark, Flink）",
+      "前端技术（React, Vue.js, Node.js）",
+      "团队管理、项目管理、沟通协调、决策能力",
+      "商业思维、财务管理、法律合规、国际化能力"
+    ],
+    "timeInfo": [
+      "规划期间：2024-2029年",
+      "制定日期：2024年1月15日",
+      "下次评估：2024年4月15日",
+      "2024年Q1-Q4学习计划安排",
+      "各阶段时间划分：2024-2025年（第一阶段）、2025-2027年（第二阶段）、2027-2029年（第三阶段）",
+      "里程碑时间点：2024年、2025年、2026年、2027年、2028年"
+    ],
+    "peopleInfo": [
+      "张三（制定人，当前职位：高级软件工程师）",
+      "李四（审核人，技术总监）"
+    ]
+  }
+}
+```
+[INFO]  2025/09/21 16:30:40 logger.go:73: 清理后的内容: {
+  "generalInfo": {
+    "documentType": "职业发展规划",
+    "mainContent": "张三在2024-2029年期间的职业发展计划，目标是从高级软件工程师晋升为技术总监或CTO，涵盖技术深化、管理转型与战略发展三个阶段，包含技能提升、学习计划、关键里程碑及风险应对策略。",
+    "keyInfo": [
+      "5年内成为技术领域的专家和领导者，具备深厚的技术功底和优秀的管理能力",
+      "目标职位：技术总监/CTO；年薪目标150万以上",
+      "分阶段规划：2024-2025年技术深化期，2025-2027年管理转型期，2027-2029年战略发展期",
+      "关键里程碑包括晋升P6、获得AWS/PMP认证、带领团队规模扩大至50+人、参与公司战略规划等",
+      "需重点提升管理经验、业务理解深度、沟通表达能力和行业认知"
+    ],
+    "skills": [
+      "Java生态（Spring Boot, Spring Cloud, MyBatis）",
+      "分布式系统（微服务架构、服务治理、分布式事务）",
+      "数据库（MySQL, Redis, MongoDB, Elasticsearch）",
+      "消息队列（Kafka, RabbitMQ, RocketMQ）",
+      "AI/ML（TensorFlow, PyTorch, 推荐算法）",
+      "云原生（Kubernetes, Docker, Istio）",
+      "大数据（Hadoop, Spark, Flink）",
+      "前端技术（React, Vue.js, Node.js）",
+      "团队管理、项目管理、沟通协调、决策能力",
+      "商业思维、财务管理、法律合规、国际化能力"
+    ],
+    "timeInfo": [
+      "规划期间：2024-2029年",
+      "制定日期：2024年1月15日",
+      "下次评估：2024年4月15日",
+      "2024年Q1-Q4学习计划安排",
+      "各阶段时间划分：2024-2025年（第一阶段）、2025-2027年（第二阶段）、2027-2029年（第三阶段）",
+      "里程碑时间点：2024年、2025年、2026年、2027年、2028年"
+    ],
+    "peopleInfo": [
+      "张三（制定人，当前职位：高级软件工程师）",
+      "李四（审核人，技术总监）"
+    ]
+  }
+}
+[INFO]  2025/09/21 16:30:52 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 16:30:52 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 16:30:52 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 16:30:52 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 16:30:52 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 16:30:52 logger.go:73: AI职场管家服务启动，监听端口: 8080

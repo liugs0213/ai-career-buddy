@@ -3,6 +3,7 @@ package utils
 import (
 	"encoding/json"
 	"fmt"
+	"strings"
 
 	"ai-career-buddy/internal/api"
 	"ai-career-buddy/internal/logger"
@@ -19,6 +20,30 @@ func NewDocumentExtractor() *DocumentExtractor {
 	return &DocumentExtractor{
 		bailianClient: api.NewBailianClient(),
 	}
+}
+
+// cleanJSONContent 清理AI返回的JSON内容，移除markdown代码块标记等
+func cleanJSONContent(content string) string {
+	// 移除首尾空白
+	content = strings.TrimSpace(content)
+
+	// 移除markdown代码块标记
+	content = strings.TrimPrefix(content, "```json")
+	content = strings.TrimPrefix(content, "```")
+	content = strings.TrimSuffix(content, "```")
+
+	// 移除首尾空白
+	content = strings.TrimSpace(content)
+
+	// 查找JSON对象的开始和结束位置
+	start := strings.Index(content, "{")
+	end := strings.LastIndex(content, "}")
+
+	if start != -1 && end != -1 && end > start {
+		content = content[start : end+1]
+	}
+
+	return content
 }
 
 // ExtractDocumentInfo 提取文档信息
@@ -93,7 +118,7 @@ func (de *DocumentExtractor) extractResumeInfo(document *models.UserDocument) (*
 }
 `, document.FileContent)
 
-	response, err := de.bailianClient.SendMessage(prompt, "qwen-flash", []string{})
+	response, err := de.bailianClient.SendMessage("bailian/qwen-flash", prompt, []string{})
 	if err != nil {
 		logger.Error("AI提取简历信息失败: %v", err)
 		return nil, err
@@ -101,9 +126,16 @@ func (de *DocumentExtractor) extractResumeInfo(document *models.UserDocument) (*
 
 	var extractedInfo models.DocumentExtractedInfo
 	if len(response.Choices) > 0 {
-		if err := json.Unmarshal([]byte(response.Choices[0].Message.Content), &extractedInfo); err != nil {
-			logger.Error("解析简历信息失败: %v", err)
-			return nil, err
+		content := response.Choices[0].Message.Content
+		logger.Info("AI返回的简历信息内容: %s", content)
+
+		// 清理内容，移除可能的markdown代码块标记
+		cleanedContent := cleanJSONContent(content)
+		logger.Info("清理后的内容: %s", cleanedContent)
+
+		if err := json.Unmarshal([]byte(cleanedContent), &extractedInfo); err != nil {
+			logger.Error("解析简历信息失败: %v, 内容: %s", err, cleanedContent)
+			return nil, fmt.Errorf("解析简历信息失败: %v", err)
 		}
 	} else {
 		return nil, fmt.Errorf("AI响应为空")
@@ -151,7 +183,7 @@ func (de *DocumentExtractor) extractContractInfo(document *models.UserDocument) 
 }
 `, document.FileContent)
 
-	response, err := de.bailianClient.SendMessage(prompt, "qwen-flash", []string{})
+	response, err := de.bailianClient.SendMessage("bailian/qwen-plus", prompt, []string{})
 	if err != nil {
 		logger.Error("AI提取合同信息失败: %v", err)
 		return nil, err
@@ -159,9 +191,16 @@ func (de *DocumentExtractor) extractContractInfo(document *models.UserDocument) 
 
 	var extractedInfo models.DocumentExtractedInfo
 	if len(response.Choices) > 0 {
-		if err := json.Unmarshal([]byte(response.Choices[0].Message.Content), &extractedInfo); err != nil {
-			logger.Error("解析合同信息失败: %v", err)
-			return nil, err
+		content := response.Choices[0].Message.Content
+		logger.Info("AI返回的合同信息内容: %s", content)
+
+		// 清理内容，移除可能的markdown代码块标记
+		cleanedContent := cleanJSONContent(content)
+		logger.Info("清理后的内容: %s", cleanedContent)
+
+		if err := json.Unmarshal([]byte(cleanedContent), &extractedInfo); err != nil {
+			logger.Error("解析合同信息失败: %v, 内容: %s", err, cleanedContent)
+			return nil, fmt.Errorf("解析合同信息失败: %v", err)
 		}
 	} else {
 		return nil, fmt.Errorf("AI响应为空")
@@ -209,7 +248,7 @@ Offer内容：
 }
 `, document.FileContent)
 
-	response, err := de.bailianClient.SendMessage(prompt, "qwen-flash", []string{})
+	response, err := de.bailianClient.SendMessage("bailian/qwen-flash", prompt, []string{})
 	if err != nil {
 		logger.Error("AI提取Offer信息失败: %v", err)
 		return nil, err
@@ -217,9 +256,16 @@ Offer内容：
 
 	var extractedInfo models.DocumentExtractedInfo
 	if len(response.Choices) > 0 {
-		if err := json.Unmarshal([]byte(response.Choices[0].Message.Content), &extractedInfo); err != nil {
-			logger.Error("解析Offer信息失败: %v", err)
-			return nil, err
+		content := response.Choices[0].Message.Content
+		logger.Info("AI返回的Offer信息内容: %s", content)
+
+		// 清理内容，移除可能的markdown代码块标记
+		cleanedContent := cleanJSONContent(content)
+		logger.Info("清理后的内容: %s", cleanedContent)
+
+		if err := json.Unmarshal([]byte(cleanedContent), &extractedInfo); err != nil {
+			logger.Error("解析Offer信息失败: %v, 内容: %s", err, cleanedContent)
+			return nil, fmt.Errorf("解析Offer信息失败: %v", err)
 		}
 	} else {
 		return nil, fmt.Errorf("AI响应为空")
@@ -263,7 +309,7 @@ func (de *DocumentExtractor) extractEmploymentInfo(document *models.UserDocument
 }
 `, document.FileContent)
 
-	response, err := de.bailianClient.SendMessage(prompt, "qwen-flash", []string{})
+	response, err := de.bailianClient.SendMessage("bailian/qwen-flash", prompt, []string{})
 	if err != nil {
 		logger.Error("AI提取在职情况信息失败: %v", err)
 		return nil, err
@@ -271,9 +317,16 @@ func (de *DocumentExtractor) extractEmploymentInfo(document *models.UserDocument
 
 	var extractedInfo models.DocumentExtractedInfo
 	if len(response.Choices) > 0 {
-		if err := json.Unmarshal([]byte(response.Choices[0].Message.Content), &extractedInfo); err != nil {
-			logger.Error("解析在职情况信息失败: %v", err)
-			return nil, err
+		content := response.Choices[0].Message.Content
+		logger.Info("AI返回的在职情况信息内容: %s", content)
+
+		// 清理内容，移除可能的markdown代码块标记
+		cleanedContent := cleanJSONContent(content)
+		logger.Info("清理后的内容: %s", cleanedContent)
+
+		if err := json.Unmarshal([]byte(cleanedContent), &extractedInfo); err != nil {
+			logger.Error("解析在职情况信息失败: %v, 内容: %s", err, cleanedContent)
+			return nil, fmt.Errorf("解析在职情况信息失败: %v", err)
 		}
 	} else {
 		return nil, fmt.Errorf("AI响应为空")
@@ -311,7 +364,7 @@ func (de *DocumentExtractor) extractGeneralInfo(document *models.UserDocument) (
 }
 `, document.FileContent)
 
-	response, err := de.bailianClient.SendMessage(prompt, "qwen-flash", []string{})
+	response, err := de.bailianClient.SendMessage("bailian/qwen-flash", prompt, []string{})
 	if err != nil {
 		logger.Error("AI提取通用信息失败: %v", err)
 		return nil, err
@@ -319,9 +372,16 @@ func (de *DocumentExtractor) extractGeneralInfo(document *models.UserDocument) (
 
 	var extractedInfo models.DocumentExtractedInfo
 	if len(response.Choices) > 0 {
-		if err := json.Unmarshal([]byte(response.Choices[0].Message.Content), &extractedInfo); err != nil {
-			logger.Error("解析通用信息失败: %v", err)
-			return nil, err
+		content := response.Choices[0].Message.Content
+		logger.Info("AI返回的通用信息内容: %s", content)
+
+		// 清理内容，移除可能的markdown代码块标记
+		cleanedContent := cleanJSONContent(content)
+		logger.Info("清理后的内容: %s", cleanedContent)
+
+		if err := json.Unmarshal([]byte(cleanedContent), &extractedInfo); err != nil {
+			logger.Error("解析通用信息失败: %v, 内容: %s", err, cleanedContent)
+			return nil, fmt.Errorf("解析通用信息失败: %v", err)
 		}
 	} else {
 		return nil, fmt.Errorf("AI响应为空")

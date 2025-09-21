@@ -69,6 +69,7 @@ func Setup() *gin.Engine {
 		api.POST("/users/:userId/documents/:documentId/process", handlers.ProcessDocument)
 		api.GET("/users/:userId/documents/:documentId/extracted-info", handlers.GetDocumentExtractedInfo)
 		api.GET("/users/:userId/documents/:documentId/visualization", handlers.GenerateDocumentVisualization)
+		api.POST("/users/:userId/documents/:documentId/retry", handlers.RetryDocumentProcessing)
 	}
 	return r
 }

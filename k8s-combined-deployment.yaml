@@ -83,9 +83,9 @@ spec:
         image: harbor.weizhipin.com/arsenal-ai/ai-career-buddy-frontend:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 3000
+        - containerPort: 80
           protocol: TCP
-        # 前端容器不需要运行时环境变量，API地址已在构建时硬编码为 localhost:8080
+        # 前端使用nginx代理API请求到后端
         resources:
           requests:
             memory: "64Mi"
@@ -96,7 +96,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /
-            port: 3000
+            port: 80
           initialDelaySeconds: 10
           periodSeconds: 10
           timeoutSeconds: 3
@@ -104,7 +104,7 @@ spec:
         readinessProbe:
           httpGet:
             path: /
-            port: 3000
+            port: 80
           initialDelaySeconds: 5
           periodSeconds: 5
           timeoutSeconds: 3
@@ -124,7 +124,7 @@ spec:
   ports:
     - name: frontend
       port: 80
-      targetPort: 3000
+      targetPort: 80
       protocol: TCP
     - name: backend
       port: 8080

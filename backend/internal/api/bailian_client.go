@@ -9,9 +9,51 @@ import (
 	"net/http"
 	"strings"
 	"time"
+	"unicode"
 
 	"ai-career-buddy/internal/config"
+	"ai-career-buddy/internal/logger"
 )
+
+// SanitizeModelID 专门用于清理模型ID
+func SanitizeModelID(modelID string) string {
+	if modelID == "" {
+		return "default"
+	}
+
+	// 移除常见的无效字符
+	cleaned := strings.ReplaceAll(modelID, "\n", "")
+	cleaned = strings.ReplaceAll(cleaned, "\r", "")
+	cleaned = strings.ReplaceAll(cleaned, ":", "-")
+	cleaned = strings.ReplaceAll(cleaned, ";", "-")
+	cleaned = strings.ReplaceAll(cleaned, ",", "-")
+	cleaned = strings.ReplaceAll(cleaned, " ", "-")
+
+	// 移除首尾空白
+	cleaned = strings.TrimSpace(cleaned)
+
+	// 如果清理后为空，返回默认值
+	if cleaned == "" {
+		return "default"
+	}
+
+	// 确保只包含字母、数字、连字符和下划线
+	var result strings.Builder
+	for _, r := range cleaned {
+		if unicode.IsLetter(r) || unicode.IsDigit(r) || r == '-' || r == '_' || r == '/' {
+			result.WriteRune(r)
+		} else {
+			result.WriteRune('-')
+		}
+	}
+
+	final := result.String()
+	if final == "" {
+		return "default"
+	}
+
+	return final
+}
 
 // BailianClient 百炼API客户端
 type BailianClient struct {
@@ -124,6 +166,14 @@ func (c *BailianClient) SendMessage(modelID, userMessage string, attachments []s
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Authorization", "Bearer "+c.apiKey)
 
+	// 设置模型ID header（百炼API要求）
+	cleanModelID := SanitizeModelID(modelID)
+	req.Header.Set("x-higress-llm-model", cleanModelID)
+
+	// 记录请求信息用于调试
+	logger.Info("发送API请求: URL=%s, ModelID=%s, CleanModelID=%s", c.apiURL, modelID, cleanModelID)
+	logger.Info("请求体: %s", string(requestBody))
+
 	// 发送请求
 	resp, err := c.client.Do(req)
 	if err != nil {
@@ -137,10 +187,32 @@ func (c *BailianClient) SendMessage(modelID, userMessage string, attachments []s
 		return nil, fmt.Errorf("API请求失败 (状态码: %d): %s", resp.StatusCode, string(body))
 	}
 
+	// 读取响应体
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, fmt.Errorf("读取响应失败: %v", err)
+	}
+
+	// 检查响应体是否为空
+	if len(body) == 0 {
+		return nil, fmt.Errorf("API返回空响应")
+	}
+
+	// 记录原始响应用于调试
+	logger.Info("API响应: %s", string(body))
+
+	// 检查响应是否为简单的成功消息
+	responseStr := string(body)
+	if responseStr == "success" || responseStr == "ok" || responseStr == "Success" {
+		logger.Error("API返回简单成功消息，可能是API Key无效或请求格式错误")
+		return nil, fmt.Errorf("API返回简单成功消息，请检查API Key和请求格式")
+	}
+
 	// 解析响应
 	var response ChatResponse
-	if err := json.NewDecoder(resp.Body).Decode(&response); err != nil {
-		return nil, fmt.Errorf("解析响应失败: %v", err)
+	if err := json.Unmarshal(body, &response); err != nil {
+		logger.Error("JSON解析失败: %v, 响应内容: %s", err, string(body))
+		return nil, fmt.Errorf("解析响应失败: %v, 响应内容: %s", err, string(body))
 	}
 
 	return &response, nil
@@ -188,6 +260,10 @@ func (c *BailianClient) SendStreamMessage(modelID, userMessage string, attachmen
 	// 设置请求头
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Authorization", "Bearer "+c.apiKey)
+
+	// 设置模型ID header（百炼API要求）
+	cleanModelID := SanitizeModelID(modelID)
+	req.Header.Set("x-higress-llm-model", cleanModelID)
 
 	// 发送请求
 	resp, err := c.client.Do(req)
