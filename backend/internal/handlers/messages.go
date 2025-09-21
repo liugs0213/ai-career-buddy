@@ -82,9 +82,6 @@ func SendMessage(c *gin.Context) {
 					if document.FileContent != "" {
 						// 限制文档内容长度，避免prompt过长
 						content := document.FileContent
-						if len(content) > 3000 {
-							content = content[:3000] + "\n... (文档内容较长，已截断)"
-						}
 						documentTexts = append(documentTexts, fmt.Sprintf("[%s文档内容]:\n%s", document.DocumentType, content))
 					}
 				}
@@ -255,9 +252,6 @@ func StreamMessage(c *gin.Context) {
 					if document.FileContent != "" {
 						// 限制文档内容长度，避免prompt过长
 						content := document.FileContent
-						if len(content) > 3000 {
-							content = content[:3000] + "\n... (文档内容较长，已截断)"
-						}
 						documentTexts = append(documentTexts, fmt.Sprintf("[%s文档内容]:\n%s", document.DocumentType, content))
 					}
 				}
