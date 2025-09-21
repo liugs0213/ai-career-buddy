@@ -122,8 +122,8 @@
 }
 
 .key-point.highlight {
-  border-left: 4px solid #f59e0b;
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border-left: 4px solid #6c757d;
+  background: #f8f9fa;
 }
 
 .key-point.info {
@@ -304,7 +304,7 @@
 }
 
 .stat-item:nth-child(3) .stat-value {
-  color: #f59e0b;
+  color: #6c757d;
 }
 
 /* 滚动条样式 */
@@ -570,7 +570,7 @@
 }
 
 .assessment-neutral .assessment-summary {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background: #f8f9fa;
   border-color: #fed7aa;
 }
 
@@ -579,7 +579,7 @@
 }
 
 .assessment-caution .assessment-summary {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background: #f8f9fa;
   border-color: #fed7aa;
 }
 
@@ -739,7 +739,7 @@
 }
 
 .risk-level.medium {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background: #f8f9fa;
   border: 1px solid #fed7aa;
   color: #92400e;
 }
@@ -976,9 +976,9 @@
 .risk-explanation {
   margin-top: 20px;
   padding: 16px;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: #f8f9fa;
   border-radius: 12px;
-  border-left: 4px solid #f59e0b;
+  border-left: 4px solid #6c757d;
 }
 
 .risk-explanation-header {
@@ -1008,7 +1008,7 @@
 .standard-comparison {
   margin-top: 20px;
   padding: 16px;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  background: #f8f9fa;
   border-radius: 12px;
   border-left: 4px solid #0ea5e9;
 }

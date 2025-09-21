@@ -1657,7 +1657,7 @@ export default function Home() {
               className="input-field"
               value={currentChat.input}
               onChange={(e) => updateTabChat(activeTab, { input: e.target.value })}
-              placeholder={`向${currentConfig.introduction.title}提问...`}
+              placeholder={`向${currentConfig.introduction.title}提问，例如：${currentConfig.examples[0]?.description || '请描述您的问题'}`}
               rows={1}
               disabled={currentChat.isLoading}
               onKeyDown={(e) => {

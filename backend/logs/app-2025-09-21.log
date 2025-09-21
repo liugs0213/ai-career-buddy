@@ -1259,3 +1259,473 @@
 [INFO]  2025/09/21 13:40:12 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
 [INFO]  2025/09/21 13:40:12 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 1.705205208s
 [INFO]  2025/09/21 13:40:12 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:43:15 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 13:43:15 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 13:43:15 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 13:43:15 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 13:43:15 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 13:43:15 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/21 13:43:17 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=employment, FileName=在职证明示例.md
+[INFO]  2025/09/21 13:43:17 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 12.528084ms
+[ERROR] 2025/09/21 13:43:18 logger.go:83: AI提取在职情况信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:43:18 logger.go:83: AI文档信息提取失败: DocumentID=70, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:43:18 logger.go:83: MD文档自动分析失败: DocumentID=70, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 13:43:20 logger.go:73: HTTP请求: GET /api/users/default-user/documents/70/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.235333ms
+[INFO]  2025/09/21 13:43:22 logger.go:73: HTTP请求: GET /api/users/default-user/documents/70/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.538333ms
+[INFO]  2025/09/21 13:43:23 logger.go:73: 收到流式消息请求: ThreadID=contract-1758427872974-iwd7sgqgk, ModelID=deepseek-v3-0324, Content长度=21, 附件数量=1
+[INFO]  2025/09/21 13:43:23 logger.go:73: 使用模拟流式回复: ModelID=deepseek-v3-0324
+[INFO]  2025/09/21 13:43:24 logger.go:73: 模拟流式回复完成
+[INFO]  2025/09/21 13:43:24 logger.go:73: 流式消息处理完成: ThreadID=contract-1758427872974-iwd7sgqgk, 总耗时=1.599864708s
+[INFO]  2025/09/21 13:43:24 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 1.5999305s
+[INFO]  2025/09/21 13:43:24 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:43:24 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:43:33 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=employment, FileName=在职证明示例.md
+[INFO]  2025/09/21 13:43:33 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 12.84575ms
+[ERROR] 2025/09/21 13:43:34 logger.go:83: AI提取在职情况信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:43:34 logger.go:83: AI文档信息提取失败: DocumentID=71, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:43:34 logger.go:83: MD文档自动分析失败: DocumentID=71, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 13:43:36 logger.go:73: HTTP请求: GET /api/users/default-user/documents/71/extracted-info | IP: ::1 | 状态: 400 | 耗时: 2.969834ms
+[INFO]  2025/09/21 13:43:39 logger.go:73: HTTP请求: GET /api/users/default-user/documents/71/extracted-info | IP: ::1 | 状态: 400 | 耗时: 932.75µs
+[INFO]  2025/09/21 13:43:39 logger.go:73: 收到流式消息请求: ThreadID=contract-1758427872974-iwd7sgqgk, ModelID=deepseek-v3-0324, Content长度=21, 附件数量=1
+[INFO]  2025/09/21 13:43:39 logger.go:73: 使用模拟流式回复: ModelID=deepseek-v3-0324
+[INFO]  2025/09/21 13:45:20 logger.go:73: 用户默认模型更新成功: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/21 13:45:20 logger.go:73: HTTP请求: PUT /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 7.194792ms
+[INFO]  2025/09/21 13:45:20 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=employment, FileName=在职证明示例.md
+[INFO]  2025/09/21 13:45:20 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 14.296958ms
+[ERROR] 2025/09/21 13:45:21 logger.go:83: AI提取在职情况信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:45:21 logger.go:83: AI文档信息提取失败: DocumentID=72, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:45:21 logger.go:83: MD文档自动分析失败: DocumentID=72, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 13:45:21 logger.go:73: 模拟流式回复完成
+[INFO]  2025/09/21 13:45:21 logger.go:73: 流式消息处理完成: ThreadID=contract-1758427872974-iwd7sgqgk, 总耗时=1m42.192416s
+[INFO]  2025/09/21 13:45:21 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 1m42.192461833s
+[INFO]  2025/09/21 13:45:21 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:45:21 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:45:23 logger.go:73: HTTP请求: GET /api/users/default-user/documents/72/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.124417ms
+[INFO]  2025/09/21 13:45:27 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 13:45:27 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 23.137208ms
+[ERROR] 2025/09/21 13:45:28 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:45:28 logger.go:83: AI文档信息提取失败: DocumentID=73, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:45:28 logger.go:83: MD文档自动分析失败: DocumentID=73, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 13:45:30 logger.go:73: HTTP请求: GET /api/users/default-user/documents/73/extracted-info | IP: ::1 | 状态: 400 | 耗时: 6.815416ms
+[INFO]  2025/09/21 13:45:38 logger.go:73: HTTP请求: GET /api/users/default-user/documents/72/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.028458ms
+[INFO]  2025/09/21 13:45:38 logger.go:73: 收到流式消息请求: ThreadID=contract-1758427872974-iwd7sgqgk, ModelID=bailian/qwen-flash, Content长度=21, 附件数量=1
+[INFO]  2025/09/21 13:45:40 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 13:45:49 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 13:45:49 logger.go:73: 流式消息处理完成: ThreadID=contract-1758427872974-iwd7sgqgk, 总耗时=10.933372708s
+[INFO]  2025/09/21 13:45:49 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:45:49 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 10.933451625s
+[INFO]  2025/09/21 13:45:49 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:46:21 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1758274655486-ba441c7no | IP: ::1 | 状态: 200 | 耗时: 4.207042ms
+[INFO]  2025/09/21 13:46:28 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757938244094-uuv57kxii | IP: ::1 | 状态: 200 | 耗时: 2.68275ms
+[INFO]  2025/09/21 13:47:54 logger.go:73: 收到流式消息请求: ThreadID=career-1757938244094-uuv57kxii, ModelID=bailian/qwen-flash, Content长度=19, 附件数量=0
+[INFO]  2025/09/21 13:47:54 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 13:47:59 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 13:47:59 logger.go:73: 流式消息处理完成: ThreadID=career-1757938244094-uuv57kxii, 总耗时=4.725886084s
+[INFO]  2025/09/21 13:47:59 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 4.725936209s
+[INFO]  2025/09/21 13:47:59 logger.go:73: 保存职业历史记录: ThreadID=career-1757938244094-uuv57kxii, Category=career
+[INFO]  2025/09/21 13:47:59 logger.go:73: 职业历史记录保存成功: ThreadID=career-1757938244094-uuv57kxii, Category=career
+[INFO]  2025/09/21 13:48:39 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 5.906417ms
+[INFO]  2025/09/21 13:48:39 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 4.339042ms
+[INFO]  2025/09/21 13:48:40 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1758274655486-ba441c7no | IP: ::1 | 状态: 200 | 耗时: 3.690125ms
+[INFO]  2025/09/21 13:48:58 logger.go:73: 收到流式消息请求: ThreadID=offer-1758274655486-ba441c7no, ModelID=bailian/qwen-flash, Content长度=18, 附件数量=0
+[INFO]  2025/09/21 13:48:58 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 13:49:01 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 13:49:01 logger.go:73: 流式消息处理完成: ThreadID=offer-1758274655486-ba441c7no, 总耗时=3.029745375s
+[INFO]  2025/09/21 13:49:01 logger.go:73: 保存职业历史记录: ThreadID=offer-1758274655486-ba441c7no, Category=offer
+[INFO]  2025/09/21 13:49:01 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 3.029806292s
+[INFO]  2025/09/21 13:49:01 logger.go:73: 职业历史记录保存成功: ThreadID=offer-1758274655486-ba441c7no, Category=offer
+[INFO]  2025/09/21 13:49:02 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 3.258416ms
+[INFO]  2025/09/21 13:49:07 logger.go:73: 收到流式消息请求: ThreadID=contract-1758427872974-iwd7sgqgk, ModelID=bailian/qwen-flash, Content长度=18, 附件数量=0
+[INFO]  2025/09/21 13:49:07 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 13:49:10 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 13:49:10 logger.go:73: 流式消息处理完成: ThreadID=contract-1758427872974-iwd7sgqgk, 总耗时=3.270347375s
+[INFO]  2025/09/21 13:49:10 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 3.270414083s
+[INFO]  2025/09/21 13:49:10 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:49:10 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:49:18 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757938244094-uuv57kxii | IP: ::1 | 状态: 200 | 耗时: 2.002459ms
+[INFO]  2025/09/21 13:50:04 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1758274655486-ba441c7no | IP: ::1 | 状态: 200 | 耗时: 4.812709ms
+[INFO]  2025/09/21 13:50:05 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 3.549708ms
+[INFO]  2025/09/21 13:50:44 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758433844051-tgecwn1n4 | IP: ::1 | 状态: 200 | 耗时: 2.550875ms
+[INFO]  2025/09/21 13:52:38 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1758274655486-ba441c7no | IP: ::1 | 状态: 200 | 耗时: 13.710667ms
+[INFO]  2025/09/21 13:54:22 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/21 13:54:22 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 61.860333ms
+[INFO]  2025/09/21 13:54:22 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=9
+[INFO]  2025/09/21 13:54:22 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 69.4535ms
+[INFO]  2025/09/21 13:54:22 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/21 13:54:22 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 7.8055ms
+[INFO]  2025/09/21 13:54:22 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=9
+[INFO]  2025/09/21 13:54:22 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 7.886375ms
+[INFO]  2025/09/21 13:54:22 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 13:54:22 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 10.473125ms
+[INFO]  2025/09/21 13:54:22 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 13:54:22 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 13:54:22 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 7.179875ms
+[INFO]  2025/09/21 13:54:22 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 17.76975ms
+[INFO]  2025/09/21 13:54:22 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 13:54:22 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 30.9415ms
+[INFO]  2025/09/21 13:54:22 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 13:54:22 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 54.933125ms
+[INFO]  2025/09/21 13:54:22 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 13:54:22 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 14.210792ms
+[INFO]  2025/09/21 13:54:23 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 7.450041ms
+[INFO]  2025/09/21 13:54:26 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758434066802-02dle6wcq | IP: ::1 | 状态: 200 | 耗时: 2.525708ms
+[INFO]  2025/09/21 13:54:31 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 13:54:31 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 13:54:31 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 13:54:31 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 13:54:31 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 13:54:31 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[FATAL] 2025/09/21 13:54:31 logger.go:88: 服务启动失败: listen tcp :8080: bind: address already in use
+[INFO]  2025/09/21 13:54:49 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 22.956ms
+[INFO]  2025/09/21 13:55:05 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/21 13:55:05 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 2.72725ms
+[INFO]  2025/09/21 13:55:05 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=9
+[INFO]  2025/09/21 13:55:05 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 25.111ms
+[INFO]  2025/09/21 13:55:05 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/21 13:55:05 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 45.769709ms
+[INFO]  2025/09/21 13:55:05 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=9
+[INFO]  2025/09/21 13:55:05 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 21.39925ms
+[INFO]  2025/09/21 13:55:05 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 13:55:05 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 13.697583ms
+[INFO]  2025/09/21 13:55:05 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 13:55:05 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 2.523875ms
+[INFO]  2025/09/21 13:55:05 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 13:55:05 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 19.191417ms
+[INFO]  2025/09/21 13:55:05 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 13:55:05 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 13.426375ms
+[INFO]  2025/09/21 13:55:05 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 13:55:05 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 13.276ms
+[INFO]  2025/09/21 13:55:05 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 13:55:05 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 7.614625ms
+[INFO]  2025/09/21 13:55:06 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 6.1185ms
+[INFO]  2025/09/21 13:55:10 logger.go:73: 收到流式消息请求: ThreadID=contract-1758427872974-iwd7sgqgk, ModelID=bailian/qwen-flash, Content长度=18, 附件数量=0
+[INFO]  2025/09/21 13:55:10 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 13:55:14 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 13:55:14 logger.go:73: 流式消息处理完成: ThreadID=contract-1758427872974-iwd7sgqgk, 总耗时=3.834927708s
+[INFO]  2025/09/21 13:55:14 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:55:14 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 3.834991083s
+[INFO]  2025/09/21 13:55:14 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:55:25 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 3.395959ms
+[INFO]  2025/09/21 13:55:26 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 3.085542ms
+[INFO]  2025/09/21 13:55:29 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 4.394208ms
+[INFO]  2025/09/21 13:55:43 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=employment, FileName=在职证明示例.md
+[INFO]  2025/09/21 13:55:43 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 44.6925ms
+[ERROR] 2025/09/21 13:55:44 logger.go:83: AI提取在职情况信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:55:44 logger.go:83: AI文档信息提取失败: DocumentID=74, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:55:44 logger.go:83: MD文档自动分析失败: DocumentID=74, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 13:55:46 logger.go:73: HTTP请求: GET /api/users/default-user/documents/74/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.205ms
+[INFO]  2025/09/21 13:55:46 logger.go:73: 收到流式消息请求: ThreadID=contract-1758427872974-iwd7sgqgk, ModelID=bailian/qwen-flash, Content长度=12, 附件数量=1
+[INFO]  2025/09/21 13:55:46 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 13:55:46 logger.go:73: HTTP请求: GET /api/users/default-user/documents/74/extracted-info | IP: ::1 | 状态: 400 | 耗时: 3.872416ms
+[INFO]  2025/09/21 13:55:54 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 13:55:54 logger.go:73: 流式消息处理完成: ThreadID=contract-1758427872974-iwd7sgqgk, 总耗时=8.562915291s
+[INFO]  2025/09/21 13:55:54 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 8.563037s
+[INFO]  2025/09/21 13:55:54 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:55:54 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:56:36 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 31.436667ms
+[INFO]  2025/09/21 13:56:41 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 13:56:41 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 24.58525ms
+[ERROR] 2025/09/21 13:56:42 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:56:42 logger.go:83: AI文档信息提取失败: DocumentID=75, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:56:42 logger.go:83: MD文档自动分析失败: DocumentID=75, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 13:56:44 logger.go:73: HTTP请求: GET /api/users/default-user/documents/75/extracted-info | IP: ::1 | 状态: 400 | 耗时: 862.666µs
+[INFO]  2025/09/21 13:56:45 logger.go:73: HTTP请求: GET /api/users/default-user/documents/75/extracted-info | IP: ::1 | 状态: 400 | 耗时: 875.083µs
+[INFO]  2025/09/21 13:56:45 logger.go:73: 收到流式消息请求: ThreadID=contract-1758427872974-iwd7sgqgk, ModelID=bailian/qwen-flash, Content长度=9, 附件数量=1
+[INFO]  2025/09/21 13:56:45 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 13:56:50 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 13:56:50 logger.go:73: 流式消息处理完成: ThreadID=contract-1758427872974-iwd7sgqgk, 总耗时=5.032449917s
+[INFO]  2025/09/21 13:56:50 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 5.032513666s
+[INFO]  2025/09/21 13:56:50 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:56:50 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:57:12 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 13:57:12 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 31.488291ms
+[ERROR] 2025/09/21 13:57:13 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:57:13 logger.go:83: AI文档信息提取失败: DocumentID=76, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:57:13 logger.go:83: MD文档自动分析失败: DocumentID=76, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 13:57:13 logger.go:73: HTTP请求: GET /api/users/default-user/documents/76/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.666083ms
+[INFO]  2025/09/21 13:57:13 logger.go:73: 收到流式消息请求: ThreadID=contract-1758427872974-iwd7sgqgk, ModelID=bailian/qwen-flash, Content长度=33, 附件数量=1
+[INFO]  2025/09/21 13:57:13 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 13:57:15 logger.go:73: HTTP请求: GET /api/users/default-user/documents/76/extracted-info | IP: ::1 | 状态: 400 | 耗时: 3.376125ms
+[INFO]  2025/09/21 13:57:20 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 13:57:20 logger.go:73: 流式消息处理完成: ThreadID=contract-1758427872974-iwd7sgqgk, 总耗时=7.219678458s
+[INFO]  2025/09/21 13:57:20 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 7.219758s
+[INFO]  2025/09/21 13:57:20 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:57:20 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:57:52 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 13:57:52 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 13:57:52 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 13:57:52 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 13:57:52 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 13:57:52 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[FATAL] 2025/09/21 13:57:52 logger.go:88: 服务启动失败: listen tcp :8080: bind: address already in use
+[INFO]  2025/09/21 13:57:56 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 13:57:56 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 99.720916ms
+[ERROR] 2025/09/21 13:57:57 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:57:57 logger.go:83: AI文档信息提取失败: DocumentID=77, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 13:57:57 logger.go:83: MD文档自动分析失败: DocumentID=77, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 13:57:59 logger.go:73: HTTP请求: GET /api/users/default-user/documents/77/extracted-info | IP: ::1 | 状态: 400 | 耗时: 18.907083ms
+[INFO]  2025/09/21 13:58:04 logger.go:73: HTTP请求: GET /api/users/default-user/documents/77/extracted-info | IP: ::1 | 状态: 400 | 耗时: 26.302917ms
+[INFO]  2025/09/21 13:58:04 logger.go:73: 收到流式消息请求: ThreadID=contract-1758427872974-iwd7sgqgk, ModelID=bailian/qwen-flash, Content长度=33, 附件数量=1
+[INFO]  2025/09/21 13:58:04 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 13:58:13 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 13:58:13 logger.go:73: 流式消息处理完成: ThreadID=contract-1758427872974-iwd7sgqgk, 总耗时=9.33458825s
+[INFO]  2025/09/21 13:58:13 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 9.334641917s
+[INFO]  2025/09/21 13:58:13 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 13:58:13 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 14:00:10 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/21 14:00:10 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 21.255708ms
+[INFO]  2025/09/21 14:00:10 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/21 14:00:10 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 3.277583ms
+[INFO]  2025/09/21 14:00:10 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=9
+[INFO]  2025/09/21 14:00:10 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 28.314541ms
+[INFO]  2025/09/21 14:00:10 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=9
+[INFO]  2025/09/21 14:00:10 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 3.208959ms
+[INFO]  2025/09/21 14:00:10 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 14:00:10 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 10.963125ms
+[INFO]  2025/09/21 14:00:10 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 14:00:10 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 31.093916ms
+[INFO]  2025/09/21 14:00:10 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 14:00:10 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 26.852625ms
+[INFO]  2025/09/21 14:00:10 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 14:00:10 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 4.100791ms
+[INFO]  2025/09/21 14:00:10 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 14:00:10 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 7.902625ms
+[INFO]  2025/09/21 14:00:10 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 14:00:10 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 31.942583ms
+[INFO]  2025/09/21 14:00:11 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 39.913334ms
+[INFO]  2025/09/21 14:00:12 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1758274655486-ba441c7no | IP: ::1 | 状态: 200 | 耗时: 2.681167ms
+[INFO]  2025/09/21 14:00:13 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 5.07675ms
+[INFO]  2025/09/21 14:00:14 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 3.962542ms
+[INFO]  2025/09/21 14:00:16 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/21 14:00:16 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 1.214583ms
+[INFO]  2025/09/21 14:00:16 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=9
+[INFO]  2025/09/21 14:00:16 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 3.0395ms
+[INFO]  2025/09/21 14:00:16 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/21 14:00:16 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 1.611958ms
+[INFO]  2025/09/21 14:00:16 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=9
+[INFO]  2025/09/21 14:00:16 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 2.686416ms
+[INFO]  2025/09/21 14:00:16 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 14:00:16 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 5.387916ms
+[INFO]  2025/09/21 14:00:16 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 14:00:16 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 3.444792ms
+[INFO]  2025/09/21 14:00:16 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 14:00:16 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 6.355875ms
+[INFO]  2025/09/21 14:00:16 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 14:00:16 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 3.619667ms
+[INFO]  2025/09/21 14:00:16 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 14:00:16 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 6.653708ms
+[INFO]  2025/09/21 14:00:16 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 14:00:16 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 19.606333ms
+[INFO]  2025/09/21 14:00:17 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 5.493333ms
+[INFO]  2025/09/21 14:00:27 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 14:00:27 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 15.833959ms
+[ERROR] 2025/09/21 14:00:28 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:00:28 logger.go:83: AI文档信息提取失败: DocumentID=78, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:00:28 logger.go:83: MD文档自动分析失败: DocumentID=78, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 14:00:30 logger.go:73: HTTP请求: GET /api/users/default-user/documents/78/extracted-info | IP: ::1 | 状态: 400 | 耗时: 933.792µs
+[INFO]  2025/09/21 14:00:33 logger.go:73: HTTP请求: GET /api/users/default-user/documents/78/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.281833ms
+[INFO]  2025/09/21 14:00:33 logger.go:73: 收到流式消息请求: ThreadID=contract-1758427872974-iwd7sgqgk, ModelID=bailian/qwen-flash, Content长度=33, 附件数量=1
+[INFO]  2025/09/21 14:00:33 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:00:40 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:00:40 logger.go:73: 流式消息处理完成: ThreadID=contract-1758427872974-iwd7sgqgk, 总耗时=7.17048825s
+[INFO]  2025/09/21 14:00:40 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 7.170548292s
+[INFO]  2025/09/21 14:00:40 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 14:00:40 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 14:01:21 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 14:01:21 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 20.825959ms
+[ERROR] 2025/09/21 14:01:22 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:01:22 logger.go:83: AI文档信息提取失败: DocumentID=79, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:01:22 logger.go:83: MD文档自动分析失败: DocumentID=79, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 14:01:23 logger.go:73: HTTP请求: GET /api/users/default-user/documents/79/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.199292ms
+[INFO]  2025/09/21 14:01:23 logger.go:73: 收到流式消息请求: ThreadID=contract-1758427872974-iwd7sgqgk, ModelID=bailian/qwen-flash, Content长度=9, 附件数量=1
+[INFO]  2025/09/21 14:01:23 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:01:24 logger.go:73: HTTP请求: GET /api/users/default-user/documents/79/extracted-info | IP: ::1 | 状态: 400 | 耗时: 4.181375ms
+[INFO]  2025/09/21 14:01:32 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:01:32 logger.go:73: 流式消息处理完成: ThreadID=contract-1758427872974-iwd7sgqgk, 总耗时=9.173671208s
+[INFO]  2025/09/21 14:01:32 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 9.173724375s
+[INFO]  2025/09/21 14:01:32 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 14:01:32 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 14:01:45 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 14:01:45 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 14:01:45 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 14:01:45 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 14:01:45 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 14:01:45 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[FATAL] 2025/09/21 14:01:45 logger.go:88: 服务启动失败: listen tcp :8080: bind: address already in use
+[INFO]  2025/09/21 14:01:51 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 14:01:51 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 32.793084ms
+[ERROR] 2025/09/21 14:01:52 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:01:52 logger.go:83: AI文档信息提取失败: DocumentID=80, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:01:52 logger.go:83: MD文档自动分析失败: DocumentID=80, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 14:01:54 logger.go:73: HTTP请求: GET /api/users/default-user/documents/80/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.226959ms
+[INFO]  2025/09/21 14:01:55 logger.go:73: HTTP请求: GET /api/users/default-user/documents/80/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.018458ms
+[INFO]  2025/09/21 14:01:56 logger.go:73: 收到流式消息请求: ThreadID=contract-1758427872974-iwd7sgqgk, ModelID=bailian/qwen-flash, Content长度=21, 附件数量=1
+[INFO]  2025/09/21 14:01:56 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:02:06 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:02:06 logger.go:73: 流式消息处理完成: ThreadID=contract-1758427872974-iwd7sgqgk, 总耗时=10.467853292s
+[INFO]  2025/09/21 14:02:06 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 10.467900042s
+[INFO]  2025/09/21 14:02:06 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 14:02:06 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 14:02:22 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 14:02:22 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 19.76525ms
+[ERROR] 2025/09/21 14:02:23 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:02:23 logger.go:83: AI文档信息提取失败: DocumentID=81, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:02:23 logger.go:83: MD文档自动分析失败: DocumentID=81, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 14:02:25 logger.go:73: HTTP请求: GET /api/users/default-user/documents/81/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.219459ms
+[INFO]  2025/09/21 14:02:26 logger.go:73: HTTP请求: GET /api/users/default-user/documents/81/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.089584ms
+[INFO]  2025/09/21 14:02:26 logger.go:73: 收到流式消息请求: ThreadID=contract-1758427872974-iwd7sgqgk, ModelID=bailian/qwen-flash, Content长度=21, 附件数量=1
+[INFO]  2025/09/21 14:02:26 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:02:34 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:02:34 logger.go:73: 流式消息处理完成: ThreadID=contract-1758427872974-iwd7sgqgk, 总耗时=8.600952459s
+[INFO]  2025/09/21 14:02:34 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 14:02:34 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 8.601135916s
+[INFO]  2025/09/21 14:02:34 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 14:02:54 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 14:02:54 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 14:02:54 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 14:02:54 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 14:02:55 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 14:02:55 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/21 14:03:01 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 14:03:01 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 36.530584ms
+[ERROR] 2025/09/21 14:03:02 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:03:02 logger.go:83: AI文档信息提取失败: DocumentID=82, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:03:02 logger.go:83: MD文档自动分析失败: DocumentID=82, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 14:03:04 logger.go:73: HTTP请求: GET /api/users/default-user/documents/82/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.202959ms
+[INFO]  2025/09/21 14:03:05 logger.go:73: HTTP请求: GET /api/users/default-user/documents/82/extracted-info | IP: ::1 | 状态: 400 | 耗时: 954µs
+[INFO]  2025/09/21 14:03:05 logger.go:73: 收到流式消息请求: ThreadID=contract-1758427872974-iwd7sgqgk, ModelID=bailian/qwen-flash, Content长度=21, 附件数量=1
+[INFO]  2025/09/21 14:03:05 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:03:07 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:03:07 logger.go:73: 流式消息处理完成: ThreadID=contract-1758427872974-iwd7sgqgk, 总耗时=1.678448375s
+[INFO]  2025/09/21 14:03:07 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 1.678504084s
+[INFO]  2025/09/21 14:03:07 logger.go:73: 保存职业历史记录: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 14:03:11 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758427872974-iwd7sgqgk, Category=contract
+[INFO]  2025/09/21 14:03:23 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/21 14:03:23 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 1.906834ms
+[INFO]  2025/09/21 14:03:23 logger.go:73: 获取用户默认模型: UserID=default-user, Model=bailian/qwen-flash
+[INFO]  2025/09/21 14:03:23 logger.go:73: HTTP请求: GET /api/users/default-user/default-model | IP: ::1 | 状态: 200 | 耗时: 4.010416ms
+[INFO]  2025/09/21 14:03:23 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=9
+[INFO]  2025/09/21 14:03:23 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 26.773542ms
+[INFO]  2025/09/21 14:03:23 logger.go:73: 获取职业历史记录: UserID=default-user, Category=career, 数量=9
+[INFO]  2025/09/21 14:03:23 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=career | IP: ::1 | 状态: 200 | 耗时: 4.882792ms
+[INFO]  2025/09/21 14:03:23 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 14:03:23 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 5.448584ms
+[INFO]  2025/09/21 14:03:23 logger.go:73: 获取职业历史记录: UserID=default-user, Category=offer, 数量=20
+[INFO]  2025/09/21 14:03:23 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=offer | IP: ::1 | 状态: 200 | 耗时: 3.748292ms
+[INFO]  2025/09/21 14:03:23 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 14:03:23 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 11.0015ms
+[INFO]  2025/09/21 14:03:23 logger.go:73: 获取职业历史记录: UserID=default-user, Category=contract, 数量=20
+[INFO]  2025/09/21 14:03:23 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=contract | IP: ::1 | 状态: 200 | 耗时: 8.780833ms
+[INFO]  2025/09/21 14:03:23 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 14:03:23 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 7.772375ms
+[INFO]  2025/09/21 14:03:23 logger.go:73: 获取职业历史记录: UserID=default-user, Category=monitor, 数量=20
+[INFO]  2025/09/21 14:03:23 logger.go:73: HTTP请求: GET /api/users/default-user/career-history?category=monitor | IP: ::1 | 状态: 200 | 耗时: 4.918584ms
+[INFO]  2025/09/21 14:03:24 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 6.947334ms
+[INFO]  2025/09/21 14:03:24 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1758274655486-ba441c7no | IP: ::1 | 状态: 200 | 耗时: 3.5325ms
+[INFO]  2025/09/21 14:03:25 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757938244094-uuv57kxii | IP: ::1 | 状态: 200 | 耗时: 5.309166ms
+[INFO]  2025/09/21 14:03:26 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 9.029166ms
+[INFO]  2025/09/21 14:03:27 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 5.746667ms
+[INFO]  2025/09/21 14:03:33 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 5.358458ms
+[INFO]  2025/09/21 14:03:38 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758434618172-giuduwyyd | IP: ::1 | 状态: 200 | 耗时: 974.083µs
+[INFO]  2025/09/21 14:03:42 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 14:03:42 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 18.340708ms
+[ERROR] 2025/09/21 14:03:43 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:03:43 logger.go:83: AI文档信息提取失败: DocumentID=83, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:03:43 logger.go:83: MD文档自动分析失败: DocumentID=83, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 14:03:45 logger.go:73: HTTP请求: GET /api/users/default-user/documents/83/extracted-info | IP: ::1 | 状态: 400 | 耗时: 81.948459ms
+[INFO]  2025/09/21 14:03:46 logger.go:73: HTTP请求: GET /api/users/default-user/documents/83/extracted-info | IP: ::1 | 状态: 400 | 耗时: 61.902416ms
+[INFO]  2025/09/21 14:03:46 logger.go:73: 收到流式消息请求: ThreadID=contract-1758434618172-giuduwyyd, ModelID=bailian/qwen-flash, Content长度=21, 附件数量=1
+[INFO]  2025/09/21 14:03:46 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:03:48 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:03:48 logger.go:73: 流式消息处理完成: ThreadID=contract-1758434618172-giuduwyyd, 总耗时=1.669573166s
+[INFO]  2025/09/21 14:03:48 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 1.669631625s
+[INFO]  2025/09/21 14:03:48 logger.go:73: 保存职业历史记录: ThreadID=contract-1758434618172-giuduwyyd, Category=contract
+[INFO]  2025/09/21 14:04:03 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758434618172-giuduwyyd, Category=contract
+[INFO]  2025/09/21 14:04:10 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 14:04:10 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 32.768958ms
+[ERROR] 2025/09/21 14:04:11 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:04:11 logger.go:83: AI文档信息提取失败: DocumentID=84, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:04:11 logger.go:83: MD文档自动分析失败: DocumentID=84, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 14:04:13 logger.go:73: HTTP请求: GET /api/users/default-user/documents/84/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.205458ms
+[INFO]  2025/09/21 14:04:14 logger.go:73: HTTP请求: GET /api/users/default-user/documents/84/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.1295ms
+[INFO]  2025/09/21 14:04:14 logger.go:73: 收到流式消息请求: ThreadID=contract-1758434618172-giuduwyyd, ModelID=bailian/qwen-flash, Content长度=21, 附件数量=1
+[INFO]  2025/09/21 14:04:18 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:06:47 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:06:47 logger.go:73: 流式消息处理完成: ThreadID=contract-1758434618172-giuduwyyd, 总耗时=2m33.234564041s
+[INFO]  2025/09/21 14:06:47 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 2m33.2347315s
+[INFO]  2025/09/21 14:06:47 logger.go:73: 保存职业历史记录: ThreadID=contract-1758434618172-giuduwyyd, Category=contract
+[INFO]  2025/09/21 14:06:52 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758434618172-giuduwyyd, Category=contract
+[INFO]  2025/09/21 14:06:58 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 14:06:58 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 24.588583ms
+[ERROR] 2025/09/21 14:06:59 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:06:59 logger.go:83: AI文档信息提取失败: DocumentID=85, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:06:59 logger.go:83: MD文档自动分析失败: DocumentID=85, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 14:07:01 logger.go:73: HTTP请求: GET /api/users/default-user/documents/85/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.127458ms
+[INFO]  2025/09/21 14:07:02 logger.go:73: HTTP请求: GET /api/users/default-user/documents/85/extracted-info | IP: ::1 | 状态: 400 | 耗时: 939.5µs
+[INFO]  2025/09/21 14:07:03 logger.go:73: 收到流式消息请求: ThreadID=contract-1758434618172-giuduwyyd, ModelID=bailian/qwen-flash, Content长度=21, 附件数量=1
+[INFO]  2025/09/21 14:07:06 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:08:27 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:08:27 logger.go:73: 流式消息处理完成: ThreadID=contract-1758434618172-giuduwyyd, 总耗时=1m24.276534042s
+[INFO]  2025/09/21 14:08:27 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 1m24.276585959s
+[INFO]  2025/09/21 14:08:27 logger.go:73: 保存职业历史记录: ThreadID=contract-1758434618172-giuduwyyd, Category=contract
+[INFO]  2025/09/21 14:08:27 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758434618172-giuduwyyd, Category=contract
+[INFO]  2025/09/21 14:08:31 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 14:08:31 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 28.573416ms
+[ERROR] 2025/09/21 14:08:32 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:08:32 logger.go:83: AI文档信息提取失败: DocumentID=86, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:08:32 logger.go:83: MD文档自动分析失败: DocumentID=86, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 14:08:34 logger.go:73: HTTP请求: GET /api/users/default-user/documents/86/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.762958ms
+[INFO]  2025/09/21 14:08:35 logger.go:73: HTTP请求: GET /api/users/default-user/documents/86/extracted-info | IP: ::1 | 状态: 400 | 耗时: 1.15425ms
+[INFO]  2025/09/21 14:08:35 logger.go:73: 收到流式消息请求: ThreadID=contract-1758434618172-giuduwyyd, ModelID=bailian/qwen-flash, Content长度=21, 附件数量=1
+[INFO]  2025/09/21 14:08:44 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:09:47 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:09:47 logger.go:73: 流式消息处理完成: ThreadID=contract-1758434618172-giuduwyyd, 总耗时=1m11.7021165s
+[INFO]  2025/09/21 14:09:47 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 1m11.702170709s
+[INFO]  2025/09/21 14:09:47 logger.go:73: 保存职业历史记录: ThreadID=contract-1758434618172-giuduwyyd, Category=contract
+[INFO]  2025/09/21 14:09:47 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758434618172-giuduwyyd, Category=contract
+[INFO]  2025/09/21 14:09:50 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 14:09:50 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 27.405291ms
+[ERROR] 2025/09/21 14:09:51 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:09:51 logger.go:83: AI文档信息提取失败: DocumentID=87, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:09:51 logger.go:83: MD文档自动分析失败: DocumentID=87, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 14:09:52 logger.go:73: HTTP请求: GET /api/users/default-user/documents/87/extracted-info | IP: ::1 | 状态: 400 | 耗时: 66.311125ms
+[INFO]  2025/09/21 14:09:52 logger.go:73: 收到流式消息请求: ThreadID=contract-1758434618172-giuduwyyd, ModelID=bailian/qwen-flash, Content长度=9, 附件数量=1
+[INFO]  2025/09/21 14:11:38 logger.go:73: 日志系统初始化成功，日志目录: ./logs
+[INFO]  2025/09/21 14:11:38 logger.go:73: 开始连接数据库: DSN=root:@tcp(127.0.0.1:3306)/ai_career_buddy?charset=utf8mb4&parseTime=True&loc=Local
+[INFO]  2025/09/21 14:11:38 logger.go:73: 数据库连接成功: 类型=MySQL
+[INFO]  2025/09/21 14:11:38 logger.go:73: 数据库连接成功
+[INFO]  2025/09/21 14:11:39 logger.go:73: 数据库表迁移完成
+[INFO]  2025/09/21 14:11:39 logger.go:73: AI职场管家服务启动，监听端口: 8080
+[INFO]  2025/09/21 14:11:42 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=contract, FileName=劳动合同示例.md
+[INFO]  2025/09/21 14:11:42 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 25.248041ms
+[ERROR] 2025/09/21 14:11:43 logger.go:83: AI提取合同信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:11:43 logger.go:83: AI文档信息提取失败: DocumentID=88, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:11:43 logger.go:83: MD文档自动分析失败: DocumentID=88, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 14:11:45 logger.go:73: HTTP请求: GET /api/users/default-user/documents/88/extracted-info | IP: ::1 | 状态: 400 | 耗时: 5.680833ms
+[INFO]  2025/09/21 14:11:49 logger.go:73: HTTP请求: GET /api/users/default-user/documents/88/extracted-info | IP: ::1 | 状态: 400 | 耗时: 2.7865ms
+[INFO]  2025/09/21 14:11:49 logger.go:73: 收到流式消息请求: ThreadID=contract-1758434618172-giuduwyyd, ModelID=bailian/qwen-flash, Content长度=21, 附件数量=1
+[INFO]  2025/09/21 14:11:52 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:11:57 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:11:57 logger.go:73: 流式消息处理完成: ThreadID=contract-1758434618172-giuduwyyd, 总耗时=7.346365667s
+[INFO]  2025/09/21 14:11:57 logger.go:73: 保存职业历史记录: ThreadID=contract-1758434618172-giuduwyyd, Category=contract
+[INFO]  2025/09/21 14:11:57 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 7.34780925s
+[INFO]  2025/09/21 14:11:57 logger.go:73: 职业历史记录保存成功: ThreadID=contract-1758434618172-giuduwyyd, Category=contract
+[INFO]  2025/09/21 14:13:27 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1758274655486-ba441c7no | IP: ::1 | 状态: 200 | 耗时: 3.280125ms
+[INFO]  2025/09/21 14:13:28 logger.go:73: HTTP请求: GET /api/messages?threadId=career-1757938244094-uuv57kxii | IP: ::1 | 状态: 200 | 耗时: 13.630166ms
+[INFO]  2025/09/21 14:13:44 logger.go:73: 用户文档上传成功: UserID=default-user, DocumentType=other, FileName=职业规划示例.md
+[INFO]  2025/09/21 14:13:44 logger.go:73: HTTP请求: POST /api/users/default-user/documents | IP: ::1 | 状态: 200 | 耗时: 16.977625ms
+[ERROR] 2025/09/21 14:13:45 logger.go:83: AI提取通用信息失败: 发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:13:45 logger.go:83: AI文档信息提取失败: DocumentID=89, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[ERROR] 2025/09/21 14:13:45 logger.go:83: MD文档自动分析失败: DocumentID=89, 错误=发送请求失败: Post "http://higress-pirate-prod-gao.weizhipin.com/v1/chat/completions": net/http: invalid header field value for "X-Higress-Llm-Model"
+[INFO]  2025/09/21 14:13:47 logger.go:73: HTTP请求: GET /api/users/default-user/documents/89/extracted-info | IP: ::1 | 状态: 400 | 耗时: 2.056709ms
+[INFO]  2025/09/21 14:13:49 logger.go:73: HTTP请求: GET /api/users/default-user/documents/89/extracted-info | IP: ::1 | 状态: 400 | 耗时: 909.375µs
+[INFO]  2025/09/21 14:13:49 logger.go:73: 收到流式消息请求: ThreadID=career-1757938244094-uuv57kxii, ModelID=bailian/qwen-flash, Content长度=9, 附件数量=1
+[INFO]  2025/09/21 14:13:49 logger.go:73: 使用百炼流式API: ModelID=bailian/qwen-flash
+[INFO]  2025/09/21 14:13:53 logger.go:73: 百炼流式API调用成功
+[INFO]  2025/09/21 14:13:53 logger.go:73: 流式消息处理完成: ThreadID=career-1757938244094-uuv57kxii, 总耗时=4.349914042s
+[INFO]  2025/09/21 14:13:53 logger.go:73: HTTP请求: POST /api/messages/stream | IP: ::1 | 状态: 200 | 耗时: 4.349975042s
+[INFO]  2025/09/21 14:13:53 logger.go:73: 保存职业历史记录: ThreadID=career-1757938244094-uuv57kxii, Category=career
+[INFO]  2025/09/21 14:13:53 logger.go:73: 职业历史记录保存成功: ThreadID=career-1757938244094-uuv57kxii, Category=career
+[INFO]  2025/09/21 14:14:22 logger.go:73: HTTP请求: GET /api/messages?threadId=offer-1758274655486-ba441c7no | IP: ::1 | 状态: 200 | 耗时: 3.63675ms
+[INFO]  2025/09/21 14:14:23 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758434618172-giuduwyyd | IP: ::1 | 状态: 200 | 耗时: 2.795625ms
+[INFO]  2025/09/21 14:14:25 logger.go:73: HTTP请求: GET /api/messages?threadId=contract-1758427872974-iwd7sgqgk | IP: ::1 | 状态: 200 | 耗时: 4.365416ms

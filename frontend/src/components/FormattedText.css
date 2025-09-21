@@ -66,13 +66,6 @@
 .formatted-bold {
   font-weight: 700;
   color: #1a202c;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  padding: 3px 6px;
-  border-radius: 4px;
-  border: 1px solid #f59e0b;
-  box-shadow: 0 1px 2px rgba(245, 158, 11, 0.2);
-  display: inline-block;
-  margin: 0 2px;
 }
 
 .formatted-italic {
@@ -87,15 +80,8 @@
 }
 
 .formatted-highlight {
-  background: linear-gradient(135deg, #fef08a 0%, #fde047 100%);
-  color: #92400e;
-  padding: 3px 6px;
-  border-radius: 4px;
   font-weight: 600;
-  border: 1px solid #eab308;
-  box-shadow: 0 1px 2px rgba(234, 179, 8, 0.2);
-  display: inline-block;
-  margin: 0 2px;
+  color: #1a202c;
 }
 
 .formatted-link {
@@ -325,12 +311,12 @@
 
 /* 特殊样式：重要提示 */
 .formatted-text .important-note {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  border: 1px solid #f59e0b;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
   border-radius: 8px;
   padding: 10px;
   margin: 8px 0;
-  border-left: 4px solid #f59e0b;
+  border-left: 4px solid #6c757d;
 }
 
 /* 特殊样式：技能标签 */
