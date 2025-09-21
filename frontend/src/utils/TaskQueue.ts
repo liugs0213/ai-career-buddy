@@ -60,7 +60,7 @@ class TaskQueue {
     
     return new Promise(async (resolve, reject) => {
       try {
-        const response = await fetch('/api/messages/stream', {
+        const response = await fetch('http://localhost:8080/api/messages/stream', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

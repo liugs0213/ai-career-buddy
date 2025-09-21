@@ -12,7 +12,7 @@ console.log('import.meta.env.MODE:', import.meta.env.MODE);
 console.log('import.meta.env.DEV:', import.meta.env.DEV);
 console.log('import.meta.env.PROD:', import.meta.env.PROD);
 
-const baseURL = import.meta.env.VITE_API_BASE_URL || '/';
+const baseURL = 'http://localhost:8080';
 
 console.log('=== API配置信息 ===');
 console.log('最终使用的API Base URL:', baseURL);
