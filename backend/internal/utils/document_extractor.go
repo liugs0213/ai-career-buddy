@@ -70,18 +70,50 @@ func (de *DocumentExtractor) ExtractDocumentInfo(document *models.UserDocument) 
 // extractResumeInfo 提取简历信息
 func (de *DocumentExtractor) extractResumeInfo(document *models.UserDocument) (*models.DocumentExtractedInfo, error) {
 	prompt := fmt.Sprintf(`
-请从以下简历内容中提取结构化信息，并以JSON格式返回：
+你是一位专业的招聘顾问，请从以下简历内容中提取结构化信息，并以JSON格式返回。
 
 简历内容：
 %s
 
-请提取以下信息：
-1. 个人信息：姓名、邮箱、电话、地址、LinkedIn、GitHub等
-2. 工作经历：公司名称、职位、工作时间、工作描述、使用的技能等
-3. 教育背景：学校、学位、专业、时间、GPA等
-4. 技能：技术技能、软技能、语言、证书等
+请仔细分析并提取以下信息：
 
-请以以下JSON格式返回：
+1. 个人信息：
+   - 姓名、邮箱、电话、地址
+   - LinkedIn、GitHub、个人网站等社交媒体链接
+   - 年龄、性别（如果明确提及）
+
+2. 工作经历：
+   - 公司名称、职位、工作时间（精确到月份）
+   - 工作描述、主要职责
+   - 使用的技能、技术栈
+   - 项目经验、团队规模
+   - 工作成果、业绩数据
+
+3. 教育背景：
+   - 学校名称、学位、专业
+   - 入学和毕业时间
+   - GPA、排名（如果提及）
+   - 相关课程、学术成就
+
+4. 技能评估：
+   - 技术技能：编程语言、框架、工具等
+   - 软技能：沟通、领导力、团队合作等
+   - 语言能力：中文、英文等语言水平
+   - 证书：专业认证、培训证书等
+
+5. 项目经验：
+   - 项目名称、项目描述
+   - 使用的技术、工具
+   - 项目规模、团队角色
+   - 项目成果、影响
+
+6. 职业发展分析：
+   - 职业发展方向
+   - 技能匹配度
+   - 潜在优势
+   - 需要改进的方面
+
+请严格按照以下JSON格式返回，确保所有字段都有值（如果信息不存在，请填写"未提供"或空数组）：
 {
   "personalInfo": {
     "name": "姓名",
@@ -89,7 +121,10 @@ func (de *DocumentExtractor) extractResumeInfo(document *models.UserDocument) (*
     "phone": "电话",
     "location": "地址",
     "linkedin": "LinkedIn链接",
-    "github": "GitHub链接"
+    "github": "GitHub链接",
+    "website": "个人网站",
+    "age": "年龄",
+    "gender": "性别"
   },
   "workExperience": [
     {
@@ -97,7 +132,9 @@ func (de *DocumentExtractor) extractResumeInfo(document *models.UserDocument) (*
       "position": "职位",
       "duration": "工作时间",
       "description": "工作描述",
-      "skills": ["技能1", "技能2"]
+      "skills": ["技能1", "技能2"],
+      "teamSize": "团队规模",
+      "achievements": ["成就1", "成就2"]
     }
   ],
   "education": [
@@ -106,7 +143,8 @@ func (de *DocumentExtractor) extractResumeInfo(document *models.UserDocument) (*
       "degree": "学位",
       "major": "专业",
       "duration": "时间",
-      "gpa": "GPA"
+      "gpa": "GPA",
+      "achievements": ["学术成就"]
     }
   ],
   "skills": {
@@ -114,8 +152,32 @@ func (de *DocumentExtractor) extractResumeInfo(document *models.UserDocument) (*
     "soft": ["软技能"],
     "languages": ["语言"],
     "certifications": ["证书"]
+  },
+  "projects": [
+    {
+      "name": "项目名称",
+      "description": "项目描述",
+      "technologies": ["技术1", "技术2"],
+      "role": "角色",
+      "duration": "项目时间",
+      "achievements": ["项目成果"]
+    }
+  ],
+  "careerAnalysis": {
+    "direction": "职业发展方向",
+    "strengths": ["优势1", "优势2"],
+    "weaknesses": ["需要改进的方面"],
+    "recommendations": ["建议1", "建议2"]
   }
 }
+
+注意：
+1. 请仔细阅读简历内容，确保信息提取的准确性
+2. 对于时间信息，请尽量保持原始格式
+3. 技能信息请尽量详细和具体
+4. 如果某些信息不明确，请合理推断或标记为"未提供"
+5. 职业分析部分请基于简历内容给出专业建议
+6. 如果简历格式不够清晰，建议用户使用.md格式重新上传，以便获得更准确的分析结果
 `, document.FileContent)
 
 	response, err := de.bailianClient.SendMessage("bailian/qwen-flash", prompt, []string{})
@@ -147,25 +209,40 @@ func (de *DocumentExtractor) extractResumeInfo(document *models.UserDocument) (*
 // extractContractInfo 提取合同信息
 func (de *DocumentExtractor) extractContractInfo(document *models.UserDocument) (*models.DocumentExtractedInfo, error) {
 	prompt := fmt.Sprintf(`
-请从以下劳动合同内容中提取关键信息，并以JSON格式返回：
+你是一位专业的HR和法律顾问，请从以下劳动合同内容中提取关键信息，并以JSON格式返回。
 
 合同内容：
 %s
 
-请提取以下信息：
-1. 公司名称
-2. 职位
-3. 薪资待遇
-4. 入职日期
-5. 合同类型（正式/实习/外包等）
-6. 工作地点
-7. 工作时间
-8. 福利待遇
-9. 离职通知期
-10. 竞业限制条款
-11. 保密条款
+请仔细分析并提取以下信息：
 
-请以以下JSON格式返回：
+1. 基本信息：
+   - 公司名称、职位、工作地点
+   - 合同类型（正式/实习/外包/劳务派遣等）
+   - 入职日期、合同期限
+
+2. 薪资待遇：
+   - 基本工资、绩效工资、奖金
+   - 薪资结构、发放方式
+   - 试用期薪资
+
+3. 工作条件：
+   - 工作时间、休息日安排
+   - 工作地点、出差要求
+   - 加班政策
+
+4. 福利待遇：
+   - 社会保险、住房公积金
+   - 年假、病假、其他假期
+   - 培训机会、职业发展
+
+5. 风险条款：
+   - 离职通知期、违约金
+   - 竞业限制条款
+   - 保密条款、知识产权
+   - 其他限制性条款
+
+请严格按照以下JSON格式返回：
 {
   "contractInfo": {
     "companyName": "公司名称",
@@ -181,6 +258,13 @@ func (de *DocumentExtractor) extractContractInfo(document *models.UserDocument) 
     "confidentiality": "保密条款"
   }
 }
+
+注意：
+1. 请仔细阅读合同条款，确保信息提取的准确性
+2. 对于风险条款，请特别关注可能对求职者不利的条款
+3. 薪资信息请尽量详细，包括各种组成部分
+4. 如果某些信息不明确，请标记为"未明确"或"待确认"
+5. 如果合同格式不够清晰，建议用户使用.md格式重新上传，以便获得更准确的分析结果
 `, document.FileContent)
 
 	response, err := de.bailianClient.SendMessage("bailian/qwen-plus", prompt, []string{})
@@ -212,25 +296,40 @@ func (de *DocumentExtractor) extractContractInfo(document *models.UserDocument) 
 // extractOfferInfo 提取Offer信息
 func (de *DocumentExtractor) extractOfferInfo(document *models.UserDocument) (*models.DocumentExtractedInfo, error) {
 	prompt := fmt.Sprintf(`
-请从以下Offer内容中提取关键信息，并以JSON格式返回：
+你是一位专业的招聘顾问和薪酬专家，请从以下Offer内容中提取关键信息，并以JSON格式返回。
 
 Offer内容：
 %s
 
-请提取以下信息：
-1. 公司名称
-2. 职位
-3. 薪资待遇
-4. 奖金
-5. 股权/期权
-6. 入职日期
-7. 福利待遇
-8. 工作地点
-9. 工作时间
-10. 汇报对象
-11. 团队规模
+请仔细分析并提取以下信息：
 
-请以以下JSON格式返回：
+1. 基本信息：
+   - 公司名称、职位、部门
+   - 汇报对象、团队规模
+   - 入职日期、试用期
+
+2. 薪酬结构：
+   - 基本工资、绩效工资、奖金
+   - 股权/期权、股票激励
+   - 薪资调整机制
+
+3. 福利待遇：
+   - 社会保险、住房公积金
+   - 年假、病假、其他假期
+   - 培训机会、职业发展
+   - 其他特殊福利
+
+4. 工作条件：
+   - 工作地点、办公环境
+   - 工作时间、弹性工作
+   - 出差要求、远程工作
+
+5. 职业发展：
+   - 晋升通道、发展机会
+   - 培训计划、技能提升
+   - 职业规划支持
+
+请严格按照以下JSON格式返回：
 {
   "offerInfo": {
     "companyName": "公司名称",
@@ -246,6 +345,12 @@ Offer内容：
     "teamSize": "团队规模"
   }
 }
+
+注意：
+1. 请仔细阅读Offer内容，确保信息提取的准确性
+2. 对于薪酬信息，请尽量详细，包括各种组成部分
+3. 如果某些信息不明确，请标记为"未明确"或"待确认"
+4. 如果Offer格式不够清晰，建议用户使用.md格式重新上传，以便获得更准确的分析结果
 `, document.FileContent)
 
 	response, err := de.bailianClient.SendMessage("bailian/qwen-flash", prompt, []string{})
@@ -277,23 +382,44 @@ Offer内容：
 // extractEmploymentInfo 提取在职情况信息
 func (de *DocumentExtractor) extractEmploymentInfo(document *models.UserDocument) (*models.DocumentExtractedInfo, error) {
 	prompt := fmt.Sprintf(`
-请从以下在职情况描述中提取关键信息，并以JSON格式返回：
+你是一位专业的职业发展顾问，请从以下在职情况描述中提取关键信息，并以JSON格式返回。
 
 在职情况内容：
 %s
 
-请提取以下信息：
-1. 公司名称
-2. 职位
-3. 部门
-4. 直属领导
-5. 团队规模
-6. 工作职责
-7. 主要成就
-8. 使用的技能
-9. 参与的项目
+请仔细分析并提取以下信息：
 
-请以以下JSON格式返回：
+1. 基本信息：
+   - 公司名称、职位、部门
+   - 直属领导、团队规模
+   - 入职时间、工作年限
+
+2. 工作职责：
+   - 主要工作内容
+   - 负责的项目和任务
+   - 管理职责（如果有）
+
+3. 主要成就：
+   - 工作成果和业绩
+   - 项目成功案例
+   - 获得的认可和奖励
+
+4. 使用的技能：
+   - 技术技能、工具使用
+   - 软技能、管理能力
+   - 行业知识
+
+5. 参与的项目：
+   - 项目名称、项目描述
+   - 项目规模、团队角色
+   - 项目成果、影响
+
+6. 职业发展：
+   - 当前职业阶段
+   - 发展方向和目标
+   - 技能提升计划
+
+请严格按照以下JSON格式返回：
 {
   "employmentInfo": {
     "companyName": "公司名称",
@@ -307,6 +433,12 @@ func (de *DocumentExtractor) extractEmploymentInfo(document *models.UserDocument
     "projects": ["项目1", "项目2"]
   }
 }
+
+注意：
+1. 请仔细阅读在职情况内容，确保信息提取的准确性
+2. 对于成就和项目，请尽量详细和具体
+3. 如果某些信息不明确，请标记为"未明确"或"待确认"
+4. 如果在职情况描述格式不够清晰，建议用户使用.md格式重新上传，以便获得更准确的分析结果
 `, document.FileContent)
 
 	response, err := de.bailianClient.SendMessage("bailian/qwen-flash", prompt, []string{})
@@ -338,20 +470,43 @@ func (de *DocumentExtractor) extractEmploymentInfo(document *models.UserDocument
 // extractGeneralInfo 提取通用信息
 func (de *DocumentExtractor) extractGeneralInfo(document *models.UserDocument) (*models.DocumentExtractedInfo, error) {
 	prompt := fmt.Sprintf(`
-请从以下文档内容中提取关键信息，并以JSON格式返回：
+你是一位专业的文档分析师，请从以下文档内容中提取关键信息，并以JSON格式返回。
 
 文档内容：
 %s
 
-请提取以下信息：
-1. 文档类型
-2. 主要内容
-3. 关键信息
-4. 相关技能
-5. 时间信息
-6. 人员信息
+请仔细分析并提取以下信息：
 
-请以以下JSON格式返回：
+1. 文档类型识别：
+   - 判断文档的主要类型（简历、合同、Offer、报告等）
+   - 识别文档的用途和目标
+
+2. 主要内容：
+   - 文档的核心主题
+   - 主要信息和数据
+   - 关键观点和结论
+
+3. 关键信息：
+   - 重要的人物、时间、地点
+   - 关键数据和指标
+   - 重要的条款和条件
+
+4. 相关技能：
+   - 技术技能、专业能力
+   - 软技能、管理能力
+   - 行业知识和经验
+
+5. 时间信息：
+   - 时间节点、期限
+   - 历史信息、计划安排
+   - 重要日期
+
+6. 人员信息：
+   - 相关人员、联系人
+   - 组织架构、团队信息
+   - 角色和职责
+
+请严格按照以下JSON格式返回：
 {
   "generalInfo": {
     "documentType": "文档类型",
@@ -362,6 +517,12 @@ func (de *DocumentExtractor) extractGeneralInfo(document *models.UserDocument) (
     "peopleInfo": ["人员信息1", "人员信息2"]
   }
 }
+
+注意：
+1. 请仔细阅读文档内容，确保信息提取的准确性
+2. 对于关键信息，请尽量详细和具体
+3. 如果某些信息不明确，请标记为"未明确"或"待确认"
+4. 如果文档格式不够清晰，建议用户使用.md格式重新上传，以便获得更准确的分析结果
 `, document.FileContent)
 
 	response, err := de.bailianClient.SendMessage("bailian/qwen-flash", prompt, []string{})
