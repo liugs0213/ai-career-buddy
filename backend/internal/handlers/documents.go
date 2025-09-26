@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"encoding/base64"
 	"fmt"
 	"io"
 	"net/http"
@@ -82,9 +83,9 @@ func UploadUserDocument(c *gin.Context) {
 
 	// 验证文件类型
 	fileExt := strings.ToLower(filepath.Ext(header.Filename))
-	validExts := []string{".pdf", ".doc", ".docx", ".txt", ".md"}
+	validExts := []string{".md"}
 	if !contains(validExts, fileExt) {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "不支持的文件类型，仅支持 PDF, DOC, DOCX, TXT, MD"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "不支持的文件类型，仅支持 Markdown(.md) 格式"})
 		return
 	}
 
@@ -122,16 +123,9 @@ func UploadUserDocument(c *gin.Context) {
 		return
 	}
 
-	// 提取文件内容
+	// 提取文件内容（仅支持Markdown格式）
 	var fileContent string
-	if fileExt == ".pdf" {
-		// 使用现有的PDF提取功能
-		fileContent, err = extractPDFText(filePath)
-		if err != nil {
-			logger.Warn("PDF文本提取失败: %v", err)
-			fileContent = ""
-		}
-	} else if fileExt == ".txt" || fileExt == ".md" {
+	if fileExt == ".md" {
 		content, err := os.ReadFile(filePath)
 		if err == nil {
 			fileContent = string(content)
@@ -164,8 +158,8 @@ func UploadUserDocument(c *gin.Context) {
 
 	logger.Info("用户文档上传成功: UserID=%s, DocumentType=%s, FileName=%s", userID, documentType, header.Filename)
 
-	// 如果有文件内容，自动触发分析（支持MD、TXT等文本文件）
-	if fileContent != "" && (fileExt == ".md" || fileExt == ".txt") {
+	// 如果有文件内容，自动触发分析（仅支持Markdown文件）
+	if fileContent != "" && fileExt == ".md" {
 		go func() {
 			// 延迟1秒后开始分析，确保文档记录已保存
 			time.Sleep(1 * time.Second)
@@ -434,9 +428,31 @@ func processDocumentWithAI(document *models.UserDocument) error {
 
 // extractPDFText 提取PDF文本内容
 func extractPDFText(filePath string) (string, error) {
-	// 这里应该使用PDF提取库，暂时返回空字符串
-	// 在实际实现中，可以使用 github.com/ledongthuc/pdf 或其他PDF库
-	return "", fmt.Errorf("PDF提取功能暂未实现")
+	// 读取PDF文件
+	pdfData, err := os.ReadFile(filePath)
+	if err != nil {
+		return "", fmt.Errorf("读取PDF文件失败: %v", err)
+	}
+
+	// 将PDF数据转换为base64格式
+	base64Data := "data:application/pdf;base64," + base64.StdEncoding.EncodeToString(pdfData)
+
+	// 使用PDF提取器提取文本
+	pdfExtractor := utils.NewSimplePDFExtractor()
+	text, err := pdfExtractor.ExtractTextFromBase64PDF(base64Data)
+	if err != nil {
+		return "", fmt.Errorf("PDF文本提取失败: %v", err)
+	}
+
+	// 清理文本内容
+	cleanedText := utils.CleanDocumentContent(text)
+
+	// 如果提取的文本太短，可能提取失败
+	if len(cleanedText) < 10 {
+		return "", fmt.Errorf("PDF文本提取结果过短，可能提取失败")
+	}
+
+	return cleanedText, nil
 }
 
 // contains 检查切片是否包含指定元素
